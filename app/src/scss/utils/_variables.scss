@@ -1,0 +1,27 @@
+// variables //
+
+// Typography
+// -------------------------	
+	
+	// family
+	$ffBase: 			Arial, sans-serif;
+	$ffSecondary: 		Arial, sans-serif;
+	$ffHeadings: 		Arial, serif;
+	
+	
+	// style
+	$fzBase: 			16 !default;
+	$lhBase: 			19 !default;
+	$fwBase: 			400;
+
+// Headings
+// -------------------------
+
+	$headings: 							'.alpha','.beta','.gamma','.delta';
+	$headingSizes: 						50,40,20,16;
+	$headingFamilies: 					$ffHeadings, $ffHeadings, $ffHeadings, $ffBase;
+	$headingColors: 					inherit , inherit, inherit, inherit;
+	$headingMargins: 					42,42,20,10;
+	$headingLineHeights: 				55,40,28,19;
+	$headingFontWeights: 				400, 500, 500, 700;
+
