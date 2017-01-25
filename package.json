@@ -20,5 +20,9 @@
     "scripts": {
         "start": "node server.js",
         "build": "webpack --end production"
+    },
+    "dependencies": {
+        "dragscroll": "^0.0.8",
+        "firebase": "^3.6.7"
     }
 }
