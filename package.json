@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "dragscroll": "^0.0.8",
-        "firebase": "^3.6.7"
+        "firebase": "^3.6.7",
+        "redux": "^3.6.0"
     }
 }
