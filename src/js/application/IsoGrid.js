@@ -1,13 +1,17 @@
+import Grid from './components/grid/';
+import Palette from './components/palette/';
+
 export default class IsoGrid {
-	constructor(canvas, database={}, buildMode=false) {
-		this.canvas = canvas;
-		this.database = database;
+	constructor(store, buildMode=false) {
+		this.canvas = document.getElementById('isogrid');
+		this.store = store;
 		this.buildMode = buildMode;
 
-		this.canvas && this.setupIsoGrid();
+		this.init();
 	}
 
-	setupIsoGrid() {
-		console.log('test');
+	init() {
+		this.grid = new Grid(this.store, this.canvas);
+		this.palette = new Palette(this.store);
 	}
 }
