@@ -1,3 +1,27 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
 body {
 	background-color: #9ED5E1;
+	@include font-size($fzBase);
+	font-family: $ffBase;
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+
+	&:active {
+		cursor: -webkit-grabbing;
+		cursor: -moz-grabbing;
+	}
 }

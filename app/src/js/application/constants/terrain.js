@@ -1,4 +1,7 @@
 export const terrain = {
+	0: {
+		imageSrc: null
+	},
 	1: {
 		imageSrc: '/assets/grass.png'
 	},
@@ -6,7 +9,7 @@ export const terrain = {
 		imageSrc: '/assets/concrete.png'
 	},
 	3: {
-		imageSrc: '/assets/roadSW.png'
+		imageSrc: '/assets/roadSE.png'
 	},
 	4: {
 		imageSrc: '/assets/roadNW.png'
@@ -22,8 +25,5 @@ export const terrain = {
 	},
 	8: {
 		imageSrc: '/assets/roadCornerNE.png'
-	},
-	9: {
-		imageSrc: null
 	}
 }

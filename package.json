@@ -1,29 +1,32 @@
 {
-    "name": "boileoplate",
-    "version": "0.0.2",
-    "devDependencies": {
-        "babel-core": "^6.21.0",
-        "babel-loader": "^6.2.10",
-        "babel-preset-es2015": "^6.18.0",
-        "babel-preset-stage-0": "^6.5.0",
-        "css-loader": "^0.26.1",
-        "node-bourbon": "^4.2.8",
-        "node-sass": "^4.3.0",
-        "sass-loader": "^4.1.1",
-        "style-loader": "^0.13.1",
-        "webpack": "^1.14.0",
-        "webpack-dev-server": "^1.16.2"
-    },
-    "engines": {
-        "node": ">=0.10.0"
-    },
-    "scripts": {
-        "start": "node server.js",
-        "build": "webpack --end production"
-    },
-    "dependencies": {
-        "dragscroll": "^0.0.8",
-        "firebase": "^3.6.7",
-        "redux": "^3.6.0"
-    }
+  "name": "boileoplate",
+  "version": "0.0.2",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.26.1",
+    "node-bourbon": "^4.2.8",
+    "node-sass": "^4.3.0",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack --end production"
+  },
+  "dependencies": {
+    "deep-diff": "^0.3.4",
+    "deep-equal": "^1.0.1",
+    "dragscroll": "^0.0.8",
+    "eev": "^0.1.0",
+    "firebase": "^3.6.7",
+    "redux": "^3.6.0"
+  }
 }
