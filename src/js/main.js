@@ -18,12 +18,14 @@ const App = firebase.initializeApp(config);
 const DB = firebase.database();
 
 const initialState = {
-	gridRows: [],
+	gridSquares: {},
 	buildMode: false,
 	terrain,
-	buildings
+	buildings,
+	debug: true,
+	activeBrush: 0
 }
 
 const store = createStore(reducers, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-const grid = new IsoGrid( store);
+const grid = new IsoGrid(store);
