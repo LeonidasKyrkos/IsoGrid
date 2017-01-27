@@ -1,5 +1,5 @@
-export const cvWidth = 250;
-export const cvHeight = 125;
+export const cvWidth = 4000;
+export const cvHeight = 2000;
 export const sqWidth = 100;
 export const sqHeight = 50;
 export const rows = (cvHeight / (sqHeight/2));

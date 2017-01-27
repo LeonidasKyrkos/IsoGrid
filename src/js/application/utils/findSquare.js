@@ -12,7 +12,9 @@ export const findSquare = (x,y,store) => {
 	for(let r = row - 1; r <= row + 1; r++) {
 		for(let c = col - 1; c <= col + 1; c++) {
 			if(row >= 0 && row < rows && col >= 0 && col <= cols) {
-				squares.push(`x${c}y${r}`);
+				if(state.gridSquares[`x${c}y${r}`]) {
+					squares.push(`x${c}y${r}`);
+				}				
 			}			
 		}
 	}

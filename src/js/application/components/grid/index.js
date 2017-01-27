@@ -1,12 +1,11 @@
 import { rows, cols, cvWidth as width, cvHeight as height } from '../../constants/dimensions';
-import { updateSquareTerrain, addRow, addSquare } from '../../actions';
+import { updateSquareTerrain, addSquares } from '../../actions';
 import Square from '../../components/square';
 import deepEqual from 'deep-equal';
 import { instantiateTerrain } from '../../utils/instantiateTerrain';
 import { getSquarePoints } from '../../utils/getSquarePoints';
+import _ from 'lodash';
 
-let previousVal;
-let currentVal;
 
 export default class Grid {
 	constructor(store, canvas) {
@@ -19,7 +18,7 @@ export default class Grid {
 
 	init() {
 		this.setupCanvas();
-		this.setup();
+		this.setupGridSquares();
 		let terrain = instantiateTerrain(this.store);
 
 		terrain.then((terrain)=>{
@@ -36,14 +35,18 @@ export default class Grid {
 		this.ctx.strokeStyle = 'rgba(0,0,0,0.1)';
 	}
 
-	setup() {
-		for(let row = -1; row <= rows; row++) {
-			for(let col = -1; col <= cols; col++) {
+	setupGridSquares() {
+		let gridSquares = {};
+
+		for(let row = 0; row <= rows; row++) {
+			for(let col = 0; col <= cols; col++) {
 				let id = `x${col}y${row}`;
 				let gridSquare = new Square({ row, col }, id);
-				this.store.dispatch(addSquare(gridSquare));
+				gridSquares[id] = gridSquare;
 			}
 		}
+
+		this.store.dispatch(addSquares(gridSquares));
 	}
 
 	render() {
@@ -95,14 +98,12 @@ export default class Grid {
 	}
 
 	handleChange() {
-		previousVal = currentVal;
-		currentVal = this.select(this.store.getState());
+		let newVal = this.select(this.store.getState());
 
-		this.render();
-
-		// if(deepEqual(currentVal,previousVal,{ strict: true })) {
-		// 	this.render();
-		// }
+		if(!deepEqual(newVal,this.currentValue,{ strict: true })) {
+			this.currentValue = _.cloneDeep(newVal);
+			this.render();
+		}
 	}
 
 	select(state) {

@@ -1,27 +1,22 @@
-export const ADD_ROW = 'ADD_ROW';
-export const ADD_SQUARE = 'ADD_SQUARE';
+export const ADD_SQUARES = 'ADD_SQUARES';
 export const UPDATE_SQUARE_TERRAIN = 'UPDATE_SQUARE_TERRAIN';
 export const ADD_TERRAIN = 'ADD_TERRAIN';
 export const CHANGE_BRUSH = 'CHANGE_BRUSH';
 
-export const addRow = (row) => {
+export const addSquares = (squares) => {
 	return {
-		type: ADD_ROW,
-		row
+		type: ADD_SQUARES,
+		squares
 	}
 }
 
-export const addSquare = (square) => {
-	return {
-		type: ADD_SQUARE,
-		square
-	}
-}
-
-export const updateSquareTerrain = (id) => {
+export const updateSquareTerrain = ({squareID, terrainID}) => {
 	return {
 		type: UPDATE_SQUARE_TERRAIN,
-		id
+		data: {
+			squareID,
+			terrainID
+		}
 	}
 }
 
