@@ -13,19 +13,24 @@ import config from './configuration/firebase';
 import IsoGrid from './application/IsoGrid';
 import { terrain } from './application/constants/terrain';
 import { buildings } from './application/constants/buildings';
+import { defaultState } from './configuration/defaultState';
 
-const App = firebase.initializeApp(config);
-const DB = firebase.database();
+export const App = firebase.initializeApp(config);
+export const DB = firebase.database();
 
-const initialState = {
-	gridSquares: {},
-	buildMode: false,
-	terrain,
-	buildings,
-	debug: true,
-	activeBrush: 0
-}
+let promise = new Promise((resolve,reject)=>{
+	DB.ref('/').on('value',(snapshot)=>{
+		if(snapshot.val()) {
+			resolve(snapshot.val());
+		} else {
+			resolve(defaultState);
+		}
+	})
+});
 
-const store = createStore(reducers, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+promise.then((state) => {
+	const store = createStore(reducers, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-const grid = new IsoGrid(store);
+	const grid = new IsoGrid(store);
+});
+

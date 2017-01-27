@@ -8,7 +8,7 @@ const isoGrid = (state = initialState, action) => {
 
 		case UPDATE_SQUARE_TERRAIN:
 			let UST_newState = _.cloneDeep(state);
-			UST_newState.gridSquares[action.data.squareID].terrainID = action.data.terrainID;
+			UST_newState.gridSquares[action.data.row][action.data.col].terrainID = action.data.terrainID;
 			return UST_newState;
 
 		case ADD_TERRAIN:

@@ -4,6 +4,7 @@ import dragscroll from 'dragscroll';
 import { findSquare } from './utils/findSquare';
 import { sqWidth, sqHeight } from './constants/dimensions';
 import { updateSquareTerrain } from './actions';
+import pushStateToFirebase from './utils/pushStateToFirebase';
 
 export default class IsoGrid {
 	constructor(store, buildMode=false) {
@@ -11,6 +12,7 @@ export default class IsoGrid {
 		this.canvasWrap = this.canvas.parentNode;
 		this.store = store;
 		this.buildMode = buildMode;
+		this.firebasePushButton = document.querySelector('[data-js="pushToFirebase"]');
 
 		this.init();
 	}
@@ -23,15 +25,22 @@ export default class IsoGrid {
 
 	eventListeners() {
 		this.canvas.addEventListener('dblclick',this.handleClick.bind(this));
+		this.firebasePushButton.addEventListener('click',(e)=>{
+			pushStateToFirebase(this.store.getState());
+		});
 	}
 
 	handleClick(e) {
 		const x = e.x + this.canvasWrap.scrollLeft;
 		const y = e.y + this.canvasWrap.scrollTop;
 		const square = findSquare(x, y, this.store);
-		const squareID = square.id;
-		const terrainID = this.store.getState().activeBrush;
 
-		square && this.store.dispatch(updateSquareTerrain({ squareID, terrainID }));
+		if(square) {
+			const col = square.position.col;
+			const row = square.position.row;
+			const terrainID = this.store.getState().activeBrush;
+
+			this.store.dispatch(updateSquareTerrain({ col, row, terrainID }));
+		}
 	}
 }

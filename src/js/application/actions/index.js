@@ -10,11 +10,12 @@ export const addSquares = (squares) => {
 	}
 }
 
-export const updateSquareTerrain = ({squareID, terrainID}) => {
+export const updateSquareTerrain = ({col, row, terrainID}) => {
 	return {
 		type: UPDATE_SQUARE_TERRAIN,
 		data: {
-			squareID,
+			col,
+			row,
 			terrainID
 		}
 	}
