@@ -1,10 +1,10 @@
-import { terrain } from '../../constants/terrain';
 import { changeBrush } from '../../actions';
 
 export default class Palette {
 	constructor(store) {
 		this.store = store;
 		this.wrap = document.getElementById('isogridWrap');
+		this.terrain = this.store.getState().terrain;
 		this.init();
 	}
 
@@ -20,24 +20,23 @@ export default class Palette {
 		let paletteInner = document.createElement('div');
 		paletteInner.setAttribute('class','palette__inner');
 
-		for(let terr in terrain) {
-			const classlist = terr == 0 ? 'palette__item active' : 'palette__item'
+		let deleter = document.createElement('span');
+		deleter.setAttribute('class', 'palette__item active');
+		deleter.setAttribute('data-js','terrain');
+		deleter.classList.add('empty');
 
-			if(terrain[terr].imageSrc) {
+		paletteInner.appendChild(deleter);
+
+		for(let terrain in this.terrain) {
+			const classlist = 'palette__item'
+
+			if(this.terrain[terrain].imageSrc) {
 				let item = document.createElement('img');
 				item.setAttribute('class',classlist);
 				item.setAttribute('data-js','terrain');
-				item.setAttribute('data-terrain',terr);
-				item.setAttribute('src',terrain[terr].imageSrc);
+				item.setAttribute('data-terrain',this.terrain);
+				item.setAttribute('src',this.terrain[terrain].imageSrc);
 				
-				paletteInner.appendChild(item);
-			} else {
-				let item = document.createElement('span');
-				item.setAttribute('class', classlist);
-				item.setAttribute('data-js','terrain');
-				item.setAttribute('data-terrain',terr);
-				item.classList.add('empty');
-
 				paletteInner.appendChild(item);
 			}
 		}

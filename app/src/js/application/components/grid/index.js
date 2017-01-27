@@ -18,7 +18,11 @@ export default class Grid {
 
 	init() {
 		this.setupCanvas();
-		this.setupGridSquares();
+		
+		if(!this.store.getState().gridSquares) {
+			this.setupGridSquares();
+		}
+
 		let terrain = instantiateTerrain(this.store);
 
 		terrain.then((terrain)=>{
@@ -36,14 +40,15 @@ export default class Grid {
 	}
 
 	setupGridSquares() {
-		let gridSquares = {};
+		let gridSquares = [];
 
 		for(let row = 0; row <= rows; row++) {
+			let arr = [];
 			for(let col = 0; col <= cols; col++) {
-				let id = `x${col}y${row}`;
-				let gridSquare = new Square({ row, col }, id);
-				gridSquares[id] = gridSquare;
+				let gridSquare = new Square({ row, col });
+				arr.push(gridSquare);
 			}
+			gridSquares.push(arr);
 		}
 
 		this.store.dispatch(addSquares(gridSquares));
@@ -54,10 +59,11 @@ export default class Grid {
 		let start = window.performance.now();
 		let gridSquares = this.store.getState().gridSquares;
 
-		for(let square in gridSquares) {
-			//this.drawSquare(gridSquares[square]);			
-			this.drawTerrain(gridSquares[square]);
-		}
+		gridSquares.forEach((row,i)=>{
+			row.forEach((square,i)=>{
+				this.drawTerrain(square);
+			});
+		});
 
 		let finish = Math.floor(window.performance.now() - start);
 		this.store.getState().debug && console.log(`${finish}ms to render`);

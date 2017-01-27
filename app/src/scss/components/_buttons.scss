@@ -1,0 +1,19 @@
+$module: 		'btn';
+
+.#{$module} {
+	background-image: none;
+	outline: 0;
+	border: 0;
+	box-shadow: none;
+
+	&-primary {
+		@extend .#{$module};
+		$fontSize: 20;
+		font-size: em($fontSize);
+		background-color: forestgreen;
+		border-radius: em(6,$fontSize);
+		display: block;
+		padding: em(10,$fontSize) em(20,$fontSize);
+		color: white;
+	}
+}

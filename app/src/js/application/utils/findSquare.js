@@ -10,17 +10,16 @@ export const findSquare = (x,y,store) => {
 	let square;
 
 	for(let r = row - 1; r <= row + 1; r++) {
-		for(let c = col - 1; c <= col + 1; c++) {
-			if(row >= 0 && row < rows && col >= 0 && col <= cols) {
-				if(state.gridSquares[`x${c}y${r}`]) {
-					squares.push(`x${c}y${r}`);
+		for(let c = col - 1; c <= col + 1; c++) {			
+			if(row >= 0 && row < rows && col >= 0 && col <= cols) {				
+				if(state.gridSquares[r][c]) {
+					squares.push(state.gridSquares[r][c]);
 				}				
 			}			
 		}
 	}
 
-	squares.some((id) => {
-		let testSquare = state.gridSquares[id];
+	squares.some((testSquare) => {
 		let test = inPoly(getSquarePoints(testSquare), { x, y } );
 
 		if(test) {
