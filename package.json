@@ -22,11 +22,14 @@
     "build": "webpack --end production"
   },
   "dependencies": {
+    "clone": "^2.1.0",
+    "deep-assign": "^2.0.0",
     "deep-diff": "^0.3.4",
     "deep-equal": "^1.0.1",
     "dragscroll": "^0.0.8",
     "eev": "^0.1.0",
     "firebase": "^3.6.7",
+    "lodash": "^4.17.4",
     "redux": "^3.6.0"
   }
 }

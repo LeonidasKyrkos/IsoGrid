@@ -26,11 +26,12 @@ export default class IsoGrid {
 	}
 
 	handleClick(e) {
-		let x = e.x + this.canvasWrap.scrollLeft;
-		let y = e.y + this.canvasWrap.scrollTop;
-		
-		let square = findSquare(x, y, this.store);
+		const x = e.x + this.canvasWrap.scrollLeft;
+		const y = e.y + this.canvasWrap.scrollTop;
+		const square = findSquare(x, y, this.store);
+		const squareID = square.id;
+		const terrainID = this.store.getState().activeBrush;
 
-		square && this.store.dispatch(updateSquareTerrain(square.id));
+		square && this.store.dispatch(updateSquareTerrain({ squareID, terrainID }));
 	}
 }
