@@ -34,7 +34,7 @@ export default class Palette {
 				let item = document.createElement('img');
 				item.setAttribute('class',classlist);
 				item.setAttribute('data-js','terrain');
-				item.setAttribute('data-terrain',this.terrain);
+				item.setAttribute('data-terrain',terrain);
 				item.setAttribute('src',this.terrain[terrain].imageSrc);
 				
 				paletteInner.appendChild(item);

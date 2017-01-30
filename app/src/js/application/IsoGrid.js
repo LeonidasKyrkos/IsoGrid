@@ -7,13 +7,12 @@ import { updateSquareTerrain } from './actions';
 import pushStateToFirebase from './utils/pushStateToFirebase';
 
 export default class IsoGrid {
-	constructor(store, buildMode=false) {
+	constructor(store) {
 		this.canvas = document.getElementById('isogrid');
 		this.canvasWrap = this.canvas.parentNode;
 		this.store = store;
-		this.buildMode = buildMode;
 		this.firebasePushButton = document.querySelector('[data-js="pushToFirebase"]');
-
+		
 		this.init();
 	}
 

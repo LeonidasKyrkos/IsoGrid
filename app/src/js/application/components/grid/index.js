@@ -89,17 +89,19 @@ export default class Grid {
 	}
 
 	drawTerrain = (square) => {
-		let image = this.terrain[square.terrainID].image;
-		let row = square.position.row;
-		let col = square.position.col;
+		if(square) {
+			let image = this.terrain[square.terrainID].image;
+			let row = square.position.row;
+			let col = square.position.col;
 
-		let x = row % 2 === 0 ? square.width * col : (square.width * col) +  square.width/2;
-		let y = ((square.height / 2) * row) + square.height/2;
+			let x = row % 2 === 0 ? square.width * col : (square.width * col) +  square.width/2;
+			let y = ((square.height / 2) * row) + square.height/2;
 
-		this.ctx.globalCompositeOperation = 'source-over';
+			this.ctx.globalCompositeOperation = 'source-over';
 
-		if(image) {
-			this.ctx.drawImage(image, x, y - image.height/2 + 8);
+			if(image) {
+				this.ctx.drawImage(image, x, y - image.height/2 + 8);
+			}
 		}
 	}
 
