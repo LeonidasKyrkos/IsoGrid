@@ -10,7 +10,10 @@
 		<meta name="viewport" content="width=device-width">
 	</head>
 	<body id="isogridWrap">
-		<div class="save"><button class="btn-primary" data-js="pushToFirebase">Save</button></div>		
+		<div class="save">
+			<button class="btn-primary hide" data-js="pushToFirebase">Save</button>
+		</div>
+		<span class="save__status hide" data-js="saveAlert">Loading...</span>
 		<section class="canvas__wrap dragscroll">
 			<canvas id="isogrid"></canvas>
 		</section>			

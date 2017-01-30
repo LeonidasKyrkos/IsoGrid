@@ -4,12 +4,17 @@ export default class Palette {
 	constructor(store) {
 		this.store = store;
 		this.wrap = document.getElementById('isogridWrap');
+		this.saveButton = document.querySelector('[data-js="pushToFirebase"]');
 		this.terrain = this.store.getState().terrain;
-		this.init();
+
+		if(this.store.getState().buildMode) {
+			this.init();
+		}		
 	}
 
 	init() {
 		this.renderPalette();
+		this.saveButton.classList.remove('hide');
 		this.eventListeners();
 	}
 
@@ -20,12 +25,12 @@ export default class Palette {
 		let paletteInner = document.createElement('div');
 		paletteInner.setAttribute('class','palette__inner');
 
-		let deleter = document.createElement('span');
-		deleter.setAttribute('class', 'palette__item active');
-		deleter.setAttribute('data-js','terrain');
-		deleter.classList.add('empty');
+		let eraser = document.createElement('span');
+		eraser.setAttribute('class', 'palette__item active');
+		eraser.setAttribute('data-js','terrain');
+		eraser.classList.add('empty');
 
-		paletteInner.appendChild(deleter);
+		paletteInner.appendChild(eraser);
 
 		for(let terrain in this.terrain) {
 			const classlist = 'palette__item'
@@ -49,7 +54,7 @@ export default class Palette {
 		this.terrainSwitches = document.querySelectorAll('[data-js="terrain"]');
 
 		this.terrainSwitches.forEach((el,i)=>{
-			el.addEventListener('click',this.changeBrush.bind(this))
+			el.addEventListener('click',this.changeBrush.bind(this));
 		});
 	}
 
