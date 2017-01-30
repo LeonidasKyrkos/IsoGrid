@@ -1,11 +1,11 @@
 export const buildings = {
-	1: {
+	b1: {
 		imageSrc: '/assets/parliament.png'
 	},
-	2: {
+	b2: {
 		imageSrc: '/assets/londoneye.png'
 	},
-	3: {
+	b3: {
 		imageSrc: '/assets/londonbridge.png'
 	}
 }
