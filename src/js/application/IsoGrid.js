@@ -12,7 +12,8 @@ export default class IsoGrid {
 		this.canvasWrap = this.canvas.parentNode;
 		this.store = store;
 		this.firebasePushButton = document.querySelector('[data-js="pushToFirebase"]');
-		
+		this.saveAlert = document.querySelector('[data-js="saveAlert"]');
+
 		this.init();
 	}
 
@@ -24,8 +25,14 @@ export default class IsoGrid {
 
 	eventListeners() {
 		this.canvas.addEventListener('dblclick',this.handleClick.bind(this));
+
+		this.saveAlert.addEventListener('click',(e)=>{
+			this.saveAlert.classList.add('hide');
+			this.saveAlert.innerHTML = 'Loading...';
+		});
+
 		this.firebasePushButton.addEventListener('click',(e)=>{
-			pushStateToFirebase(this.store.getState());
+			this.onSave();
 		});
 	}
 
@@ -41,5 +48,22 @@ export default class IsoGrid {
 
 			this.store.dispatch(updateSquareTerrain({ col, row, terrainID }));
 		}
+	}
+
+	onSave(e) {
+		this.saveAlert.classList.remove('hide');
+
+		let state = this.store.getState();
+		let promise = new Promise((resolve,reject)=>{
+			pushStateToFirebase(state, resolve, reject);
+		});
+
+		promise.then((status)=>{
+			this.saveAlert.innerHTML = status;
+		});
+
+		promise.catch((status)=>{
+			this.saveAlert.innerHTML = status;
+		})
 	}
 }

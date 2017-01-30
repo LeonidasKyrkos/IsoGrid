@@ -19,7 +19,7 @@ export const App = firebase.initializeApp(config);
 export const DB = firebase.database();
 
 let promise = new Promise((resolve,reject)=>{
-	DB.ref('/').on('value',(snapshot)=>{
+	DB.ref('/').once('value',(snapshot)=>{
 		if(snapshot.val()) {
 			resolve(snapshot.val());
 		} else {
