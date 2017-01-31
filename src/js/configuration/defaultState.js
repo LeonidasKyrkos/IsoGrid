@@ -1,10 +1,10 @@
 import { terrain } from '../application/constants/terrain';
-import { buildings } from '../application/constants/buildings';
+import { structure } from '../application/constants/structure';
 
 export const defaultState = {
 	assets: {
-		terrain: [],
-		structures: []
+		terrain,
+		structure
 	},
 	gridSquares: [],
 	settings: {

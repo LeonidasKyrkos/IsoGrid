@@ -4,6 +4,7 @@ import Square from '../../components/square';
 import deepEqual from 'deep-equal';
 import { instantiateImages } from '../../utils/instantiateTerrain';
 import { getSquarePoints } from '../../utils/getSquarePoints';
+import { animations } from '../../constants/animations';
 import _ from 'lodash';
 
 
@@ -20,7 +21,7 @@ export default class Grid {
 		const state = this.store.getState();
 		this.setupCanvas();
 		
-		if(!state.gridSquares) {
+		if(!state.gridSquares.length) {
 			this.setupGridSquares();
 		}
 		
@@ -37,8 +38,8 @@ export default class Grid {
 		});
 
 		Promise.all([terrain,structure]).then(()=>{
-			this.render();
-			this.store.subscribe(this.handleChange.bind(this));	
+			this.startRendering();
+			//this.store.subscribe(this.handleChange.bind(this));	
 		});
 	}
 
@@ -82,6 +83,9 @@ export default class Grid {
 			});
 		});
 
+		this.updateAnimations();
+
+		// performance testing [active with debug flag in settings]
 		let finish = Math.floor(window.performance.now() - start);
 		state.settings.debug && console.log(`${finish}ms to render`);
 	}
@@ -119,9 +123,26 @@ export default class Grid {
 			this.ctx.globalCompositeOperation = 'source-over';
 
 			if(image) {
+				this.ctx.save();
+				
+				if(square.transform) {
+					this.ctx.moveTo(x, (y - image.height/2 + 8) + offsetY);
+					this.ctx.transform(...square.transform);
+
+				}
+				
 				this.ctx.drawImage(image, x, (y - image.height/2 + 8) + offsetY);
+				this.ctx.restore();
 			}
 		}
+	}
+
+	startRendering() {
+		this.renderInterval = setInterval(this.render.bind(this), 16);
+	}
+
+	stopRendering() {
+		clearInterval(this.renderInterval);
 	}
 
 	handleChange() {
@@ -130,6 +151,23 @@ export default class Grid {
 		if(!deepEqual(newVal,this.currentValue,{ strict: true })) {
 			this.currentValue = _.cloneDeep(newVal);
 			this.render();
+		}
+	}
+
+	updateAnimations() {
+		const grid = this.store.getState().gridSquares;
+
+		grid.forEach(row => {
+			row.forEach(square => {
+				this.updateAnimation(square);
+			})
+		})
+	}
+
+	updateAnimation(square) {
+		if(this.structure[square.brushes.structure] && this.structure[square.brushes.structure].animation && animations[this.structure[square.brushes.structure].animation]) {
+			let animation = this.structure[square.brushes.structure].animation;
+			animations[animation](square);
 		}
 	}
 
