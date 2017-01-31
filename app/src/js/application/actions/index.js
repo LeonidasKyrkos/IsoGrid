@@ -10,13 +10,14 @@ export const addSquares = (squares) => {
 	}
 }
 
-export const updateSquareTerrain = ({col, row, terrainID}) => {
+export const updateSquareTerrain = ({ col, row, brushType, brushID }) => {
 	return {
 		type: UPDATE_SQUARE_TERRAIN,
 		data: {
 			col,
 			row,
-			terrainID
+			brushType,
+			brushID			
 		}
 	}
 }
@@ -28,9 +29,9 @@ export const addTerrain = (imgSource) => {
 	}
 }
 
-export const changeBrush = (id) => {
+export const changeBrush = ({ type, id }) => {
 	return {
 		type: CHANGE_BRUSH,
-		id
+		brush: { type, id }
 	}
 }

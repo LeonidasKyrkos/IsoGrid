@@ -3,9 +3,9 @@ import _ from 'lodash';
 
 const pushStateToFirebase = (state,resolve,reject) => {
 	let editedState = _.cloneDeep(state);
-	editedState.activeBrush = 0;
+	editedState.settings.activeBrush = 0;
 
-	let setter = DB.ref('/').set(editedState);
+	const setter = DB.ref('/').set(editedState);
 
 	setter.then(()=>{
 		resolve('Success!');

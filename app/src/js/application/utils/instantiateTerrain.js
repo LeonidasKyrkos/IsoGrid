@@ -1,26 +1,29 @@
-export const instantiateTerrain = (store) => {
+export const instantiateImages = (list) => {
 	return new Promise((resolve,reject)=>{
-		let terrains = store.getState().terrain;
 		let promises = [];
+		let images = {};
 
-		for(let terrain in terrains) {
-			if(terrains[terrain].imageSrc) {
+		list.forEach((image,index) => {
+			if(image.imageSrc) {
 				let promise = new Promise((resolve, reject)=>{
-					let image = new Image();
-					image.src = terrains[terrain].imageSrc;
-					terrains[terrain].image = image;
+					let el = new Image();
+					el.src = image.imageSrc;
+					images[index] = {
+						...image,
+						image: el
+					};
 
-					image.addEventListener('load',(e)=>{
+					el.addEventListener('load',(e)=>{
 						resolve();
-					});
+					});					
 				});
 
 				promises.push(promise);
 			}			
-		}
+		});
 
 		Promise.all(promises).then(()=>{
-			resolve(terrains);
+			resolve(images);
 		});
 	});		
 }

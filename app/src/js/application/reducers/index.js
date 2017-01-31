@@ -4,11 +4,14 @@ import _ from 'lodash';
 const isoGrid = (state = initialState, action) => {
 	switch(action.type){
 		case ADD_SQUARES:
-			return Object.assign({}, state, { gridSquares: action.squares });
+			return {...state, gridSquares: action.squares };
 
 		case UPDATE_SQUARE_TERRAIN:
 			let UST_newState = _.cloneDeep(state);
-			UST_newState.gridSquares[action.data.row][action.data.col].terrainID = action.data.terrainID;
+			let square = UST_newState.gridSquares[action.data.row][action.data.col];
+
+			square.brushes[action.data.brushType] = action.data.brushID;
+
 			return UST_newState;
 
 		case ADD_TERRAIN:
@@ -16,7 +19,13 @@ const isoGrid = (state = initialState, action) => {
 
 		case CHANGE_BRUSH:
 			return Object.assign({}, state, {
-				activeBrush: action.id
+				settings: {
+					...state.settings,
+					activeBrush: {
+						type: action.brush.type,
+						id: action.brush.id
+					}
+				}				
 			});
 
 		default:

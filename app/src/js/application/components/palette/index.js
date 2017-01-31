@@ -1,59 +1,33 @@
 import { changeBrush } from '../../actions';
+import { createElement, appendElement } from '../../utils/element';
+import { createSubPalette } from './submodules/palettes';
 
 export default class Palette {
 	constructor(store) {
 		this.store = store;
 		this.wrap = document.getElementById('isogridWrap');
 		this.saveButton = document.querySelector('[data-js="pushToFirebase"]');
-		this.terrain = this.store.getState().terrain;
+		this.terrain = this.store.getState().assets.terrain || [];
+		this.structure = this.store.getState().assets.structure || [];
 
-		if(this.store.getState().buildMode) {
+		if(this.store.getState().settings.buildMode) {
 			this.init();
 		}		
 	}
 
 	init() {
-		this.renderPalette();
+		this.palette = createElement('div','palette');
+		createSubPalette(this.terrain, this.palette, 'terrain');
+		createSubPalette(this.structure, this.palette, 'structure');
 		this.saveButton.classList.remove('hide');
+		this.wrap.appendChild(this.palette);
 		this.eventListeners();
 	}
 
-	renderPalette() {
-		let palette = document.createElement('div');
-		palette.setAttribute('class','palette');
-
-		let paletteInner = document.createElement('div');
-		paletteInner.setAttribute('class','palette__inner');
-
-		let eraser = document.createElement('span');
-		eraser.setAttribute('class', 'palette__item active');
-		eraser.setAttribute('data-js','terrain');
-		eraser.classList.add('empty');
-
-		paletteInner.appendChild(eraser);
-
-		for(let terrain in this.terrain) {
-			const classlist = 'palette__item'
-
-			if(this.terrain[terrain].imageSrc) {
-				let item = document.createElement('img');
-				item.setAttribute('class',classlist);
-				item.setAttribute('data-js','terrain');
-				item.setAttribute('data-terrain',terrain);
-				item.setAttribute('src',this.terrain[terrain].imageSrc);
-				
-				paletteInner.appendChild(item);
-			}
-		}
-
-		palette.appendChild(paletteInner);
-		this.wrap.appendChild(palette);
-	}
-
 	eventListeners() {
-		this.terrainSwitches = document.querySelectorAll('[data-js="terrain"]');
+		this.paletteItems = document.querySelectorAll('[data-js="paletteItem"]');
 
-		this.terrainSwitches.forEach((el,i)=>{
+		this.paletteItems.forEach((el,i)=>{
 			el.addEventListener('click',this.changeBrush.bind(this));
 		});
 	}
@@ -61,16 +35,17 @@ export default class Palette {
 	changeBrush(e) {
 		this.clearBrushes();
 
-		let target = e.currentTarget;		
+		let target = e.currentTarget;
 		target.classList.add('active');
 
-		let brushID = target.getAttribute('data-terrain');
+		let brushID = target.getAttribute('data-brush-id');
+		let brushType = target.getAttribute('data-brush-type');
 
-		this.store.dispatch(changeBrush(brushID));
+		this.store.dispatch(changeBrush({ type: brushType, id: brushID }));
 	}
 
 	clearBrushes() {
-		this.terrainSwitches.forEach((el,i)=>{
+		this.paletteItems.forEach((el,i)=>{
 			el.classList.remove('active');
 		})
 	}

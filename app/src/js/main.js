@@ -11,8 +11,6 @@ import reducers from './application/reducers/';
 // IsoGrid
 import config from './configuration/firebase';
 import IsoGrid from './application/IsoGrid';
-import { terrain } from './application/constants/terrain';
-import { buildings } from './application/constants/buildings';
 import { defaultState } from './configuration/defaultState';
 
 export const App = firebase.initializeApp(config);
@@ -33,4 +31,3 @@ promise.then((state) => {
 
 	const grid = new IsoGrid(store);
 });
-
