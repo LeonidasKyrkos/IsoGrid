@@ -40,13 +40,15 @@ export default class IsoGrid {
 		const x = e.x + this.canvasWrap.scrollLeft;
 		const y = e.y + this.canvasWrap.scrollTop;
 		const square = findSquare(x, y, this.store);
+		let state = this.store.getState();
 
 		if(square) {
 			const col = square.position.col;
 			const row = square.position.row;
-			const terrainID = this.store.getState().activeBrush;
+			const brushType = state.settings.activeBrush.type;
+			const brushID = state.settings.activeBrush.id;
 
-			this.store.dispatch(updateSquareTerrain({ col, row, terrainID }));
+			this.store.dispatch(updateSquareTerrain({ col, row, brushType, brushID }));
 		}
 	}
 

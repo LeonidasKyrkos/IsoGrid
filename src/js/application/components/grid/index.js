@@ -2,7 +2,7 @@ import { rows, cols, cvWidth as width, cvHeight as height } from '../../constant
 import { updateSquareTerrain, addSquares } from '../../actions';
 import Square from '../../components/square';
 import deepEqual from 'deep-equal';
-import { instantiateTerrain } from '../../utils/instantiateTerrain';
+import { instantiateImages } from '../../utils/instantiateTerrain';
 import { getSquarePoints } from '../../utils/getSquarePoints';
 import _ from 'lodash';
 
@@ -17,19 +17,29 @@ export default class Grid {
 	}
 
 	init() {
+		const state = this.store.getState();
 		this.setupCanvas();
 		
-		if(!this.store.getState().gridSquares) {
+		if(!state.gridSquares) {
 			this.setupGridSquares();
 		}
-
-		let terrain = instantiateTerrain(this.store);
+		
+		// load images and render when complete
+		let terrain = instantiateImages(state.assets.terrain);
+		let structure = instantiateImages(state.assets.structure);
 
 		terrain.then((terrain)=>{
 			this.terrain = terrain;
+		})
+
+		structure.then((structure)=>{
+			this.structure = structure;
+		});
+
+		Promise.all([terrain,structure]).then(()=>{
 			this.render();
 			this.store.subscribe(this.handleChange.bind(this));	
-		})
+		});
 	}
 
 	setupCanvas() {
@@ -57,7 +67,8 @@ export default class Grid {
 	render() {
 		this.ctx.clearRect(0, 0, width, height);
 		let start = window.performance.now();
-		let gridSquares = this.store.getState().gridSquares;
+		let state = this.store.getState();
+		let gridSquares = state.gridSquares;
 
 		gridSquares.forEach((row,i)=>{
 			row.forEach((square,i)=>{
@@ -65,33 +76,40 @@ export default class Grid {
 			});
 		});
 
+		gridSquares.forEach((row,i)=>{
+			row.forEach((square,i)=>{
+				this.drawStructures(square);
+			});
+		});
+
 		let finish = Math.floor(window.performance.now() - start);
-		this.store.getState().debug && console.log(`${finish}ms to render`);
+		state.settings.debug && console.log(`${finish}ms to render`);
 	}
 
-	// Paints the provided square.
-	drawSquare = (square) => {
-		let counter = 0;
-		this.ctx.beginPath();
+	drawTerrain(square) {
+		if(square && square.brushes && square.brushes.terrain && this.terrain[square.brushes.terrain]) {
+			const tID = square.brushes.terrain;
+			const image = this.terrain[tID].image;
+			const offsetY = this.terrain[tID].offsetY || 0;
+			const row = square.position.row;
+			const col = square.position.col;
 
-		let points = getSquarePoints(square);
+			const x = row % 2 === 0 ? square.width * col : (square.width * col) +  square.width/2;
+			const y = ((square.height / 2) * row) + square.height/2;
 
-		for (let prop in points) {
-			if (!counter) {
-				this.ctx.moveTo(points[prop].x, points[prop].y);
-				counter++;
-			} else {
-				this.ctx.lineTo(points[prop].x, points[prop].y);
+			this.ctx.globalCompositeOperation = 'source-over';
+
+			if(image) {
+				this.ctx.drawImage(image, x, (y - image.height/2 + 8) + offsetY);
 			}
 		}
-
-		this.ctx.stroke();
 	}
 
-	drawTerrain = (square) => {
-		if(square && this.terrain[square.terrainID]) {
-			const image = this.terrain[square.terrainID].image;
-			const offsetY = this.terrain[square.terrainID].offsetY || 0;
+	drawStructures(square) {
+		if(square && square.brushes && square.brushes.structure && this.structure[square.brushes.structure]) {
+			const sID = square.brushes.structure;
+			const image = this.structure[sID].image;
+			const offsetY = this.structure[sID].offsetY || 0;
 			const row = square.position.row;
 			const col = square.position.col;
 

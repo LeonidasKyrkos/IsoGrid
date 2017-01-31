@@ -5,6 +5,6 @@ export default class Square {
 		this.position = { row, col };
 		this.width = width;
 		this.height = height;
-		this.terrainID = 1;
+		this.brushes = { terrain: 1 };
 	}
 }
