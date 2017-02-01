@@ -1,6 +1,6 @@
 export const terrain = [
 	{
-		imageSrc: null
+		imageSrc: false
 	},
 	{
 		imageSrc: '/assets/grass.png'
