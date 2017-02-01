@@ -40,6 +40,11 @@ $module: 		'palette';
 			background-color: black;
 		}
 
+		&.animation {
+			width: em(100);
+			height: em(100);
+		}
+
 		&.active {			
 			outline: 1px solid white;
 		}

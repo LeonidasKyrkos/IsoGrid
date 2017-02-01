@@ -4,7 +4,7 @@ import Square from '../../components/square';
 import deepEqual from 'deep-equal';
 import { instantiateImages } from '../../utils/instantiateTerrain';
 import { getSquarePoints } from '../../utils/getSquarePoints';
-import { animations } from '../../constants/animations';
+import { assets as html } from '../../constants/html';
 import _ from 'lodash';
 
 
@@ -12,6 +12,7 @@ export default class Grid {
 	constructor(store, canvas) {
 		this.store = store;
 		this.canvas = canvas;
+		this.canvasWrap = this.canvas.parentNode;
 		this.currentValue = {};
 
 		this.init();
@@ -39,7 +40,6 @@ export default class Grid {
 
 		Promise.all([terrain,structure]).then(()=>{
 			this.startRendering();
-			//this.store.subscribe(this.handleChange.bind(this));	
 		});
 	}
 
@@ -83,7 +83,16 @@ export default class Grid {
 			});
 		});
 
-		this.updateAnimations();
+		let wrap = document.getElementById('htmlwrap');
+		if(wrap) { wrap.remove() };
+		wrap = document.createElement('div');
+		wrap.setAttribute('id','htmlwrap');
+		gridSquares.forEach((row,i)=>{
+			row.forEach((square,i)=>{
+				this.addHtml(square,wrap);
+			});
+		});
+		this.canvasWrap.appendChild(wrap);
 
 		// performance testing [active with debug flag in settings]
 		let finish = Math.floor(window.performance.now() - start);
@@ -124,21 +133,30 @@ export default class Grid {
 
 			if(image) {
 				this.ctx.save();
-				
-				if(square.transform) {
-					this.ctx.moveTo(x, (y - image.height/2 + 8) + offsetY);
-					this.ctx.transform(...square.transform);
-
-				}
-				
-				this.ctx.drawImage(image, x, (y - image.height/2 + 8) + offsetY);
+				this.ctx.translate(x + image.width/2, (y - image.height/2 + 8) + offsetY + image.height/2);				
+				this.ctx.drawImage(image, -image.width/2, -image.height/2);
 				this.ctx.restore();
 			}
 		}
 	}
 
+	addHtml(square, wrap) {
+		const row = square.position.row;
+		const col = square.position.col;
+		const x = row % 2 === 0 ? square.width * col : (square.width * col) +  square.width/2;
+		const y = ((square.height / 2) * row) + square.height/2;
+
+		if(square && square.brushes && square.brushes.html && html[square.brushes.html]) {
+			let htmlObj = html[square.brushes.html];
+			let el = htmlObj.template.cloneNode(true);
+			el.removeAttribute('id');
+			el.setAttribute('style',`position: absolute; left: ${x}px; top: ${y - htmlObj.height}px; width: ${htmlObj.width}px; height: ${htmlObj.height}px;`);
+			wrap.appendChild(el);
+		}
+	}
+
 	startRendering() {
-		this.renderInterval = setInterval(this.render.bind(this), 16);
+		this.renderInterval = setInterval(this.handleChange.bind(this), 16);
 	}
 
 	stopRendering() {
@@ -151,23 +169,6 @@ export default class Grid {
 		if(!deepEqual(newVal,this.currentValue,{ strict: true })) {
 			this.currentValue = _.cloneDeep(newVal);
 			this.render();
-		}
-	}
-
-	updateAnimations() {
-		const grid = this.store.getState().gridSquares;
-
-		grid.forEach(row => {
-			row.forEach(square => {
-				this.updateAnimation(square);
-			})
-		})
-	}
-
-	updateAnimation(square) {
-		if(this.structure[square.brushes.structure] && this.structure[square.brushes.structure].animation && animations[this.structure[square.brushes.structure].animation]) {
-			let animation = this.structure[square.brushes.structure].animation;
-			animations[animation](square);
 		}
 	}
 

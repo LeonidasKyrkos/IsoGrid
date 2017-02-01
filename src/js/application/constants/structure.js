@@ -3,12 +3,19 @@ export const structure = [
 		imageSrc: false
 	},
 	{
-		imageSrc: '/assets/parliament.png'
+		imageSrc: '/assets/house.png',
+		offsetY: -18
 	},
 	{
-		imageSrc: '/assets/londoneye.png'
+		imageSrc: '/assets/house_ne.png',
+		offsetY: -18
 	},
 	{
-		imageSrc: '/assets/londonbridge.png'
+		imageSrc: '/assets/house_nw.png',
+		offsetY: -18
+	},
+	{
+		imageSrc: '/assets/house_se.png',
+		offsetY: -18
 	}
 ]
