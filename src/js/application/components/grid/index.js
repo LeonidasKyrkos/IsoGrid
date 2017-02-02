@@ -7,6 +7,10 @@ import { getSquarePoints } from '../../utils/getSquarePoints';
 import { assets as html } from '../../constants/html';
 import _ from 'lodash';
 
+// Grid build system. It takes whatever data we give it and spits out a grid to match. 
+// Doesn't have any update methods. It just diffs the new state and triggers a re-render where necessary.
+
+// TODOS at bottom
 
 export default class Grid {
 	constructor(store, canvas) {
@@ -191,3 +195,10 @@ export default class Grid {
 		return state.gridSquares;
 	}
 }
+
+// TODO:
+// Should definitely cut down on the amount of things being rendered. Ideal situation would be re-rendering
+// on a square by square basis but that's unlikely considering the >1 square spanning structures. Current
+// bet involves rendering the curent row and some number of subsequent rows. Maybe if the tallest structure
+// in the map = 6 rows then we render our updated square's row and the next 6 rows after it. Seems lazy but 
+// would be an improvement.
