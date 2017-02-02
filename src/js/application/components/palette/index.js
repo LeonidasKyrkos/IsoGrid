@@ -7,7 +7,7 @@ export default class Palette {
 	constructor(store) {
 		this.store = store;
 		this.wrap = document.getElementById('isogridWrap');
-		this.saveButton = document.querySelector('[data-js="pushToFirebase"]');
+		this.toolkit = document.querySelector('[data-js="buildMode"]');
 
 		let state = this.store.getState();
 		this.terrain = state.assets.terrain || [];
@@ -20,11 +20,11 @@ export default class Palette {
 	}
 
 	init() {
-		this.palette = createElement('div','palette');
+		this.palette = createElement('div','palette','palette.wrap');
 		createSubPalette(this.terrain, this.palette, 'terrain');
 		createSubPalette(this.structure, this.palette, 'structure');
 		createHtmlPalette(this.html, this.palette, 'html');
-		this.saveButton.classList.remove('hide');
+		this.toolkit.classList.remove('hide');
 		this.wrap.appendChild(this.palette);
 		this.eventListeners();
 	}
@@ -35,6 +35,12 @@ export default class Palette {
 		this.paletteItems.forEach((el,i)=>{
 			el.addEventListener('click',this.changeBrush.bind(this));
 		});
+
+		this.toolkit.addEventListener('click',this.togglePalettes);
+	}
+
+	togglePalettes() {
+		document.querySelector('[data-js="palette.wrap"]').classList.toggle('hide');
 	}
 
 	changeBrush(e) {

@@ -1,5 +1,12 @@
 $module: 		'btn';
 
+.buttons {
+	position: fixed;
+	bottom: em(5);
+	right: em(5);
+	z-index: 10;
+}
+
 .#{$module} {
 	background-image: none;
 	outline: 0;
@@ -8,12 +15,17 @@ $module: 		'btn';
 
 	&-primary {
 		@extend .#{$module};
+		display: inline-block;
+		margin: em(10);
 		$fontSize: 20;
 		font-size: em($fontSize);
 		background-color: forestgreen;
 		border-radius: em(6,$fontSize);
-		display: block;
 		padding: em(10,$fontSize) em(20,$fontSize);
 		color: white;
+
+		&:hover {
+			background-color: darken(forestgreen,10%);
+		}
 	}
 }

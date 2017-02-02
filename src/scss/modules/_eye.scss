@@ -1,20 +1,23 @@
+$wheelGray: #d1d3d4;
+$wheelGrayDark: #b9e3e6;
+
 @keyframes rotate_eye {
 	0% {
-		transform: rotateZ(0);
+		@include transform(rotateZ(360deg));
 	}
 	
 	100% {
-		transform: rotateZ(-359deg);
+		@include transform(rotateZ(0));
 	}
 }
 
 @keyframes rotate_pod {
 	0% {
-		transform: translateX(-50%)translateY(-50%);
+		@include transform(translateX(-50%)translateY(-50%)rotateZ(-360deg)rotateX(32deg));
 	}
 	
 	100% {
-		transform: translateX(-50%)translateY(-50%)rotateZ(359deg);
+		@include transform(translateX(-50%)translateY(-50%)rotateZ(0)rotateX(32deg));
 	}
 }
 
@@ -23,32 +26,65 @@ $module: 		'eye';
 .#{$module} {
 	&__wrap {
 		position: relative;
-		transform: rotateY(50deg)rotateX(-8deg);
+		@include transform(rotateY(50deg)rotateX(-8deg)translateY(-20px)translateX(-20px));
 		width: 100%;
 		height: 100%;
+		perspective: 800px;
+		pointer-events: none;
+
+		.palette & {
+			@include transform(rotateY(50deg)rotateX(-8deg));
+		}
+	}
+
+	&__left {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 51%;
+	}
+
+	&__right {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 51%;
+	}
+
+	&__svg {
+		width: 100%;
+		height: auto;
 	}
 	
 	&__pods {
-		padding: 0;
-		margin: 0;
-		border-radius: 100%;
-		border: 1px solid gray;
 		position: absolute;
-		width: 90%;
-		height: 90%;
 		left: 0;
 		right: 0;
 		top: 0;
 		bottom: 0;
-		margin: auto;
 		list-style-type: none;
-		animation: 6s linear 0s infinite rotate_eye;
+		@include animation(rotate_eye 16s linear infinite);
+
+		.palette & {
+			@include animation(none);
+		}
 	}
 	
 	&__pod {
 		position: absolute;
-		transform: translateX(-50%)translateY(-50%);
-		animation: 6s linear 0s infinite rotate_pod;
+		@include animation(rotate_pod 16s linear infinite);
+		width: em(50);
+
+		.palette & {
+			@include animation(none);
+			@include transform(translateY(-50%)translateX(-50%));
+			width: em(30);
+		}
+
+		svg {
+			max-width: 100%;
+			height: auto;
+		}
 		
 		&:nth-child(1) {
 			top: 0;
@@ -56,7 +92,8 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(2) {
-			display: none;
+			top: 16%;
+			left: 17%;
 		}
 		
 		&:nth-child(3) {
@@ -65,7 +102,8 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(4) {
-			display: none;
+			top: 83%;
+			left: 13%;
 		}
 		
 		&:nth-child(5) {
@@ -74,7 +112,8 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(6) {
-			display: none;
+			top: 87%;
+			left: 87%;
 		}
 		
 		&:nth-child(7) {
@@ -83,7 +122,68 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(8) {
-			display: none;
+			top: 16%;
+			left: 83%;
+		}
+	}
+
+	&__spokes {
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	&__spoke {
+		position: absolute;
+		background-color: $wheelGray;
+		width: 99%;
+		left: 1%;
+		top: 50%;
+		margin-top: em(-1);
+		height: em(2);
+		@include transform-origin(right);
+		opacity: 0.7;
+
+		&--1 {
+			@extend .#{$module}__spoke;
+			@include transform(rotateZ(90deg));
+		}
+
+		&--2 {
+			@extend .#{$module}__spoke;
+			@include transform(rotateZ(45deg));
+		}
+		
+		&--3 {
+			@extend .#{$module}__spoke;
+			@include transform(rotateZ(0));
+		}
+
+		&--4 {
+			@extend .#{$module}__spoke;
+			@include transform(rotateZ(-45deg));
+		}
+
+		&--5 {
+			@extend .#{$module}__spoke;
+			@include transform(rotateZ(-90deg));
+		}
+
+		&--6 {
+			@extend .#{$module}__spoke;
+			@include transform(rotateZ(-135deg));
+		}
+
+		&--7 {
+			@extend .#{$module}__spoke;
+			@include transform(rotateZ(-180deg));
+		}
+
+		&--8 {
+			@extend .#{$module}__spoke;
+			@include transform(rotateZ(-225deg));
 		}
 	}
 }
