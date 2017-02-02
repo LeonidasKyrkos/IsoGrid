@@ -25,19 +25,17 @@ $podBlue: #ddecec;
 $module: 		'eye';
 
 .#{$module} {
-	&__wrap {
-		position: relative;		
-		width: 100%;
-		height: 100%;
-		perspective: 800px;
-		pointer-events: none;
-		@include transform(translateY(-45px)translateX(-95px));
+	position: relative;		
+	width: 100%;
+	height: 100%;
+	perspective: 800px;
+	pointer-events: none;
+	@include transform(translateY(-45px)translateX(-95px));
 
-		.palette & {
-			@include transform(none);
-		}
+	.palette & {
+		@include transform(none);
 	}
-
+	
 	&__inner {
 		height: 100%;
 

@@ -5,6 +5,7 @@ import { findSquare } from './utils/findSquare';
 import { sqWidth, sqHeight } from './constants/dimensions';
 import { updateSquareTerrain } from './actions';
 import pushStateToFirebase from './utils/pushStateToFirebase';
+import { saveStateToLocalStorage, clearLocalStorage } from './utils/localStorage';
 
 export default class IsoGrid {
 	constructor(store) {
@@ -13,6 +14,7 @@ export default class IsoGrid {
 		this.store = store;
 		this.firebasePushButton = document.querySelector('[data-js="pushToFirebase"]');
 		this.saveAlert = document.querySelector('[data-js="saveAlert"]');
+		this.clearCache = document.querySelector('[data-js="clearCache"]');
 
 		this.init();
 	}
@@ -31,9 +33,9 @@ export default class IsoGrid {
 			this.saveAlert.innerHTML = 'Loading...';
 		});
 
-		this.firebasePushButton.addEventListener('click',(e)=>{
-			this.onSave();
-		});
+		this.firebasePushButton.addEventListener('click',this.onSave.bind(this));
+
+		this.clearCache.addEventListener('click',clearLocalStorage);
 	}
 
 	handleClick(e) {
@@ -62,6 +64,7 @@ export default class IsoGrid {
 
 		promise.then((status)=>{
 			this.saveAlert.innerHTML = status;
+			saveStateToLocalStorage(state);
 		});
 
 		promise.catch((status)=>{

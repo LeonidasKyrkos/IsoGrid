@@ -8,6 +8,7 @@ export default class Palette {
 		this.store = store;
 		this.wrap = document.getElementById('isogridWrap');
 		this.toolkit = document.querySelector('[data-js="buildMode"]');
+		this.toolkitToggle = document.querySelector('[data-js="toggleToolkit"]');
 
 		let state = this.store.getState();
 		this.terrain = state.assets.terrain || [];
@@ -36,7 +37,7 @@ export default class Palette {
 			el.addEventListener('click',this.changeBrush.bind(this));
 		});
 
-		this.toolkit.addEventListener('click',this.togglePalettes);
+		this.toolkitToggle.addEventListener('click',this.togglePalettes);
 	}
 
 	togglePalettes() {
