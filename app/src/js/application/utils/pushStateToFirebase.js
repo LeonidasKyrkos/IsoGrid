@@ -1,5 +1,6 @@
 import { DB } from '../../main';
 import _ from 'lodash';
+import { saveStateToLocalStorage } from './localStorage';
 
 const pushStateToFirebase = (state,resolve,reject) => {
 	let editedState = _.cloneDeep(state);
@@ -8,6 +9,7 @@ const pushStateToFirebase = (state,resolve,reject) => {
 	const setter = DB.ref('/').set(editedState);
 
 	setter.then(()=>{
+		saveStateToLocalStorage(state);
 		resolve('Success!');
 	});
 

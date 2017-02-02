@@ -1,0 +1,83 @@
+@keyframes raise_north {
+	0% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)skewY(0));
+	}
+	25% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)skewY(0));
+	}
+	35% {
+		@include transform(rotateX(0)rotateY(70deg)rotateZ(0)skewY(6deg));
+	}
+	65% {
+		@include transform(rotateX(0)rotateY(70deg)rotateZ(0)skewY(6deg));
+	}
+	75% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)skewY(0));
+	}
+	100% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)skewY(0));		
+	}
+}
+
+@keyframes raise_south {
+	0% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)skewY(0));
+	}
+	25% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)skewY(0));
+	}
+	35% {
+		@include transform(rotateX(0)rotateY(-50deg)rotateZ(0)skewY(-8deg));
+	}
+	65% {
+		@include transform(rotateX(0)rotateY(-50deg)rotateZ(0)skewY(-8deg));
+	}
+	75% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)skewY(0));
+	}
+	100% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)skewY(0));		
+	}
+}
+
+@keyframes shrink_shadow_north {
+	0% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-20px)rotateY(0)skewY(0));
+	}
+	25% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-20px)rotateY(0)skewY(0));
+	}
+	35% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-20px)rotateY(70deg)skewY(6deg));
+	}
+	65% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-20px)rotateY(70deg)skewY(6deg));
+	}
+	75% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-20px)rotateY(0)skewY(0));	
+	}
+	100% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-20px)rotateY(0)skewY(0));
+	}
+}
+
+@keyframes shrink_shadow_south {
+	0% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-2px)scaleX(0.9)rotateY(0)skewY(0));
+	}
+	25% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-2px)scaleX(0.9)rotateY(0)skewY(0));
+	}
+	35% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-2px)scaleX(0.9)rotateY(-50deg)skewY(-8deg));
+	}
+	65% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-2px)scaleX(0.9)rotateY(-50deg)skewY(-8deg));
+	}
+	75% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-2px)scaleX(0.9)rotateY(0)skewY(0));
+	}
+	100% {
+		@include transform(translateZ(-70px)translateY(16px)translateX(-2px)scaleX(0.9)rotateY(0)skewY(0));
+	}
+}
