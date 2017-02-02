@@ -64,7 +64,6 @@ export default class IsoGrid {
 
 		promise.then((status)=>{
 			this.saveAlert.innerHTML = status;
-			saveStateToLocalStorage(state);
 		});
 
 		promise.catch((status)=>{
