@@ -1,10 +1,6 @@
 $module: 		'save';
 
 .#{$module} {
-	position: fixed;
-	bottom: em(5);
-	right: em(5);
-
 	&__status {
 		position: fixed;
 		top: 50%;
@@ -16,5 +12,6 @@ $module: 		'save';
 		background-color: white;
 		border-radius: em(6);
 		margin: 0 auto;
+		z-index: 10;
 	}
 }

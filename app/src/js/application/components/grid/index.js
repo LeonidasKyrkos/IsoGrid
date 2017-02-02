@@ -66,23 +66,42 @@ export default class Grid {
 	}
 
 	render() {
-		this.ctx.clearRect(0, 0, width, height);
-		let start = window.performance.now();
 		let state = this.store.getState();
+
+		// performance testing start [active with debug flag in settings]
+		if(state.settings.debug) { var start = window.performance.now(); }
+
+		this.ctx.clearRect(0, 0, width, height);		
 		let gridSquares = state.gridSquares;
 
+		this.terrainLoop(gridSquares);
+		this.structureLoop(gridSquares);
+		this.htmlLoop(gridSquares);
+
+		// performance testing end [active with debug flag in settings]
+		if(state.settings.debug) {
+			let finish = Math.floor(window.performance.now() - start);
+			state.settings.debug && console.log(`${finish}ms to render`);
+		}		
+	}
+
+	terrainLoop(gridSquares) {
 		gridSquares.forEach((row,i)=>{
 			row.forEach((square,i)=>{
 				this.drawTerrain(square);
 			});
 		});
+	}
 
+	structureLoop(gridSquares) {
 		gridSquares.forEach((row,i)=>{
 			row.forEach((square,i)=>{
 				this.drawStructures(square);
 			});
 		});
+	}
 
+	htmlLoop(gridSquares) {
 		let wrap = document.getElementById('htmlwrap');
 		if(wrap) { wrap.remove() };
 		wrap = document.createElement('div');
@@ -93,10 +112,6 @@ export default class Grid {
 			});
 		});
 		this.canvasWrap.appendChild(wrap);
-
-		// performance testing [active with debug flag in settings]
-		let finish = Math.floor(window.performance.now() - start);
-		state.settings.debug && console.log(`${finish}ms to render`);
 	}
 
 	drawTerrain(square) {
