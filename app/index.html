@@ -13,13 +13,14 @@
 		<div class="buttons hide" data-js="buildMode">
 			<button class="btn-primary" data-js="pushToFirebase">Save</button>
 			<button class="btn-primary" data-js="toggleToolkit">Toggle toolkit</button>
+			<button class="btn-primary" data-js="clearCache">Clear cache</button>
 		</div>
 		<span class="save__status hide" data-js="saveAlert">Loading...</span>
 		<section class="canvas__wrap dragscroll">
 			<canvas id="isogrid"></canvas>
 		</section>
 		<div class="templates" style="visibility: hidden; width: 0; height: 0; overflow: hidden; pointer-events: none">
-			<div class="eye__wrap" id="londoneye">
+			<div class="eye" id="londoneye" data-js="htmlTemplate">
 				<div class="eye__inner">
 					<div class="eye__left">
 						<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.16 198" width="103" height="198">

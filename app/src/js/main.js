@@ -1,8 +1,9 @@
 // styles
 import style from '../scss/main.scss';
 
-// firebase
+// data
 import * as firebase from 'firebase';
+import { saveStateToLocalStorage } from './application/utils/localStorage';
 
 // redux
 import { createStore } from 'redux';
@@ -17,17 +18,22 @@ export const App = firebase.initializeApp(config);
 export const DB = firebase.database();
 
 let promise = new Promise((resolve,reject)=>{
-	DB.ref('/').once('value',(snapshot)=>{
-		if(snapshot.val()) {
-			resolve(snapshot.val());
-		} else {
-			resolve(defaultState);
-		}
-	})
+	if(localStorage.getItem('IsoGrid')) {
+		resolve(JSON.parse(localStorage.getItem('IsoGrid')));
+	} else {
+		DB.ref('/').once('value',(snapshot)=>{
+			if(snapshot.val()) {
+				resolve(snapshot.val());
+			} else {
+				resolve(defaultState);
+			}
+		})
+	}
 });
 
 promise.then((state) => {
 	const store = createStore(reducers, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
 	const grid = new IsoGrid(store);
+
+	saveStateToLocalStorage(state);
 });
