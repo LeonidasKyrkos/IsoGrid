@@ -1,8 +1,10 @@
+import { colWidth, rowHeight } from '../constants/dimensions';
+
 export const getSquarePoints = (square) => {
 		const row = square.position.row;
 		const col = square.position.col;
-		const width = square.width;
-		const height = square.height;
+		const width = colWidth;
+		const height = rowHeight;
 
 		const x1 = row % 2 === 0 ? width * col : (width * col) +  width/2;
 		const x2 = x1 + (width/2);

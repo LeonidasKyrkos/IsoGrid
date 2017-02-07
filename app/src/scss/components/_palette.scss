@@ -43,6 +43,8 @@ $module: 		'palette';
 		&.animation {
 			width: em(100);
 			height: em(100);
+
+			margin: em(20) auto;
 		}
 
 		&.active {			

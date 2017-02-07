@@ -2,7 +2,7 @@ import Grid from './components/grid/';
 import Palette from './components/palette/';
 import dragscroll from 'dragscroll';
 import { findSquare } from './utils/findSquare';
-import { sqWidth, sqHeight } from './constants/dimensions';
+import { colWidth as sqWidth, rowHeight as sqHeight } from './constants/dimensions';
 import { updateSquareTerrain } from './actions';
 import pushStateToFirebase from './utils/pushStateToFirebase';
 import { saveStateToLocalStorage, clearLocalStorage } from './utils/localStorage';
@@ -15,6 +15,7 @@ export default class IsoGrid {
 		this.firebasePushButton = document.querySelector('[data-js="pushToFirebase"]');
 		this.saveAlert = document.querySelector('[data-js="saveAlert"]');
 		this.clearCache = document.querySelector('[data-js="clearCache"]');
+		this.animationMode = this.selectAnimationMode(this.store.getState());
 
 		this.init();
 	}
@@ -23,6 +24,7 @@ export default class IsoGrid {
 		this.grid = new Grid(this.store, this.canvas);
 		this.palette = new Palette(this.store);
 		this.eventListeners();
+		this.store.subscribe(this.handleChange.bind(this));
 	}
 
 	eventListeners() {
@@ -36,6 +38,23 @@ export default class IsoGrid {
 		this.firebasePushButton.addEventListener('click',this.onSave.bind(this));
 
 		this.clearCache.addEventListener('click',clearLocalStorage);
+	}
+
+	handleChange() {
+		let previousValue = this.animationMode;
+		this.animationMode = this.selectAnimationMode(this.store.getState());
+
+		if(previousValue !== this.animationMode) {
+			this.animationMode ? this.activateAnimationClass() : this.removeAnimationClass();
+		}
+	}
+
+	activateAnimationClass() {
+		this.canvas.classList.add('animationMode');
+	}
+
+	removeAnimationClass() {
+		this.canvas.classList.remove('animationMode');
 	}
 
 	handleClick(e) {
@@ -69,5 +88,9 @@ export default class IsoGrid {
 		promise.catch((status)=>{
 			this.saveAlert.innerHTML = status;
 		})
+	}
+
+	selectAnimationMode(state) {
+		return state.settings.animationMode;
 	}
 }

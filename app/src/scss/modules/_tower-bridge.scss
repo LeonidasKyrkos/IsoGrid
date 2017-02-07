@@ -5,11 +5,19 @@ $module: 			'tower-bridge';
 	perspective: 800px;
 	perspective-origin: right;
 
+	.palette & {
+		height: 100%;
+	}
+
 	&__inner {
 		position: relative;		
 		width: 100%;
 		height: 100%;
-		transform: rotateZ(-26.5deg) rotateX(-10deg) rotateY(0deg) translateX(22px) translateY(-15px) skewX(37deg);
+		@include transform(rotateZ(-26.5deg) rotateX(-10deg) rotateY(0deg) translateX(22px) translateY(-15px) skewX(37deg));
+
+		.palette & {
+			@include transform(none);
+		}
 	}
 
 	&__north, &__south, &__shadow--north, &__shadow--south  {
@@ -23,11 +31,19 @@ $module: 			'tower-bridge';
 		float: right;
 		@include animation(raise_north 14s linear infinite);
 		@include transform-origin(right);
+
+		.palette & {
+			@include animation(none);
+		}
 	}
 
 	&__south {
 		@include animation(raise_south 14s linear infinite);
 		@include transform-origin(left);
+
+		.palette & {
+			@include animation(none);
+		}
 	}
 
 	&__shadows {
@@ -46,10 +62,18 @@ $module: 			'tower-bridge';
 		float: right;
 		@include animation(shrink_shadow_north 14s linear infinite);
 		@include transform-origin(right);
+
+		.palette & {
+			@include animation(none);
+		}
 	}
 
 	&__shadow--south {
 		@include animation(shrink_shadow_south 14s linear infinite);
 		@include transform-origin(left);
+
+		.palette & {
+			@include animation(none);
+		}
 	}
 }

@@ -1,4 +1,4 @@
-import { ADD_SQUARES, UPDATE_SQUARE_TERRAIN, ADD_TERRAIN, CHANGE_BRUSH } from '../actions';
+import { ADD_SQUARES, UPDATE_SQUARE_TERRAIN, ADD_TERRAIN, CHANGE_BRUSH, UPDATE_ANIMATIONS, UPDATE_ANIMATION_MODE } from '../actions';
 import _ from 'lodash';
 
 const isoGrid = (state = initialState, action) => {
@@ -26,6 +26,22 @@ const isoGrid = (state = initialState, action) => {
 						id: action.brush.id
 					}
 				}				
+			});
+
+		case UPDATE_ANIMATIONS:
+			return Object.assign({}, state, {
+				assets: {
+					...state.assets,
+					animations: action.payload
+				}				
+			});
+
+		case UPDATE_ANIMATION_MODE:
+			return Object.assign({}, state, {
+				settings: {
+					...state.settings,
+					animationMode: action.payload
+				}
 			});
 
 		default:

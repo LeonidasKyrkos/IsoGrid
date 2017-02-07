@@ -18,17 +18,18 @@ export const App = firebase.initializeApp(config);
 export const DB = firebase.database();
 
 let promise = new Promise((resolve,reject)=>{
-	if(localStorage.getItem('IsoGrid')) {
-		resolve(JSON.parse(localStorage.getItem('IsoGrid')));
-	} else {
-		DB.ref('/').once('value',(snapshot)=>{
-			if(snapshot.val()) {
-				resolve(snapshot.val());
-			} else {
-				resolve(defaultState);
-			}
-		})
-	}
+	resolve(defaultState);
+	// if(localStorage.getItem('IsoGrid')) {
+	// 	resolve(JSON.parse(localStorage.getItem('IsoGrid')));
+	// } else {
+	// 	DB.ref('/').once('value',(snapshot)=>{
+	// 		if(snapshot.val()) {
+	// 			resolve(snapshot.val());
+	// 		} else {
+	// 			resolve(defaultState);
+	// 		}
+	// 	})
+	// }
 });
 
 promise.then((state) => {
