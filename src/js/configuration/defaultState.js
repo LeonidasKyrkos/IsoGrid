@@ -1,10 +1,12 @@
 import { terrain } from '../application/constants/terrain';
 import { structure } from '../application/constants/structure';
+import { animations } from '../application/constants/animations';
 
 export const defaultState = {
 	assets: {
 		terrain,
-		structure
+		structure,
+		animations
 	},
 	gridSquares: [],
 	settings: {
@@ -13,6 +15,7 @@ export const defaultState = {
 			id: 0
 		},
 		buildMode: true,
+		animationMode: false,
 		debug: true
 	}
 }

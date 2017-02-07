@@ -14,6 +14,7 @@ export default class Palette {
 		this.terrain = state.assets.terrain || [];
 		this.structure = state.assets.structure || [];
 		this.html = html;
+		this.animations = state.assets.animations || [];
 
 		if(this.store.getState().settings.buildMode) {
 			this.init();
@@ -25,6 +26,7 @@ export default class Palette {
 		createSubPalette(this.terrain, this.palette, 'terrain');
 		createSubPalette(this.structure, this.palette, 'structure');
 		createHtmlPalette(this.html, this.palette, 'html');
+		createSubPalette(this.animations, this.palette, 'animations', 'animationPaletteItem');
 		this.toolkit.classList.remove('hide');
 		this.wrap.appendChild(this.palette);
 		this.eventListeners();

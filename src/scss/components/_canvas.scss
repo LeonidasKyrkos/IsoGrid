@@ -1,6 +1,10 @@
 $module: 		'canvas';
 
 .#{$module} {
+	&.animationMode {
+		cursor: url('../../assets/flag.png'), auto;
+	}
+
 	&__wrap {
 		width: 100%;
 		height: 100%;
