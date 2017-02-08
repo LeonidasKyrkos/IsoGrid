@@ -3,7 +3,7 @@ import Palette from './components/palette/';
 import dragscroll from 'dragscroll';
 import { findSquare } from './utils/findSquare';
 import { colWidth as sqWidth, rowHeight as sqHeight } from './constants/dimensions';
-import { updateSquareTerrain } from './actions';
+import { updateSquareTerrain, updateAnimationMode } from './actions';
 import pushStateToFirebase from './utils/pushStateToFirebase';
 import { saveStateToLocalStorage, clearLocalStorage } from './utils/localStorage';
 
@@ -13,6 +13,7 @@ export default class IsoGrid {
 		this.canvasWrap = this.canvas.parentNode;
 		this.store = store;
 		this.firebasePushButton = document.querySelector('[data-js="pushToFirebase"]');
+		this.animationModeButton = document.querySelector('[data-js="toggleAnimationMode"]');
 		this.saveAlert = document.querySelector('[data-js="saveAlert"]');
 		this.clearCache = document.querySelector('[data-js="clearCache"]');
 		this.animationMode = this.selectAnimationMode(this.store.getState());
@@ -28,14 +29,15 @@ export default class IsoGrid {
 	}
 
 	eventListeners() {
-		this.canvas.addEventListener('dblclick',this.handleClick.bind(this));
+		this.canvas.addEventListener('click',this.handleClick.bind(this));
 
-		this.saveAlert.addEventListener('click',(e)=>{
+		this.saveAlert.addEventListener('click',e => {
 			this.saveAlert.classList.add('hide');
 			this.saveAlert.innerHTML = 'Loading...';
 		});
 
 		this.firebasePushButton.addEventListener('click',this.onSave.bind(this));
+		this.animationModeButton.addEventListener('click',this.toggleAnimationMode.bind(this));
 
 		this.clearCache.addEventListener('click',clearLocalStorage);
 	}
@@ -47,6 +49,10 @@ export default class IsoGrid {
 		if(previousValue !== this.animationMode) {
 			this.animationMode ? this.activateAnimationClass() : this.removeAnimationClass();
 		}
+	}
+
+	toggleAnimationMode() {
+		this.animationMode ? this.store.dispatch(updateAnimationMode(false)) : this.store.dispatch(updateAnimationMode(true));
 	}
 
 	activateAnimationClass() {
@@ -69,7 +75,11 @@ export default class IsoGrid {
 			const brushType = state.settings.activeBrush.type;
 			const brushID = state.settings.activeBrush.id;
 
-			this.store.dispatch(updateSquareTerrain({ col, row, brushType, brushID }));
+			if(state.settings.animationMode) {
+				
+			} else {
+				this.store.dispatch(updateSquareTerrain({ col, row, brushType, brushID }));
+			}			
 		}
 	}
 

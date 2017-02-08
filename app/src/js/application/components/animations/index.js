@@ -1,6 +1,13 @@
 import _ from 'lodash';
-import updateAnimations from '../../actions';
+import { updateAnimations, addAnimation } from '../../actions';
 import { refreshRate } from '../../constants/settings';
+
+// initialise animation
+export const init = (square, store) => {
+	let state = store.getState();
+	let animation = Object.assign({}, state.assets.animations[state.settings.activeBrush.id]);
+
+}
 
 // Animation handlers
 export const updateAnimationHandler = (store) => {
