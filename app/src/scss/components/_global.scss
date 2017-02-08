@@ -11,9 +11,12 @@ html {
 }
 
 body {
-	background-color: black;
+	background-color: white;
 	@include font-size($fzBase);
-	font-family: $ffBase;
+	font-family: $ffBase;	
+}
+
+.innerwrap {
 	cursor: -webkit-grab;
 	cursor: -moz-grab;
 	overflow: hidden;

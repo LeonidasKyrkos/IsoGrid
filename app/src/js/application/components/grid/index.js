@@ -2,10 +2,11 @@ import { rows, cols, colWidth, rowHeight, cvWidth as width, cvHeight as height }
 import { updateSquareTerrain, addSquares } from '../../actions';
 import Square from '../../components/square';
 import deepEqual from 'deep-equal';
-import { instantiateImages } from '../../utils/instantiateTerrain';
+import { instantiateImages } from '../../utils/instantiateImages';
 import { getSquarePoints } from '../../utils/getSquarePoints';
 import { assets as html } from '../../constants/html';
 import { refreshRate } from '../../constants/settings';
+import { updateAnimationHandler } from '../animations/submodules/updateHandlers';
 import _ from 'lodash';
 
 // Grid build system. It takes whatever data we give it and spits out a grid to match. 
@@ -34,16 +35,21 @@ export default class Grid {
 		// load images and render when complete
 		let terrain = instantiateImages(state.assets.terrain);
 		let structure = instantiateImages(state.assets.structure);
+		let animations = instantiateImages(state.assets.animations);
 
-		terrain.then((terrain)=>{
+		terrain.then( terrain => {
 			this.terrain = terrain;
 		})
 
-		structure.then((structure)=>{
+		structure.then( structure => {
 			this.structure = structure;
 		});
 
-		Promise.all([terrain,structure]).then(()=>{
+		animations.then( animations => {
+			this.animations = animations;
+		})
+
+		Promise.all([terrain, structure, animations]).then(()=>{
 			this.startRendering();
 		});
 	}
@@ -81,9 +87,11 @@ export default class Grid {
 		let gridSquares = state.gridSquares;
 
 		this.terrainLoop(gridSquares);
-		this.drawGradient();
+		state.animations && state.animations.length && this.animationLoop(state.animations);
 		this.structureLoop(gridSquares);
-		this.htmlLoop(gridSquares);
+		//this.htmlLoop(gridSquares);
+
+		state.animations && state.animations.length && updateAnimationHandler(this.store);
 
 		// performance testing end [active with debug flag in settings]
 		if(state.settings.debug) {
@@ -108,6 +116,24 @@ export default class Grid {
 		gradient.addColorStop(1,'rgba(36,134,197,0.3)');
 		this.ctx.fillStyle = gradient;
 		this.ctx.fillRect(0, 0, width, height);
+	}
+
+	animationLoop(animations) {
+		animations.forEach( animation => {
+			const aID = animation.type;
+			const image = this.animations[aID].image;
+			const offsetX = -image.width/2;
+			const offsetY = -image.height/2;
+			let currentCoordinates = animation.currentCoordinates || animation.allCoordinates[0];
+			const x = currentCoordinates.x + offsetX;
+			const y = currentCoordinates.y + offsetY;
+
+			this.ctx.globalCompositeOperation = 'source-over';
+
+			if(image) {
+				this.ctx.drawImage(image, x, y);
+			}
+		})
 	}
 
 	structureLoop(gridSquares) {
@@ -198,12 +224,14 @@ export default class Grid {
 	}
 
 	handleChange() {
-		let newVal = this.select(this.store.getState());
+		// let newVal = this.select(this.store.getState());
 
-		if(!deepEqual(newVal,this.currentValue,{ strict: true })) {
-			this.currentValue = _.cloneDeep(newVal);
-			this.render();
-		}
+		// if(!deepEqual(newVal,this.currentValue,{ strict: true })) {
+		// 	this.currentValue = _.cloneDeep(newVal);
+		// 	this.render();
+		// }
+
+		this.render();
 	}
 
 	select(state) {

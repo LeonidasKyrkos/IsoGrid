@@ -5,6 +5,7 @@ $module: 		'btn';
 	bottom: em(5);
 	right: em(5);
 	z-index: 10;
+	text-align: right;
 }
 
 .#{$module} {
@@ -16,8 +17,8 @@ $module: 		'btn';
 	&-primary {
 		@extend .#{$module};
 		display: inline-block;
-		margin: em(10);
-		$fontSize: 20;
+		$fontSize: 16;
+		margin: em(10,$fontSize);
 		font-size: em($fontSize);
 		background-color: #0275d8;
 		border-radius: em(6,$fontSize);
@@ -27,5 +28,9 @@ $module: 		'btn';
 		&:hover {
 			background-color: darken(#0275d8,10%);
 		}
+	}
+
+	&-secondary {
+		@extend .#{$module}-primary;
 	}
 }

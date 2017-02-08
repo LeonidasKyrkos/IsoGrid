@@ -3,6 +3,7 @@ import { structure } from '../application/constants/structure';
 import { animations } from '../application/constants/animations';
 
 export const defaultState = {
+	animations: [],
 	assets: {
 		terrain,
 		structure,
@@ -16,6 +17,9 @@ export const defaultState = {
 		},
 		buildMode: true,
 		animationMode: false,
+		activeAnimationBrush: {
+			id: null
+		},
 		debug: true
 	}
 }
