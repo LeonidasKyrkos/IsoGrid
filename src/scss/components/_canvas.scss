@@ -2,7 +2,7 @@ $module: 		'canvas';
 
 .#{$module} {
 	&.animationMode {
-		cursor: url('../../assets/flag.png'), auto;
+		cursor: url('../../assets/flag.png') 0 50, auto;
 	}
 
 	&__wrap {
