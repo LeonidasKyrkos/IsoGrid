@@ -6,28 +6,58 @@ import { assets as html } from '../../constants/html';
 export default class Palette {
 	constructor(store) {
 		this.store = store;
+		this.active = this.displayTest();
 		this.wrap = document.getElementById('isogridWrap');
-		this.toolkit = document.querySelector('[data-js="buildMode"]');
-		this.toolkitToggle = document.querySelector('[data-js="toggleToolkit"]');
+		this.paletteToggle = document.querySelector('[data-js="togglePalettes"]');
 
 		let state = this.store.getState();
 		this.terrain = state.assets.terrain || [];
 		this.structure = state.assets.structure || [];
 		this.html = html;
 
-		if(this.store.getState().settings.buildMode) {
+		if(this.active) {
 			this.init();
-		}		
+		}
+	}
+
+	displayTest() {
+		let buildMode = this.store.getState().settings.buildMode;
+		let aniMode = this.store.getState().settings.animationMode;
+
+		return buildMode && !aniMode;
 	}
 
 	init() {
+		this.initialised = true;
+		this.render();
+		this.eventListeners();
+		this.store.subscribe(this.handleChange.bind(this));
+	}	
+
+	handleChange() {
+		this.active = this.displayTest();
+
+		if(previous !== this.active) {
+			this.initialised && this.active ? this.render() : this.destroy();
+			!this.initialised && this.active && this.init();
+		}
+
+		let previous = this.active;
+	}
+
+	render() {
 		this.palette = createElement('div','palette','palette.wrap');
 		createSubPalette(this.terrain, this.palette, 'terrain');
 		createSubPalette(this.structure, this.palette, 'structure');
 		createHtmlPalette(this.html, this.palette, 'html');
-		this.toolkit.classList.remove('hide');
 		this.wrap.appendChild(this.palette);
-		this.eventListeners();
+	}
+
+	destroy() {
+		if(this.palette) {
+			this.wrap.removeChild(this.palette);
+			delete this.palette;
+		}
 	}
 
 	eventListeners() {
@@ -37,11 +67,15 @@ export default class Palette {
 			el.addEventListener('click',this.changeBrush.bind(this));
 		});
 
-		this.toolkitToggle.addEventListener('click',this.togglePalettes);
+		this.paletteToggle.addEventListener('click',this.togglePalettes);
 	}
 
 	togglePalettes() {
-		document.querySelector('[data-js="palette.wrap"]').classList.toggle('hide');
+		let palettes = document.querySelector('[data-js="palette.wrap"]');
+
+		if(palettes) {
+			palettes.classList.toggle('hide');
+		}
 	}
 
 	changeBrush(e) {
