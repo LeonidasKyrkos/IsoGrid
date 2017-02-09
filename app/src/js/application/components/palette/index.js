@@ -7,7 +7,7 @@ export default class Palette {
 	constructor(store) {
 		this.store = store;
 		this.active = this.displayTest();
-		this.wrap = document.getElementById('isogrid');
+		this.wrap = document.querySelector('[data-js="palette.wrap"]');
 		this.paletteToggle = document.querySelector('[data-js="togglePalettes"]');
 
 		let state = this.store.getState();
@@ -38,7 +38,8 @@ export default class Palette {
 		this.active = this.displayTest();
 
 		if(previous !== this.active) {
-			this.initialised && this.active ? this.render() : this.destroy();
+			this.destroy();
+			this.initialised && this.active && this.render();
 			!this.initialised && this.active && this.init();
 		}
 

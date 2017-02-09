@@ -6,6 +6,7 @@ import { createElement } from '../../utils/element';
 import { getCentreOfSquare } from '../../utils/square';
 import { findSquare } from '../../utils/findSquare';
 import newAnimation from './submodules/Animation';
+import deepEqual from 'deep-equal';
 
 export default class AnimationPalette {
 	constructor(store) {
@@ -76,23 +77,17 @@ export default class AnimationPalette {
 
 	handleChanges() {
 		this.runSelectors();
-		this.handleBuildModeChanges();
-		this.handleAniModeChange();
-	}
+		
+		if(typeof this.oldSelectors === 'undefined' || this.oldSelectors.buildMode !== this.selectors.buildMode || this.oldSelectors.animationMode !== this.selectors.animationMode) {
+			this.destroy();
 
-	handleBuildModeChanges() {
-		if(typeof this.currentBuildMode === 'undefined' || this.currentBuildMode !== this.selectors.buildMode) {
-			this.selectors.buildMode ? this.showTools() : this.hideTools();
-			this.currentBuildMode = this.selectors.buildMode;
+			if(this.selectors.buildMode && this.selectors.animationMode) {
+				
+				this.render();
+			}
 		}
-	}
 
-	handleAniModeChange() {
-		if(typeof this.currentAniMode === 'undefined' || this.currentAniMode !== this.selectors.animationMode) {
-			console.log('hit');
-			this.selectors.animationMode ? this.showTools() : this.hideTools();
-			this.currentAniMode = this.selectors.animationMode;
-		}		
+		this.oldSelectors = _.cloneDeep(this.selectors);
 	}
 
 	createAnimatables(resolve, reject) {
@@ -179,6 +174,8 @@ export default class AnimationPalette {
 		let target = e.currentTarget;
 		let animationID = target.getAttribute('data-id');
 		target.classList.add('active');
+
+		console.log(target);
 
 		this.store.dispatch(updateAnimationBrush(animationID));
 	}
