@@ -3,7 +3,7 @@
 export const animations = [
 	{
 		type: 'flare',
-		speed: 200,
+		speed: 500,
 		imageSrc: "/assets/flare.png"
 	}
 ]

@@ -3,15 +3,15 @@ import Palette from './components/palette/';
 import AnimationPalette from './components/animations';
 import dragscroll from 'dragscroll';
 import { findSquare } from './utils/findSquare';
-import { colWidth as sqWidth, rowHeight as sqHeight } from './constants/dimensions';
+import { colWidth as sqWidth, rowHeight as sqHeight, cvWidth, cvHeight } from './constants/dimensions';
 import { updateSquareTerrain, updateAnimationMode, updateBuildMode } from './actions';
 import pushStateToFirebase from './utils/pushStateToFirebase';
 import { saveStateToLocalStorage, clearLocalStorage } from './utils/localStorage';
 
 export default class IsoGrid {
 	constructor(store) {
-		this.canvas = document.getElementById('isogrid');
-		this.canvasWrap = this.canvas.parentNode;
+		this.wrap = document.getElementById('isogrid');
+		this.wrap.setAttribute('style',`width: ${cvWidth}px; height: ${cvHeight}px`);
 		this.store = store;
 		this.elementSelectors();
 		this.runSelectors();
@@ -36,16 +36,16 @@ export default class IsoGrid {
 	}
 
 	init() {
-		this.grid = new Grid(this.store, this.canvas);
+		this.grids = new Grid(this.store);
 		this.palette = new Palette(this.store);
-		this.animationPalette = new AnimationPalette(this.store, this.canvas);
+		this.animationPalette = new AnimationPalette(this.store);
 		this.handleChanges();
 		this.eventListeners();
 		this.store.subscribe(this.handleChanges.bind(this));
 	}
 
 	eventListeners() {
-		this.canvas.addEventListener('click',this.handleClick.bind(this));
+		this.wrap.addEventListener('dblclick',this.handleClick.bind(this));
 
 		this.saveAlert.addEventListener('click', e => {
 			this.saveAlert.classList.add('hide');
@@ -102,19 +102,19 @@ export default class IsoGrid {
 	}
 
 	activateAnimationClass() {
-		this.canvas.classList.add('animationMode');
+		this.wrap.classList.add('animationMode');
 	}
 
 	removeAnimationClass() {
-		this.canvas.classList.remove('animationMode');
+		this.wrap.classList.remove('animationMode');
 	}
 
 	handleClick(e) {
 		let state = this.store.getState();
 
 		if(!state.settings.animationMode) {
-			const x = e.x + this.canvasWrap.scrollLeft;
-			const y = e.y + this.canvasWrap.scrollTop;
+			const x = e.x + this.wrap.parentNode.scrollLeft;
+			const y = e.y + this.wrap.parentNode.scrollTop;
 			const square = findSquare(x, y, this.store);			
 
 			if(square) {

@@ -1,1 +1,1 @@
-export const refreshRate = 500;
+export const refreshRate = 16;

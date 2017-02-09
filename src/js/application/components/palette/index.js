@@ -7,7 +7,7 @@ export default class Palette {
 	constructor(store) {
 		this.store = store;
 		this.active = this.displayTest();
-		this.wrap = document.getElementById('isogridWrap');
+		this.wrap = document.getElementById('isogrid');
 		this.paletteToggle = document.querySelector('[data-js="togglePalettes"]');
 
 		let state = this.store.getState();

@@ -22,7 +22,11 @@
 			</div>
 			<span class="save__status hide" data-js="saveAlert">Loading...</span>
 			<section class="canvas__wrap dragscroll">
-				<canvas class="canvas" id="isogrid"></canvas>
+				<div id="isogrid" class="canvas__innerwrap">
+					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="terrain"></canvas>
+					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="animation"></canvas>
+					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="structure"></canvas>
+				</div>
 			</section>
 			<div class="templates" style="visibility: hidden; width: 0; height: 0; overflow: hidden; pointer-events: none">
 				<div class="eye" id="londoneye" data-js="htmlTemplate">

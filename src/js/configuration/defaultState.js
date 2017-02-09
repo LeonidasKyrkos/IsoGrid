@@ -20,6 +20,6 @@ export const defaultState = {
 		activeAnimationBrush: {
 			id: null
 		},
-		debug: true
+		debug: false
 	}
 }

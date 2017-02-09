@@ -16,17 +16,60 @@ import _ from 'lodash';
 
 export default class Grid {
 	constructor(store, canvas) {
-		this.store = store;
-		this.canvas = canvas;
-		this.canvasWrap = this.canvas.parentNode;
-		this.currentValue = {};
+		this.store = store;		
+		this.wrap = document.getElementById('isogrid');
+		this.lastRender = 0;
+
+		this.canvases = {
+			terrain: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="terrain"]'),
+				selector: (state) => {
+					return state.gridSquares;
+				},
+				render: (gridSquares) => {
+					this.canvases.terrain.ctx.clearRect(0, 0, width, height);
+
+					gridSquares.forEach((row,i)=>{
+						row.forEach((square,i)=>{
+							this.drawGridSquare(square,'terrain');
+						});
+					});
+				}
+			},
+			animation: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation"]'),
+				selector: (state) => {
+					return state.animations;
+				},
+				render: (animations) => {
+					if(!animations || animations && !animations.length) { return };
+					
+					this.drawAnimations(animations);
+
+					updateAnimationHandler(this.store);
+				}
+			},
+			structure: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure"]'),
+				selector: (state) => {
+					return state.gridSquares;
+				},
+				render: (gridSquares) => {
+					gridSquares.forEach((row,i)=>{
+						row.forEach((square,i)=>{
+							this.drawGridSquare(square,'structure')
+						});
+					});
+				}
+			}				
+		}
 
 		this.init();
 	}
 
 	init() {
 		const state = this.store.getState();
-		this.setupCanvas();
+		this.setup();
 		
 		if(!state.gridSquares || state.gridSquares && !state.gridSquares.length) {
 			this.setupGridSquares();
@@ -54,11 +97,14 @@ export default class Grid {
 		});
 	}
 
-	setupCanvas() {
-		this.canvas.width = width;
-		this.canvas.height = height;
-		this.ctx = this.canvas.getContext('2d');
-		this.ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+	setup() {
+		for(let name in this.canvases) {
+			let subCanvas = this.canvases[name];
+			subCanvas.canvas.width = width;
+			subCanvas.canvas.height = height;
+			subCanvas.ctx = subCanvas.canvas.getContext('2d');
+			subCanvas.ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+		}
 	}
 
 	setupGridSquares() {
@@ -76,38 +122,6 @@ export default class Grid {
 		this.store.dispatch(addSquares(gridSquares));
 	}
 
-	render() {
-		this.ctx.clearRect(0,0,width,height);
-		let state = this.store.getState();
-
-		// performance testing start [active with debug flag in settings]
-		if(state.settings.debug) { var start = window.performance.now(); }
-
-		this.ctx.clearRect(0, 0, width, height);		
-		let gridSquares = state.gridSquares;
-
-		this.terrainLoop(gridSquares);
-		state.animations && state.animations.length && this.animationLoop(state.animations);
-		this.structureLoop(gridSquares);
-		//this.htmlLoop(gridSquares);
-
-		state.animations && state.animations.length && updateAnimationHandler(this.store);
-
-		// performance testing end [active with debug flag in settings]
-		if(state.settings.debug) {
-			let finish = Math.floor(window.performance.now() - start);
-			state.settings.debug && console.log(`${finish}ms to render`);
-		}		
-	}
-
-	terrainLoop(gridSquares) {
-		gridSquares.forEach((row,i)=>{
-			row.forEach((square,i)=>{
-				this.drawTerrain(square);
-			});
-		});
-	}
-
 	drawGradient() {
 		const gradient = this.ctx.createLinearGradient(0,0,0,height);
 		gradient.addColorStop(0,'rgba(36,134,197,0.3)');
@@ -116,32 +130,6 @@ export default class Grid {
 		gradient.addColorStop(1,'rgba(36,134,197,0.3)');
 		this.ctx.fillStyle = gradient;
 		this.ctx.fillRect(0, 0, width, height);
-	}
-
-	animationLoop(animations) {
-		animations.forEach( animation => {
-			const aID = animation.type;
-			const image = this.animations[aID].image;
-			const offsetX = -image.width/2;
-			const offsetY = -image.height/2;
-			let currentCoordinates = animation.currentCoordinates || animation.allCoordinates[0];
-			const x = currentCoordinates.x + offsetX;
-			const y = currentCoordinates.y + offsetY;
-
-			this.ctx.globalCompositeOperation = 'source-over';
-
-			if(image) {
-				this.ctx.drawImage(image, x, y);
-			}
-		})
-	}
-
-	structureLoop(gridSquares) {
-		gridSquares.forEach((row,i)=>{
-			row.forEach((square,i)=>{
-				this.drawStructures(square);
-			});
-		});
 	}
 
 	htmlLoop(gridSquares) {
@@ -157,47 +145,46 @@ export default class Grid {
 		this.canvasWrap.appendChild(wrap);
 	}
 
-	drawTerrain(square) {
-		if(square && square.brushes && square.brushes.terrain && this.terrain[square.brushes.terrain]) {
-			const tID = square.brushes.terrain;
-			const image = this.terrain[tID].image;
-			const offsetY = this.terrain[tID].offsetY || 0;
-			const offsetX = this.terrain[tID].offsetX || 0;
+	drawGridSquare(square,type) {
+		if(square && square.brushes && square.brushes[type] && this[type][square.brushes[type]]) {
+			const ctx = this.canvases[type].ctx;
+			const tID = square.brushes[type];
+			const image = this[type][tID].image;
+			const offsetY = this[type][tID].offsetY || 0;
+			const offsetX = this[type][tID].offsetX || 0;
 			const row = square.position.row;
 			const col = square.position.col;
 
 			const x = row % 2 === 0 ? colWidth * col : (colWidth * col) +  colWidth/2;
 			const y = ((rowHeight / 2) * row) + rowHeight/2 + 8;
 
-			this.ctx.globalCompositeOperation = 'source-over';
-
 			if(image) {
-				this.ctx.drawImage(image, x + offsetX, (y - image.height/2) + offsetY);
+				ctx.drawImage(image, x + offsetX, (y - image.height/2) + offsetY);
 			}
 		}
 	}
 
-	drawStructures(square) {
-		if(square && square.brushes && square.brushes.structure && this.structure[square.brushes.structure]) {
-			const sID = square.brushes.structure;
-			const image = this.structure[sID].image;
-			const offsetY = this.structure[sID].offsetY || 0;
-			const offsetX = this.structure[sID].offsetX || 0;
-			const row = square.position.row;
-			const col = square.position.col;
+	drawAnimations(animations) {
+		const ctx = this.canvases.animation.ctx;
+		
+		animations.forEach( animation => {
+			const aID = animation.type;
+			const image = this.animations[aID].image;
+			const offsetX = -image.width/2;
+			const offsetY = -image.height/2;
+			let currentCoordinates = animation.currentCoordinates || animation.allCoordinates[0];
+			const x = currentCoordinates.x + offsetX;
+			const y = currentCoordinates.y + offsetY;
 
-			const x = row % 2 === 0 ? colWidth * col : (colWidth * col) +  colWidth/2;
-			const y = ((rowHeight / 2) * row) + rowHeight/2;
-
-			this.ctx.globalCompositeOperation = 'source-over';
+			if(animation.previousCoordinates) {
+				ctx.clearRect(animation.previousCoordinates.x, animation.previousCoordinates.y, image.width, image.height);
+			}						
 
 			if(image) {
-				this.ctx.save();
-				this.ctx.translate((x + image.width/2) + offsetX, (y - image.height/2 + 8) + offsetY + image.height/2);				
-				this.ctx.drawImage(image, -image.width/2, -image.height/2);
-				this.ctx.restore();
+				ctx.drawImage(image, x, y);
+				animation.previousCoordinates = { x, y };
 			}
-		}
+		})
 	}
 
 	addHtml(square, wrap) {
@@ -216,7 +203,13 @@ export default class Grid {
 	}
 
 	startRendering() {
-		this.renderInterval = setInterval(this.handleChange.bind(this), refreshRate);
+		window.requestAnimationFrame(()=>{
+			if(Date.now() - this.lastRender >= refreshRate) {
+				this.lastRender = Date.now();
+				this.handleChange();
+			}
+			this.startRendering();
+		})
 	}
 
 	stopRendering() {
@@ -224,14 +217,22 @@ export default class Grid {
 	}
 
 	handleChange() {
-		// let newVal = this.select(this.store.getState());
+		let state = this.store.getState();
 
-		// if(!deepEqual(newVal,this.currentValue,{ strict: true })) {
-		// 	this.currentValue = _.cloneDeep(newVal);
-		// 	this.render();
-		// }
+		for(let name in this.canvases) {
+			let subCanvas = this.canvases[name];
+			let newVal = subCanvas.selector(state);
 
-		this.render();
+			if(name = 'animation' && state.animations && state.animations.length) {
+				subCanvas.render(newVal);
+			}
+
+			if(name = 'animation' !== 'animation' && typeof subCanvas.current === 'undefined' || !deepEqual(subCanvas.current, newVal)) {
+				subCanvas.render(newVal);
+				subCanvas.current = _.cloneDeep(newVal);
+			}
+		}
+
 	}
 
 	select(state) {
