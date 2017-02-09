@@ -39,10 +39,8 @@ const isoGrid = (state = initialState, action) => {
 
 		case UPDATE_ANIMATIONS:
 			return Object.assign({}, state, {
-				assets: {
-					...state.assets,
-					animations: action.payload
-				}				
+				...state,
+				animations: action.payload				
 			});
 
 		case UPDATE_ANIMATION_MODE:

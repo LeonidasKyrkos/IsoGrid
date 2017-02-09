@@ -1,14 +1,22 @@
 $module: 		'canvas';
 
 .#{$module} {
-	&.animationMode {
-		cursor: url('../../assets/flag.png') 0 50, auto;
-	}
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 
 	&__wrap {
-		width: 100%;
-		height: 100%;
 		overflow: scroll;
 		position: relative;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	&__innerwrap {
+		&.animationMode {
+			cursor: url('../../assets/flag.png') 0 50, auto;
+		}
 	}
 }

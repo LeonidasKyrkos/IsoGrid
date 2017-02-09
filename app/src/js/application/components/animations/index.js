@@ -8,10 +8,9 @@ import { findSquare } from '../../utils/findSquare';
 import newAnimation from './submodules/Animation';
 
 export default class AnimationPalette {
-	constructor(store, canvas) {
+	constructor(store) {
 		this.store = store;
-		this.canvas = canvas;
-		this.canvasWrap = this.canvas.parentNode;
+		this.wrap = document.getElementById('isogrid');
 		this.runSelectors();
 		this.store.subscribe(this.handleChanges.bind(this));
 
@@ -61,7 +60,7 @@ export default class AnimationPalette {
 			buildMode: state.settings.buildMode,
 			animationMode: state.settings.animationMode,
 			animationInstances: state.animations,
-			animationImages: state.assets.animations,
+			animationArchetypes: state.assets.animations,
 			activeAnimationBrush: state.settings.activeAnimationBrush
 		}
 	}
@@ -97,7 +96,7 @@ export default class AnimationPalette {
 	}
 
 	createAnimatables(resolve, reject) {
-		let animatables = instantiateImages(this.selectors.animationImages);
+		let animatables = instantiateImages(this.selectors.animationArchetypes);
 
 		animatables.then( animatables => {
 			this.animatableItems = animatables;
@@ -123,7 +122,7 @@ export default class AnimationPalette {
 	eventHandlers() {
 		this.paletteItems.forEach(this.paletteHandler.bind(this));
 		this.closeAnimationButton.addEventListener('click',this.closePalette.bind(this));
-		this.canvas.addEventListener('click',this.canvasClickHandler.bind(this));
+		this.wrap.addEventListener('click',this.canvasClickHandler.bind(this));
 		this.saveAnimationButton.addEventListener('click',this.saveAnimationPath.bind(this));
 	}
 
@@ -131,8 +130,8 @@ export default class AnimationPalette {
 		this.runSelectors();
 
 		if(this.selectors.animationMode && this.selectors.activeAnimationBrush !== null) {
-			const x = e.x + this.canvasWrap.scrollLeft;
-			const y = e.y + this.canvasWrap.scrollTop;
+			const x = e.x + this.wrap.parentNode.scrollLeft;
+			const y = e.y + this.wrap.parentNode.scrollTop;
 			const square = findSquare(x, y, this.store);
 			
 			if(square) {				
@@ -152,10 +151,12 @@ export default class AnimationPalette {
 	}
 
 	createNewAnimationPath(square) {
-		this.drawingAni = {
+		let archetype = this.selectors.animationArchetypes[this.selectors.activeAnimationBrush];
+
+		this.drawingAni = Object.assign({},archetype,{
 			type: this.selectors.activeAnimationBrush,
 			allCoordinates: [getCentreOfSquare(square)]
-		};
+		});
 	}
 
 	addToExistingAnimationPath(square) {
