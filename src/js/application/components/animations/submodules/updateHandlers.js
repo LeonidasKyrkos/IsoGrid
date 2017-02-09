@@ -27,7 +27,7 @@ const getNextCoordinates = (animation) => {
 
 	if((vector.xLength < 0 && currentCoordinates.x <= destination.x || vector.xLength > 0 && currentCoordinates.x >= destination.x) && (vector.yLength < 0 && currentCoordinates.y <= destination.y || vector.yLength > 0 && currentCoordinates.y >= destination.y) || ((vector.xLength === 0 && vector.yLength < 0 && currentCoordinates.y <= destination.y) || (vector.xLength === 0 && vector.yLength > 0 && currentCoordinates.y >= destination.y)) || ((vector.yLength === 0 && vector.xLength < 0 && currentCoordinates.x <= destination.x) || (vector.yLength === 0 && vector.xLength > 0 && currentCoordinates.x >= destination.x))) {
 		animation.remainingCoordinates.splice(0,1);
-		return currentCoordinates;
+		return animation.remainingCoordinates[0];
 	}
 
 	return { x: currentCoordinates.x + vector.incrementX, y: currentCoordinates.y + vector.incrementY };
