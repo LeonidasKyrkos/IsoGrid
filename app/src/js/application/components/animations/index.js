@@ -7,6 +7,7 @@ import { getCentreOfSquare } from '../../utils/square';
 import { findSquare } from '../../utils/findSquare';
 import newAnimation from './submodules/Animation';
 import deepEqual from 'deep-equal';
+import { defaults } from '../../constants/animations';
 
 export default class AnimationPalette {
 	constructor(store) {
@@ -26,6 +27,7 @@ export default class AnimationPalette {
 		});
 
 		promise.then(() => {
+			this.inputs = this.inputSelectors();
 			this.elementSelectors();
 			this.eventHandlers();
 			this.handleChanges();
@@ -52,6 +54,15 @@ export default class AnimationPalette {
 	addAnimation() {
 		let animation = new Animation();
 		this.store.dispatch(addAnimation(animation));
+	}
+
+	inputSelectors() {
+		return {
+			speed: document.querySelector('[data-js="animation.speed"]'),
+			delay: document.querySelector('[data-js="animation.delay"]'),
+			offsetX: document.querySelector('[data-js="animation.offset.x"]'),
+			offsetY: document.querySelector('[data-js="animation.offset.y"]')
+		}
 	}
 
 	runSelectors() {
@@ -163,21 +174,12 @@ export default class AnimationPalette {
 
 	saveAnimationPath() {
 		if(this.drawingAni) {
-			const speed = document.querySelector('[data-js="animation.speed"]');
-			const delay = document.querySelector('[data-js="animation.delay"]');
-			const offsetX = document.querySelector('[data-js="animation.offset.x"]');
-			const offsetY = document.querySelector('[data-js="animation.offset.y"]');
-
-			this.drawingAni.speed = speed && speed.value.length ? parseInt(speed.value) : 100;
-			this.drawingAni.delay = delay && delay.value.length ? parseInt(delay.value) : 0;
-			this.drawingAni.offsetX = offsetX && offsetX.value.length ? parseInt(offsetX.value) : 0;
-			this.drawingAni.offsetY = offsetY && offsetY.value.length ? parseInt(offsetY.value) : 0;
+			Object.keys(this.inputs).map( key => {
+				let option = this.inputs[key];
+				this.drawingAni[key] = option && option.value.length ? parseInt(option.value) : defaults[key];
+			})
 
 			this.store.dispatch(addAnimation(this.drawingAni));
-			speed.value = '';
-			delay.value = '';
-			offsetX.value = '';
-			offsetY.value = '';
 			this.closePalette();
 		}
 	}

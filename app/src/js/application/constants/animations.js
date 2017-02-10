@@ -1,5 +1,4 @@
 // part of state.assets
-
 export const animations = [
 	{
 		type: 'flare',
@@ -19,3 +18,12 @@ export const animations = [
 		}
 	}
 ]
+
+// default animation settings
+
+export const defaults = {
+	speed: 100,
+	delay: 0,
+	offsetX: 0,
+	offsetY: 0
+}
