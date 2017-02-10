@@ -3,13 +3,13 @@ export const terrain = [
 		imageSrc: false
 	},
 	{
-		imageSrc: '/assets/floor_s.png'
+		imageSrc: '/assets/floor.png'
 	},
 	{
-		imageSrc: '/assets/road_s.png'
+		imageSrc: '/assets/road.png'
 	},
 	{
-		imageSrc: '/assets/water_s.png',
+		imageSrc: '/assets/water.png',
 		offsetY: 12
 	}
 ]

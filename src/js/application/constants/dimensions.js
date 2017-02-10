@@ -1,6 +1,6 @@
-export const cvWidth = 5000;
-export const cvHeight = 2500;
-export const colWidth = 99;
-export const rowHeight = 57;
+export const cvWidth = 4000;
+export const cvHeight = 1800;
+export const colWidth = 100;
+export const rowHeight = 58;
 export const rows = (cvHeight / (rowHeight/2));
 export const cols = cvWidth / colWidth;
