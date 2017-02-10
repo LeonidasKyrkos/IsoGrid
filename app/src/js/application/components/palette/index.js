@@ -36,15 +36,13 @@ export default class Palette {
 	}	
 
 	handleChange() {
+		let previous = this.active;
 		this.active = this.displayTest();
 
 		if(previous !== this.active) {
 			this.destroy();
-			this.initialised && this.active && this.render();
-			!this.initialised && this.active && this.init();
+			this.active && this.init();
 		}
-
-		let previous = this.active;
 	}
 
 	render() {
@@ -84,7 +82,7 @@ export default class Palette {
 	changeBrush(e) {
 		this.clearBrushes();
 
-		let target = e.currentTarget;
+		let target = e.target;
 		target.classList.add('active');
 
 		let brushID = target.getAttribute('data-brush-id');

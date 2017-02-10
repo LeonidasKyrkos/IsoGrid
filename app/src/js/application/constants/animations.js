@@ -16,6 +16,40 @@ export const animations = [
 				imageSrc: "/assets/flare.png"
 			}
 		}
+	},
+	{
+		type: 'car',
+		images: {
+			SE: {
+				imageSrc: "/assets/car_se.png"
+			},
+			SW: {
+				imageSrc: "/assets/car_se.png"
+			},
+			NW: {
+				imageSrc: "/assets/car_sw.png"
+			},
+			NE: {
+				imageSrc: "/assets/car_se.png"
+			}
+		}
+	},
+	{
+		type: 'boat',
+		images: {
+			SE: {
+				imageSrc: "/assets/boat_sw.png"
+			},
+			SW: {
+				imageSrc: "/assets/boat_sw.png"
+			},
+			NW: {
+				imageSrc: "/assets/boat_sw.png"
+			},
+			NE: {
+				imageSrc: "/assets/boat_sw.png"
+			}
+		}
 	}
 ]
 

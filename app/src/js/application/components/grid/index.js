@@ -53,6 +53,8 @@ export default class Grid {
 					return state.gridSquares;
 				},
 				render: (gridSquares) => {
+					this.canvases.structure.ctx.clearRect(0, 0, width, height);
+
 					gridSquares.forEach((row,i)=>{
 						row.forEach((square,i)=>{
 							this.drawGridSquare(square,'structure')
@@ -76,7 +78,6 @@ export default class Grid {
 		// load images and render when complete
 		let terrain = instantiateImages(state.assets.terrain);
 		let structure = instantiateImages(state.assets.structure);
-
 		let animations = instantiateAnimationImages(state.assets.animations);
 
 		terrain.then( terrain => {
@@ -103,6 +104,7 @@ export default class Grid {
 			subCanvas.canvas.height = height;
 			subCanvas.ctx = subCanvas.canvas.getContext('2d');
 			subCanvas.ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+			subCanvas.ctx.imageSmoothingEnabled = true;
 		}
 	}
 
@@ -158,7 +160,7 @@ export default class Grid {
 			const y = ((rowHeight / 2) * row) + rowHeight/2 + 8;
 
 			if(image) {
-				ctx.drawImage(image, x + offsetX, (y - image.height/2) + offsetY);
+				ctx.drawImage(image, Math.floor(x + offsetX),Math.floor((y - image.height/2) + offsetY));
 			}
 		}
 	}

@@ -1,5 +1,9 @@
 export const saveStateToLocalStorage = (state) => {
-	localStorage.setItem('IsoGrid',JSON.stringify(state));
+	let editedState = _.cloneDeep(state);
+	delete editedState.assets;
+	delete editedState.settings;
+
+	localStorage.setItem('IsoGrid',JSON.stringify(editedState));
 }
 
 export const clearLocalStorage = (state) => {
