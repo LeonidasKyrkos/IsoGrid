@@ -15,6 +15,8 @@ export default class Palette {
 		this.structure = state.assets.structure || [];
 		this.html = html;
 
+		this.store.subscribe(this.handleChange.bind(this));
+
 		if(this.active) {
 			this.init();
 		}
@@ -31,7 +33,6 @@ export default class Palette {
 		this.initialised = true;
 		this.render();
 		this.eventListeners();
-		this.store.subscribe(this.handleChange.bind(this));
 	}	
 
 	handleChange() {
@@ -73,9 +74,10 @@ export default class Palette {
 
 	togglePalettes() {
 		let palettes = document.querySelector('[data-js="palette.wrap"]');
-
+		
 		if(palettes) {
-			palettes.classList.toggle('hide');
+			palettes && palettes.classList.toggle('hide');
+			this.classList.toggle('active');
 		}
 	}
 

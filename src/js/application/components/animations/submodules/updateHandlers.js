@@ -5,12 +5,19 @@
 // Animation handlers
 export const updateAnimationHandler = (store) => {
 	const state = store.getState();
+	const elapsed = Date.now()/1000;
 	if(!state.animations) { return };
-	state.animations.forEach(animation => updateAnimation(animation,store));
+	state.animations.forEach(animation => updateAnimation(animation,elapsed));
 }
 
-const updateAnimation = (animation) => {
+const updateAnimation = (animation,elapsed) => {
+	animation.finished = animation.finished || elapsed;
+	animation.active = handleDelay(animation,elapsed);
+
+	if(!animation.active) { return };
+
 	animation.remainingCoordinates = animation.remainingCoordinates || Object.assign([],animation.allCoordinates);
+	animation.direction = animation.direction || getDirectionOfTravel(animation.remainingCoordinates[0],animation.remainingCoordinates[1]);
 	
 	if(animation.remainingCoordinates.length > 1) {
 		animation.currentCoordinates = getNextCoordinates(animation);
@@ -27,6 +34,8 @@ const getNextCoordinates = (animation) => {
 
 	if((vector.xLength < 0 && currentCoordinates.x <= destination.x || vector.xLength > 0 && currentCoordinates.x >= destination.x) && (vector.yLength < 0 && currentCoordinates.y <= destination.y || vector.yLength > 0 && currentCoordinates.y >= destination.y) || ((vector.xLength === 0 && vector.yLength < 0 && currentCoordinates.y <= destination.y) || (vector.xLength === 0 && vector.yLength > 0 && currentCoordinates.y >= destination.y)) || ((vector.yLength === 0 && vector.xLength < 0 && currentCoordinates.x <= destination.x) || (vector.yLength === 0 && vector.xLength > 0 && currentCoordinates.x >= destination.x))) {
 		animation.remainingCoordinates.splice(0,1);
+		animation.previousDirection = animation.direction;
+		animation.direction = getDirectionOfTravel(origin, destination);
 		return animation.remainingCoordinates[0];
 	}
 
@@ -48,7 +57,27 @@ const getVector = (origin, destination, speed) => {
 	return vector;
 }
 
-const resetAnimation = (animation) => {
+const resetAnimation = (animation,elapsed) => {
 	delete animation.remainingCoordinates;
 	delete animation.currentCoordinates;
+	animation.finished = elapsed;
+}
+
+const getDirectionOfTravel = (origin, destination) => {
+	let y = origin.y < destination.y ? 'S' : 'N';
+	let x = origin.x < destination.x ? 'E' : 'W';
+
+	return y+x;
+}
+
+const handleDelay = (animation,elapsed) => {
+	if(!animation.delay) {
+		return true;
+	}
+
+	if(animation.delay < elapsed - animation.finished) {
+		return true;
+	} else {
+		return false;
+	}
 }

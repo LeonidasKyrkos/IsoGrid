@@ -17,20 +17,28 @@ $module: 		'btn';
 	&-primary {
 		@extend .#{$module};
 		display: inline-block;
-		$fontSize: 16;
+		$fontSize: 12;
 		margin: em(10,$fontSize);
 		font-size: em($fontSize);
-		background-color: #0275d8;
+		background-color: #337ab7;
+		border: 1px solid #2e6da4;
 		border-radius: em(6,$fontSize);
-		padding: em(10,$fontSize) em(20,$fontSize);
+		padding: em(8,$fontSize) em(13,$fontSize);
 		color: white;
 
 		&:hover {
-			background-color: darken(#0275d8,10%);
+			background-color: darken(#337ab7,10%);
+			border: 1px solid darken(#2e6da4,10%);
 		}
-	}
 
-	&-secondary {
-		@extend .#{$module}-primary;
+		&.active {
+			background-color: #5cb85c;
+			border-color: #4cae4c;
+
+			&:hover {
+				background-color: darken(#5cb85c,10%);
+				border-color: darken(#4cae4c,10%);
+			}
+		}
 	}
 }

@@ -24,6 +24,7 @@ export default class IsoGrid {
 		this.saveAlert = document.querySelector('[data-js="saveAlert"]');
 		this.clearCache = document.querySelector('[data-js="clearCache"]');
 		this.buildTools = document.querySelector('[data-js="buildMode"]');
+		this.buildModeButton = document.querySelector('[data-js="toggleBuildMode"]');
 	}
 
 	runSelectors() {
@@ -39,7 +40,6 @@ export default class IsoGrid {
 		this.grids = new Grid(this.store);
 		this.palette = new Palette(this.store);
 		this.animationPalette = new AnimationPalette(this.store);
-		this.handleChanges();
 		this.eventListeners();
 		this.store.subscribe(this.handleChanges.bind(this));
 	}
@@ -54,7 +54,7 @@ export default class IsoGrid {
 
 		this.firebasePushButton.addEventListener('click',this.onSave.bind(this));
 		this.animationModeButton.addEventListener('click',this.toggleAnimationMode.bind(this));
-		document.querySelector('[data-js="toggleBuildMode"]').addEventListener('click',this.toggleBuildMode.bind(this));
+		this.buildModeButton.addEventListener('click',this.toggleBuildMode.bind(this));
 
 		this.clearCache.addEventListener('click',clearLocalStorage);
 	}
@@ -82,30 +82,32 @@ export default class IsoGrid {
 	}
 
 	showBuildTools() {
+		this.buildModeButton.classList.add('active');
 		this.buildTools.classList.remove('hide');
 	}
 
 	hideBuildTools() {
+		this.buildModeButton.classList.remove('active');
 		this.buildTools.classList.add('hide');
 	}
 
 	toggleAnimationMode() {
 		this.runSelectors();
-
-		this.selectors.animationMode ? this.store.dispatch(updateAnimationMode(false)) : this.store.dispatch(updateAnimationMode(true));
+		this.store.dispatch(updateAnimationMode(!this.selectors.animationMode));
 	}
 
 	toggleBuildMode() {
 		this.runSelectors();
-
-		this.selectors.buildMode ? this.store.dispatch(updateBuildMode(false)) : this.store.dispatch(updateBuildMode(true));
+		this.store.dispatch(updateBuildMode(!this.selectors.buildMode));
 	}
 
 	activateAnimationClass() {
+		this.animationModeButton.classList.add('active');
 		this.wrap.classList.add('animationMode');
 	}
 
 	removeAnimationClass() {
+		this.animationModeButton.classList.remove('active');
 		this.wrap.classList.remove('animationMode');
 	}
 

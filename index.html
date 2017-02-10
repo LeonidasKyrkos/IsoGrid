@@ -28,7 +28,7 @@
 					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="structure"></canvas>
 				</div>
 			</section>
-			<div class="palette__wrap" data-js="palette.wrap"></div>
+			<div class="palette__wrap hide" data-js="palette.wrap"></div>
 			<div class="templates" style="visibility: hidden; width: 0; height: 0; overflow: hidden; pointer-events: none">
 				<div class="eye" id="londoneye" data-js="htmlTemplate">
 					<div class="eye__inner">
@@ -124,11 +124,39 @@
 			</div>
 			<div class="hide" data-js="animationMode">
 				<div class="control-panel">
-					<ul data-js="animationMode.animatables"></ul>
-					<button class="hide btn-secondary" data-js="animationMode.new">New</button>
-					<button class="btn-secondary" data-js="animationMode.save">Save</button>
-					<button class="hide btn-secondary" data-js="animationMode.cancel">Cancel</button>
-					<button class="btn-secondary" data-js="animationMode.close">Close</button>
+					<ul class="control-panel__options" data-js="animationMode.animatables"></ul>
+					<form action="" class="form">
+						<ul class="form__items">
+							<li>
+								<label for="" class="form__control">
+									<span class="form__label">Speed</span>
+									<input data-js="animation.speed" type="text" class="form__input">	
+								</label>
+							</li>
+							<li>
+								<label for="" class="form__control">
+									<span class="form__label">Delay</span>
+									<input data-js="animation.delay" type="text" class="form__input">
+								</label>
+							</li>
+							<li>
+								<label for="" class="form__control">
+									<span class="form__label">OffsetX</span>
+									<input data-js="animation.offset.x" type="text" class="form__input">
+								</label>
+							</li>
+							<li>
+								<label for="" class="form__control">
+									<span class="form__label">OffsetY</span>
+									<input data-js="animation.offset.y" type="text" class="form__input">
+								</label>
+							</li>
+						</ul>
+					</form>
+					<div class="control-panel__buttons">
+						<button class="btn-primary" data-js="animationMode.save">Save</button>
+						<button class="btn-primary" data-js="animationMode.cancel">Cancel</button>
+					</div>					
 				</div>
 			</div>
 		</div>
