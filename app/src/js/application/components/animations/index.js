@@ -71,7 +71,6 @@ export default class AnimationPalette {
 		this.newAnimationButton = document.querySelector('[data-js="animationMode.new"]');
 		this.saveAnimationButton = document.querySelector('[data-js="animationMode.save"]');
 		this.cancelAnimationButton = document.querySelector('[data-js="animationMode.cancel"]');
-		this.closeAnimationButton = document.querySelector('[data-js="animationMode.close"]');
 		this.paletteItems = document.querySelectorAll('[data-js="animationMode.paletteItem"]');
 	}
 
@@ -91,7 +90,12 @@ export default class AnimationPalette {
 	}
 
 	createAnimatables(resolve, reject) {
-		let animatables = instantiateImages(this.selectors.animationArchetypes);
+		let images = this.selectors.animationArchetypes.map(archetype => {
+			const firstImage = Object.keys(archetype.images)[0];
+			return archetype.images[firstImage];
+		});
+
+		let animatables = instantiateImages(images);
 
 		animatables.then( animatables => {
 			this.animatableItems = animatables;
@@ -116,7 +120,6 @@ export default class AnimationPalette {
 
 	eventHandlers() {
 		this.paletteItems.forEach(this.paletteHandler.bind(this));
-		this.closeAnimationButton.addEventListener('click',this.closePalette.bind(this));
 		this.wrap.addEventListener('click',this.canvasClickHandler.bind(this));
 		this.saveAnimationButton.addEventListener('click',this.saveAnimationPath.bind(this));
 	}
@@ -160,7 +163,21 @@ export default class AnimationPalette {
 
 	saveAnimationPath() {
 		if(this.drawingAni) {
+			const speed = document.querySelector('[data-js="animation.speed"]');
+			const delay = document.querySelector('[data-js="animation.delay"]');
+			const offsetX = document.querySelector('[data-js="animation.offset.x"]');
+			const offsetY = document.querySelector('[data-js="animation.offset.y"]');
+
+			this.drawingAni.speed = speed && speed.value.length ? parseInt(speed.value) : 100;
+			this.drawingAni.delay = delay && delay.value.length ? parseInt(delay.value) : 0;
+			this.drawingAni.offsetX = offsetX && offsetX.value.length ? parseInt(offsetX.value) : 0;
+			this.drawingAni.offsetY = offsetY && offsetY.value.length ? parseInt(offsetY.value) : 0;
+
 			this.store.dispatch(addAnimation(this.drawingAni));
+			speed.value = '';
+			delay.value = '';
+			offsetX.value = '';
+			offsetY.value = '';
 			this.closePalette();
 		}
 	}
@@ -174,8 +191,6 @@ export default class AnimationPalette {
 		let target = e.currentTarget;
 		let animationID = target.getAttribute('data-id');
 		target.classList.add('active');
-
-		console.log(target);
 
 		this.store.dispatch(updateAnimationBrush(animationID));
 	}

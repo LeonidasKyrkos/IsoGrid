@@ -4,7 +4,8 @@ import { saveStateToLocalStorage } from './localStorage';
 
 const pushStateToFirebase = (state,resolve,reject) => {
 	let editedState = _.cloneDeep(state);
-	editedState.settings.activeBrush = 0;
+	delete editedState.assets;
+	delete editedState.settings;
 
 	const setter = DB.ref('/').set(editedState);
 

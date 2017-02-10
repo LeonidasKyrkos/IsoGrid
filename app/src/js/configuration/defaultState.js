@@ -15,7 +15,7 @@ export const defaultState = {
 			type: 'terrain',
 			id: 0
 		},
-		buildMode: true,
+		buildMode: false,
 		animationMode: false,
 		activeAnimationBrush: {
 			id: null

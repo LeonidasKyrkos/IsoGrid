@@ -1,0 +1,25 @@
+$module: 		'form';
+
+.#{$module} {
+	display: block;
+	margin: 0 0 em(20);
+
+	&__control {
+		margin-bottom: em(10);
+		display: block;
+	}
+
+	&__label {
+		display: block;
+		margin-bottom: em(4);
+	}
+
+	&__input {
+		$fontSize: 14;
+		border: 0;
+		font-size: em($fontSize);
+		padding: em(3,$fontSize) em(5,$fontSize);
+		outline: 0;
+		display: block;
+	}
+}

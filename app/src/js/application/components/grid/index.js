@@ -2,7 +2,7 @@ import { rows, cols, colWidth, rowHeight, cvWidth as width, cvHeight as height }
 import { updateSquareTerrain, addSquares } from '../../actions';
 import Square from '../../components/square';
 import deepEqual from 'deep-equal';
-import { instantiateImages } from '../../utils/instantiateImages';
+import { instantiateImages, instantiateAnimationImages } from '../../utils/instantiateImages';
 import { getSquarePoints } from '../../utils/getSquarePoints';
 import { assets as html } from '../../constants/html';
 import { refreshRate } from '../../constants/settings';
@@ -43,10 +43,8 @@ export default class Grid {
 				},
 				render: (animations) => {
 					if(!animations || animations && !animations.length) { return };
-					
-					this.drawAnimations(animations);
-
-					updateAnimationHandler(this.store);
+					updateAnimationHandler(this.store);					
+					this.drawAnimations(animations);					
 				}
 			},
 			structure: {
@@ -78,7 +76,8 @@ export default class Grid {
 		// load images and render when complete
 		let terrain = instantiateImages(state.assets.terrain);
 		let structure = instantiateImages(state.assets.structure);
-		let animations = instantiateImages(state.assets.animations);
+
+		let animations = instantiateAnimationImages(state.assets.animations);
 
 		terrain.then( terrain => {
 			this.terrain = terrain;
@@ -168,19 +167,22 @@ export default class Grid {
 		const ctx = this.canvases.animation.ctx;
 		
 		animations.forEach( animation => {
+			if(!animation.active) { return };
 			const aID = animation.type;
-			const image = this.animations[aID].image;
+			const image = this.animations[aID].images[animation.direction].image;
 			const offsetX = -image.width/2;
 			const offsetY = -image.height/2;
-			let currentCoordinates = animation.currentCoordinates || animation.allCoordinates[0];
-			const x = currentCoordinates.x + offsetX;
-			const y = currentCoordinates.y + offsetY;
+			let currentCoordinates = animation.currentCoordinates;
+			const previousImage = animation.previousDirection ? this.animations[aID].images[animation.previousDirection].image : image;
 
-			if(animation.previousCoordinates) {
-				ctx.clearRect(animation.previousCoordinates.x, animation.previousCoordinates.y, image.width, image.height);
-			}						
+			if(animation.previousCoordinates && previousImage) {
+				ctx.clearRect(animation.previousCoordinates.x, animation.previousCoordinates.y, previousImage.width, previousImage.height);
+			}
 
-			if(image) {
+			if(image && currentCoordinates) {
+				const x = currentCoordinates.x + offsetX + animation.offsetX;
+				const y = currentCoordinates.y + offsetY + animation.offsetY;
+
 				ctx.drawImage(image, x, y);
 				animation.previousCoordinates = { x, y };
 			}

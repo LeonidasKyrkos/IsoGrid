@@ -19,11 +19,12 @@ export const DB = firebase.database();
 
 let promise = new Promise((resolve,reject)=>{
 	if(localStorage.getItem('IsoGrid')) {
-		resolve(JSON.parse(localStorage.getItem('IsoGrid')));
+		let cache = JSON.parse(localStorage.getItem('IsoGrid'));
+		resolve(Object.assign({},defaultState,cache));
 	} else {
 		DB.ref('/').once('value',(snapshot)=>{
 			if(snapshot.val()) {
-				resolve(snapshot.val());
+				resolve(Object.assign({},defaultState,snapshot.val()));
 			} else {
 				resolve(defaultState);
 			}
