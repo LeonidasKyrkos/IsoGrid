@@ -4,14 +4,25 @@ $module: 		'form';
 	display: block;
 	margin: 0 0 em(20);
 
+	&__items {
+		> li {
+			width: 50%;
+			display: inline-block;
+			vertical-align: bottom;
+			margin-left: em(-4);
+		}
+	}
+
 	&__control {
 		margin-bottom: em(10);
 		display: block;
 	}
 
 	&__label {
-		display: block;
+		display: inline-block;
+		vertical-align: bottom;
 		margin-bottom: em(4);
+		width: em(80);
 	}
 
 	&__input {
@@ -20,6 +31,8 @@ $module: 		'form';
 		font-size: em($fontSize);
 		padding: em(3,$fontSize) em(5,$fontSize);
 		outline: 0;
-		display: block;
+		width: em(100);
+		display: inline-block;
+		vertical-align: bottom;
 	}
 }

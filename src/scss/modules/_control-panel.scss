@@ -15,9 +15,24 @@ $module: 		'control-panel';
 
 	&__options {
 		margin-bottom: em(20);
+
+		> li {
+			display: inline-block;
+			vertical-align: bottom;
+		}
 	}
 
 	&__buttons {
 		text-align: right;
+	}
+
+	&__item {
+		padding: em(10);
+		display: block;
+		border: 1px solid transparent;
+
+		&.active {
+			border: 1px solid white;
+		}
 	}
 }

@@ -24,8 +24,10 @@
 			<section class="canvas__wrap dragscroll">
 				<div id="isogrid" class="canvas__innerwrap">
 					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="terrain"></canvas>
-					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="animation"></canvas>
-					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="structure"></canvas>
+					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="animation.under"></canvas>
+					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="structure.under"></canvas>
+					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="animation.over"></canvas>
+					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="structure.over"></canvas>
 				</div>
 			</section>
 			<div class="palette__wrap hide" data-js="palette.wrap"></div>
@@ -125,30 +127,30 @@
 			<div class="hide" data-js="animationMode">
 				<div class="control-panel">
 					<ul class="control-panel__options" data-js="animationMode.animatables"></ul>
-					<form action="" class="form">
+					<form data-js="animationMode.settings" class="form">
 						<ul class="form__items">
 							<li>
 								<label for="" class="form__control">
 									<span class="form__label">Speed</span>
-									<input data-js="animation.speed" type="text" class="form__input">	
+									<input data-js="animation.speed" type="number" class="form__input">	
 								</label>
 							</li>
 							<li>
 								<label for="" class="form__control">
 									<span class="form__label">Delay</span>
-									<input data-js="animation.delay" type="text" class="form__input">
+									<input data-js="animation.delay" type="number" class="form__input">
 								</label>
 							</li>
 							<li>
 								<label for="" class="form__control">
 									<span class="form__label">OffsetX</span>
-									<input data-js="animation.offset.x" type="text" class="form__input">
+									<input data-js="animation.offset.x" type="number" class="form__input">
 								</label>
 							</li>
 							<li>
 								<label for="" class="form__control">
 									<span class="form__label">OffsetY</span>
-									<input data-js="animation.offset.y" type="text" class="form__input">
+									<input data-js="animation.offset.y" type="number" class="form__input">
 								</label>
 							</li>
 						</ul>

@@ -45,7 +45,7 @@ export default class IsoGrid {
 	}
 
 	eventListeners() {
-		this.wrap.addEventListener('dblclick',this.handleClick.bind(this));
+		this.wrap.addEventListener('click',this.handleClick.bind(this));
 
 		this.saveAlert.addEventListener('click', e => {
 			this.saveAlert.classList.add('hide');
@@ -114,7 +114,7 @@ export default class IsoGrid {
 	handleClick(e) {
 		let state = this.store.getState();
 
-		if(!state.settings.animationMode) {
+		if(state.settings.buildMode && !state.settings.animationMode) {
 			const x = e.x + this.wrap.parentNode.scrollLeft;
 			const y = e.y + this.wrap.parentNode.scrollTop;
 			const square = findSquare(x, y, this.store);			

@@ -2,6 +2,11 @@
 export const animations = [
 	{
 		type: 'flare',
+		offsetY: 0,
+		offsetX: 0,
+		speed: 200,
+		delay: 0,
+		zIndex: 1,
 		images: {
 			SE: {
 				imageSrc: "/assets/flare.png"
@@ -19,45 +24,46 @@ export const animations = [
 	},
 	{
 		type: 'car',
+		offsetY: -10,
+		offsetX: 0,
+		speed: 200,
+		delay: 0,
+		zIndex: 1,
 		images: {
 			SE: {
 				imageSrc: "/assets/car_se.png"
 			},
 			SW: {
-				imageSrc: "/assets/car_se.png"
-			},
-			NW: {
 				imageSrc: "/assets/car_sw.png"
 			},
+			NW: {
+				imageSrc: "/assets/car_nw.png"
+			},
 			NE: {
-				imageSrc: "/assets/car_se.png"
+				imageSrc: "/assets/car_ne.png"
 			}
 		}
 	},
 	{
 		type: 'boat',
+		offsetY: 8,
+		offsetX: 0,
+		speed: 200,
+		delay: 0,
+		zIndex: 0,
 		images: {
 			SE: {
-				imageSrc: "/assets/boat_sw.png"
+				imageSrc: "/assets/boat_se.png"
 			},
 			SW: {
 				imageSrc: "/assets/boat_sw.png"
 			},
 			NW: {
-				imageSrc: "/assets/boat_sw.png"
+				imageSrc: "/assets/boat_nw.png"
 			},
 			NE: {
-				imageSrc: "/assets/boat_sw.png"
+				imageSrc: "/assets/boat_ne.png"
 			}
 		}
 	}
 ]
-
-// default animation settings
-
-export const defaults = {
-	speed: 100,
-	delay: 0,
-	offsetX: 0,
-	offsetY: 0
-}

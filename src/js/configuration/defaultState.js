@@ -1,5 +1,6 @@
 import { terrain } from '../application/constants/terrain';
 import { structure } from '../application/constants/structure';
+import { structureUnder } from '../application/constants/structureUnder';
 import { animations } from '../application/constants/animations';
 
 export const defaultState = {
@@ -7,6 +8,7 @@ export const defaultState = {
 	assets: {
 		terrain,
 		structure,
+		structureUnder,
 		animations
 	},
 	gridSquares: [],

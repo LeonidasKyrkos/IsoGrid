@@ -17,10 +17,10 @@ const updateAnimation = (animation,elapsed) => {
 	if(!animation.active) { return };
 
 	animation.remainingCoordinates = animation.remainingCoordinates || Object.assign([],animation.allCoordinates);
-	animation.direction = animation.direction || getDirectionOfTravel(animation.remainingCoordinates[0],animation.remainingCoordinates[1]);
 	
 	if(animation.remainingCoordinates.length > 1) {
 		animation.currentCoordinates = getNextCoordinates(animation);
+		animation.direction = getDirectionOfTravel(animation.remainingCoordinates[0],animation.remainingCoordinates[1]);
 	} else {
 		resetAnimation(animation);
 	}
@@ -35,7 +35,6 @@ const getNextCoordinates = (animation) => {
 	if((vector.xLength < 0 && currentCoordinates.x <= destination.x || vector.xLength > 0 && currentCoordinates.x >= destination.x) && (vector.yLength < 0 && currentCoordinates.y <= destination.y || vector.yLength > 0 && currentCoordinates.y >= destination.y) || ((vector.xLength === 0 && vector.yLength < 0 && currentCoordinates.y <= destination.y) || (vector.xLength === 0 && vector.yLength > 0 && currentCoordinates.y >= destination.y)) || ((vector.yLength === 0 && vector.xLength < 0 && currentCoordinates.x <= destination.x) || (vector.yLength === 0 && vector.xLength > 0 && currentCoordinates.x >= destination.x))) {
 		animation.remainingCoordinates.splice(0,1);
 		animation.previousDirection = animation.direction;
-		animation.direction = getDirectionOfTravel(origin, destination);
 		return animation.remainingCoordinates[0];
 	}
 
@@ -64,10 +63,14 @@ const resetAnimation = (animation,elapsed) => {
 }
 
 const getDirectionOfTravel = (origin, destination) => {
-	let y = origin.y < destination.y ? 'S' : 'N';
-	let x = origin.x < destination.x ? 'E' : 'W';
+	if(origin && destination) {
+		let y = origin.y < destination.y ? 'S' : 'N';
+		let x = origin.x < destination.x ? 'E' : 'W';
 
-	return y+x;
+		return y+x;
+	} else {
+		return 'SE';
+	}	
 }
 
 const handleDelay = (animation,elapsed) => {
