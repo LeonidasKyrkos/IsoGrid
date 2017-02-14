@@ -160,16 +160,6 @@ export default class Grid {
 		this.store.dispatch(addSquares(gridSquares));
 	}
 
-	drawGradient() {
-		const gradient = this.ctx.createLinearGradient(0,0,0,height);
-		gradient.addColorStop(0,'rgba(36,134,197,0.3)');
-		gradient.addColorStop(0.2,'rgba(36,134,197,0)');
-		gradient.addColorStop(0.8,'rgba(36,134,197,0)');
-		gradient.addColorStop(1,'rgba(36,134,197,0.3)');
-		this.ctx.fillStyle = gradient;
-		this.ctx.fillRect(0, 0, width, height);
-	}
-
 	htmlLoop(gridSquares) {
 		let wrap = document.getElementById('htmlwrap');
 		if(wrap) { wrap.remove() };
