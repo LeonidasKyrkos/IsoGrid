@@ -37,9 +37,20 @@ export default class Grid {
 				}
 			},
 			animation: {
-				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation"]'),
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation.over"]'),
 				selector: (state) => {
-					return state.animations;
+					return state.animations.filter(animation => animation.zIndex > 0);
+				},
+				render: (animations) => {
+					if(!animations || animations && !animations.length) { return };
+					updateAnimationHandler(this.store);					
+					this.drawAnimations(animations);
+				}
+			},
+			animationUnder: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation.under"]'),
+				selector: (state) => {
+					return state.animations.filter(animation => animation.zIndex === 0);
 				},
 				render: (animations) => {
 					if(!animations || animations && !animations.length) { return };
@@ -48,9 +59,11 @@ export default class Grid {
 				}
 			},
 			structure: {
-				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure"]'),
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure.over"]'),
 				selector: (state) => {
-					return state.gridSquares;
+					return state.gridSquares.map(row => {
+						return row.filter(square => square.brushes.structure > 0);
+					});
 				},
 				render: (gridSquares) => {
 					this.canvases.structure.ctx.clearRect(0, 0, width, height);
@@ -61,7 +74,24 @@ export default class Grid {
 						});
 					});
 				}
-			}				
+			},
+			structureUnder: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure.under"]'),
+				selector: (state) => {
+					return state.gridSquares.map(row => {
+						return row.filter(square => square.brushes.structureUnder > 0);
+					});
+				},
+				render: (gridSquares) => {
+					this.canvases.structureUnder.ctx.clearRect(0, 0, width, height);
+
+					gridSquares.forEach((row,i)=>{
+						row.forEach((square,i)=>{
+							this.drawGridSquare(square,'structureUnder')
+						});
+					});
+				}
+			}
 		}
 
 		this.init();
@@ -78,6 +108,7 @@ export default class Grid {
 		// load images and render when complete
 		let terrain = instantiateImages(state.assets.terrain);
 		let structure = instantiateImages(state.assets.structure);
+		let structureUnder = instantiateImages(state.assets.structureUnder);
 		let animations = instantiateAnimationImages(state.assets.animations);
 
 		terrain.then( terrain => {
@@ -92,8 +123,14 @@ export default class Grid {
 			this.animations = animations;
 		})
 
-		Promise.all([terrain, structure, animations]).then(()=>{
+		structureUnder.then( subStructures => {
+			this.structureUnder = subStructures;
+		})
+
+		Promise.all([terrain, structure, structureUnder, animations]).then(()=>{
 			this.startRendering();
+			this.handleChange();
+			this.store.subscribe(this.handleChange.bind(this));
 		});
 	}
 
@@ -165,20 +202,19 @@ export default class Grid {
 		}
 	}
 
-	drawAnimations(animations) {
-		const ctx = this.canvases.animation.ctx;
-		
+	drawAnimations(animations) {		
 		animations.forEach( animation => {
 			if(!animation.active) { return };
+			const ctx = animation.zIndex === 0 ? this.canvases.animationUnder.ctx : this.canvases.animation.ctx;
 			const aID = animation.type;
 			const image = this.animations[aID].images[animation.direction].image;
 			const offsetX = -image.width/2;
 			const offsetY = -image.height/2;
-			let currentCoordinates = animation.currentCoordinates;
+			const currentCoordinates = animation.currentCoordinates;
 			const previousImage = animation.previousDirection ? this.animations[aID].images[animation.previousDirection].image : image;
 
 			if(animation.previousCoordinates && previousImage) {
-				ctx.clearRect(animation.previousCoordinates.x, animation.previousCoordinates.y, previousImage.width, previousImage.height);
+				ctx.clearRect(animation.previousCoordinates.x - 50, animation.previousCoordinates.y - 50, previousImage.width + 100, previousImage.height + 100);
 			}
 
 			if(image && currentCoordinates) {
@@ -210,10 +246,27 @@ export default class Grid {
 		window.requestAnimationFrame(()=>{
 			if(Date.now() - this.lastRender >= refreshRate) {
 				this.lastRender = Date.now();
-				this.handleChange();
+				this.render();
 			}
 			this.startRendering();
 		})
+	}
+
+	render() {
+		const state = this.store.getState();
+
+		for(let name in this.canvases) {
+			let subCanvas = this.canvases[name];
+
+			if((name === 'animation' || name === 'animationUnder') && state.animations && state.animations.length) {
+				subCanvas.render(state.animations);
+			}
+
+			if(subCanvas.queued) {
+				subCanvas.render(state.gridSquares);
+				subCanvas.queued = false;
+			}
+		}
 	}
 
 	stopRendering() {
@@ -222,31 +275,21 @@ export default class Grid {
 
 	handleChange() {
 		let state = this.store.getState();
+		
+		Object.keys(this.canvases).forEach(name => {
+			if(name === 'animation' || name === 'animationUnder') { return };
 
-		for(let name in this.canvases) {
 			let subCanvas = this.canvases[name];
 			let newVal = subCanvas.selector(state);
-
-			if(name = 'animation' && state.animations && state.animations.length) {
-				subCanvas.render(newVal);
-			}
-
-			if(name = 'animation' !== 'animation' && typeof subCanvas.current === 'undefined' || !deepEqual(subCanvas.current, newVal)) {
-				subCanvas.render(newVal);
+			
+			if(typeof subCanvas.current === 'undefined' || !deepEqual(subCanvas.current, newVal)) {				
+				subCanvas.queued = true;
 				subCanvas.current = _.cloneDeep(newVal);
 			}
-		}
-
+		});
 	}
 
 	select(state) {
 		return state.gridSquares;
 	}
 }
-
-// TODO:
-// Should definitely cut down on the amount of things being rendered. Ideal situation would be re-rendering
-// on a square by square basis but that's unlikely considering the >1 square spanning structures. Current
-// bet involves rendering the curent row and some number of subsequent rows. Maybe if the tallest structure
-// in the map = 6 rows then we render our updated square's row and the next 6 rows after it. Seems lazy but 
-// would be an improvement.

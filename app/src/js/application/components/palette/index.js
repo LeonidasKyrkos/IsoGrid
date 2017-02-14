@@ -13,6 +13,7 @@ export default class Palette {
 		let state = this.store.getState();
 		this.terrain = state.assets.terrain || [];
 		this.structure = state.assets.structure || [];
+		this.structureUnder = state.assets.structureUnder || [];
 		this.html = html;
 
 		this.store.subscribe(this.handleChange.bind(this));
@@ -49,6 +50,7 @@ export default class Palette {
 		this.palette = createElement('div','palette','palette.wrap');
 		createSubPalette(this.terrain, this.palette, 'terrain');
 		createSubPalette(this.structure, this.palette, 'structure');
+		createSubPalette(this.structureUnder, this.palette, 'structureUnder');
 		createHtmlPalette(this.html, this.palette, 'html');
 		this.wrap.appendChild(this.palette);
 	}

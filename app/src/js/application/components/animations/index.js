@@ -21,6 +21,8 @@ export default class AnimationPalette {
 
 	init() {
 		this.animatables = document.querySelector('[data-js="animationMode.animatables"]');
+		this.flag = new Image();
+		this.flag.src = '/assets/flag.png';
 
 		const promise = new Promise((resolve, reject) => {
 			this.createAnimatables(resolve);
@@ -29,6 +31,7 @@ export default class AnimationPalette {
 		promise.then(() => {
 			this.inputs = this.inputSelectors();
 			this.elementSelectors();
+			this.ctx = this.canvas.getContext('2d');
 			this.eventHandlers();
 			this.handleChanges();
 		})
@@ -83,6 +86,8 @@ export default class AnimationPalette {
 		this.saveAnimationButton = document.querySelector('[data-js="animationMode.save"]');
 		this.cancelAnimationButton = document.querySelector('[data-js="animationMode.cancel"]');
 		this.paletteItems = document.querySelectorAll('[data-js="animationMode.paletteItem"]');
+		this.form = document.querySelectorAll('[data-js="animationMode.settings"]');
+		this.canvas = document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation.over"]');
 	}
 
 	handleChanges() {
@@ -119,7 +124,7 @@ export default class AnimationPalette {
 		for(let name in this.animatableItems) {
 			let ani = this.animatableItems[name];
 			let wrap = createElement('li');
-			let el = createElement('img','animation-palette__item','animationMode.paletteItem',[
+			let el = createElement('img','control-panel__item','animationMode.paletteItem',[
 				{ name: 'src', val: ani.imageSrc },
 				{ name: 'data-id', val: name}
 			]);
@@ -132,7 +137,8 @@ export default class AnimationPalette {
 	eventHandlers() {
 		this.paletteItems.forEach(this.paletteHandler.bind(this));
 		this.wrap.addEventListener('click',this.canvasClickHandler.bind(this));
-		this.saveAnimationButton.addEventListener('click',this.saveAnimationPath.bind(this));
+		this.saveAnimationButton.addEventListener('click',this.onSave.bind(this));
+		this.cancelAnimationButton.addEventListener('click',this.closePalette.bind(this));
 	}
 
 	canvasClickHandler(e) {
@@ -166,17 +172,24 @@ export default class AnimationPalette {
 			type: this.selectors.activeAnimationBrush,
 			allCoordinates: [getCentreOfSquare(square)]
 		});
+
+		this.addFlag();
 	}
 
 	addToExistingAnimationPath(square) {
 		this.drawingAni.allCoordinates.push(getCentreOfSquare(square));
+
+		this.addFlag();
 	}
 
-	saveAnimationPath() {
+	onSave() {
 		if(this.drawingAni) {
 			Object.keys(this.inputs).map( key => {
 				let option = this.inputs[key];
-				this.drawingAni[key] = option && option.value.length ? parseInt(option.value) : defaults[key];
+
+				if(option && option.value.length) {
+					this.drawingAni[key] = parseInt(option.value)
+				}
 			})
 
 			this.store.dispatch(addAnimation(this.drawingAni));
@@ -207,5 +220,18 @@ export default class AnimationPalette {
 		this.store.dispatch(updateAnimationBrush(null));
 		this.store.dispatch(updateAnimationMode(false));
 		delete this.drawingAni;
+		this.emptyForm();
+		this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+	}
+
+	emptyForm() {
+		let inputs = document.querySelectorAll('[data-js="animationMode.settings"] input');
+		inputs.forEach(element => {
+			element.value = '';
+		});
+	}
+
+	addFlag() {
+		this.ctx.drawImage(this.flag,this.drawingAni.allCoordinates[this.drawingAni.allCoordinates.length - 1].x,this.drawingAni.allCoordinates[this.drawingAni.allCoordinates.length - 1].y - this.flag.height);
 	}
 }
