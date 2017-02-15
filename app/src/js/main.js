@@ -37,4 +37,10 @@ promise.then((state) => {
 	const grid = new IsoGrid(store);
 
 	saveStateToLocalStorage(state);
+
+	setTimeout(()=>{
+		const wrap = document.getElementById('isogrid').parentNode;
+		wrap.scrollLeft = 700;
+		wrap.scrollTop = 150;
+	})
 });

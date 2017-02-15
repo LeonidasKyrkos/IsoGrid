@@ -1,5 +1,9 @@
 // variables //
 
+// dimensions
+
+	$navWidth: 			230;
+
 // Typography
 // -------------------------	
 	
@@ -18,10 +22,10 @@
 // -------------------------
 
 	$headings: 							'.alpha','.beta','.gamma','.delta';
-	$headingSizes: 						50,40,20,16;
+	$headingSizes: 						40,30,20,16;
 	$headingFamilies: 					$ffHeadings, $ffHeadings, $ffHeadings, $ffBase;
 	$headingColors: 					inherit , inherit, inherit, inherit;
 	$headingMargins: 					42,42,20,10;
-	$headingLineHeights: 				55,40,28,19;
+	$headingLineHeights: 				45,35,26,19;
 	$headingFontWeights: 				400, 500, 500, 700;
 

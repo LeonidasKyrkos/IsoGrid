@@ -113,9 +113,11 @@ export default class IsoGrid {
 
 	handleClick(e) {
 		let state = this.store.getState();
+		let wrapStyle = window.getComputedStyle(this.wrap.parentNode);
+		let padding = parseInt(wrapStyle.getPropertyValue('padding-left').slice(0, -2));
 
 		if(state.settings.buildMode && !state.settings.animationMode) {
-			const x = e.x + this.wrap.parentNode.scrollLeft;
+			const x = e.x + this.wrap.parentNode.scrollLeft - padding;
 			const y = e.y + this.wrap.parentNode.scrollTop;
 			const square = findSquare(x, y, this.store);			
 
