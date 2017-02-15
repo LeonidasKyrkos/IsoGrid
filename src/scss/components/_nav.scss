@@ -1,0 +1,36 @@
+$module: 		'nav';
+
+.#{$module} {
+	overflow-y: scroll;
+	height: 100%;
+	padding: em(15) em(25);
+
+	&__item {
+		display: block;
+		cursor: pointer;
+		margin-bottom: em(30);
+	}
+
+	&__item-image {
+		width: em(35);
+		height: em(35);
+		border-radius: 100%;
+		background-color: rgba(white,0.5);
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__item-title {
+		$fontSize: 16;
+		font-size: em($fontSize);
+		display: inline-block;
+		vertical-align: middle;
+		padding-left: em(20,$fontSize);
+		color: rgba(white,0.5);
+		@include transition(color 0.15s linear);
+
+		.#{$module}__item:hover & {
+			color: white;
+		}
+	}
+}

@@ -10,17 +10,47 @@
 		<meta name="viewport" content="width=device-width">
 	</head>
 	<body>
-		<div class="innerwrap" id="isogridWrap">
-			<div class="buttons">
-				<div class="hide" data-js="buildMode">
-					<button class="btn-primary" data-js="pushToFirebase">Save</button>
-					<button class="btn-primary" data-js="togglePalettes">Toggle toolkit</button>
-					<button class="btn-primary" data-js="toggleAnimationMode">Animation mode</button>
-					<button class="btn-primary" data-js="clearCache">Clear cache</button>
-				</div>
-				<button class="btn-primary" data-js="toggleBuildMode">Toggle Build Mode</button>
-			</div>
-			<span class="save__status hide" data-js="saveAlert">Loading...</span>
+		<article class="innerwrap" id="isogridWrap">
+			<header class="header">
+				<ul class="nav" data-js="nav">
+					<li>
+						<a data-js="nav.trigger" class="nav__item">
+							<span class="nav__item-image"></span>
+							<span class="nav__item-title">Marketing</span>
+						</a>
+					</li>
+					<li>
+						<a data-js="nav.trigger" class="nav__item">
+							<span class="nav__item-image"></span>
+							<span class="nav__item-title">Auditing</span>
+						</a>
+					</li>
+					<li>
+						<a data-js="nav.trigger" class="nav__item">
+							<span class="nav__item-image"></span>
+							<span class="nav__item-title">Development</span>
+						</a>
+					</li>
+					<li>
+						<a data-js="nav.trigger" class="nav__item">
+							<span class="nav__item-image"></span>
+							<span class="nav__item-title">Design</span>
+						</a>
+					</li>
+					<li>
+						<a data-js="nav.trigger" class="nav__item">
+							<span class="nav__item-image"></span>
+							<span class="nav__item-title">Consultancy</span>
+						</a>
+					</li>
+					<li>
+						<a data-js="nav.trigger" class="nav__item">
+							<span class="nav__item-image"></span>
+							<span class="nav__item-title">E-Commerce</span>
+						</a>
+					</li>
+				</ul>
+			</header>			
 			<section class="canvas__wrap dragscroll">
 				<div id="isogrid" class="canvas__innerwrap">
 					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="terrain"></canvas>
@@ -30,138 +60,150 @@
 					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="structure.over"></canvas>
 				</div>
 			</section>
-			<div class="palette__wrap hide" data-js="palette.wrap"></div>
-			<div class="templates" style="visibility: hidden; width: 0; height: 0; overflow: hidden; pointer-events: none">
-				<div class="eye" id="londoneye" data-js="htmlTemplate">
-					<div class="eye__inner">
-						<div class="eye__left">
-							<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.16 198" width="103" height="198">
-								<defs><style>.cls-1{fill:#d1d3d4;}</style></defs>
-								<path class="cls-1" d="M8.32,99A99,99,0,0,1,99,.35V0a99,99,0,0,0,0,198v-.35A99,99,0,0,1,8.32,99Z"/>
-								<path class="cls-1" d="M103.16.09C101.78,0,100.39,0,99,0V.35Q101.07.18,103.16.09Z"/>
-								<path class="cls-1" d="M99,197.65V198c1.39,0,2.78,0,4.16-.09Q101.07,197.82,99,197.65Z"/>
-							</svg>
-						</div>
-						<div class="eye__pods">
-							<div class="eye__spokes">
-								<span class="eye__spoke--1"></span>
-								<span class="eye__spoke--2"></span>
-								<span class="eye__spoke--3"></span>
-								<span class="eye__spoke--4"></span>
-								<span class="eye__spoke--5"></span>
-								<span class="eye__spoke--6"></span>
-								<span class="eye__spoke--7"></span>
-								<span class="eye__spoke--8"></span>
-							</div>
-							<ul>
-								<li class="eye__pod">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
-										<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
-									</svg>
-								</li>
-								<li class="eye__pod">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
-										<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
-									</svg>
-								</li>
-								<li class="eye__pod">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
-										<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
-									</svg>
-								</li>
-								<li class="eye__pod">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
-										<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
-									</svg>
-								</li>
-								<li class="eye__pod">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
-										<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
-									</svg>
-								</li>
-								<li class="eye__pod">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
-										<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
-									</svg>
-								</li>
-								<li class="eye__pod">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
-										<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
-									</svg>
-								</li>
-								<li class="eye__pod">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
-										<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
-									</svg>
-								</li>
-							</ul>					
-						</div>
-						<div class="eye__right">
-							<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.16 198" width="103" height="198">
-								<defs><style>.cls-1{fill:#a8a9ac;}</style></defs>
-								<path class="cls-1" d="M94.84,99A99,99,0,0,1,0,197.91c1.38.06,2.77.09,4.16.09a99,99,0,1,0,0-198C2.77,0,1.38,0,0,.09A99,99,0,0,1,94.84,99Z"/>
-							</svg>
-						</div>
+			<section class="controls">
+				<span class="save__status hide" data-js="saveAlert">Loading...</span>
+				<div class="buttons">
+					<div class="hide" data-js="buildMode">
+						<button class="btn-primary" data-js="pushToFirebase">Save</button>
+						<button class="btn-primary" data-js="togglePalettes">Toggle toolkit</button>
+						<button class="btn-primary" data-js="toggleAnimationMode">Animation mode</button>
+						<button class="btn-primary" data-js="clearCache">Clear cache</button>
 					</div>
-					<div class="eye__base">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134.16 210.79" width="134" height="211">
-							<rect fill="#c4c4c4" x="-0.4" y="3.08" width="42.25" height="18.5" rx="9.25" ry="9.25" transform="translate(3.9 -4.94) rotate(15)"/>
-							<line fill="none" stroke="#c4c4c4" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10px" x1="29.8" y1="24.33" x2="60.6" y2="202.83"/>
-							<line fill="none" stroke="#c4c4c4" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10px" x1="39.03" y1="21.63" x2="122.81" y2="168.19"/>
-							<path fill="#c4c4c4" d="M50.59,154.17a14.55,14.55,0,0,0,1.76-.73,7.2,7.2,0,0,1,10,4.18l12.44,36.57a7.22,7.22,0,0,1-3.23,8.58l-12.21,7.05A7.22,7.22,0,0,1,48.5,204l-2.83-42.71A7.1,7.1,0,0,1,50.59,154.17Z"/>
-							<path fill="#c4c4c4" d="M100.62,127.36a14.55,14.55,0,0,0,1.76-.73c3.69-1.81,7.27.11,9.72,3.59.25.35.46.59.71.93l20.39,28.44a4.71,4.71,0,0,1,.88,2,7.22,7.22,0,0,1-3.53,7.32L118.34,176a7.22,7.22,0,0,1-10.76-5.25,5.71,5.71,0,0,0-.22-1L96,135.32a4.75,4.75,0,0,1-.24-2A7.15,7.15,0,0,1,100.62,127.36Z"/>
-						</svg>
-					</div>
+					<button class="btn-primary" data-js="toggleBuildMode">Toggle Build Mode</button>
 				</div>
-				<div id="towerBridge" class="tower-bridge" data-js="htmlTemplate">
-					<div class="tower-bridge__inner">
-						<div class="tower-bridge__shadows">
-							<span class="tower-bridge__shadow--north"></span>
-							<span class="tower-bridge__shadow--south"></span>
+				<div class="palette__wrap hide" data-js="palette.wrap"></div>
+				<div class="hide" data-js="animationMode">
+					<div class="control-panel">
+						<ul class="control-panel__options" data-js="animationMode.animatables"></ul>
+						<form data-js="animationMode.settings" class="form">
+							<ul class="form__items">
+								<li>
+									<label for="" class="form__control">
+										<span class="form__label">Speed</span>
+										<input data-js="animation.speed" type="number" class="form__input">	
+									</label>
+								</li>
+								<li>
+									<label for="" class="form__control">
+										<span class="form__label">Delay</span>
+										<input data-js="animation.delay" type="number" class="form__input">
+									</label>
+								</li>
+								<li>
+									<label for="" class="form__control">
+										<span class="form__label">OffsetX</span>
+										<input data-js="animation.offset.x" type="number" class="form__input">
+									</label>
+								</li>
+								<li>
+									<label for="" class="form__control">
+										<span class="form__label">OffsetY</span>
+										<input data-js="animation.offset.y" type="number" class="form__input">
+									</label>
+								</li>
+							</ul>
+						</form>
+						<div class="control-panel__buttons">
+							<button class="btn-primary" data-js="animationMode.save">Save</button>
+							<button class="btn-primary" data-js="animationMode.cancel">Cancel</button>
 						</div>					
-						<span class="tower-bridge__north"></span>
-						<span class="tower-bridge__south"></span>
 					</div>
 				</div>
-			</div>
-			<div class="hide" data-js="animationMode">
-				<div class="control-panel">
-					<ul class="control-panel__options" data-js="animationMode.animatables"></ul>
-					<form data-js="animationMode.settings" class="form">
-						<ul class="form__items">
-							<li>
-								<label for="" class="form__control">
-									<span class="form__label">Speed</span>
-									<input data-js="animation.speed" type="number" class="form__input">	
-								</label>
-							</li>
-							<li>
-								<label for="" class="form__control">
-									<span class="form__label">Delay</span>
-									<input data-js="animation.delay" type="number" class="form__input">
-								</label>
-							</li>
-							<li>
-								<label for="" class="form__control">
-									<span class="form__label">OffsetX</span>
-									<input data-js="animation.offset.x" type="number" class="form__input">
-								</label>
-							</li>
-							<li>
-								<label for="" class="form__control">
-									<span class="form__label">OffsetY</span>
-									<input data-js="animation.offset.y" type="number" class="form__input">
-								</label>
-							</li>
-						</ul>
-					</form>
-					<div class="control-panel__buttons">
-						<button class="btn-primary" data-js="animationMode.save">Save</button>
-						<button class="btn-primary" data-js="animationMode.cancel">Cancel</button>
-					</div>					
+			</section>
+			<div class="templates" style="visibility: hidden; width: 0; height: 0; overflow: hidden; pointer-events: none">
+					<div class="eye" id="londoneye" data-js="htmlTemplate">
+						<div class="eye__inner">
+							<div class="eye__left">
+								<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.16 198" width="103" height="198">
+									<defs><style>.cls-1{fill:#d1d3d4;}</style></defs>
+									<path class="cls-1" d="M8.32,99A99,99,0,0,1,99,.35V0a99,99,0,0,0,0,198v-.35A99,99,0,0,1,8.32,99Z"/>
+									<path class="cls-1" d="M103.16.09C101.78,0,100.39,0,99,0V.35Q101.07.18,103.16.09Z"/>
+									<path class="cls-1" d="M99,197.65V198c1.39,0,2.78,0,4.16-.09Q101.07,197.82,99,197.65Z"/>
+								</svg>
+							</div>
+							<div class="eye__pods">
+								<div class="eye__spokes">
+									<span class="eye__spoke--1"></span>
+									<span class="eye__spoke--2"></span>
+									<span class="eye__spoke--3"></span>
+									<span class="eye__spoke--4"></span>
+									<span class="eye__spoke--5"></span>
+									<span class="eye__spoke--6"></span>
+									<span class="eye__spoke--7"></span>
+									<span class="eye__spoke--8"></span>
+								</div>
+								<ul>
+									<li class="eye__pod">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
+											<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
+										</svg>
+									</li>
+									<li class="eye__pod">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
+											<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
+										</svg>
+									</li>
+									<li class="eye__pod">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
+											<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
+										</svg>
+									</li>
+									<li class="eye__pod">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
+											<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
+										</svg>
+									</li>
+									<li class="eye__pod">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
+											<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
+										</svg>
+									</li>
+									<li class="eye__pod">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
+											<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
+										</svg>
+									</li>
+									<li class="eye__pod">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
+											<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
+										</svg>
+									</li>
+									<li class="eye__pod">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.11 32" width="50" height="32">
+											<path class="cls-1" d="M45.24,10.33A9.23,9.23,0,0,1,45,13.59c-2.15,8-15,11.59-28.65,7.93A36.42,36.42,0,0,1,0,12.63C.71,19.83,9.3,27.38,21.15,30.56c13.67,3.66,26.49.11,28.65-7.93C50.88,18.59,49.06,14.18,45.24,10.33Z"/><path class="cls-2" d="M45,13.59a9.23,9.23,0,0,0,.26-3.26A36.42,36.42,0,0,0,29,1.44C15.28-2.22,2.46,1.33.3,9.37A9.23,9.23,0,0,0,0,12.63a36.42,36.42,0,0,0,16.29,8.88C30,25.18,42.82,21.63,45,13.59Z"/>
+										</svg>
+									</li>
+								</ul>					
+							</div>
+							<div class="eye__right">
+								<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.16 198" width="103" height="198">
+									<defs><style>.cls-1{fill:#a8a9ac;}</style></defs>
+									<path class="cls-1" d="M94.84,99A99,99,0,0,1,0,197.91c1.38.06,2.77.09,4.16.09a99,99,0,1,0,0-198C2.77,0,1.38,0,0,.09A99,99,0,0,1,94.84,99Z"/>
+								</svg>
+							</div>
+						</div>
+						<div class="eye__base">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134.16 210.79" width="134" height="211">
+								<rect fill="#c4c4c4" x="-0.4" y="3.08" width="42.25" height="18.5" rx="9.25" ry="9.25" transform="translate(3.9 -4.94) rotate(15)"/>
+								<line fill="none" stroke="#c4c4c4" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10px" x1="29.8" y1="24.33" x2="60.6" y2="202.83"/>
+								<line fill="none" stroke="#c4c4c4" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10px" x1="39.03" y1="21.63" x2="122.81" y2="168.19"/>
+								<path fill="#c4c4c4" d="M50.59,154.17a14.55,14.55,0,0,0,1.76-.73,7.2,7.2,0,0,1,10,4.18l12.44,36.57a7.22,7.22,0,0,1-3.23,8.58l-12.21,7.05A7.22,7.22,0,0,1,48.5,204l-2.83-42.71A7.1,7.1,0,0,1,50.59,154.17Z"/>
+								<path fill="#c4c4c4" d="M100.62,127.36a14.55,14.55,0,0,0,1.76-.73c3.69-1.81,7.27.11,9.72,3.59.25.35.46.59.71.93l20.39,28.44a4.71,4.71,0,0,1,.88,2,7.22,7.22,0,0,1-3.53,7.32L118.34,176a7.22,7.22,0,0,1-10.76-5.25,5.71,5.71,0,0,0-.22-1L96,135.32a4.75,4.75,0,0,1-.24-2A7.15,7.15,0,0,1,100.62,127.36Z"/>
+							</svg>
+						</div>
+					</div>
+					<div id="towerBridge" class="tower-bridge" data-js="htmlTemplate">
+						<div class="tower-bridge__inner">
+							<div class="tower-bridge__shadows">
+								<span class="tower-bridge__shadow--north"></span>
+								<span class="tower-bridge__shadow--south"></span>
+							</div>					
+							<span class="tower-bridge__north"></span>
+							<span class="tower-bridge__south"></span>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
+		</article>
 		<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
 		<script src="build/bundle.js"></script>
 	</body>

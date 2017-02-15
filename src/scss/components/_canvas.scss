@@ -12,9 +12,15 @@ $module: 		'canvas';
 		position: relative;
 		width: 100vw;
 		height: 100vh;
+		padding-left: em($navWidth);
+
+		@include bp(tab-s-a) {
+			padding-left: 0;
+		}
 	}
 
 	&__innerwrap {
+		position: relative;
 		&.animationMode {
 			cursor: url('../../assets/flag.png') 0 50, auto;
 		}
