@@ -204,12 +204,12 @@ export default class Grid {
 			const previousImage = animation.previousDirection ? this.animations[aID].images[animation.previousDirection].image : image;
 
 			if(animation.previousCoordinates && previousImage) {
-				ctx.clearRect(animation.previousCoordinates.x - 50, animation.previousCoordinates.y - 50, previousImage.width + 100, previousImage.height + 100);
+				ctx.clearRect(Math.floor(animation.previousCoordinates.x - 50), Math.floor(animation.previousCoordinates.y - 50), Math.floor(previousImage.width + 100), Math.floor(previousImage.height + 100));
 			}
 
 			if(image && currentCoordinates) {
-				const x = currentCoordinates.x + offsetX + animation.offsetX;
-				const y = currentCoordinates.y + offsetY + animation.offsetY;
+				const x = Math.floor(currentCoordinates.x + offsetX + animation.offsetX);
+				const y = Math.floor(currentCoordinates.y + offsetY + animation.offsetY);
 
 				ctx.drawImage(image, x, y);
 				animation.previousCoordinates = { x, y };

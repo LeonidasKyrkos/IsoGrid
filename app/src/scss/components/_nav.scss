@@ -12,16 +12,37 @@ $module: 		'nav';
 	}
 
 	&__item-image {
-		width: em(35);
-		height: em(35);
+		width: em(50);
+		height: em(50);
 		border-radius: 100%;
 		background-color: rgba(white,0.5);
 		display: inline-block;
 		vertical-align: middle;
 		@include transition(background-color 0.15s linear);
+		overflow: hidden;
+		position: relative;
 
 		.#{$module}__item:hover & {
 			background-color: white;
+		}
+	}
+
+	&__svg {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100%;
+		max-width: 100%;
+		height: auto;
+		margin: 0 auto;
+		display: block;
+		@include transform(translateY(0));
+		@include transition-property(transform);
+		@include transition-duration(0.15s);
+		@include transition-timing-function(linear);
+
+		.#{$module}__item:hover & {
+			@include transform(translateY(-100%));
 		}
 	}
 
