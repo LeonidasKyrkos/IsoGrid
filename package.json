@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "webpack --end production"
+    "build": "webpack --end production",
+    "deploy": "gh-pages -d app"
   },
   "dependencies": {
     "clone": "^2.1.0",
@@ -30,6 +31,7 @@
     "dragscroll": "^0.0.8",
     "eev": "^0.1.0",
     "firebase": "^3.6.7",
+    "gh-pages": "^0.12.0",
     "lodash": "^4.17.4",
     "redux": "^3.6.0"
   }

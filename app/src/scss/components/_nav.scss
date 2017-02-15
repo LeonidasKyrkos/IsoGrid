@@ -18,6 +18,11 @@ $module: 		'nav';
 		background-color: rgba(white,0.5);
 		display: inline-block;
 		vertical-align: middle;
+		@include transition(background-color 0.15s linear);
+
+		.#{$module}__item:hover & {
+			background-color: white;
+		}
 	}
 
 	&__item-title {
