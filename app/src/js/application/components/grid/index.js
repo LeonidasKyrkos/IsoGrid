@@ -8,93 +8,18 @@ import { assets as html } from '../../constants/html';
 import { refreshRate } from '../../constants/settings';
 import { updateAnimationHandler } from '../animations/submodules/updateHandlers';
 import _ from 'lodash';
-import Sketch from '../../../plugins/Sketch';
 
 // Grid build system. It takes whatever data we give it and spits out a grid to match. 
 // Doesn't have any update methods. It just diffs the new state and triggers a re-render where necessary.
 
-// TODOS at bottom
+const mobile = window.innerWidth < 750;
 
 export default class Grid {
 	constructor(store, canvas) {
 		this.store = store;		
 		this.wrap = document.getElementById('isogrid');
 		this.lastRender = 0;
-
-		this.canvases = {
-			terrain: {
-				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="terrain"]'),
-				selector: (state) => {
-					return state.gridSquares;
-				},
-				render: (gridSquares) => {
-					this.canvases.terrain.ctx.clearRect(0, 0, width, height);
-
-					gridSquares.forEach((row,i)=>{
-						row.forEach((square,i)=>{
-							this.drawGridSquare(square,'terrain');
-						});
-					});
-				}
-			},
-			animation: {
-				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation.over"]'),
-				selector: (state) => {
-					return state.animations.filter(animation => animation.zIndex > 0);
-				},
-				render: (animations) => {
-					if(!animations || animations && !animations.length) { return };
-					updateAnimationHandler(this.store);					
-					this.drawAnimations(animations);
-				}
-			},
-			animationUnder: {
-				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation.under"]'),
-				selector: (state) => {
-					return state.animations.filter(animation => animation.zIndex === 0);
-				},
-				render: (animations) => {
-					if(!animations || animations && !animations.length) { return };
-					updateAnimationHandler(this.store);					
-					this.drawAnimations(animations);					
-				}
-			},
-			structure: {
-				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure.over"]'),
-				selector: (state) => {
-					return state.gridSquares.map(row => {
-						return row.filter(square => square.brushes.structure > 0);
-					});
-				},
-				render: (gridSquares) => {
-					this.canvases.structure.ctx.clearRect(0, 0, width, height);
-
-					gridSquares.forEach((row,i)=>{
-						row.forEach((square,i)=>{
-							this.drawGridSquare(square,'structure')
-						});
-					});
-				}
-			},
-			structureUnder: {
-				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure.under"]'),
-				selector: (state) => {
-					return state.gridSquares.map(row => {
-						return row.filter(square => square.brushes.structureUnder > 0);
-					});
-				},
-				render: (gridSquares) => {
-					this.canvases.structureUnder.ctx.clearRect(0, 0, width, height);
-
-					gridSquares.forEach((row,i)=>{
-						row.forEach((square,i)=>{
-							this.drawGridSquare(square,'structureUnder')
-						});
-					});
-				}
-			}
-		}
-
+		this.setupCanvases();
 		this.init();
 	}
 
@@ -129,7 +54,7 @@ export default class Grid {
 		})
 
 		Promise.all([terrain, structure, structureUnder, animations]).then(()=>{
-			this.startRendering();
+			this.startRendering();			
 			this.handleChange();
 			this.store.subscribe(this.handleChange.bind(this));
 		});
@@ -203,7 +128,7 @@ export default class Grid {
 			const previousImage = animation.previousDirection ? this.animations[aID].images[animation.previousDirection].image : image;
 
 			if(animation.previousCoordinates && previousImage) {
-				ctx.clearRect(animation.previousCoordinates.x - 15, animation.previousCoordinates.y - 15, previousImage.width + 20, previousImage.height + 20);
+				ctx.clearRect(animation.previousCoordinates.x - previousImage.width/2, animation.previousCoordinates.y - previousImage.height/2, previousImage.width + 25, previousImage.height + 25);
 			}
 
 			if(image && currentCoordinates) {
@@ -232,14 +157,13 @@ export default class Grid {
 	}
 
 	startRendering() {
-		console.log(Sketch);
-		// window.requestAnimationFrame(()=>{
-		// 	if(performance.now() - this.lastRender >= refreshRate) {
-		// 		this.lastRender = performance.now();
-		// 		this.render();
-		// 	}
-		// 	this.startRendering();
-		// })
+		window.requestAnimationFrame(()=>{
+			if(performance.now() - this.lastRender >= refreshRate) {
+				this.lastRender = performance.now();
+				this.render();
+			}
+			this.startRendering();
+		})
 	}
 
 	render() {
@@ -248,7 +172,7 @@ export default class Grid {
 		for(let name in this.canvases) {
 			let subCanvas = this.canvases[name];
 
-			if((name === 'animation' || name === 'animationUnder') && state.animations && state.animations.length) {
+			if(!mobile && (name === 'animation' || name === 'animationUnder') && state.animations && state.animations.length) {
 				subCanvas.render(state.animations);
 			}
 
@@ -257,10 +181,6 @@ export default class Grid {
 				subCanvas.queued = false;
 			}
 		}
-	}
-
-	stopRendering() {
-		clearInterval(this.renderInterval);
 	}
 
 	handleChange() {
@@ -281,5 +201,81 @@ export default class Grid {
 
 	select(state) {
 		return state.gridSquares;
+	}
+
+	setupCanvases() {
+		this.canvases = {
+			terrain: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="terrain"]'),
+				selector: (state) => {
+					return state.gridSquares;
+				},
+				render: (gridSquares) => {
+					this.canvases.terrain.ctx.clearRect(0, 0, width, height);
+
+					gridSquares.forEach((row,i)=>{
+						row.forEach((square,i)=>{
+							this.drawGridSquare(square,'terrain');
+						});
+					});
+				}
+			},
+			animation: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation.over"]'),
+				selector: (state) => {
+					return state.animations.filter(animation => animation.zIndex > 0);
+				},
+				render: (animations) => {
+					if(!animations || animations && !animations.length) { return };
+					updateAnimationHandler(this.store);					
+					this.drawAnimations(animations);
+				}
+			},
+			animationUnder: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation.under"]'),
+				selector: (state) => {
+					return state.animations.filter(animation => animation.zIndex === 0);
+				},
+				render: (animations) => {
+					if(!animations || animations && !animations.length) { return };
+					updateAnimationHandler(this.store);					
+					this.drawAnimations(animations);					
+				}
+			},
+			structure: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure.over"]'),
+				selector: (state) => {
+					return state.gridSquares.map(row => {
+						return row.filter(square => square.brushes.structure > 0);
+					});
+				},
+				render: (gridSquares) => {
+					this.canvases.structure.ctx.clearRect(0, 0, width, height);
+
+					gridSquares.forEach((row,i)=>{
+						row.forEach((square,i)=>{
+							this.drawGridSquare(square,'structure')
+						});
+					});
+				}
+			},
+			structureUnder: {
+				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure.under"]'),
+				selector: (state) => {
+					return state.gridSquares.map(row => {
+						return row.filter(square => square.brushes.structureUnder > 0);
+					});
+				},
+				render: (gridSquares) => {
+					this.canvases.structureUnder.ctx.clearRect(0, 0, width, height);
+
+					gridSquares.forEach((row,i)=>{
+						row.forEach((square,i)=>{
+							this.drawGridSquare(square,'structureUnder')
+						});
+					});
+				}
+			}
+		}
 	}
 }

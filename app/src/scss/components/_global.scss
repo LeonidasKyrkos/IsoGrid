@@ -5,6 +5,10 @@
 * {
 	box-sizing: border-box;
 	overflow: -moz-scrollbars-none !important;
+
+	@include bp(tab-l) {
+		overflow: auto !important;
+	}
 }
 
 html {
