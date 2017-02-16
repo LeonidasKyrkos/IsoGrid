@@ -8,6 +8,7 @@ import { assets as html } from '../../constants/html';
 import { refreshRate } from '../../constants/settings';
 import { updateAnimationHandler } from '../animations/submodules/updateHandlers';
 import _ from 'lodash';
+import Sketch from '../../../plugins/Sketch';
 
 // Grid build system. It takes whatever data we give it and spits out a grid to match. 
 // Doesn't have any update methods. It just diffs the new state and triggers a re-render where necessary.
@@ -140,8 +141,6 @@ export default class Grid {
 			subCanvas.canvas.width = width;
 			subCanvas.canvas.height = height;
 			subCanvas.ctx = subCanvas.canvas.getContext('2d');
-			subCanvas.ctx.strokeStyle = 'rgba(0,0,0,0.1)';
-			subCanvas.ctx.imageSmoothingEnabled = true;
 		}
 	}
 
@@ -204,16 +203,16 @@ export default class Grid {
 			const previousImage = animation.previousDirection ? this.animations[aID].images[animation.previousDirection].image : image;
 
 			if(animation.previousCoordinates && previousImage) {
-				ctx.clearRect(Math.floor(animation.previousCoordinates.x - 50), Math.floor(animation.previousCoordinates.y - 50), Math.floor(previousImage.width + 100), Math.floor(previousImage.height + 100));
+				ctx.clearRect(animation.previousCoordinates.x - 15, animation.previousCoordinates.y - 15, previousImage.width + 20, previousImage.height + 20);
 			}
 
 			if(image && currentCoordinates) {
-				const x = Math.floor(currentCoordinates.x + offsetX + animation.offsetX);
-				const y = Math.floor(currentCoordinates.y + offsetY + animation.offsetY);
+				const x = currentCoordinates.x + offsetX + animation.offsetX;
+				const y = currentCoordinates.y + offsetY + animation.offsetY;
 
 				ctx.drawImage(image, x, y);
 				animation.previousCoordinates = { x, y };
-			}
+			}			
 		})
 	}
 
@@ -233,13 +232,14 @@ export default class Grid {
 	}
 
 	startRendering() {
-		window.requestAnimationFrame(()=>{
-			if(Date.now() - this.lastRender >= refreshRate) {
-				this.lastRender = Date.now();
-				this.render();
-			}
-			this.startRendering();
-		})
+		console.log(Sketch);
+		// window.requestAnimationFrame(()=>{
+		// 	if(performance.now() - this.lastRender >= refreshRate) {
+		// 		this.lastRender = performance.now();
+		// 		this.render();
+		// 	}
+		// 	this.startRendering();
+		// })
 	}
 
 	render() {

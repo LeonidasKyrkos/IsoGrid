@@ -143,9 +143,11 @@ export default class AnimationPalette {
 
 	canvasClickHandler(e) {
 		this.runSelectors();
+		let wrapStyle = window.getComputedStyle(this.wrap.parentNode);
+		let padding = parseInt(wrapStyle.getPropertyValue('padding-left').slice(0, -2));
 
 		if(this.selectors.animationMode && this.selectors.activeAnimationBrush !== null) {
-			const x = e.x + this.wrap.parentNode.scrollLeft;
+			const x = e.x + this.wrap.parentNode.scrollLeft - padding;
 			const y = e.y + this.wrap.parentNode.scrollTop;
 			const square = findSquare(x, y, this.store);
 			
