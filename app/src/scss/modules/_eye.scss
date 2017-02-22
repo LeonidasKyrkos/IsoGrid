@@ -8,7 +8,7 @@ $podBlue: #ddecec;
 	}
 	
 	100% {
-		@include transform(rotateZ(0));
+		@include transform(rotateZ(0deg));
 	}
 }
 
@@ -30,39 +30,47 @@ $module: 		'eye';
 	height: 100%;
 	perspective: 800px;
 	pointer-events: none;
-	@include transform(translateY(-45px)translateX(-95px));
-
-	.palette & {
-		@include transform(none);
-	}
 	
 	&__inner {
 		height: 100%;
 
 		@include transform(rotateY(50deg)rotateX(-8deg));
-
-		.palette & {
-			@include transform(rotateY(50deg)rotateX(-8deg));
-		}
 	}
 
 	&__left {
 		position: absolute;
-		left: 0;
 		top: 0;
-		width: 51%;
+		width: 68%;
+		left: em(20);
+		
+		.palette & {
+			width: 63%;
+			left: 0;
+		}
 	}
 
 	&__right {
 		position: absolute;
-		right: 0;
+		right: em(20);
 		top: 0;
-		width: 51%;
+		width: 73%;
 	}
 
 	&__svg {
 		width: 100%;
 		height: auto;
+	}
+
+	&__pods-wrap {		
+		width: 100%;
+		height: 100%;
+		position: relative;
+
+		@include transform(rotateY(40deg) rotateX(-19deg) translateX(4px) translateY(-7px) scale(1.2));
+
+		.palette & {
+			@include transform(rotateY(40deg)rotateX(-19deg)translateX(-10px)translateY(-2px)scale(1.2));
+		}
 	}
 	
 	&__pods {
@@ -73,16 +81,13 @@ $module: 		'eye';
 		bottom: 0;
 		list-style-type: none;
 		@include animation(rotate_eye 16s linear infinite);
-
-		.palette & {
-			@include animation(none);
-		}
+		@include transform-origin(center);
 	}
 	
 	&__pod {
 		position: absolute;
 		@include animation(rotate_pod 16s linear infinite);
-		width: em(50);
+		width: 22%;
 
 		.cls-1 {
 			fill: $wheelGrayDark;
@@ -90,17 +95,6 @@ $module: 		'eye';
 
 		.cls-2 {
 			fill: $podBlue;
-		}
-
-		.palette & {
-			@include animation(none);
-			@include transform(translateY(-50%)translateX(-50%));
-			width: em(30);
-		}
-
-		svg {
-			max-width: 100%;
-			height: auto;
 		}
 		
 		&:nth-child(1) {
@@ -204,21 +198,10 @@ $module: 		'eye';
 		}
 	}
 
-	&__base {
-		width: em(100);
-		height: auto;
+	&__legs {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		@include transform(translateY(-5px)translateX(-5px));
-
-		svg {
-			width: 100%;
-			height: auto;
-		}
-
-		.palette & {
-			display: none;
-		}
 	}
 }

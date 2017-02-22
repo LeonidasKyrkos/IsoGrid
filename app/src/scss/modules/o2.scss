@@ -1,0 +1,8 @@
+$module: 		'o2';
+
+.#{$module} {
+	&__svg {
+		width: 100%;
+		height: auto;
+	}
+}

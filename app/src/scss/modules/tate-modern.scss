@@ -1,0 +1,13 @@
+$module: 		'tate-modern';
+
+.#{$module} {
+	&__image {
+		position: relative;
+		top: em(49);
+		left: em(2);
+
+		.palette & {
+			position: static;
+		}
+	}
+}

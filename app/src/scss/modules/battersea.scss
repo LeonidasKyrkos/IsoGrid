@@ -1,0 +1,13 @@
+$module: 		'battersea';
+
+.#{$module} {
+	&__image {
+		position: relative;
+		top: em(26);
+		left: em(-49);
+
+		.palette & {
+			position: static;
+		}
+	}
+}

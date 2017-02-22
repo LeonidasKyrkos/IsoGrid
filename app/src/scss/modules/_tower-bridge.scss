@@ -9,6 +9,16 @@ $module: 			'tower-bridge';
 		height: 100%;
 	}
 
+	&__image {
+		position: relative;
+		top: em(13);
+		left: em(15);
+
+		.palette & {
+			position: static;
+		}
+	}
+
 	&__inner {
 		position: relative;		
 		width: 100%;
@@ -18,7 +28,7 @@ $module: 			'tower-bridge';
 		.palette & {
 			@include transform(none);
 		}
-	}
+	}	
 
 	&__north, &__south, &__shadow--north, &__shadow--south  {
 		width: 50%;

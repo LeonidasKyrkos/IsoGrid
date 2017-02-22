@@ -89,12 +89,12 @@ export default class Grid {
 		if(wrap) { wrap.remove() };
 		wrap = document.createElement('div');
 		wrap.setAttribute('id','htmlwrap');
-		gridSquares.forEach((row,i)=>{
+		this.store.getState().gridSquares.forEach((row,i)=>{
 			row.forEach((square,i)=>{
 				this.addHtml(square,wrap);
 			});
 		});
-		this.canvasWrap.appendChild(wrap);
+		this.wrap.appendChild(wrap);
 	}
 
 	drawGridSquare(square,type) {
@@ -246,7 +246,7 @@ export default class Grid {
 				canvas: document.querySelector('[data-js="isogrid.canvas"][data-canvas="structure.over"]'),
 				selector: (state) => {
 					return state.gridSquares.map(row => {
-						return row.filter(square => square.brushes.structure > 0);
+						return row.filter(square => square.brushes.structure > 0 || square.brushes.html !== 0);
 					});
 				},
 				render: (gridSquares) => {
@@ -257,6 +257,8 @@ export default class Grid {
 							this.drawGridSquare(square,'structure')
 						});
 					});
+
+					this.htmlLoop();
 				}
 			},
 			structureUnder: {

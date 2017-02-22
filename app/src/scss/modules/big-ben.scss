@@ -1,0 +1,16 @@
+$module: 		'big-ben';
+
+
+.#{$module} {
+	&__image {
+		pointer-events: none;
+		position: relative;
+		top: em(23);
+		left: em(-1);
+
+		.palette & {
+			position: static;
+			height: em(94);
+		}
+	}
+}

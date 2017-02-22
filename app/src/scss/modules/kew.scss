@@ -1,0 +1,14 @@
+$module: 		'kew';
+
+.#{$module} {
+	&__svg {
+		width: 100%;
+		height: auto;
+		top: em(16);
+		left: em(13);
+
+		.palette & {
+			position: static;
+		}
+	}
+}

@@ -66,7 +66,7 @@ export default class Palette {
 		this.paletteItems = document.querySelectorAll('[data-js="paletteItem"]');
 
 		this.paletteItems.forEach((el,i)=>{
-			el.addEventListener('click',this.changeBrush.bind(this));
+			el.addEventListener('click',this.changeBrush.bind(this), true);
 		});
 
 		this.paletteToggle.addEventListener('click',this.togglePalettes);
@@ -84,7 +84,7 @@ export default class Palette {
 	changeBrush(e) {
 		this.clearBrushes();
 
-		let target = e.target;
+		let target = e.currentTarget;
 		target.classList.add('active');
 
 		let brushID = target.getAttribute('data-brush-id');

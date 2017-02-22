@@ -35,6 +35,7 @@ let promise = new Promise((resolve,reject)=>{
 promise.then((state) => {
 	const store = createStore(reducers, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 	const grid = new IsoGrid(store);
+	window.store = store;
 
 	saveStateToLocalStorage(state);
 

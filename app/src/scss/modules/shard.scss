@@ -1,0 +1,17 @@
+$module: 		'shard';
+
+.#{$module} {
+	&__svg {
+		width: 100%;
+		height: auto;
+		position: relative;
+		top: em(23);
+		left: em(-31);
+
+		.palette & {
+			position: static;
+			height: em(94);
+			width: auto;
+		}
+	}
+}
