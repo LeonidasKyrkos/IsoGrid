@@ -4,7 +4,6 @@
 
 * {
 	box-sizing: border-box;
-	overflow: -moz-scrollbars-none !important;
 
 	@include bp(tab-l) {
 		overflow: auto !important;
@@ -19,6 +18,7 @@ body {
 	background-color: black;
 	@include font-size($fzBase);
 	font-family: $ffBase;	
+	overflow: -moz-scrollbars-none !important;
 }
 
 .innerwrap {
@@ -27,6 +27,7 @@ body {
 	overflow: hidden;
 	width: 100vw;
 	height: 100vh;
+	overflow: -moz-scrollbars-none !important;
 
 	&:active {
 		cursor: -webkit-grabbing;

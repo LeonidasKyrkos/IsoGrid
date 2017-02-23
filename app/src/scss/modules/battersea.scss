@@ -3,10 +3,12 @@ $module: 		'battersea';
 .#{$module} {
 	perspective: 1000px;
 	
-	&__image {
+	&__svg {
 		position: relative;
 		top: em(26);
 		left: em(-49);
+		width: 100%;
+		height: auto;
 
 		.palette & {
 			position: static;
@@ -18,7 +20,7 @@ $module: 		'battersea';
 		background-color: black;
 		width: em(2);
 		height: em(60);
-		top: em(212);
+		top: em(247);
 		right: em(56);
 		@include transform-origin(top);
 		z-index: 2;
@@ -29,7 +31,7 @@ $module: 		'battersea';
 	&__box-wrap {
 		@include animation(batterseaBob 4s linear infinite);
 		position: absolute;
-		top: em(270);
+		top: em(305);
 		right: em(47);
 	}
 
@@ -38,7 +40,7 @@ $module: 		'battersea';
 		width: em(20);
 		height: em(20);		
 		transform-style: preserve-3d;
-		@include transform(rotateY(-43deg) rotateX(-16deg) rotateZ(17deg));
+		@include transform(rotateY(-45deg) rotateX(-24deg) rotateZ(24deg));
 
 		.palette & {
 			display: none;

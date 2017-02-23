@@ -66,7 +66,7 @@ $module: 		'eye';
 		height: 100%;
 		position: relative;
 
-		@include transform(rotateY(40deg) rotateX(-19deg) translateX(4px) translateY(-7px) scale(1.2));
+		@include transform(rotateY(40deg) rotateX(-19deg) translateX(5px) translateY(-7px) scale(1.2));
 
 		.palette & {
 			@include transform(rotateY(40deg)rotateX(-19deg)translateX(-10px)translateY(-2px)scale(1.2));
@@ -103,8 +103,8 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(2) {
-			top: 16%;
-			left: 17%;
+			top: 13%;
+			left: 13%;
 		}
 		
 		&:nth-child(3) {

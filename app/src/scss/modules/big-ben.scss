@@ -5,12 +5,28 @@ $module: 		'big-ben';
 	&__image {
 		pointer-events: none;
 		position: relative;
-		top: em(23);
-		left: em(-1);
+		top: em(24);
+		left: em(9);
 
 		.palette & {
 			position: static;
 			height: em(94);
+		}
+	}
+
+	&__time {
+		$fontSize: 13;
+		font-size: em($fontSize);
+		position: absolute;
+		top: em(152,$fontSize);
+		left: em(12,$fontSize);
+		z-index: 2;
+		@include transform(rotateY(-40deg)rotateZ(19deg)rotateX(-17deg)translateY(6px));
+
+		span {
+			padding: 0 em(1,$fontSize) 0 0;
+			display: inline-block;
+			vertical-align: middle;
 		}
 	}
 }

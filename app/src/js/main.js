@@ -14,6 +14,9 @@ import config from './configuration/firebase';
 import IsoGrid from './application/IsoGrid';
 import { defaultState } from './configuration/defaultState';
 
+// Custom JS
+import { clockHandler } from './custom/clock';
+
 export const App = firebase.initializeApp(config);
 export const DB = firebase.database();
 
@@ -38,10 +41,12 @@ promise.then((state) => {
 	window.store = store;
 
 	saveStateToLocalStorage(state);
+	
+	clockHandler();
 
 	setTimeout(()=>{
 		const wrap = document.getElementById('isogrid').parentNode;
 		wrap.scrollLeft = 700;
-		wrap.scrollTop = 150;
-	})
+		wrap.scrollTop = 150;		
+	});
 });
