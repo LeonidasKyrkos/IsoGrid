@@ -13,6 +13,7 @@ import _ from 'lodash';
 // Doesn't have any update methods. It just diffs the new state and triggers a re-render where necessary.
 
 const mobile = window.innerWidth < 750;
+const loaded = new Event('loaded');
 
 export default class Grid {
 	constructor(store, canvas) {
@@ -164,6 +165,10 @@ export default class Grid {
 			}
 			this.startRendering();
 		})
+
+		if(this.lastRender === 0) {
+			document.getElementById('isogridWrap').dispatchEvent(loaded);
+		}
 	}
 
 	render() {

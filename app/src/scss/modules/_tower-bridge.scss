@@ -21,6 +21,42 @@ $module: 			'tower-bridge';
 		}
 	}
 
+	&__ramp--off {
+		position: absolute;
+		width: em(50);
+		height: em(60);
+		background-color: #006eb7;
+		right: em(70);
+		top: em(18);
+		transform: rotateX(48deg)rotateY(0)rotateZ(43deg);
+	}
+
+	&__ramp {
+		position: absolute;
+		left: em(12);
+		bottom: 0;
+		width: em(50);
+		height: em(50);
+		transform: rotateX(48deg)rotateY(0)rotateZ(43deg);
+		background-color: #006eb7;
+	}
+
+	&__drawbridge {
+		position: absolute;
+		transform: rotateX(51deg) rotateY(0deg) rotateZ(41deg);
+		top: em(41);
+		left: em(147);
+		width: em(46);
+		height: em(145);
+	}
+
+	&__drawbridge-left, &__drawbridge-right {
+		width: 100%;
+		background-color: #006eb7;
+		height: 50%;
+		display: block;
+	}
+
 	&__left {
 		width: percentage(263/783);
 		height: auto;

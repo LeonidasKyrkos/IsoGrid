@@ -10,7 +10,10 @@
 		<meta name="viewport" content="width=device-width">
 	</head>
 	<body>
-		<article class="innerwrap" id="isogridWrap">
+		<div id="loader" class="loader">
+			<span class="loader__text">Loading</span>
+		</div>
+		<article class="innerwrap hidden" id="isogridWrap">
 			<header class="header">
 				<ul class="nav" data-js="nav">
 					<li>
@@ -2664,6 +2667,7 @@
 			</div>
 			<div id="towerbridge" class="tower-bridge">
 				<div class="tower-bridge__image">
+					<span class="tower-bridge__ramp--off"></span>
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 519.66 446.79" width="520" height="447" class="tower-bridge__right">
 						<defs>
 							<style>
@@ -3500,6 +3504,10 @@
 							</g>
 						</g>
 					</svg>
+					<div class="tower-bridge__drawbridge">
+						<span class="tower-bridge__drawbridge-left"></span>
+						<span class="tower-bridge__drawbridge-right"></span>
+					</div>					
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 263.17 446.79" width="263" height="447" class="tower-bridge__left">
 						<defs>
 							<style>
@@ -4272,6 +4280,7 @@
 							</g>
 						</g>
 					</svg>
+					<span class="tower-bridge__ramp"></span>
 				</div>				
 			</div>
 			<div id="battersea" class="battersea">
