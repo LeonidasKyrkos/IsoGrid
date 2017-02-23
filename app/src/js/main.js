@@ -41,12 +41,15 @@ promise.then((state) => {
 	window.store = store;
 
 	saveStateToLocalStorage(state);
-	
+
 	clockHandler();
 
 	setTimeout(()=>{
 		const wrap = document.getElementById('isogrid').parentNode;
 		wrap.scrollLeft = 700;
-		wrap.scrollTop = 150;		
+		wrap.scrollTop = 150;
+
+		// wrap.scrollLeft = 2200;
+		// wrap.scrollTop = 800;
 	});
 });

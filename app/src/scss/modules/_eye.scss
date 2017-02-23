@@ -14,11 +14,11 @@ $podBlue: #ddecec;
 
 @keyframes rotate_pod {
 	0% {
-		@include transform(translateX(-50%)translateY(-50%)rotateZ(-360deg)rotateX(32deg));
+		@include transform(translateX(-50%) translateY(-50%) rotateZ(-360deg) rotateX(32deg) skewY(30deg) scaleX(1.1));
 	}
 	
 	100% {
-		@include transform(translateX(-50%)translateY(-50%)rotateZ(0)rotateX(32deg));
+		@include transform(translateX(-50%) translateY(-50%) rotateZ(0) rotateX(32deg) skewY(30deg) scaleX(1.1));
 	}
 }
 
@@ -39,8 +39,8 @@ $module: 		'eye';
 
 	&__left {
 		position: absolute;
-		top: 0;
-		width: 68%;
+		top: em(-8);
+		width: 71%;
 		left: em(20);
 		
 		.palette & {
@@ -62,14 +62,14 @@ $module: 		'eye';
 	}
 
 	&__pods-wrap {		
-		width: 100%;
-		height: 100%;
+		width: 95%;
+		height: 95%;
 		position: relative;
 
-		@include transform(rotateY(40deg) rotateX(-19deg) translateX(5px) translateY(-7px) scale(1.2));
+		@include transform(translateX(0px) translateY(-4px) skewY(-30deg) scaleX(0.9));
 
 		.palette & {
-			@include transform(rotateY(40deg)rotateX(-19deg)translateX(-10px)translateY(-2px)scale(1.2));
+			@include transform(translateX(-10px) translateY(-2px) skewY(-30deg) scaleX(0.9));
 		}
 	}
 	
@@ -103,8 +103,8 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(2) {
-			top: 13%;
-			left: 13%;
+			top: 15%;
+			left: 15%;
 		}
 		
 		&:nth-child(3) {
@@ -113,8 +113,8 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(4) {
-			top: 83%;
-			left: 13%;
+			top: 85%;
+			left: 15%;
 		}
 		
 		&:nth-child(5) {
@@ -123,8 +123,8 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(6) {
-			top: 87%;
-			left: 87%;
+			top: 85%;
+			left: 85%;
 		}
 		
 		&:nth-child(7) {
@@ -133,8 +133,8 @@ $module: 		'eye';
 		}
 		
 		&:nth-child(8) {
-			top: 16%;
-			left: 83%;
+			top: 15%;
+			left: 85%;
 		}
 	}
 

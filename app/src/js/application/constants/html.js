@@ -6,8 +6,8 @@ export const assets = {
 	},
 	bigBen: {
 		template: document.getElementById('bigben'),
-		width: 84,
-		height: 328
+		width: 70,
+		height: (328/84) * 70
 	},
 	shard: {
 		template: document.getElementById('shard'),
@@ -21,8 +21,8 @@ export const assets = {
 	},
 	towerbridge: {
 		template: document.getElementById('towerbridge'),
-		width: 443 * 0.7,
-		height: 357 * 0.7
+		width: 493 * 0.8,
+		height: 282 * 0.8
 	},
 	battersea: {
 		template: document.getElementById('battersea'),
@@ -36,7 +36,7 @@ export const assets = {
 	},
 	tatemodern: {
 		template: document.getElementById('tatemodern'),
-		width: 266,
-		height: 210
+		width: 400,
+		height: 400 * 0.8
 	}
 }

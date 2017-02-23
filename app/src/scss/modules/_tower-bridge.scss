@@ -10,13 +10,32 @@ $module: 			'tower-bridge';
 	}
 
 	&__image {
+		width: 100%;
+		height: 100%;
 		position: relative;
-		top: em(13);
-		left: em(15);
+		top: em(15);
+		left: em(36);
 
 		.palette & {
 			position: static;
 		}
+	}
+
+	&__left {
+		width: percentage(263/783);
+		height: auto;
+		position: absolute;
+		left: em(10);
+		top: em(-8);
+	}
+
+	&__right {
+		position: relative;
+		right: em(84);
+		top: em(-106);
+		width: percentage(520/783);
+		height: auto;
+		position: absolute;
 	}
 
 	&__inner {
