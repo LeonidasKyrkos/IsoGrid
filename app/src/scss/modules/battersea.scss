@@ -1,6 +1,8 @@
 $module: 		'battersea';
 
 .#{$module} {
+	perspective: 1000px;
+	
 	&__image {
 		position: relative;
 		top: em(26);
@@ -9,5 +11,60 @@ $module: 		'battersea';
 		.palette & {
 			position: static;
 		}
+	}
+
+	&__wire {
+		position: absolute;
+		background-color: black;
+		width: em(2);
+		height: em(60);
+		top: em(212);
+		right: em(56);
+		@include transform-origin(top);
+		z-index: 2;
+
+		@include animation(batterseaRope 4s linear infinite);
+	}
+
+	&__box-wrap {
+		@include animation(batterseaBob 4s linear infinite);
+		position: absolute;
+		top: em(270);
+		right: em(47);
+	}
+
+	&__box {
+		position: relative;
+		width: em(20);
+		height: em(20);		
+		transform-style: preserve-3d;
+		@include transform(rotateY(-43deg) rotateX(-16deg) rotateZ(17deg));
+
+		.palette & {
+			display: none;
+		}
+	}
+
+	&__box-right, &__box-front, &__box-top {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	&__box-right {
+		background-color: #28b8ce;
+		@include transform(rotateY(90deg)translateZ(10px));
+	}
+
+	&__box-front {
+		background-color: #1e8a9b;
+		@include transform(translateZ(10px));
+	}
+
+	&__box-top {
+		background-color: #7ed4e2;
+		@include transform(rotateX(-90deg)translateZ(-10px));
 	}
 }

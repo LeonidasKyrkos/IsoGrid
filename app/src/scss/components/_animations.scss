@@ -81,3 +81,39 @@
 		@include transform(translateZ(-70px)translateY(16px)translateX(-2px)scaleX(0.9)rotateY(0)skewY(0));
 	}
 }
+
+@keyframes batterseaBob {
+	0% {
+		@include transform(translateY(0px));
+	}
+	40% {
+		@include transform(translateY(-40px));
+	}
+	50% {
+		@include transform(translateY(-50px));
+	}
+	90% {
+		@include transform(translateY(-10px));
+	}
+	100% {
+		@include transform(translateY(0px));
+	}
+}
+
+@keyframes batterseaRope {
+	0% {
+		@include transform(scaleY(1));
+	}
+	40% {
+		@include transform(scaleY(0.3));
+	}
+	50% {
+		@include transform(scaleY(0.15));
+	}
+	90% {
+		@include transform(scaleY(0.8));
+	}
+	100% {
+		@include transform(scaleY(1));
+	}
+}

@@ -16,8 +16,8 @@ export const assets = {
 	},
 	o2: {
 		template: document.getElementById('o2'),
-		width: 217,
-		height: 154
+		width: 217 * 1.5,
+		height: 154 * 1.5
 	},
 	towerbridge: {
 		template: document.getElementById('towerbridge'),
