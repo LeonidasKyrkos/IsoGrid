@@ -25,7 +25,7 @@ $module: 			'tower-bridge';
 		position: absolute;
 		width: em(50);
 		height: em(60);
-		background-color: #006eb7;
+		background-color: $color1;
 		right: em(70);
 		top: em(18);
 		transform: rotateX(48deg)rotateY(0)rotateZ(43deg);
@@ -38,7 +38,7 @@ $module: 			'tower-bridge';
 		width: em(50);
 		height: em(50);
 		transform: rotateX(48deg)rotateY(0)rotateZ(43deg);
-		background-color: #006eb7;
+		background-color: $color1;
 	}
 
 	&__drawbridge {
@@ -52,9 +52,19 @@ $module: 			'tower-bridge';
 
 	&__drawbridge-left, &__drawbridge-right {
 		width: 100%;
-		background-color: #006eb7;
+		background-color: $color1;
 		height: 50%;
 		display: block;
+	}
+
+	&__drawbridge-left {
+		@include animation(raiseLeft 3s ease-in infinite);
+		transform-origin: bottom;
+	}
+
+	&__drawbridge-right {
+		@include animation(raiseRight 3s ease-in infinite);
+		transform-origin: top;
 	}
 
 	&__left {
@@ -73,72 +83,32 @@ $module: 			'tower-bridge';
 		height: auto;
 		position: absolute;
 	}
+}
 
-	&__inner {
-		position: relative;		
-		width: 100%;
-		height: 100%;
-		@include transform(rotateZ(-26.5deg) rotateX(-10deg) rotateY(0deg) translateX(22px) translateY(-15px) skewX(37deg));
-
-		.palette & {
-			@include transform(none);
-		}
-	}	
-
-	&__north, &__south, &__shadow--north, &__shadow--south  {
-		width: 50%;
-		height: 100%;
-		display: block;
-		@include background(linear-gradient(to top,salmon 0%, black 100%));
+@keyframes raiseLeft {
+	0% {
+		@include transform(rotateX(0)rotateZ(0));
 	}
 
-	&__north {
-		float: right;
-		@include animation(raise_north 14s linear infinite);
-		@include transform-origin(right);
-
-		.palette & {
-			@include animation(none);
-		}
+	50% {
+		@include transform(rotateX(-85deg)rotateZ(-9deg));
 	}
 
-	&__south {
-		@include animation(raise_south 14s linear infinite);
-		@include transform-origin(left);
+	100% {
+		@include transform(rotateX(0)rotateZ(0));
+	}
+}
 
-		.palette & {
-			@include animation(none);
-		}
+@keyframes raiseRight {
+	0% {
+		@include transform(rotateX(0)rotateZ(0));
 	}
 
-	&__shadows {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+	50% {
+		@include transform(rotateX(-85deg)rotateZ(9deg));
 	}
 
-	&__shadow--north, &__shadow--south {
-		@include background(rgba(black,0.2));
-	}
-
-	&__shadow--north {
-		float: right;
-		@include animation(shrink_shadow_north 14s linear infinite);
-		@include transform-origin(right);
-
-		.palette & {
-			@include animation(none);
-		}
-	}
-
-	&__shadow--south {
-		@include animation(shrink_shadow_south 14s linear infinite);
-		@include transform-origin(left);
-
-		.palette & {
-			@include animation(none);
-		}
+	100% {
+		@include transform(rotateX(0)rotateZ(0));
 	}
 }

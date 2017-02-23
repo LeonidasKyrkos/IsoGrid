@@ -7,7 +7,7 @@ $module: 		'loader';
 	right: 0;
 	bottom: 0;
 	background-color: black;
-	@include transition(opacity 2s 1s linear);
+	@include transition(opacity 1s 1s linear);
 	opacity: 1;
 	z-index: 3;
 	pointer-events: none;
