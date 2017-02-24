@@ -14,4 +14,35 @@ $module: 		'shard';
 			width: auto;
 		}
 	}
+
+	&__balloon {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: em(80);
+		height: auto;
+
+		@include animation(flyBalloon 10s linear forwards);
+
+		.palette & {
+			display: none;
+		}
+	}
+}
+
+@keyframes flyBalloon {
+	0% {
+		@include transform(translateY(0)translateX(0)translateZ(0));
+	}
+	50% {
+		@include transform(translateY(-300px)translateX(-30px)translateZ(0));
+	}
+	75% {
+		@include transform(translateY(-450px)translateX(-50px)translateZ(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(translateY(-600px)translateX(-25px)translateZ(0));
+		opacity: 0;
+	}
 }

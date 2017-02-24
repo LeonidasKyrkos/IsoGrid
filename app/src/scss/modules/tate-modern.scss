@@ -12,4 +12,47 @@ $module: 		'tate-modern';
 			position: static;
 		}
 	}
+
+	&__painting {
+		position: absolute;
+		top: em(-10);
+		right: em(-170);
+		max-width: em(80);
+		opacity: 0;
+
+		.palette & {
+			display: none;
+		}
+
+		&:nth-child(1) {
+			@include animation(paintingSlide 5s linear infinite);
+		}
+
+		&:nth-child(2) {
+			@include animation(paintingSlide 5s 1.5s linear infinite);
+		}
+
+		&:nth-child(3) {
+			@include animation(paintingSlide 5s 3s linear infinite);
+		}
+	}
+}
+
+@keyframes paintingSlide {
+	0% {
+		opacity: 0;
+		@include transform(translateX(0)translateY(0));
+	}
+	10% {
+		opacity: 1;
+		@include transform(translateX(-34px)translateY(20px));
+	}
+	80% {
+		opacity: 1;
+		@include transform(translateX(-270px)translateY(160px));
+	}
+	100% {
+		opacity: 1;
+		@include transform(translateX(-270px)translateY(160px));
+	}
 }

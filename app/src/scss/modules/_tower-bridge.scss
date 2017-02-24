@@ -29,6 +29,10 @@ $module: 			'tower-bridge';
 		right: em(70);
 		top: em(18);
 		@include transform(rotateX(48deg)rotateY(0)rotateZ(43deg));
+
+		.palette & {
+			display: none;
+		}
 	}
 
 	&__ramp {
@@ -39,11 +43,19 @@ $module: 			'tower-bridge';
 		height: em(50);
 		@include transform(rotateX(60deg) rotateY(5deg) rotateZ(33deg)translateX(-14px)translateY(-10px));
 		background-color: $color1;
+
+		.palette & {
+			display: none;
+		}
 	}
 
 	&__drawbridge-left, &__drawbridge-right {
 		position: absolute;
 		display: block;
+
+		.palette & {
+			display: none;
+		}
 	}
 
 	&__drawbridge-left {
