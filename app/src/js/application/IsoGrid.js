@@ -11,7 +11,7 @@ import { saveStateToLocalStorage, clearLocalStorage } from './utils/localStorage
 export default class IsoGrid {
 	constructor(store) {
 		this.wrap = document.getElementById('isogrid');
-		this.wrap.setAttribute('style',`width: ${cvWidth}px; height: ${cvHeight}px`);
+		this.wrap.setAttribute('style',`width: ${cvWidth * 2}px; height: ${cvHeight}px`);
 		this.store = store;
 		this.elementSelectors();
 		this.runSelectors();
@@ -113,8 +113,7 @@ export default class IsoGrid {
 
 	handleClick(e) {
 		let state = this.store.getState();
-		let wrapStyle = window.getComputedStyle(this.wrap.parentNode);
-		let padding = parseInt(wrapStyle.getPropertyValue('padding-left').slice(0, -2));
+		let padding = document.getElementById('sidepanels').offsetWidth;
 
 		if(state.settings.buildMode && !state.settings.animationMode) {
 			const x = e.x + this.wrap.parentNode.scrollLeft - padding;

@@ -9,18 +9,30 @@ $module: 		'canvas';
 
 	&__wrap {
 		overflow: scroll;
-		position: relative;
 		width: 100vw;
 		height: 100vh;
-		padding-left: em($navWidth);
+		display: inline-block;
+		vertical-align: top;
+		position: absolute;
+		padding-left: em(230);
+		right: 0;
+		top: 0;
+		@include transition-property(transform);
+		@include transition-duration(0.5s);
+		@include transition-timing-function(linear);
 
 		@include bp(tab-s-a) {
 			padding-left: 0;
+		}
+
+		&.active {
+			@include transform(translateX(calc(100vw - 500px)));
 		}
 	}
 
 	&__innerwrap {
 		position: relative;
+
 		&.animationMode {
 			cursor: url('../../assets/flag.png') 0 50, auto;
 		}

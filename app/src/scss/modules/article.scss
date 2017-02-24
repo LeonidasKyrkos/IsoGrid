@@ -1,0 +1,33 @@
+$module: 		'article';
+
+.#{$module} {
+	height: 100%;
+	width: calc(100vw - 230px - 500px);
+	padding: em(20);
+	color: white;
+	display: none;
+
+	&.active {
+		display: block;
+	}
+
+	li:first-child & {
+		display: block;
+	}
+
+	&__items {
+		display: inline-block;
+		vertical-align: top;
+		height: 100vw;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		@include transition-property(transform);
+		@include transition-duration(0.5s);
+		@include transition-timing-function(linear);
+
+		&.active {
+			@include transform(translateX(100%));
+		}
+	}
+}

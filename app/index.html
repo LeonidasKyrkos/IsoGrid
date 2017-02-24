@@ -14,75 +14,220 @@
 			<span class="loader__text">Loading</span>
 		</div>
 		<article class="innerwrap hidden" id="isogridWrap">
-			<header class="header">
-				<ul class="nav" data-js="nav">
-					<li>
-						<a data-js="nav.trigger" class="nav__item">
-							<span class="nav__item-image">
-								<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="48" viewBox="0 0 43.96 47.49"><defs><style>.cls-1,.cls-2{fill:none;stroke:#000}.cls-1{stroke-miterlimit:10}.cls-2{stroke-linecap:round;stroke-linejoin:round}</style></defs><g data-name="Layer 2"><g data-name="Layer 1"><circle class="cls-1" cx="21.98" cy="2.06" r="1.56"/><circle class="cls-1" cx="21.98" cy="21.98" r="1.56"/><circle class="cls-1" cx="29.65" cy="3.57" r="1.56"/><circle class="cls-1" cx="36.08" cy="7.88" r="1.56"/><circle class="cls-1" cx="40.42" cy="14.38" r="1.56"/><circle class="cls-1" cx="41.9" cy="21.98" r="1.56"/><circle class="cls-1" cx="40.34" cy="29.63" r="1.56"/><circle class="cls-1" cx="36.08" cy="36.08" r="1.56"/><circle class="cls-1" cx="29.58" cy="40.43" r="1.56"/><circle class="cls-1" cx="21.98" cy="41.9" r="1.56"/><circle class="cls-1" cx="14.33" cy="40.34" r="1.56"/><circle class="cls-1" cx="7.88" cy="36.08" r="1.56"/><circle class="cls-1" cx="3.54" cy="29.58" r="1.56"/><circle class="cls-1" cx="2.06" cy="21.98" r="1.56"/><circle class="cls-1" cx="21.98" cy="21.98" r="15.21"/><circle class="cls-1" cx="21.98" cy="21.98" r="13.25"/><circle class="cls-1" cx="3.62" cy="14.33" r="1.56"/><circle class="cls-1" cx="7.88" cy="7.88" r="1.56"/><circle class="cls-1" cx="14.4" cy="3.57" r="1.56"/><path class="cls-2" d="M16.43 46.99l5.55-25.01 5.61 25.01"/></g></g></svg>
-							</span>
-							<span class="nav__item-title">Marketing</span>
-						</a>
+			<div class="side-panels" id="sidepanels">
+				<header class="header" id="header">
+					<ul class="nav" data-js="nav">
+						<li>
+							<a data-js="nav.trigger" class="nav__item" data-target="eye">
+								<span class="nav__item-image">
+									<svg class="nav__svg eye" xmlns="http://www.w3.org/2000/svg" width="44" height="48" viewBox="0 0 43.96 47.49">
+										<defs>
+											<style>
+												.eye-icon-cls-1,.eye-icon-cls-2{fill:none;stroke:#000}.eye-icon-cls-1{stroke-miterlimit:10}.eye-icon-cls-2{stroke-linecap:round;stroke-linejoin:round}
+											</style>
+										</defs>
+										<g>
+											<g>
+												<circle class="eye-icon-cls-1" cx="21.98" cy="2.06" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="29.65" cy="3.57" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="36.08" cy="7.88" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="40.42" cy="14.38" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="41.9" cy="21.98" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="40.34" cy="29.63" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="36.08" cy="36.08" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="29.58" cy="40.43" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="21.98" cy="41.9" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="14.33" cy="40.34" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="7.88" cy="36.08" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="3.54" cy="29.58" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="2.06" cy="21.98" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="15.21" />
+												<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="13.25" />
+												<circle class="eye-icon-cls-1" cx="3.62" cy="14.33" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="7.88" cy="7.88" r="1.56" />
+												<circle class="eye-icon-cls-1" cx="14.4" cy="3.57" r="1.56" />
+												<path class="eye-icon-cls-2" d="M16.43 46.99l5.55-25.01 5.61 25.01" />
+											</g>
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">Marketing</span>
+							</a>
+						</li>
+						<li>
+							<a data-js="nav.trigger" class="nav__item" data-target="tower-bridge">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="47" viewBox="0 0 50.02 47.33">
+										<defs>
+											<style>
+												.tower-bridge-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<g>
+											<g>
+												<path class="tower-bridge-icon-cls-1" d="M13.36 47.33V11.38H6.22v35.95m7.14-19.29l9.33-5.49M6.22 28.04H0m8.31-14.99v11.66m2.95-11.66v11.66M8.22 10.46l1.57-4 1.57 4m2 4.03h11.65m11.65 32.84V11.38h7.14v35.95m-7.14-19.29l-9.33-5.49m16.47 5.49h6.22m-8.31-14.99v11.66m-2.95-11.66v11.66m3.04-14.25l-1.57-4-1.57 4m-2 4.03H25.01m-11.65 2.72h11.65m11.65 0H25.01" />
+												<path class="tower-bridge-icon-cls-1" d="M0 34.31c1.56 0 1.56 1.13 3.12 1.13s1.56-1.13 3.13-1.13 1.52 1.12 3.08 1.12 1.56-1.13 3.13-1.13 1.54 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S23.43 34.3 25 34.3s1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.53 1.13 3.13 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S48.46 34.3 50 34.3" />
+												<circle class="tower-bridge-icon-cls-1" cx="25.01" cy="4.56" r="4.06" />
+											</g>
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">Auditing</span>
+							</a>
+						</li>
+						<li>
+							<a data-js="nav.trigger" class="nav__item" data-target="shard">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23.09 48">
+										<defs>
+											<style>
+												.shard-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<g>
+											<path class="shard-icon-cls-1" d="M.5 47.89L6.45 2.55 8.95.89l3.16 47m10.49 0L14.78 6.38l-2.33-2.33-1.62 12.58 6.94 31.26" data-name="Layer 1" />
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">Development</span>
+							</a>
+						</li>
+						<li>
+							<a data-js="nav.trigger" class="nav__item" data-target="battersea">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="39" height="48" viewBox="0 0 38.5 47.53">
+										<defs>
+											<style>
+												.battersea-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<path class="battersea-icon-cls-1" d="M7.56 47.51L6.61 9.3H1.47L.5 47.51m30.45 0l.96-38.21h5.14L38 47.51M7.34 29.53h23.7m-23.7 4.94h23.7M7.41 40.34h23.7m-23.7 5.13h23.7M4.04 12.93v30.2m30.44-30.2v30.2M10.45 2.89a2.33 2.33 0 0 0-4.63-.43A1.54 1.54 0 0 0 4.3 4.3a1.4 1.4 0 0 0 1.65 2.17 2.33 2.33 0 0 0 3.84-.86 1.4 1.4 0 1 0 .9-2.61l-.24-.06z" />
+									</svg>
+								</span>
+								<span class="nav__item-title">Design</span>
+							</a>
+						</li>
+						<li>
+							<a data-js="nav.trigger" class="nav__item" data-target="tate-modern">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="51" height="48" viewBox="0 0 50.83 47.38">
+										<defs>
+											<style>
+												.tate-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<g>
+											<path class="tate-icon-cls-1" d="M17.34 39.5v7.87M12.9 39.5v7.87m8.83-7.87v7.87m6.62 0L29.38.5h5.14l.97 46.87M0 33.53h28.9M0 27.14h28.88m6.62 6.39h15.33M35 27.14h15.83" data-name="Layer 1" />
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">Consultancy</span>
+							</a>
+						</li>
+						<li>
+							<a data-js="nav.trigger" class="nav__item" data-target="o2">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="60" height="48" viewBox="0 0 59.69 47.39">
+										<defs>
+											<style>
+												.o2-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<g>
+											<g>
+												<path class="o2-icon-cls-1" d="M16.8 28.3L13.55 8.38M31.26 27.3V0m-7.77 27.31L21.74 3.62m22.65 25.14l3.33-20.88m4.36 23.43l4.85-13.26M9.91 30.31L5.23 17.5M38.4 27.76L39.95 3.3" />
+												<ellipse class="o2-icon-cls-1" cx="16.96" cy="41.26" rx="9.44" ry="5.63" />
+												<ellipse class="o2-icon-cls-1" cx="17.6" cy="39.78" rx="4.17" ry="2.48" />
+												<path class="o2-icon-cls-1" d="M59.19 39.35C59.19 32.52 46 27 29.85 27S.5 32.55.5 39.35" />
+											</g>
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">Shard</span>
+							</a>
+						</li>
+						<li>
+							<a data-js="nav.trigger" class="nav__item" data-target="kew">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="52" height="48" viewBox="0 0 51.48 47.75">
+										<defs>
+											<style>
+												.kew-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<g>
+											<path class="kew-icon-cls-1" d="M0 18.05h7.91m35.66-.11h7.91M7.91 24.11V11.77h17.94m0-11.27S7.91.85 7.91 11.77m43.57 12.34H0m43.79 0V11.77H25.85m0-11.27s17.94.35 17.94 11.27M32.06 47.75l.02-12.45H19.63l-.02 12.45m12.47-12.82a6.23 6.23 0 1 0-12.45 0" data-name="Layer 1" />
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">E-Commerce</span>
+							</a>
+						</li>
+						<li>
+							<a data-js="nav.trigger" class="nav__item" data-target="big-ben">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="19" height="48" viewBox="0 0 18.99 47.57">
+										<defs>
+											<style>
+												.big-ben-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<path class="big-ben-icon-cls-1" d="M2.14 47.56l.01-21.76h14.69l-.02 21.76" />
+										<circle class="big-ben-icon-cls-1" cx="9.49" cy="34.75" r="5.41" />
+										<path class="big-ben-icon-cls-1" d="M5.49 43.19l-.01 4.38m4.04-4.38l-.01 4.38m4.04-4.38l-.01 4.38M.47 27.98l4.1-11.6h9.91l4.04 11.6M5.49 12.88h8.06v3.5H5.49z" />
+										<path class="big-ben-icon-cls-1" d="M4.3 13.57l5.22-12.3 5.28 12.35" />
+									</svg>
+								</span>
+								<span class="nav__item-title">E-Commerce</span>
+							</a>
+						</li>
+					</ul>
+				</header>
+				<ul class="article__items" id="articles">
+					<li data-js="article" data-article="eye">
+						<article class="article">
+							<h1 class="alpha">London Eye</h1>
+						</article>
 					</li>
-					<li>
-						<a data-js="nav.trigger" class="nav__item">
-							<span class="nav__item-image">
-								<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="47" viewBox="0 0 50.02 47.33"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10}</style></defs><g data-name="Layer 2"><g data-name="Layer 1"><path class="cls-1" d="M13.36 47.33V11.38H6.22v35.95m7.14-19.29l9.33-5.49M6.22 28.04H0m8.31-14.99v11.66m2.95-11.66v11.66M8.22 10.46l1.57-4 1.57 4m2 4.03h11.65m11.65 32.84V11.38h7.14v35.95m-7.14-19.29l-9.33-5.49m16.47 5.49h6.22m-8.31-14.99v11.66m-2.95-11.66v11.66m3.04-14.25l-1.57-4-1.57 4m-2 4.03H25.01m-11.65 2.72h11.65m11.65 0H25.01"/><path class="cls-1" d="M0 34.31c1.56 0 1.56 1.13 3.12 1.13s1.56-1.13 3.13-1.13 1.52 1.12 3.08 1.12 1.56-1.13 3.13-1.13 1.54 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S23.43 34.3 25 34.3s1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.53 1.13 3.13 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S48.46 34.3 50 34.3"/><circle class="cls-1" cx="25.01" cy="4.56" r="4.06"/></g></g></svg>
-							</span>
-							<span class="nav__item-title">Auditing</span>
-						</a>
+					<li data-js="article" data-article="tower-bridge">
+						<article class="article">
+							<h1 class="alpha">Tower Bridge</h1>
+						</article>
 					</li>
-					<li>
-						<a data-js="nav.trigger" class="nav__item">
-							<span class="nav__item-image">
-								<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23.09 48"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10}</style></defs><g data-name="Layer 2"><path class="cls-1" d="M.5 47.89L6.45 2.55 8.95.89l3.16 47m10.49 0L14.78 6.38l-2.33-2.33-1.62 12.58 6.94 31.26" data-name="Layer 1"/></g></svg>
-							</span>
-							<span class="nav__item-title">Development</span>
-						</a>
+					<li data-js="article" data-article="shard">
+						<article class="article">
+							<h1 class="alpha">The Shard</h1>
+						</article>
 					</li>
-					<li>
-						<a data-js="nav.trigger" class="nav__item">
-							<span class="nav__item-image">
-								<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="39" height="48" viewBox="0 0 38.5 47.53"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10}</style></defs><path class="cls-1" d="M7.56 47.51L6.61 9.3H1.47L.5 47.51m30.45 0l.96-38.21h5.14L38 47.51M7.34 29.53h23.7m-23.7 4.94h23.7M7.41 40.34h23.7m-23.7 5.13h23.7M4.04 12.93v30.2m30.44-30.2v30.2M10.45 2.89a2.33 2.33 0 0 0-4.63-.43A1.54 1.54 0 0 0 4.3 4.3a1.4 1.4 0 0 0 1.65 2.17 2.33 2.33 0 0 0 3.84-.86 1.4 1.4 0 1 0 .9-2.61l-.24-.06z"/></svg>
-							</span>
-							<span class="nav__item-title">Design</span>
-						</a>
+					<li data-js="article" data-article="battersea">
+						<article class="article">
+							<h1 class="alpha">Battersea Power Station</h1>
+						</article>
 					</li>
-					<li>
-						<a data-js="nav.trigger" class="nav__item">
-							<span class="nav__item-image">
-								<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="51" height="48" viewBox="0 0 50.83 47.38"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10}</style></defs><g data-name="Layer 2"><path class="cls-1" d="M17.34 39.5v7.87M12.9 39.5v7.87m8.83-7.87v7.87m6.62 0L29.38.5h5.14l.97 46.87M0 33.53h28.9M0 27.14h28.88m6.62 6.39h15.33M35 27.14h15.83" data-name="Layer 1"/></g></svg>
-							</span>
-							<span class="nav__item-title">Consultancy</span>
-						</a>
+					<li data-js="article" data-article="tate-modern">
+						<article class="article">
+							<h1 class="alpha">Tate Modern</h1>
+						</article>
 					</li>
-					<li>
-						<a data-js="nav.trigger" class="nav__item">
-							<span class="nav__item-image">
-								<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="60" height="48" viewBox="0 0 59.69 47.39"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10}</style></defs><g data-name="Layer 2"><g data-name="Layer 1"><path class="cls-1" d="M16.8 28.3L13.55 8.38M31.26 27.3V0m-7.77 27.31L21.74 3.62m22.65 25.14l3.33-20.88m4.36 23.43l4.85-13.26M9.91 30.31L5.23 17.5M38.4 27.76L39.95 3.3"/><ellipse class="cls-1" cx="16.96" cy="41.26" rx="9.44" ry="5.63"/><ellipse class="cls-1" cx="17.6" cy="39.78" rx="4.17" ry="2.48"/><path class="cls-1" d="M59.19 39.35C59.19 32.52 46 27 29.85 27S.5 32.55.5 39.35"/></g></g></svg>
-							</span>
-							<span class="nav__item-title">Shard</span>
-						</a>
+					<li data-js="article" data-article="o2">
+						<article class="article">
+							<h1 class="alpha">o2 Arena</h1>
+						</article>
 					</li>
-					<li>
-						<a data-js="nav.trigger" class="nav__item">
-							<span class="nav__item-image">
-								<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="52" height="48" viewBox="0 0 51.48 47.75"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10}</style></defs><g data-name="Layer 2"><path class="cls-1" d="M0 18.05h7.91m35.66-.11h7.91M7.91 24.11V11.77h17.94m0-11.27S7.91.85 7.91 11.77m43.57 12.34H0m43.79 0V11.77H25.85m0-11.27s17.94.35 17.94 11.27M32.06 47.75l.02-12.45H19.63l-.02 12.45m12.47-12.82a6.23 6.23 0 1 0-12.45 0" data-name="Layer 1"/></g></svg>
-							</span>
-							<span class="nav__item-title">E-Commerce</span>
-						</a>
+					<li data-js="article" data-article="kew">
+						<article class="article">
+							<h1 class="alpha">Kew Gardens</h1>
+						</article>
 					</li>
-					<li>
-						<a data-js="nav.trigger" class="nav__item">
-							<span class="nav__item-image">
-								<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="19" height="48" viewBox="0 0 18.99 47.57"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10}</style></defs><path class="cls-1" d="M2.14 47.56l.01-21.76h14.69l-.02 21.76"/><circle class="cls-1" cx="9.49" cy="34.75" r="5.41"/><path class="cls-1" d="M5.49 43.19l-.01 4.38m4.04-4.38l-.01 4.38m4.04-4.38l-.01 4.38M.47 27.98l4.1-11.6h9.91l4.04 11.6M5.49 12.88h8.06v3.5H5.49z"/><path class="cls-1" d="M4.3 13.57l5.22-12.3 5.28 12.35"/></svg>
-							</span>
-							<span class="nav__item-title">E-Commerce</span>
-						</a>
+					<li data-js="article" data-article="big-ben">
+						<article class="article">
+							<h1 class="alpha">Big Ben</h1>
+						</article>
 					</li>
 				</ul>
-			</header>			
-			<section class="canvas__wrap dragscroll">
+			</div>
+			<section class="canvas__wrap dragscroll" id="dragscroll">
 				<div id="isogrid" class="canvas__innerwrap">
 					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="terrain"></canvas>
 					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="animation.under"></canvas>
@@ -90,7 +235,7 @@
 					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="animation.over"></canvas>
 					<canvas class="canvas" data-js="isogrid.canvas" data-canvas="structure.over"></canvas>
 				</div>
-			</section>
+			</section>		
 			<section class="controls">
 				<span class="save__status hide" data-js="saveAlert">Loading...</span>
 				<div class="buttons">
@@ -143,15 +288,15 @@
 			</section>
 		</article>
 		<div id="templates">
-			<div id="londoneye" class="eye">
+			<div id="londoneye" class="eye" data-js="eye">
 				<span class="eye__left">
 					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.36 379.94" width="276" height="380">
 						<defs>
-							<linearGradient id="a" x1="39.33" y1="993.02" x2="172.71" y2="1070.03" gradientTransform="translate(0 -866.63)" gradientUnits="userSpaceOnUse">
+							<linearGradient id="aleft" x1="39.33" y1="993.02" x2="172.71" y2="1070.03" gradientTransform="translate(0 -866.63)" gradientUnits="userSpaceOnUse">
 								<stop offset="0" stop-color="#2d96d2"/><stop offset="1" stop-color="#2057a1"/>
 							</linearGradient>
 						</defs>
-						<path d="M53.19,370.31a65.51,65.51,0,0,1-8-10.63,80.69,80.69,0,0,1-4.55-8.7h0a98.69,98.69,0,0,1-3.82-9.92V341q-.56-1.72-1.08-3.51l-.06-.22q-.51-1.78-1-3.64v-.14q-1-3.79-1.77-7.9v-.18q-.38-2-.71-4l-.08-.47q-.32-2-.61-4.06l-.07-.52c-.19-1.4-.37-2.83-.53-4.29v-.27q-.24-2.2-.44-4.48v-.24c-.13-1.49-.24-3-.34-4.56v-.69q-.14-2.25-.24-4.56v-.81q-.09-2.34-.15-4.75v-5.87c0-166.33,143-246.37,143-246.37h.13l.1-.06h0l.14-.08.08,0,.18-.11h.08l.23-.13.11-.06.27-.16.1-.06.33-.19.09,0,.4-.23h0c10-5.72,51.22-27.41,86.21-19.63a57.75,57.75,0,0,1,15.17,5.62L247.93,8h0C205.86-16.32,143,22.62,143,22.62S0,102.68,0,269c0,34.31,6.09,57.92,15.75,73.82A60.11,60.11,0,0,0,34.1,362.22h0l.31.18a35.47,35.47,0,0,0,3.79,2.28l26.67,15.26h0A56.36,56.36,0,0,1,53.19,370.31Z" style="fill:url(#a)"/>
+						<path d="M53.19,370.31a65.51,65.51,0,0,1-8-10.63,80.69,80.69,0,0,1-4.55-8.7h0a98.69,98.69,0,0,1-3.82-9.92V341q-.56-1.72-1.08-3.51l-.06-.22q-.51-1.78-1-3.64v-.14q-1-3.79-1.77-7.9v-.18q-.38-2-.71-4l-.08-.47q-.32-2-.61-4.06l-.07-.52c-.19-1.4-.37-2.83-.53-4.29v-.27q-.24-2.2-.44-4.48v-.24c-.13-1.49-.24-3-.34-4.56v-.69q-.14-2.25-.24-4.56v-.81q-.09-2.34-.15-4.75v-5.87c0-166.33,143-246.37,143-246.37h.13l.1-.06h0l.14-.08.08,0,.18-.11h.08l.23-.13.11-.06.27-.16.1-.06.33-.19.09,0,.4-.23h0c10-5.72,51.22-27.41,86.21-19.63a57.75,57.75,0,0,1,15.17,5.62L247.93,8h0C205.86-16.32,143,22.62,143,22.62S0,102.68,0,269c0,34.31,6.09,57.92,15.75,73.82A60.11,60.11,0,0,0,34.1,362.22h0l.31.18a35.47,35.47,0,0,0,3.79,2.28l26.67,15.26h0A56.36,56.36,0,0,1,53.19,370.31Z" style="fill:url(#aleft)"/>
 					</svg>
 				</span>
 				<div class="eye__pods-wrap">
@@ -169,13 +314,13 @@
 				<span class="eye__right">
 					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284.41 372.17" width="284" height="372">
 						<defs>
-							<linearGradient id="a" x1="-1774.52" y1="-54.06" x2="593.9" y2="1313.35" gradientTransform="translate(0 -866.63)" gradientUnits="userSpaceOnUse">
+							<linearGradient id="aright" x1="-1774.52" y1="-54.06" x2="593.9" y2="1313.35" gradientTransform="translate(0 -866.63)" gradientUnits="userSpaceOnUse">
 								<stop offset="0" stop-color="#2d96d2" />
 								<stop offset="0" stop-color="#2d94d1" />
 								<stop offset="1" stop-color="#2057a1" />
 							</linearGradient>
 						</defs>
-						<path d="M260.36,18A54.71,54.71,0,0,0,246.63,7.27a57.75,57.75,0,0,0-15.17-5.62A73.14,73.14,0,0,0,216,0h-4.05l-2,.11-1.15.07-2,.17-1.15.11-2,.23-1.13.15-2,.29-1.05.17-2.08.36-1,.26-2.19.43-.6.13c-3.62.77-7.16,1.69-10.59,2.7l-.45.13L180.38,6l-.7.22-2,.66-.79.26L175,7.82l-.8.28-1.86.68-.76.29-1.83.7L169,10l-1.83.73-.51.21c-2.94,1.2-5.69,2.41-8.19,3.57l-.17.08-1.51.71-.53.25-1.31.64-.6.29-1.17.58-.63.32-1,.53-.62.32-.93.49-.59.31-.82.44-.57.31-.7.45-.6.33-.52.29-1,.55h0l-.4.23-.09,0-.33.19-.1.06-.27.16-.11.06-.23.13h-.08l-.18.11-.08,0-.14.08h0l-.1.06H143S0,102.62,0,269v5.84q0,2.41.15,4.75v.81q.1,2.32.24,4.56v.69c.1,1.54.21,3.07.34,4.56v.24q.2,2.28.44,4.48v.27c.16,1.46.34,2.88.53,4.29l.07.52q.29,2.07.61,4.06l.08.47q.34,2,.71,4v.18q.8,4.11,1.77,7.9v.14q.48,1.86,1,3.64l.06.22q.52,1.79,1.08,3.51v.06a98.77,98.77,0,0,0,3.82,9.92h0c.42.94.86,1.85,1.31,2.75l.12.25h0c1,2,2,3.9,3.12,5.69a65.51,65.51,0,0,0,8,10.63A56.36,56.36,0,0,0,35.1,363c42.36,26.24,107.59-12.38,107.59-12.38s141.72-76.72,141.72-246.3C284.49,60.05,274.73,33.27,260.36,18Zm-130,297.82s-75.6,44.75-106.8-6.62c-8.11-13.35-13.2-33.2-13.2-62,0-139.65,120.1-206.89,120.1-206.89s64.7-40.1,98.65-4c12.06,12.87,20.25,35.34,20.25,72.69C249.36,251.36,130.36,315.78,130.36,315.78Z" style="fill:url(#a)" />
+						<path d="M260.36,18A54.71,54.71,0,0,0,246.63,7.27a57.75,57.75,0,0,0-15.17-5.62A73.14,73.14,0,0,0,216,0h-4.05l-2,.11-1.15.07-2,.17-1.15.11-2,.23-1.13.15-2,.29-1.05.17-2.08.36-1,.26-2.19.43-.6.13c-3.62.77-7.16,1.69-10.59,2.7l-.45.13L180.38,6l-.7.22-2,.66-.79.26L175,7.82l-.8.28-1.86.68-.76.29-1.83.7L169,10l-1.83.73-.51.21c-2.94,1.2-5.69,2.41-8.19,3.57l-.17.08-1.51.71-.53.25-1.31.64-.6.29-1.17.58-.63.32-1,.53-.62.32-.93.49-.59.31-.82.44-.57.31-.7.45-.6.33-.52.29-1,.55h0l-.4.23-.09,0-.33.19-.1.06-.27.16-.11.06-.23.13h-.08l-.18.11-.08,0-.14.08h0l-.1.06H143S0,102.62,0,269v5.84q0,2.41.15,4.75v.81q.1,2.32.24,4.56v.69c.1,1.54.21,3.07.34,4.56v.24q.2,2.28.44,4.48v.27c.16,1.46.34,2.88.53,4.29l.07.52q.29,2.07.61,4.06l.08.47q.34,2,.71,4v.18q.8,4.11,1.77,7.9v.14q.48,1.86,1,3.64l.06.22q.52,1.79,1.08,3.51v.06a98.77,98.77,0,0,0,3.82,9.92h0c.42.94.86,1.85,1.31,2.75l.12.25h0c1,2,2,3.9,3.12,5.69a65.51,65.51,0,0,0,8,10.63A56.36,56.36,0,0,0,35.1,363c42.36,26.24,107.59-12.38,107.59-12.38s141.72-76.72,141.72-246.3C284.49,60.05,274.73,33.27,260.36,18Zm-130,297.82s-75.6,44.75-106.8-6.62c-8.11-13.35-13.2-33.2-13.2-62,0-139.65,120.1-206.89,120.1-206.89s64.7-40.1,98.65-4c12.06,12.87,20.25,35.34,20.25,72.69C249.36,251.36,130.36,315.78,130.36,315.78Z" style="fill:url(#aright)" />
 					</svg>
 				</span>
 				<span class="eye__legs">
@@ -200,7 +345,7 @@
 					</svg>
 				</span>
 			</div>
-			<div id="bigben" class="big-ben">
+			<div id="bigben" class="big-ben" data-js="big-ben">
 				<div class="big-ben__time">
 					<span data-js="bigben.hours">12</span><span class="blink">:</span><span data-js="bigben.minutes">00</span>
 				</div>
@@ -2373,7 +2518,7 @@
 					</g>
 				</svg>
 			</div>
-			<div id="shard" class="shard">
+			<div id="shard" class="shard" data-js="shard">
 				<svg class="shard__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 361.21 1280.48" width="361" height="1280">
 					<defs>
 						<style>
@@ -2611,7 +2756,7 @@
 					</g>
 				</svg>
 			</div>
-			<div id="o2" class="o2">
+			<div id="o2" class="o2" data-js="o2">
 				<svg class="o2__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 868.1 615.53" width="868" height="616">
 					<defs>
 						<style>
@@ -2729,7 +2874,7 @@
 					</div>
 				</div>				
 			</div>
-			<div id="towerbridge" class="tower-bridge">
+			<div id="towerbridge" class="tower-bridge" data-js="tower-bridge">
 				<div class="tower-bridge__image">
 					<span class="tower-bridge__ramp--off"></span>
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 519.66 446.79" width="520" height="447" class="tower-bridge__right">
@@ -4345,7 +4490,7 @@
 					<span class="tower-bridge__ramp"></span>
 				</div>				
 			</div>
-			<div id="battersea" class="battersea">
+			<div id="battersea" class="battersea" data-js="battersea">
 				<span class="battersea__wire--2"></span>
 				<div class="battersea__box-wrap--2">
 					<div class="battersea__box">
@@ -5012,7 +5157,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="kew" class="kew">
+			<div id="kew" class="kew" data-js="kew">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1018.42 692.46" width="1018" height="692" class="kew__svg">
 					<defs>
 						<style>
@@ -5160,7 +5305,7 @@
 					</g>
 				</svg>
 			</div>
-			<div id="tatemodern" class="tate-modern">
+			<div id="tatemodern" class="tate-modern" data-js="tate-modern">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 113.49 151.87" width="113" height="152" class="tate-modern__painting">
 					<defs>
 						<style>

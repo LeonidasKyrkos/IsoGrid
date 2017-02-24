@@ -2,16 +2,16 @@ $module: 		'header';
 
 
 .#{$module} {
+	width: 100%;
+	z-index: 2;
+	color: white;
+	cursor: auto;
+	overflow: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: em($navWidth);
-	z-index: 2;
-	color: white;
-	cursor: auto;
-	background-color: rgba(black,0.8);
-	overflow: hidden;
+	background-color: black;
 
 	@include bp(tab-s-a) {
 		display: none;

@@ -16,6 +16,7 @@ import { defaultState } from './configuration/defaultState';
 
 // Custom JS
 import { clockHandler } from './custom/clock';
+import { navHandler } from './custom/nav';
 
 export const App = firebase.initializeApp(config);
 export const DB = firebase.database();
@@ -42,15 +43,10 @@ promise.then((state) => {
 
 	saveStateToLocalStorage(state);
 
-	clockHandler();
-
 	setTimeout(()=>{
 		const wrap = document.getElementById('isogrid').parentNode;
-		// wrap.scrollLeft = 700;
-		// wrap.scrollTop = 150;
-
-		wrap.scrollLeft = 2200;
-		wrap.scrollTop = 800;
+		wrap.scrollLeft = 700;
+		wrap.scrollTop = 150;
 	});
 });
 
@@ -59,4 +55,6 @@ const loader = document.getElementById('loader');
 
 outerwrap.addEventListener('loaded',()=>{
 	loader.classList.add('hidden');
+	clockHandler();
+	navHandler();
 });

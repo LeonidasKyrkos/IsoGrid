@@ -19,13 +19,16 @@ body {
 	@include font-size($fzBase);
 	font-family: $ffBase;	
 	overflow: -moz-scrollbars-none !important;
+	width: 100vw;
+	height: 100vw;
+	overflow: hidden;
 }
 
 .innerwrap {
 	cursor: -webkit-grab;
 	cursor: -moz-grab;
 	overflow: hidden;
-	width: 100vw;
+	width: em(8000);
 	height: 100vh;
 	overflow: -moz-scrollbars-none !important;
 
@@ -41,6 +44,14 @@ body {
 
 #templates {
 	display: none;
+}
+
+.side-panels {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	height: 100vw;
+	width: em($navWidth);
 }
 
 img {
