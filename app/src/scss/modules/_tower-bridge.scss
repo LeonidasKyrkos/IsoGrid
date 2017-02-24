@@ -28,7 +28,7 @@ $module: 			'tower-bridge';
 		background-color: $color1;
 		right: em(70);
 		top: em(18);
-		transform: rotateX(48deg)rotateY(0)rotateZ(43deg);
+		@include transform(rotateX(48deg)rotateY(0)rotateZ(43deg));
 	}
 
 	&__ramp {
@@ -37,34 +37,34 @@ $module: 			'tower-bridge';
 		bottom: 0;
 		width: em(50);
 		height: em(50);
-		transform: rotateX(48deg)rotateY(0)rotateZ(43deg);
+		@include transform(rotateX(60deg) rotateY(5deg) rotateZ(33deg)translateX(-14px)translateY(-10px));
 		background-color: $color1;
-	}
-
-	&__drawbridge {
-		position: absolute;
-		transform: rotateX(51deg) rotateY(0deg) rotateZ(41deg);
-		top: em(41);
-		left: em(147);
-		width: em(46);
-		height: em(145);
 	}
 
 	&__drawbridge-left, &__drawbridge-right {
-		width: 100%;
-		background-color: $color1;
-		height: 50%;
+		position: absolute;
 		display: block;
 	}
 
 	&__drawbridge-left {
-		@include animation(raiseLeft 3s ease-in infinite);
-		transform-origin: bottom;
+		top: em(102);
+		left: em(85);
+		transform-origin: left;
+		@include animation(raiseLeft 30s linear infinite);
+
+		&:before {
+			content: "";
+			background-color: red;
+			position: absolute;
+			
+		}
 	}
 
 	&__drawbridge-right {
-		@include animation(raiseRight 3s ease-in infinite);
+		@include animation(raiseRight 30s linear infinite);
 		transform-origin: top;
+		top: em(70);
+		left: em(139);
 	}
 
 	&__left {
@@ -86,29 +86,53 @@ $module: 			'tower-bridge';
 }
 
 @keyframes raiseLeft {
-	0% {
-		@include transform(rotateX(0)rotateZ(0));
+	10% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	50% {
-		@include transform(rotateX(-85deg)rotateZ(-9deg));
+	36% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	100% {
-		@include transform(rotateX(0)rotateZ(0));
+	40% {
+		@include transform(rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px));
+	}
+
+	60% {
+		@include transform(rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px));
+	}
+
+	64% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+	}
+
+	85% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 }
 
 @keyframes raiseRight {
 	0% {
-		@include transform(rotateX(0)rotateZ(0));
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	50% {
-		@include transform(rotateX(-85deg)rotateZ(9deg));
+	35% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	100% {
-		@include transform(rotateX(0)rotateZ(0));
+	40% {
+		@include transform(rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px));
+	}
+
+	60% {
+		@include transform(rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px));
+	}
+
+	65% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+	}
+
+	90% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 }
