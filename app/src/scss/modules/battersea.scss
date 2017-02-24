@@ -24,8 +24,19 @@ $module: 		'battersea';
 		right: em(56);
 		@include transform-origin(top);
 		z-index: 2;
-
 		@include animation(batterseaRope 4s linear infinite);
+
+		.palette & {
+			display: none;
+		}
+	}
+
+	&__wire--2 {
+		@extend .#{$module}__wire;
+		@include animation(batterseaRope 4s 2s linear infinite);
+		right: auto;
+		left: em(-44);
+		top: em(120);
 	}
 
 	&__box-wrap {
@@ -33,6 +44,18 @@ $module: 		'battersea';
 		position: absolute;
 		top: em(305);
 		right: em(47);
+
+		.palette & {
+			display: none;
+		}
+	}
+
+	&__box-wrap--2 {
+		@extend .#{$module}__box-wrap;
+		@include animation(batterseaBob 4s 2s linear infinite);
+		top: em(179);
+		right: auto;
+		left: em(-54);
 	}
 
 	&__box {
@@ -41,10 +64,6 @@ $module: 		'battersea';
 		height: em(20);		
 		transform-style: preserve-3d;
 		@include transform(rotateY(-45deg) rotateX(-24deg) rotateZ(24deg));
-
-		.palette & {
-			display: none;
-		}
 	}
 
 	&__box-right, &__box-front, &__box-top {

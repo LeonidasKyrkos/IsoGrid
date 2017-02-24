@@ -5,4 +5,65 @@ $module: 		'o2';
 		width: 100%;
 		height: auto;
 	}
+
+	&__lights {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&__light-wrap {
+		position: absolute;
+		top: em(-30);
+		width: em(140);
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+
+		&:nth-child(1) {
+			transform-origin: right bottom;
+			@include animation(searchLightRight 12s 1s linear infinite);
+		}
+
+		&:nth-child(2) {
+			transform-origin: left bottom;
+			@include animation(searchLightLeft 12s linear infinite);
+		}
+	}
+
+	&__light {
+		width: 100%;
+		height: auto;
+	}
+
+	&__light--reverse {
+		@extend .#{$module}__light;
+		@include transform(rotateZ(85deg));
+	}
+}
+
+@keyframes searchLightRight {
+	0% {
+		@include transform(rotateZ(0));
+	}
+	50% {
+		@include transform(rotateZ(60deg));
+	}
+	100% {
+		@include transform(rotateZ(0));
+	}
+}
+
+@keyframes searchLightLeft {
+	0% {
+		@include transform(rotateZ(0));
+	}
+	50% {
+		@include transform(rotateZ(-60deg));
+	}
+	100% {
+		@include transform(rotateZ(0));
+	}
 }
