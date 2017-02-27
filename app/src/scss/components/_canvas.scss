@@ -14,19 +14,12 @@ $module: 		'canvas';
 		display: inline-block;
 		vertical-align: top;
 		position: absolute;
-		padding-left: em(230);
+		padding-left: 100vw;
 		right: 0;
 		top: 0;
-		@include transition-property(transform);
-		@include transition-duration(0.5s);
-		@include transition-timing-function(linear);
 
 		@include bp(tab-s-a) {
 			padding-left: 0;
-		}
-
-		&.active {
-			@include transform(translateX(calc(100vw - 500px)));
 		}
 	}
 

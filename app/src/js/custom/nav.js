@@ -19,7 +19,7 @@ export const navHandler = () => {
 	});
 
 	dragscroll.addEventListener('click',()=>{
-		dragscroll.classList.contains('active') && closeArticles();
+		!articles.classList.contains('inactive') && closeArticles();
 	});
 }
 
@@ -33,20 +33,8 @@ const handleClick = (e) => {
 	const articles = document.getElementById('articles');
 	const offset = getOffset(target);
 
-	if(!dragscroll.classList.contains('active')) {
-		articles.classList.add('active');
-		dragscroll.classList.add('active');	
-
-		for(let prop in transEvents) {
-			dragscroll.addEventListener(transEvents[prop], () => {
-				scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
-			}, { once: true });
-		}
-	} else {
-		articles.classList.add('active');
-		dragscroll.classList.add('active');
-		scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
-	}	
+	articles.classList.remove('inactive');
+	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
 }
 
 const getOffset = (target) => {
@@ -57,29 +45,28 @@ const getOffset = (target) => {
 
 	switch(targetName) {		
 		case 'eye':
-			return { x: -100, y: windowOffset };
+			return { x: -300, y: windowOffset };
 		case 'tower-bridge':
-			return { x: -200, y: windowOffset };
+			return { x: -400, y: windowOffset };
 		case 'shard':
-			return { x: 0, y: windowOffset };
+			return { x: -300, y: windowOffset };
 		case 'battersea':
-			return { x: -150, y: windowOffset };
+			return { x: -450, y: windowOffset };
 		case 'tate-modern':
-			return { x: -200, y: windowOffset };
+			return { x: -500, y: windowOffset };
 		case 'o2':
-			return { x: -160, y: windowOffset };
+			return { x: -360, y: windowOffset };
 		case 'kew':
-			return { x: -120, y: windowOffset };
+			return { x: -400, y: windowOffset };
 		case 'big-ben':
-			return { x: 0, y: windowOffset };
+			return { x: -200, y: windowOffset };
 		default: 
 			return defaultOffset;
 	}
 }
 
 const closeArticles = () => {
-	dragscroll.classList.remove('active');
-	articles.classList.remove('active');
+	articles.classList.add('inactive');
 }
 
 const scrollTo = (element, x, y) => {

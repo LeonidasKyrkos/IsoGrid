@@ -45,7 +45,7 @@ promise.then((state) => {
 
 	setTimeout(()=>{
 		const wrap = document.getElementById('isogrid').parentNode;
-		wrap.scrollLeft = 700;
+		wrap.scrollLeft = window.innerWidth + 700;
 		wrap.scrollTop = 150;
 	});
 });

@@ -25,9 +25,11 @@ $module: 		'article';
 		@include transition-property(transform);
 		@include transition-duration(0.5s);
 		@include transition-timing-function(linear);
+		background-color: rgba(black,0.7);
+		@include transform(translateX(100%));
 
-		&.active {
-			@include transform(translateX(100%));
+		&.inactive {
+			@include transform(translateX(0%));
 		}
 	}
 }
