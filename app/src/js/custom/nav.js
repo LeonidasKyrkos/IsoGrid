@@ -57,13 +57,13 @@ const getOffset = (target) => {
 		case 'battersea':
 			return { x: -420, y: windowOffset };
 		case 'tate-modern':
-			return { x: -450, y: windowOffset };
+			return { x: -470, y: windowOffset };
 		case 'o2':
 			return { x: -400, y: windowOffset };
 		case 'kew':
 			return { x: -400, y: windowOffset };
 		case 'big-ben':
-			return { x: -200, y: windowOffset };
+			return { x: -300, y: windowOffset };
 		default: 
 			return defaultOffset;
 	}

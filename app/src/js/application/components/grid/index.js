@@ -136,7 +136,7 @@ export default class Grid {
 			const previousImage = animation.previousDirection ? this.animations[aID].images[animation.previousDirection].image : image;
 
 			if(animation.previousCoordinates && previousImage) {
-				ctx.clearRect(animation.previousCoordinates.x - previousImage.width/2, animation.previousCoordinates.y - previousImage.height/2, previousImage.width + 25, previousImage.height + 25);
+				ctx.clearRect(animation.previousCoordinates.x - previousImage.width/2, animation.previousCoordinates.y - previousImage.height/2, previousImage.width + previousImage.width, previousImage.height + previousImage.height);
 			}
 
 			if(image && currentCoordinates) {

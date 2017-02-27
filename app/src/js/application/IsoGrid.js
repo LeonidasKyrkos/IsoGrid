@@ -66,13 +66,13 @@ export default class IsoGrid {
 	zoomOut() {
 		this.currentScale -= 0.2;
 		this.wrap.style.transform = `scale3d(${this.currentScale},${this.currentScale},${this.currentScale})`;
-		this.wrap.style['transform-origin'] = `${this.wrap.parentNode.scrollLeft - window.innerWidth / 2}px center 0px`;
+		this.wrap.style['transform-origin'] = `${this.wrap.parentNode.scrollLeft - window.innerWidth / 2}px ${this.wrap.parentNode.scrollTop + window.innerHeight / 2}px`;
 	}
 
 	zoomIn() {
 		this.currentScale += 0.2;
 		this.wrap.style.transform = `scale3d(${this.currentScale},${this.currentScale},${this.currentScale})`;
-		this.wrap.style['transform-origin'] = `${this.wrap.parentNode.scrollLeft - window.innerWidth / 2}px center 0px`;
+		this.wrap.style['transform-origin'] = `${this.wrap.parentNode.scrollLeft - window.innerWidth / 2}px ${this.wrap.parentNode.scrollTop + window.innerHeight / 2}px`;
 	}
 
 	handleChanges() {

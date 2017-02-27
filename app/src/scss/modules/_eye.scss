@@ -146,6 +146,7 @@ $module: 		'eye';
 		body.scrolling & {
 			@include animation(none);
 		}
+
 	}
 
 	&__spokes {

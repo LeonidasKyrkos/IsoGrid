@@ -27,7 +27,7 @@ $module: 		'tate-modern';
 		&:nth-child(1) {
 			.#{$module}.active & {
 				@include animation(paintingSlide 5s linear infinite);
-			}			
+			}
 		}
 
 		&:nth-child(2) {
