@@ -40,6 +40,7 @@ export default class IsoGrid {
 		this.grids = new Grid(this.store);
 		this.palette = new Palette(this.store);
 		this.animationPalette = new AnimationPalette(this.store);
+		this.currentScale = 1;
 		this.eventListeners();
 		this.store.subscribe(this.handleChanges.bind(this));
 	}
@@ -57,6 +58,21 @@ export default class IsoGrid {
 		this.buildModeButton.addEventListener('click',this.toggleBuildMode.bind(this));
 
 		this.clearCache.addEventListener('click',clearLocalStorage);
+
+		document.querySelector('[data-js="zoom.out"]').addEventListener('click',this.zoomOut.bind(this));
+		document.querySelector('[data-js="zoom.in"]').addEventListener('click',this.zoomIn.bind(this));
+	}
+
+	zoomOut() {
+		this.currentScale -= 0.2;
+		this.wrap.style.transform = `scale3d(${this.currentScale},${this.currentScale},${this.currentScale})`;
+		this.wrap.style['transform-origin'] = `${this.wrap.parentNode.scrollLeft - window.innerWidth / 2}px center 0px`;
+	}
+
+	zoomIn() {
+		this.currentScale += 0.2;
+		this.wrap.style.transform = `scale3d(${this.currentScale},${this.currentScale},${this.currentScale})`;
+		this.wrap.style['transform-origin'] = `${this.wrap.parentNode.scrollLeft - window.innerWidth / 2}px center 0px`;
 	}
 
 	handleChanges() {

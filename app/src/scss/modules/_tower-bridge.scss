@@ -61,8 +61,7 @@ $module: 			'tower-bridge';
 	&__drawbridge-left {
 		top: em(102);
 		left: em(85);
-		transform-origin: left;
-		@include animation(raiseLeft 30s linear infinite);
+		transform-origin: left;		
 
 		&:before {
 			content: "";
@@ -70,13 +69,29 @@ $module: 			'tower-bridge';
 			position: absolute;
 			
 		}
+
+		.#{$module}.active & {
+			@include animation(raiseLeft 10s linear infinite);
+		}
+
+		body.scrolling & {
+			@include animation(none);
+		}
 	}
 
 	&__drawbridge-right {
-		@include animation(raiseRight 30s linear infinite);
+		
 		transform-origin: top;
 		top: em(70);
 		left: em(139);
+
+		.#{$module}.active & {
+			@include animation(raiseRight 10s linear infinite);
+		}
+
+		body.scrolling & {
+			@include animation(none);
+		}
 	}
 
 	&__left {
@@ -107,19 +122,19 @@ $module: 			'tower-bridge';
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	36% {
+	26% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	40% {
+	30% {
 		@include transform(rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px));
 	}
 
-	60% {
+	70% {
 		@include transform(rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px));
 	}
 
-	64% {
+	74% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
@@ -133,19 +148,19 @@ $module: 			'tower-bridge';
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	35% {
+	25% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	40% {
+	30% {
 		@include transform(rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px));
 	}
 
-	60% {
+	70% {
 		@include transform(rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px));
 	}
 
-	65% {
+	75% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 

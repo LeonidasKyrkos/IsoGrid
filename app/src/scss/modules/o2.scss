@@ -35,6 +35,10 @@ $module: 		'o2';
 			transform-origin: left bottom;
 			@include animation(searchLightLeft 12s linear infinite);
 		}
+
+		body.scrolling & {
+			@include animation(none);
+		}
 	}
 
 	&__light {
