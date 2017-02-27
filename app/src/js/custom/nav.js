@@ -1,6 +1,7 @@
 import scroll from 'scroll';
 
 const dragscroll = document.getElementById('dragscroll');
+const canvasWrap = document.getElementById('isogrid');
 const articles = document.getElementById('articles');
 
 const transEvents = {
@@ -36,6 +37,7 @@ const handleClick = (e) => {
 	articles.classList.remove('inactive');
 	deactivateElements();
 	target.classList.add('active');
+	zoomCanvas(scrollX - offset.x);	
 	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
 }
 
@@ -47,17 +49,17 @@ const getOffset = (target) => {
 
 	switch(targetName) {		
 		case 'eye':
-			return { x: -300, y: windowOffset };
+			return { x: -350, y: windowOffset };
 		case 'tower-bridge':
 			return { x: -450, y: windowOffset };
 		case 'shard':
 			return { x: -300, y: windowOffset };
 		case 'battersea':
-			return { x: -400, y: windowOffset };
+			return { x: -420, y: windowOffset };
 		case 'tate-modern':
 			return { x: -450, y: windowOffset };
 		case 'o2':
-			return { x: -360, y: windowOffset };
+			return { x: -400, y: windowOffset };
 		case 'kew':
 			return { x: -400, y: windowOffset };
 		case 'big-ben':
@@ -69,12 +71,20 @@ const getOffset = (target) => {
 
 const closeArticles = () => {
 	deactivateElements();
+	canvasWrap.classList.remove('active');
 	articles.classList.add('inactive');
 }
 
 const scrollTo = (element, x, y) => {
 	scroll.left(element, x);
 	scroll.top(element, y);
+}
+
+const zoomCanvas = (x) => {
+	setTimeout(()=>{
+		canvasWrap.style['transform-origin'] = `${x - 200}px center 0px`;
+		canvasWrap.classList.add('active');
+	},300);	
 }
 
 const deactivateElements = () => {

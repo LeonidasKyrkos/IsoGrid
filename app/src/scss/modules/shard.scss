@@ -40,18 +40,18 @@ $module: 		'shard';
 	}
 	25% {
 		opacity: 1;
-		@include transform(translateY(-150px)translateX(-15px)translateZ(0));
+		@include transform(translateY(-150px)translateX(-5px)translateZ(0));
 	}
 	50% {
 		opacity: 1;
-		@include transform(translateY(-300px)translateX(-30px)translateZ(0));
+		@include transform(translateY(-300px)translateX(-15px)translateZ(0));
 	}
 	75% {
-		@include transform(translateY(-450px)translateX(-50px)translateZ(0));
+		@include transform(translateY(-450px)translateX(-25px)translateZ(0));
 		opacity: 1;
 	}
 	100% {
-		@include transform(translateY(-600px)translateX(-25px)translateZ(0));
+		@include transform(translateY(-600px)translateX(-5px)translateZ(0));
 		opacity: 0;
 	}
 }

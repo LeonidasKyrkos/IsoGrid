@@ -25,10 +25,13 @@ $module: 		'canvas';
 
 	&__innerwrap {
 		position: relative;
-		@include transform-origin(center center);
 		@include transition-property(transform);
 		@include transition-duration(0.15s);
 		@include transition-timing-function(linear);
+
+		&.active {
+			@include transform(scale3d(1.2,1.2,1.2));
+		}
 
 		&.animationMode {
 			cursor: url('../../assets/flag.png') 0 50, auto;

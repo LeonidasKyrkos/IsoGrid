@@ -2,7 +2,7 @@ $module: 		'article';
 
 .#{$module} {
 	height: 100%;
-	width: calc(100vw - 930px);
+	width: calc(100vw - 1000px);
 	padding: em(20);
 	color: white;
 	display: none;
@@ -27,7 +27,7 @@ $module: 		'article';
 	}
 
 	&__items {
-		padding: 0 em(230);
+		padding: 0 em($navWidth);
 		vertical-align: top;
 		height: 100vh;
 		overflow: hidden;
