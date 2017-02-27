@@ -47,10 +47,9 @@ body {
 }
 
 .side-panels {
-	display: inline-block;
-	vertical-align: top;
-	position: relative;
-	height: 100vw;
+	position: absolute;
+	top: 0;
+	bottom: 0;
 	width: em($navWidth);
 	z-index: 2;
 }

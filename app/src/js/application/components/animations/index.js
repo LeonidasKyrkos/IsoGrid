@@ -143,10 +143,9 @@ export default class AnimationPalette {
 
 	canvasClickHandler(e) {
 		this.runSelectors();
-		let padding = document.getElementById('sidepanels').offsetWidth;
 
 		if(this.selectors.animationMode && this.selectors.activeAnimationBrush !== null) {
-			const x = e.x + this.wrap.parentNode.scrollLeft - padding;
+			const x = e.x + this.wrap.parentNode.scrollLeft;
 			const y = e.y + this.wrap.parentNode.scrollTop;
 			const square = findSquare(x, y, this.store);
 			

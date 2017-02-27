@@ -80,12 +80,18 @@ $module: 		'eye';
 		top: 0;
 		bottom: 0;
 		list-style-type: none;
+		@include transform(rotateZ(360deg));
 		@include animation(rotate_eye 16s linear infinite);
 		@include transform-origin(center);
+
+		body.scrolling & {
+			@include animation(none);
+		}
 	}
 	
 	&__pod {
 		position: absolute;
+		@include transform(translateX(-50%) translateY(-50%) rotateZ(-360deg) rotateX(32deg) skewY(30deg) scaleX(1.1));
 		@include animation(rotate_pod 16s linear infinite);
 		width: 22%;
 
@@ -135,6 +141,10 @@ $module: 		'eye';
 		&:nth-child(8) {
 			top: 15%;
 			left: 85%;
+		}
+
+		body.scrolling & {
+			@include animation(none);
 		}
 	}
 

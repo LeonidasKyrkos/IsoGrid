@@ -24,7 +24,10 @@ $module: 		'battersea';
 		right: em(56);
 		@include transform-origin(top);
 		z-index: 2;
-		@include animation(batterseaRope 4s linear infinite);
+
+		.#{$module}.active & {
+			@include animation(batterseaRope 4s linear infinite);
+		}		
 
 		.palette & {
 			display: none;
@@ -33,17 +36,24 @@ $module: 		'battersea';
 
 	&__wire--2 {
 		@extend .#{$module}__wire;
-		@include animation(batterseaRope 4s 2s linear infinite);
 		right: auto;
 		left: em(-44);
 		top: em(120);
+
+		.#{$module}.active & {
+			@include animation(batterseaRope 4s 2s linear infinite);
+		}
 	}
 
-	&__box-wrap {
-		@include animation(batterseaBob 4s linear infinite);
+	&__box-wrap {		
 		position: absolute;
 		top: em(305);
 		right: em(47);
+		@include transform(translateY(0px));
+
+		.#{$module}.active & {
+			@include animation(batterseaBob 4s linear infinite);
+		}
 
 		.palette & {
 			display: none;
@@ -51,11 +61,14 @@ $module: 		'battersea';
 	}
 
 	&__box-wrap--2 {
-		@extend .#{$module}__box-wrap;
-		@include animation(batterseaBob 4s 2s linear infinite);
+		@extend .#{$module}__box-wrap;		
 		top: em(179);
 		right: auto;
 		left: em(-54);
+
+		.#{$module}.active & {
+			@include animation(batterseaBob 4s 2s linear infinite);
+		}
 	}
 
 	&__box {

@@ -12,6 +12,10 @@ $module: 		'o2';
 		position: absolute;
 		top: 0;
 		left: 0;
+
+		.palette & {
+			display: none;
+		}
 	}
 
 	&__light-wrap {

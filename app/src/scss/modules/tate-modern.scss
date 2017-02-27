@@ -25,15 +25,21 @@ $module: 		'tate-modern';
 		}
 
 		&:nth-child(1) {
-			@include animation(paintingSlide 5s linear infinite);
+			.#{$module}.active & {
+				@include animation(paintingSlide 5s linear infinite);
+			}			
 		}
 
 		&:nth-child(2) {
-			@include animation(paintingSlide 5s 1.5s linear infinite);
+			.#{$module}.active & {
+				@include animation(paintingSlide 5s 1.5s linear infinite);
+			}
 		}
 
 		&:nth-child(3) {
-			@include animation(paintingSlide 5s 3s linear infinite);
+			.#{$module}.active & {
+				@include animation(paintingSlide 5s 3s linear infinite);
+			}
 		}
 	}
 }

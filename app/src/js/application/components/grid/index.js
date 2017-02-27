@@ -14,6 +14,7 @@ import _ from 'lodash';
 
 const mobile = window.innerWidth < 750;
 const loaded = new Event('loaded');
+const body = document.getElementById('body');
 
 export default class Grid {
 	constructor(store, canvas) {
@@ -22,6 +23,7 @@ export default class Grid {
 		this.lastRender = 0;
 		this.setupCanvases();
 		this.init();
+		this.paused = false;
 	}
 
 	init() {
@@ -31,7 +33,12 @@ export default class Grid {
 		if(!state.gridSquares || state.gridSquares && !state.gridSquares.length) {
 			this.setupGridSquares();
 		}
-		
+
+		this.loadImages(state);
+		this.attachEventHandlers();
+	}
+
+	loadImages(state) {
 		// load images and render when complete
 		let terrain = instantiateImages(state.assets.terrain);
 		let structure = instantiateImages(state.assets.structure);
@@ -159,7 +166,7 @@ export default class Grid {
 
 	startRendering() {
 		window.requestAnimationFrame(()=>{
-			if(performance.now() - this.lastRender >= refreshRate) {
+			if(!this.paused && performance.now() - this.lastRender >= refreshRate) {
 				this.lastRender = performance.now();
 				this.render();
 			}
@@ -206,6 +213,21 @@ export default class Grid {
 
 	select(state) {
 		return state.gridSquares;
+	}
+
+	attachEventHandlers() {
+		window.addEventListener('mousedown',this.pause.bind(this));
+		window.addEventListener('mouseup',this.unpause.bind(this));
+	}
+
+	pause() {
+		body.classList.add('scrolling');
+		this.paused = true;
+	}
+
+	unpause() {
+		body.classList.remove('scrolling');
+		this.paused = false;
 	}
 
 	setupCanvases() {

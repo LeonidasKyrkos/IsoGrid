@@ -94,6 +94,11 @@ $module: 			'tower-bridge';
 		width: percentage(520/783);
 		height: auto;
 		position: absolute;
+
+		.palette & {
+			top: em(-20);
+			left: em(20);
+		}
 	}
 }
 

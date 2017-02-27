@@ -32,6 +32,10 @@ $module: 		'big-ben';
 			display: inline-block;
 			vertical-align: middle;
 		}
+
+		.palette & {
+			display: none;
+		}
 	}
 
 	&__time--right {

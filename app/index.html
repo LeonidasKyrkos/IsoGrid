@@ -9,7 +9,7 @@
 		<meta name="description" content="An isometric grid builder.">
 		<meta name="viewport" content="width=device-width">
 	</head>
-	<body>
+	<body id="body">
 		<div id="loader" class="loader">
 			<span class="loader__text">Loading</span>
 		</div>
@@ -187,42 +187,42 @@
 				<ul class="article__items inactive" id="articles">
 					<li data-js="article" data-article="eye">
 						<article class="article">
-							<h1 class="alpha">London Eye</h1>
+							<h1 class="article__title">London Eye</h1>
 						</article>
 					</li>
 					<li data-js="article" data-article="tower-bridge">
 						<article class="article">
-							<h1 class="alpha">Tower Bridge</h1>
+							<h1 class="article__title">Tower Bridge</h1>
 						</article>
 					</li>
 					<li data-js="article" data-article="shard">
 						<article class="article">
-							<h1 class="alpha">The Shard</h1>
+							<h1 class="article__title">The Shard</h1>
 						</article>
 					</li>
 					<li data-js="article" data-article="battersea">
 						<article class="article">
-							<h1 class="alpha">Battersea Power Station</h1>
+							<h1 class="article__title">Battersea Power Station</h1>
 						</article>
 					</li>
 					<li data-js="article" data-article="tate-modern">
 						<article class="article">
-							<h1 class="alpha">Tate Modern</h1>
+							<h1 class="article__title">Tate Modern</h1>
 						</article>
 					</li>
 					<li data-js="article" data-article="o2">
 						<article class="article">
-							<h1 class="alpha">o2 Arena</h1>
+							<h1 class="article__title">o2 Arena</h1>
 						</article>
 					</li>
 					<li data-js="article" data-article="kew">
 						<article class="article">
-							<h1 class="alpha">Kew Gardens</h1>
+							<h1 class="article__title">Kew Gardens</h1>
 						</article>
 					</li>
 					<li data-js="article" data-article="big-ben">
 						<article class="article">
-							<h1 class="alpha">Big Ben</h1>
+							<h1 class="article__title">Big Ben</h1>
 						</article>
 					</li>
 				</ul>
@@ -288,7 +288,7 @@
 			</section>
 		</article>
 		<div id="templates">
-			<div id="londoneye" class="eye" data-js="eye">
+			<div id="londoneye" class="eye" data-template="eye" data-js="template">
 				<span class="eye__left">
 					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.36 379.94" width="276" height="380">
 						<defs>
@@ -345,7 +345,7 @@
 					</svg>
 				</span>
 			</div>
-			<div id="bigben" class="big-ben" data-js="big-ben">
+			<div id="bigben" class="big-ben" data-template="big-ben" data-js="template">
 				<div class="big-ben__time">
 					<span data-js="bigben.hours">12</span><span class="blink">:</span><span data-js="bigben.minutes">00</span>
 				</div>
@@ -2518,7 +2518,7 @@
 					</g>
 				</svg>
 			</div>
-			<div id="shard" class="shard" data-js="shard">
+			<div id="shard" class="shard" data-template="shard" data-js="template">
 				<svg class="shard__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 361.21 1280.48" width="361" height="1280">
 					<defs>
 						<style>
@@ -2756,7 +2756,7 @@
 					</g>
 				</svg>
 			</div>
-			<div id="o2" class="o2" data-js="o2">
+			<div id="o2" class="o2" data-js="template" data-template="o2">
 				<svg class="o2__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 868.1 615.53" width="868" height="616">
 					<defs>
 						<style>
@@ -2874,7 +2874,7 @@
 					</div>
 				</div>				
 			</div>
-			<div id="towerbridge" class="tower-bridge" data-js="tower-bridge">
+			<div id="towerbridge" class="tower-bridge" data-template="tower-bridge" data-js="template">
 				<div class="tower-bridge__image">
 					<span class="tower-bridge__ramp--off"></span>
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 519.66 446.79" width="520" height="447" class="tower-bridge__right">
@@ -4490,7 +4490,7 @@
 					<span class="tower-bridge__ramp"></span>
 				</div>				
 			</div>
-			<div id="battersea" class="battersea" data-js="battersea">
+			<div id="battersea" class="battersea" data-template="battersea" data-js="template">
 				<span class="battersea__wire--2"></span>
 				<div class="battersea__box-wrap--2">
 					<div class="battersea__box">
@@ -5157,7 +5157,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="kew" class="kew" data-js="kew">
+			<div id="kew" class="kew" data-js="template" data-template="kew">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1018.42 692.46" width="1018" height="692" class="kew__svg">
 					<defs>
 						<style>
@@ -5305,7 +5305,7 @@
 					</g>
 				</svg>
 			</div>
-			<div id="tatemodern" class="tate-modern" data-js="tate-modern">
+			<div id="tatemodern" class="tate-modern" data-template="tate-modern" data-js="template">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 113.49 151.87" width="113" height="152" class="tate-modern__painting">
 					<defs>
 						<style>

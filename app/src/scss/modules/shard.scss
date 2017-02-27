@@ -21,8 +21,11 @@ $module: 		'shard';
 		right: 0;
 		width: em(80);
 		height: auto;
+		opacity: 0;
 
-		@include animation(flyBalloon 10s linear forwards);
+		.#{$module}.active & {
+			@include animation(flyBalloon 10s 1.5s linear forwards);
+		}		
 
 		.palette & {
 			display: none;
@@ -32,9 +35,15 @@ $module: 		'shard';
 
 @keyframes flyBalloon {
 	0% {
+		opacity: 0;
 		@include transform(translateY(0)translateX(0)translateZ(0));
 	}
+	25% {
+		opacity: 1;
+		@include transform(translateY(-150px)translateX(-15px)translateZ(0));
+	}
 	50% {
+		opacity: 1;
 		@include transform(translateY(-300px)translateX(-30px)translateZ(0));
 	}
 	75% {

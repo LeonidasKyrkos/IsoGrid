@@ -2,10 +2,11 @@ import { rows, cols, cvWidth as width, cvHeight as height } from '../constants/d
 import { getSquarePoints } from './getSquarePoints';
 import { updateSquareTerrain } from '../actions';
 
-export const findSquare = (x,y,store) => {
-	let col = Math.floor(cols * (x/ width));
-	let row = Math.floor(rows * (y / height));
-	let state = store.getState();
+export const findSquare = (eventX,y,store) => {
+	const x = eventX - window.innerWidth;
+	const col = Math.floor(cols * (x/ width));
+	const row = Math.floor(rows * (y / height));
+	const state = store.getState();
 	let squares = [];
 	let square;
 

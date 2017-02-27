@@ -2,7 +2,7 @@ $module: 		'article';
 
 .#{$module} {
 	height: 100%;
-	width: calc(100vw - 230px - 500px);
+	width: calc(100vw - 730px);
 	padding: em(20);
 	color: white;
 	display: none;
@@ -15,21 +15,32 @@ $module: 		'article';
 		display: block;
 	}
 
+	&__title {
+		@extend .alpha;
+		opacity: 1;		
+		@include transition(opacity 0.1s 0.3s linear);
+
+		.#{$module}__items.inactive & {			
+			@include transition(none);
+			opacity: 0;
+		}
+	}
+
 	&__items {
-		display: inline-block;
+		padding: 0 em(230);
 		vertical-align: top;
-		height: 100vw;
+		height: 100vh;
 		overflow: hidden;
 		position: absolute;
-		right: 0;
+		left: 0;
 		@include transition-property(transform);
-		@include transition-duration(0.5s);
+		@include transition-duration(0.3s);
 		@include transition-timing-function(linear);
 		background-color: rgba(black,0.7);
-		@include transform(translateX(100%));
+		@include transform(translateX(0%));
 
 		&.inactive {
-			@include transform(translateX(0%));
+			@include transform(translateX(calc(-100% + 230px)));
 		}
 	}
 }
