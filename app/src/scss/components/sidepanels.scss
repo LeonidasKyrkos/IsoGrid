@@ -6,4 +6,67 @@ $module: 		'side-panels';
 	bottom: 0;
 	width: em($navWidth);
 	z-index: 2;
+
+	@include bp(tab-l-b) {
+		width: 100%;
+		background-color: rgba(black,0.6);
+		max-height: em(170);
+		overflow: hidden;
+		@include transition(max-height 0.15s linear);
+
+		&.navActive {
+			max-height: 100vh;
+		}
+	}
+
+	&__pancake {
+		position: absolute;
+		right: em(40);
+		top: em(67);
+		cursor: pointer;
+		z-index: 10;
+		width: em(35);
+		background-color: transparent;
+		background-image: none;
+		border: 0;
+		outline: 0;
+		box-shadow: none;
+
+		.#{$module}.articlesActive & {
+			display: none;
+		}
+	}
+
+	&__pancake--articles {
+		@extend .#{$module}__pancake;
+		display: none;
+
+		.#{$module}.articlesActive & {
+			display: block;
+		}
+	}
+
+	&__pancake-line {
+		background-color: white;
+		margin-bottom: em(12);
+		width: 100%;
+		height: em(3);
+		display: block;
+
+		.#{$module}.navActive & {
+			&:nth-child(1) {
+				@include transform(rotate(45deg));
+				@include transform-origin(left center);
+			}
+
+			&:nth-child(2) {
+				display: none;
+			}
+
+			&:nth-child(3) {
+				@include transform(rotate(-45deg));
+				@include transform-origin(left center);
+			}
+		}
+	}
 }

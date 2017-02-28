@@ -21,4 +21,8 @@ $module:        'zoom';
             background-color: darken(firebrick,10%);
         }
     }
+
+    @include bp(tab-l-b) {
+        display: none;
+    }
 }

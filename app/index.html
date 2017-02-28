@@ -15,7 +15,15 @@
 		</div>
 		<article class="innerwrap hidden" id="isogridWrap">
 			<div class="side-panels" id="sidepanels">
-				<header class="header" id="header">
+				<button data-js="nav.toggle.root" class="side-panels__pancake">
+					<span class="side-panels__pancake-line"></span>
+					<span class="side-panels__pancake-line"></span>
+					<span class="side-panels__pancake-line"></span>
+				</button>
+				<button data-js="nav.toggle.articles" class="side-panels__pancake--articles">
+					<svg class="side-panels__pancake-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.068.016l-3.717 3.698 5.263 5.286h-13.614v6h13.614l-5.295 5.317 3.718 3.699 11.963-12.016z"/></svg>
+				</button>
+				<header class="header" id="header">					
 					<div class="logo">
 						<h1 class="logo__text">Digital <strong>Agency</strong> London</h1>
 						<div class="logo__tiles">
@@ -24,7 +32,7 @@
 							<img src="/assets/floor.png" alt="" class="logo__tile">
 						</div>
 					</div>
-					<ul class="nav" data-js="nav">
+					<ul class="nav" id="nav">
 						<li>
 							<a data-js="nav.trigger" class="nav__item" data-target="eye">
 								<span class="nav__item-image">
@@ -62,8 +70,7 @@
 								</span>
 								<span class="nav__item-title">London Eye</span>
 							</a>
-						</li>
-						<li>
+						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="tower-bridge">
 								<span class="nav__item-image">
 									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="47" viewBox="0 0 50.02 47.33">
@@ -83,8 +90,7 @@
 								</span>
 								<span class="nav__item-title">Tower Bridge</span>
 							</a>
-						</li>
-						<li>
+						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="shard">
 								<span class="nav__item-image">
 									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23.09 48">
@@ -100,8 +106,7 @@
 								</span>
 								<span class="nav__item-title">The Shard</span>
 							</a>
-						</li>
-						<li>
+						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="battersea">
 								<span class="nav__item-image">
 									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="39" height="48" viewBox="0 0 38.5 47.53">
@@ -115,8 +120,7 @@
 								</span>
 								<span class="nav__item-title">Battersea</span>
 							</a>
-						</li>
-						<li>
+						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="tate-modern">
 								<span class="nav__item-image">
 									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="51" height="48" viewBox="0 0 50.83 47.38">
@@ -132,8 +136,7 @@
 								</span>
 								<span class="nav__item-title">Tate Modern</span>
 							</a>
-						</li>
-						<li>
+						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="o2">
 								<span class="nav__item-image">
 									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="60" height="48" viewBox="0 0 59.69 47.39">
@@ -154,8 +157,7 @@
 								</span>
 								<span class="nav__item-title">o2 Arena</span>
 							</a>
-						</li>
-						<li>
+						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="kew">
 								<span class="nav__item-image">
 									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="52" height="48" viewBox="0 0 51.48 47.75">
@@ -171,8 +173,7 @@
 								</span>
 								<span class="nav__item-title">Kew Gardens</span>
 							</a>
-						</li>
-						<li>
+						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="big-ben">
 								<span class="nav__item-image">
 									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="19" height="48" viewBox="0 0 18.99 47.57">
@@ -193,42 +194,54 @@
 					</ul>
 				</header>
 				<ul class="article__items inactive" id="articles">
-					<li data-js="article" data-article="eye">
-						<article class="article">
-							<h1 class="article__title">London Eye</h1>
+					<li data-js="article" data-article="eye" class="article__wrap">
+						<article class="article">					
+							<section class="article__copy">
+								<div class="article__column">
+									<p class="article__user-story">I need to create a website that works for me...</p>
+									<p>Digital marketing is about much more than simply creating an attractive website. There are many factors to take into account. It all starts with you and your big idea. In other words, what it is you’re trying to achieve? But what happens next… that is the key to building maintaining an effective online presence and how you interact with the end-user, or customer.</p>
+									<p>Every individual, entrepreneur, or business, has different goals, so the first thing to do is get some good advice on how best to reach those goals. While all types of digital agencies should be able to advise on what’s best for your venture based on their specialisms. To get it spot-on, you need an agency that can do it all, see the bigger picture, and advise on overall strategy, as well as implementation.</p>
+									<p>That means finding a digital agency with both the expertise and track record in understanding your niche and what you do, and how to put the most appropriate digital solution package together to help you achieve, and exceed, your end-goals.</p>
+								</div><div class="article__column">
+									<header class="article__header">
+										<h1 class="article__title">We Connect You to the Best Solution</h1>
+									</header>						
+									<p>At Red Snapper, we won’t try to sell you anything until we completely understand your business and objectives. Our digital consultancy service is at the core of what we do. That’s where we’ll sit down with you, your staff and your stakeholders, discuss your business, your need and develop a brief document which we can use to develop the most effective solutions to your challenges. Once we know what you’re all about, using a combination of experience, know-how, talent and technology, we can then offer a range of options that you can view as a roadmap to success for your digital venture.</p>
+								</div>								
+							</section>
 						</article>
 					</li>
-					<li data-js="article" data-article="tower-bridge">
+					<li data-js="article" data-article="tower-bridge" class="article__wrap">
 						<article class="article">
 							<h1 class="article__title">Tower Bridge</h1>
 						</article>
 					</li>
-					<li data-js="article" data-article="shard">
+					<li data-js="article" data-article="shard" class="article__wrap">
 						<article class="article">
 							<h1 class="article__title">The Shard</h1>
 						</article>
 					</li>
-					<li data-js="article" data-article="battersea">
+					<li data-js="article" data-article="battersea" class="article__wrap">
 						<article class="article">
 							<h1 class="article__title">Battersea Power Station</h1>
 						</article>
 					</li>
-					<li data-js="article" data-article="tate-modern">
+					<li data-js="article" data-article="tate-modern" class="article__wrap">
 						<article class="article">
 							<h1 class="article__title">Tate Modern</h1>
 						</article>
 					</li>
-					<li data-js="article" data-article="o2">
+					<li data-js="article" data-article="o2" class="article__wrap">
 						<article class="article">
 							<h1 class="article__title">o2 Arena</h1>
 						</article>
 					</li>
-					<li data-js="article" data-article="kew">
+					<li data-js="article" data-article="kew" class="article__wrap">
 						<article class="article">
 							<h1 class="article__title">Kew Gardens</h1>
 						</article>
 					</li>
-					<li data-js="article" data-article="big-ben">
+					<li data-js="article" data-article="big-ben" class="article__wrap">
 						<article class="article">
 							<h1 class="article__title">Big Ben</h1>
 						</article>

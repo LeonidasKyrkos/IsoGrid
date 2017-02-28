@@ -1,37 +1,40 @@
 $module:		'logo';
 
 .#{$module} {
-	margin-bottom: em(100);
-	max-width: em(190);
+	margin-bottom: em(150);
+	width: em(130);
 	position: relative;
 
+	@include bp(tab-l-b) {
+		margin-bottom: em(40);
+	}
 
 	&__text {
-		$fontSize: 50;
+		$fontSize: 35;
 		@include font-size($fontSize);
 		line-height: 1;
 		text-transform: uppercase;
-		font-weight: 300;
+		font-weight: 300;		
 	}
 
 	&__tile {
-		width: em(60);
+		width: em(40);
 		height: auto;
 		position: absolute;
 
 		&:nth-child(1) {
-			bottom: em(-8);
-			right: em(-48);
+			bottom: em(-9);
+			right: em(-36);
 		}
 
 		&:nth-child(2) {
-			bottom: em(-30);
-			right: em(26);
+			bottom: em(-19);
+			right: em(17);
 		}
 
 		&:nth-child(3) {
-			bottom: em(-65);
-			right: em(12);
+			bottom: em(-40);
+			right: em(4);
 		}
 	}
 }

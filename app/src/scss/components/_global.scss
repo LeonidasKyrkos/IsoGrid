@@ -18,6 +18,7 @@ body {
 	width: 100vw;
 	height: 100vw;
 	overflow: hidden;
+	line-height: ($lhBase / $fzBase);
 }
 
 .innerwrap {
@@ -49,4 +50,8 @@ body {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+p {
+	margin-bottom: em(20);
 }

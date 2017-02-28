@@ -1,8 +1,13 @@
 import scroll from 'scroll';
+import { getScrollSettings } from './scrollSettings';
 
 const dragscroll = document.getElementById('dragscroll');
 const canvasWrap = document.getElementById('isogrid');
 const articles = document.getElementById('articles');
+const nav = document.getElementById('nav');
+const navToggleRoot = document.querySelector('[data-js="nav.toggle.root"]');
+const navToggleArticles = document.querySelector('[data-js="nav.toggle.articles"]');
+const sidePanels = document.getElementById('sidepanels');
 
 const transEvents = {
 	webkit: 'webkitTransitionEnd',
@@ -22,55 +27,41 @@ export const navHandler = () => {
 	dragscroll.addEventListener('click',()=>{
 		!articles.classList.contains('inactive') && closeArticles();
 	});
+
+	navToggleRoot.addEventListener('click',toggleNavRoot);
+	navToggleArticles.addEventListener('click',toggleArticles);
 }
 
 const handleClick = (e) => {
 	const el = e.currentTarget;
 	const targetName = el.getAttribute('data-target');
 	const target = document.querySelector(`#htmlwrap [data-template="${targetName}"]`);
+	const article = document.querySelector(`#articles [data-article="${targetName}"]`);
 	const scrollX = target.offsetLeft;
 	const scrollY = target.offsetTop;
 	const dragscroll = document.getElementById('dragscroll');
-	const articles = document.getElementById('articles');
 	const offset = getOffset(target);
 
-	articles.classList.remove('inactive');
+	deactivateArticles();
 	deactivateElements();
+	nav.classList.add('hidden');
 	target.classList.add('active');
-	zoomCanvas(scrollX - offset.x);	
+	article.classList.add('active');
+	toggleArticles();
+	zoomCanvas(scrollX - offset.x);
 	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
 }
 
 const getOffset = (target) => {
 	const targetName = target.getAttribute('data-template');
-	const paddingX = document.getElementById('sidepanels').offsetWidth;
-	const defaultOffset = { x: paddingX, y: 300 }
 	const windowOffset = window.innerHeight/2 - target.offsetHeight/2;
 
-	switch(targetName) {		
-		case 'eye':
-			return { x: -350, y: windowOffset };
-		case 'tower-bridge':
-			return { x: -450, y: windowOffset };
-		case 'shard':
-			return { x: -300, y: windowOffset };
-		case 'battersea':
-			return { x: -420, y: windowOffset };
-		case 'tate-modern':
-			return { x: -470, y: windowOffset };
-		case 'o2':
-			return { x: -400, y: windowOffset };
-		case 'kew':
-			return { x: -400, y: windowOffset };
-		case 'big-ben':
-			return { x: -300, y: windowOffset };
-		default: 
-			return defaultOffset;
-	}
+	return getScrollSettings(targetName,windowOffset);
 }
 
 const closeArticles = () => {
 	deactivateElements();
+	deactivateArticles();
 	canvasWrap.classList.remove('active');
 	articles.classList.add('inactive');
 }
@@ -81,10 +72,12 @@ const scrollTo = (element, x, y) => {
 }
 
 const zoomCanvas = (x) => {
-	setTimeout(()=>{
-		canvasWrap.style['transform-origin'] = `${x - 200}px center 0px`;
-		canvasWrap.classList.add('active');
-	},300);	
+	if(window.innerWidth > 1600) {
+		setTimeout(()=>{
+			canvasWrap.style['transform-origin'] = `${x - 200}px center 0px`;
+			canvasWrap.classList.add('active');
+		},300);
+	}
 }
 
 const deactivateElements = () => {
@@ -93,4 +86,23 @@ const deactivateElements = () => {
 	htmlElements.forEach( el => {
 		el.classList.remove('active') 
 	});
+}
+
+const deactivateArticles = () => {
+	const articlesWrap = document.getElementById('articles');
+	const articles = document.querySelectorAll('#articles [data-js="article"]');
+
+	articlesWrap.classList.remove('inactive');
+	articles.forEach(el => {
+		el.classList.remove('active');
+	});
+}
+
+const toggleNavRoot = () => {
+	sidePanels.classList.toggle('navActive');
+}
+
+const toggleArticles = () => {
+	sidePanels.classList.contains('articlesActive') && deactivateArticles();
+	sidePanels.classList.toggle('articlesActive');
 }

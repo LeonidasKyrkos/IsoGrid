@@ -37,5 +37,10 @@ $module: 		'canvas';
 		&.animationMode {
 			cursor: url('../../assets/flag.png') 0 50, auto;
 		}
+
+		@include bp(tab-xl) {
+			@include transform-origin(center center);
+			@include transform(scale3d(0.8,0.8,0.8));
+		}
 	}
 }
