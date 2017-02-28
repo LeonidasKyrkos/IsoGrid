@@ -3,6 +3,7 @@ $module: 		'battersea';
 .#{$module} {
 	perspective: 1000px;
 	width: em(417);
+	overflow: visible;
 	
 	&__svg {
 		position: relative;

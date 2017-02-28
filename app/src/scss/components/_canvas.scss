@@ -17,6 +17,7 @@ $module: 		'canvas';
 		padding-left: 100vw;
 		right: 0;
 		top: 0;
+		backface-visibility: hidden;
 
 		@include bp(tab-s-a) {
 			padding-left: 0;
