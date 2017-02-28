@@ -2,7 +2,7 @@ $module: 		'big-ben';
 
 
 .#{$module} {
-	@include transform(translateX(16px));
+	@include transform(translateX(12px));
 
 	&__svg {
 		pointer-events: none;
@@ -32,11 +32,11 @@ $module: 		'big-ben';
 	&__time {
 		font-family: 'VT323', Arial;
 		user-select: none;
-		$fontSize: 11;
+		$fontSize: 16;
 		font-size: em($fontSize);
 		position: absolute;
-		top: em(123,$fontSize);
-		left: em(8,$fontSize);
+		top: em(120,$fontSize);
+		left: em(4,$fontSize);
 		z-index: 2;
 		@include transform(rotateY(-45deg) rotateZ(22deg) rotateX(-14deg) translateY(6px));
 		color: #28b8ce;
@@ -53,10 +53,10 @@ $module: 		'big-ben';
 	}
 
 	&__time--right {
-		$fontSize: 11;
+		$fontSize: 16;
 		@extend .#{$module}__time;
 		color: #3c59a3;
-		right: em(7,$fontSize);
+		right: em(2,$fontSize);
 		left: auto;
 		@include transform(rotateY(44deg) rotateZ(-23deg) rotateX(-20deg) translateY(6px));
 	}
