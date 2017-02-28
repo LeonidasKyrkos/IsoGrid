@@ -26,14 +26,18 @@ $module: 		'eye';
 
 .#{$module} {
 	position: relative;		
-	width: 100%;
-	height: 100%;
+	width: em(200);
+	height: em(200);
 	perspective: 800px;
 	pointer-events: none;
+
+	.palette & {
+		width: em(100);
+		height: em(100);
+	}
 	
 	&__inner {
 		height: 100%;
-
 		@include transform(rotateY(50deg)rotateX(-8deg));
 	}
 

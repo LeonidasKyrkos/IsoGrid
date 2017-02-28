@@ -55,6 +55,7 @@ const loader = document.getElementById('loader');
 
 outerwrap.addEventListener('loaded',()=>{
 	loader.classList.add('hidden');
+	outerwrap.classList.remove('hidden');
 	clockHandler();
 	navHandler();
 });

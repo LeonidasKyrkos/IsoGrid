@@ -153,13 +153,13 @@ export default class Grid {
 		const row = square.position.row;
 		const col = square.position.col;
 		const x = row % 2 === 0 ? colWidth * col : (colWidth * col) +  colWidth/2;
-		const y = ((rowHeight / 2) * row) + rowHeight/2;
+		const y = height - ((rowHeight / 2) * row) - rowHeight/2;
 
 		if(square && square.brushes && square.brushes.html && html[square.brushes.html]) {
 			let htmlObj = html[square.brushes.html];
 			let el = htmlObj.template.cloneNode(true);
 			el.removeAttribute('id');
-			el.setAttribute('style',`position: absolute; left: ${x}px; top: ${y - htmlObj.height}px; width: ${htmlObj.width}px; height: ${htmlObj.height}px;`);
+			el.setAttribute('style',`position: absolute; left: ${x}px; bottom: ${y}px;`);
 			wrap.appendChild(el);
 		}
 	}

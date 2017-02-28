@@ -4,6 +4,8 @@ $module: 			'tower-bridge';
 	pointer-events: none;
 	perspective: 800px;
 	perspective-origin: right;
+	width: em(393);
+	height: em(224);
 
 	.palette & {
 		height: 100%;
