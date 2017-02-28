@@ -1,0 +1,9 @@
+$module: 		'side-panels';
+
+.#{$module} {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: em($navWidth);
+	z-index: 2;
+}

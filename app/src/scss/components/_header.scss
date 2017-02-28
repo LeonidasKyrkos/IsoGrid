@@ -11,6 +11,7 @@ $module: 		'header';
 	top: 0;
 	left: 0;
 	bottom: 0;
+	padding: em(20) em(10) em(20) em(25);
 
 	@include bp(tab-s-a) {
 		display: none;

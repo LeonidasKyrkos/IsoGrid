@@ -1,0 +1,37 @@
+$module:		'logo';
+
+.#{$module} {
+	margin-bottom: em(100);
+	max-width: em(190);
+	position: relative;
+
+
+	&__text {
+		$fontSize: 50;
+		@include font-size($fontSize);
+		line-height: 1;
+		text-transform: uppercase;
+		font-weight: 300;
+	}
+
+	&__tile {
+		width: em(60);
+		height: auto;
+		position: absolute;
+
+		&:nth-child(1) {
+			bottom: em(-8);
+			right: em(-48);
+		}
+
+		&:nth-child(2) {
+			bottom: em(-30);
+			right: em(26);
+		}
+
+		&:nth-child(3) {
+			bottom: em(-65);
+			right: em(12);
+		}
+	}
+}

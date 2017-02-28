@@ -40,7 +40,7 @@ $module: 		'article';
 		@include transform(translateX(0%));
 
 		&.inactive {
-			@include transform(translateX(calc(-100% + 230px)));
+			@include transform(translateX(calc(-100% + 300px)));
 		}
 	}
 }

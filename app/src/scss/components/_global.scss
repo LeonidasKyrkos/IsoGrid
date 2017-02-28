@@ -46,14 +46,6 @@ body {
 // 	display: none;
 // }
 
-.side-panels {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: em($navWidth);
-	z-index: 2;
-}
-
 img {
 	max-width: 100%;
 	height: auto;

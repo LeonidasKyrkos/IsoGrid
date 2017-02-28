@@ -3,7 +3,6 @@ $module: 		'nav';
 .#{$module} {
 	overflow-y: scroll;
 	height: 100%;
-	padding: em(15) em(25);
 
 	&__item {
 		display: block;
@@ -43,7 +42,7 @@ $module: 		'nav';
 		@include transition-timing-function(linear);
 
 		.#{$module}__item:hover & {
-			@include transform(translateY(-90%));
+			@include transform(translateY(-95%));
 		}
 	}
 
@@ -52,7 +51,7 @@ $module: 		'nav';
 		font-size: em($fontSize);
 		display: inline-block;
 		vertical-align: middle;
-		padding-left: em(20,$fontSize);
+		padding-left: em(10,$fontSize);
 		color: rgba(white,0.5);
 		@include transition(color 0.15s linear);
 
