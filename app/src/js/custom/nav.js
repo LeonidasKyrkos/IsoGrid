@@ -48,6 +48,7 @@ const handleClick = (e) => {
 	deactivateArticles();
 	deactivateElements();
 	el.classList.add('active');
+	el.classList.add('visited');
 	toggleArticles();
 	nav.classList.add('hidden');
 	target.classList.add('active');
