@@ -1,5 +1,5 @@
 // styles
-import style from '../scss/main.scss';
+import '../scss/main.scss';
 
 // data
 import * as firebase from 'firebase';
@@ -21,14 +21,14 @@ import { navHandler } from './custom/nav';
 export const App = firebase.initializeApp(config);
 export const DB = firebase.database();
 
-let promise = new Promise((resolve,reject)=>{
-	if(localStorage.getItem('IsoGrid')) {
+let promise = new Promise((resolve, reject) => {
+	if (localStorage.getItem('IsoGrid')) {
 		let cache = JSON.parse(localStorage.getItem('IsoGrid'));
-		resolve(Object.assign({},defaultState,cache));
+		resolve(Object.assign({}, defaultState, cache));
 	} else {
-		DB.ref('/').once('value',(snapshot)=>{
-			if(snapshot.val()) {
-				resolve(Object.assign({},defaultState,snapshot.val()));
+		DB.ref('/').once('value', (snapshot) => {
+			if (snapshot.val()) {
+				resolve(Object.assign({}, defaultState, snapshot.val()));
 			} else {
 				resolve(defaultState);
 			}
@@ -43,7 +43,7 @@ promise.then((state) => {
 
 	saveStateToLocalStorage(state);
 
-	setTimeout(()=>{
+	setTimeout(() => {
 		const wrap = document.getElementById('isogrid').parentNode;
 		wrap.scrollLeft = window.innerWidth + 700;
 		wrap.scrollTop = 150;
@@ -53,7 +53,7 @@ promise.then((state) => {
 const outerwrap = document.getElementById('isogridWrap');
 const loader = document.getElementById('loader');
 
-outerwrap.addEventListener('loaded',()=>{
+outerwrap.addEventListener('loaded', () => {
 	loader.classList.add('hidden');
 	outerwrap.classList.remove('hidden');
 	clockHandler();

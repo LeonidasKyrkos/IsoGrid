@@ -59,6 +59,9 @@ $module: 		'nav';
 			margin: 0 auto em(10);
 			width: em(65);
 			height: em(65);
+			position: relative;
+			top: auto;
+			left: auto;
 		}
 	}
 
@@ -73,9 +76,6 @@ $module: 		'nav';
 		margin: 0 auto;
 		display: block;
 		@include transform(translateY(0));
-		// @include transition-property(transform);
-		// @include transition-duration(0.15s);
-		// @include transition-timing-function(linear);
 
 		.#{$module}__item:hover &, .#{$module}__item.active &, .#{$module}__item.visited & {
 			@include transform(translateY(-95%));

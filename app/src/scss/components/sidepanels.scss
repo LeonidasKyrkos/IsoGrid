@@ -11,7 +11,7 @@ $module: 		'side-panels';
 	@include bp(tab-l-b) {
 		width: 100%;
 		background-color: rgba(black,0.6);
-		max-height: em(170);
+		max-height: em(125);
 		overflow: hidden;
 		@include transition(max-height 0.15s linear);
 
@@ -23,7 +23,7 @@ $module: 		'side-panels';
 	&__pancake {
 		position: absolute;
 		right: em(40);
-		top: em(67);
+		top: em(35);
 		cursor: pointer;
 		z-index: 10;
 		width: em(35);
@@ -55,7 +55,9 @@ $module: 		'side-panels';
 		}
 
 		.#{$module}.articlesActive & {
-			display: block;
+			@include bp(tab-l-b) {
+				display: block;
+			}			
 		}
 	}
 

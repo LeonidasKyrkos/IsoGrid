@@ -6,11 +6,12 @@ $module: 		'tate-modern';
 	&__svg {
 		width: 100%;
 		height: auto;
+		position: relative;
 	}
 
 	&__painting {
 		position: absolute;
-		top: em(-10);
+		top: em(-50);
 		right: em(-170);
 		max-width: em(80);
 		opacity: 0;

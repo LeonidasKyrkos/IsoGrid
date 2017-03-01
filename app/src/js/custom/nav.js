@@ -8,6 +8,7 @@ const nav = document.getElementById('nav');
 const navToggleRoot = document.querySelector('[data-js="nav.toggle.root"]');
 const navToggleArticles = document.querySelector('[data-js="nav.toggle.articles"]');
 const sidePanels = document.getElementById('sidepanels');
+const boatsCanvas = document.querySelector('[data-canvas="animation.under"]');
 let navItems;
 
 const transEvents = {
@@ -28,6 +29,7 @@ export const navHandler = () => {
 	dragscroll.addEventListener('click',()=>{
 		closeArticles();
 		deactivateTriggers();
+		boatsCanvas.classList.remove('hide');
 	});
 
 	navToggleRoot.addEventListener('click',toggleNavRoot);
@@ -37,24 +39,37 @@ export const navHandler = () => {
 const handleClick = (e) => {
 	const el = e.currentTarget;
 	const targetName = el.getAttribute('data-target');
-	const target = document.querySelector(`#htmlwrap [data-template="${targetName}"]`);
-	const article = document.querySelector(`#articles [data-article="${targetName}"]`);
+
+	if(targetName !== 'home') {
+		var target = document.querySelector(`#htmlwrap [data-template="${targetName}"]`);
+		var article = document.querySelector(`#articles [data-article="${targetName}"]`);
+	} else {
+		var target = document.querySelector(`#htmlwrap [data-template="eye"]`);
+		var article = document.querySelector(`#articles [data-article="${targetName}"]`);
+	}
+	
 	const scrollX = target.offsetLeft;
 	const scrollY = target.offsetTop;
 	const dragscroll = document.getElementById('dragscroll');
 	const offset = getOffset(target);
 
-	deactivateTriggers();
-	deactivateArticles();
-	deactivateElements();
+	deactivate();	
 	el.classList.add('active');
 	el.classList.add('visited');
+	targetName === 'tower-bridge' ? boatsCanvas.classList.add('hide') : boatsCanvas.classList.remove('hide');
 	toggleArticles();
+	sidePanels.classList.add('navActive');
 	nav.classList.add('hidden');
 	target.classList.add('active');
 	article.classList.add('active');	
 	zoomCanvas(scrollX - offset.x);
 	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
+}
+
+const deactivate = () => {
+	deactivateTriggers();
+	deactivateArticles();
+	deactivateElements();
 }
 
 const getOffset = (target) => {

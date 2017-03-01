@@ -5,7 +5,8 @@ $module: 		'article';
 	color: white;
 	opacity: 0;	
 	@include transition(none);
-	padding: em(215) em(30) em(20) em(10);
+	padding: 0 em(30) em(20) em(10);
+	margin-top: em(215);
 	overflow: auto;
 	cursor: auto;
 	max-width: em(1170);
@@ -17,12 +18,13 @@ $module: 		'article';
 
 	@include bp(tab-l-b) {
 		@include transition(transform 0.15s linear);
-		padding: em(160) em(35) em(35);
+		padding: 0 em(35) em(150);
+		margin-top: em(130);
 		opacity: 1;
 
 		.#{$module}__wrap.active > & {
 			@include transition(transform 0.15s linear);
-			@include transform(translateY(-95%));			
+			@include transform(translateY(-100%));			
 		}
 	}
 
@@ -207,5 +209,21 @@ $module: 		'article';
 
 	&__columns {
 		columns: 3;
+
+		@include bp(desk-l-a) {
+			columns: 2;
+		}
+
+		@include bp(tab-xl) {
+			columns: 1;
+		}
+
+		@include bp(tab-l-b) {
+			columns: 2;
+		}
+
+		@include bp(mob-xl) {
+			columns: 1;
+		}
 	}
 }

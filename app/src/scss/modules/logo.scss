@@ -6,12 +6,14 @@ $module:		'logo';
 	position: relative;
 
 	@include bp(tab-l-b) {
-		margin-bottom: em(40);
+		$fontSize: 12;
+		font-size: em($fontSize);
+		margin-bottom: em(40,$fontSize);
 	}
 
 	&__text {
 		$fontSize: 35;
-		@include font-size($fontSize);
+		font-size: em($fontSize);
 		line-height: 1;
 		text-transform: uppercase;
 		font-weight: 300;		

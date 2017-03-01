@@ -9,6 +9,23 @@ $module: 		'kew';
 		height: auto;
 	}
 
+	&__window {
+		position: absolute;
+		bottom: calc(100% - 50px);
+		left: em(135);
+		width: em(30);
+		height: auto;
+		@include transform(translateX(0)translateY(0));
+		@include transition-property(transform);
+		@include transition-duration(0.15s);
+		@include transition-delay(0.2s);
+		@include transition-timing-function(linear);
+
+		.#{$module}.active & {
+			@include transform(translateX(20px)translateY(-11px));
+		}
+	}
+
 	&__tree {
 		position: absolute;
 		bottom: calc(100% - 46px);
@@ -18,18 +35,18 @@ $module: 		'kew';
 		.#{$module}.active & {
 			visibility: visible;
 		}
-	}
+	}	
 
 	&__tree-trunk {
-		height: em(50);
+		height: em(80);
 		background-color: $color2;
-		width: em(3);
+		width: em(4);
 		display: block;
 		@include transform(scaleY(0));
 		@include transform-origin(center bottom);
 		@include transition-property(transform);
 		@include transition-duration(0.3s);
-		@include transition-delay(0.5s);
+		@include transition-delay(0.7s);
 		@include transition-timing-function(linear);
 
 		.#{$module}.active & {
@@ -39,13 +56,13 @@ $module: 		'kew';
 
 	&__tree-leaves {
 		opacity: 0.9;
-		height: em(30);
-		width: em(35);
+		height: em(50);
+		width: em(55);
 		background-color: $color3;
 		border-radius: 100%;
 		@include transition-property(transform);
 		@include transition-duration(0.35s);
-		@include transition-delay(0.85s);
+		@include transition-delay(1.05s);
 		@include transition-timing-function(linear);
 		@include transform(scale3d(0,0,0));
 		@include transform-origin(center);
@@ -53,7 +70,7 @@ $module: 		'kew';
 		position: absolute;
 		bottom: em(8);
 		left: 50%;
-		margin-left: em(-17);
+		margin-left: em(-27);
 
 		.#{$module}.active & {
 			@include transform(scale3d(1,1,1));
@@ -62,9 +79,9 @@ $module: 		'kew';
 
 	&__tree-leaves--top {
 		@extend .#{$module}__tree-leaves;
-		height: em(20);
-		width: em(25);
-		bottom: em(30);
-		margin-left: em(-12);
+		height: em(30);
+		width: em(35);
+		bottom: em(50);
+		margin-left: em(-17);
 	}
 }

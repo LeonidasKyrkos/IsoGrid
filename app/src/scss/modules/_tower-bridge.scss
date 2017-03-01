@@ -67,7 +67,7 @@ $module: 			'tower-bridge';
 		}
 
 		.#{$module}.active & {
-			@include animation(raiseLeft 10s linear infinite);
+			@include animation(raiseLeft 10s linear forwards);
 		}
 
 		body.scrolling & {
@@ -82,7 +82,7 @@ $module: 			'tower-bridge';
 		left: em(139);
 
 		.#{$module}.active & {
-			@include animation(raiseRight 10s linear infinite);
+			@include animation(raiseRight 10s linear forwards);
 		}
 
 		body.scrolling & {
@@ -111,30 +111,59 @@ $module: 			'tower-bridge';
 			left: em(20);
 		}
 	}
+
+	&__ship {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: em(120);
+		height: auto;
+		opacity: 0;
+
+		.#{$module}.active & {
+			opacity: 1;
+			@include animation(sail 8s 1s linear forwards);
+		}
+	}
+}
+
+@keyframes sail {
+	0% {
+		opacity: 1;
+		@include transform(translateX(0)translateY(0));
+	}
+	90% {
+		opacity: 1;
+		@include transform(translateX(243px)translateY(150px));
+	}
+	100% {
+		opacity: 0;
+		@include transform(translateX(270px)translateY(167px));
+	}
 }
 
 @keyframes raiseLeft {
+	0% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+	}
+
 	10% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	26% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
-	}
-
-	30% {
+	20% {
 		@include transform(rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px));
 	}
 
-	70% {
+	80% {
 		@include transform(rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px));
 	}
 
-	74% {
+	90% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	85% {
+	100% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 }
@@ -144,23 +173,23 @@ $module: 			'tower-bridge';
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	25% {
+	8% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
-	30% {
+	20% {
 		@include transform(rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px));
 	}
 
-	70% {
+	80% {
 		@include transform(rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px));
-	}
-
-	75% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 
 	90% {
+		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+	}
+
+	100% {
 		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
 	}
 }

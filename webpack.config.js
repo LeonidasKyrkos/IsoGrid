@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const bourbon = require('node-bourbon').includePaths;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // paths
 const SRC = './app/src';
@@ -8,34 +8,20 @@ const ENTRY = `${SRC}/js/main`;
 const BUILD = './app/build';
 
 // util
-const BASE_CSS_LOADER = 'css?sourceMap';
 const env = process.env.NODE_ENV || 'development';
 
 // modules 
 webpackConfig = {
-	env: env,
-	globals: {
-		'process.env'  : {
-			'NODE_ENV' : JSON.stringify(env)
-		},
-		'__DEV__'      : env === 'development',
-		'__PROD__'     : env === 'production',
-	},
 	entry: [
-		ENTRY,
-		'webpack/hot/dev-server',
-		'webpack-dev-server/client?http://localhost:3000'
+		ENTRY
 	],
 	output: {
 		path: path.join(__dirname, BUILD),
+		publicPath : BUILD,
 		filename: 'bundle.js'
 	},
-	devtool: 'inline-source-map',
-	sassLoader: {
-		includePaths: [bourbon]
-	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -44,13 +30,25 @@ webpackConfig = {
 			},
 			{
 				test    : /\.scss$/,
-				loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
+				use: ExtractTextPlugin.extract({
+					fallback: "style-loader",
+					use: ["css-loader","sass-loader"]
+				})
 			},
 			{ test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' }
 		]
 	},
+	devServer: {
+		contentBase: path.join(__dirname, "./app/"),
+		publicPath: '/build/',
+		compress: true,
+		port: 3000
+	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin()
+		new ExtractTextPlugin({
+			filename: "styles.css",
+			allChunks: true
+		})
 	]
 }
 
