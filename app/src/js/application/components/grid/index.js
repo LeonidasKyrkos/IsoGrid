@@ -174,7 +174,7 @@ export default class Grid {
 		})
 
 		if(this.lastRender === 0) {
-			document.getElementById('isogridWrap').dispatchEvent(loaded);
+			setTimeout(()=>{ document.getElementById('isogridWrap').dispatchEvent(loaded) });			
 		}
 	}
 
@@ -221,12 +221,12 @@ export default class Grid {
 	}
 
 	pause() {
-		body.classList.add('scrolling');
+		//body.classList.add('scrolling');
 		this.paused = true;
 	}
 
 	unpause() {
-		body.classList.remove('scrolling');
+		//body.classList.remove('scrolling');
 		this.paused = false;
 	}
 

@@ -6,12 +6,12 @@ $module: 		'header';
 	z-index: 2;
 	color: white;
 	cursor: auto;
-	overflow: hidden;
 	position: absolute;
+	overflow: auto;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	padding: em(20) em(10) em(20) em(35);
+	padding: em(20) em(20) em(20) em(35);
 
 	@include bp(tab-l-b) {
 		position: relative;

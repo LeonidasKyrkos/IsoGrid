@@ -5,7 +5,7 @@ $module: 		'article';
 	color: white;
 	opacity: 0;	
 	@include transition(none);
-	padding: em(265) em(30) em(20) em(10);
+	padding: em(215) em(30) em(20) em(10);
 	overflow: auto;
 	cursor: auto;
 	max-width: em(1170);
@@ -124,6 +124,42 @@ $module: 		'article';
 		}
 	}
 
+	&__title--strong {
+		@extend .#{$module}__title;
+		$fontSize: 100;
+		font-size: em($fontSize);
+		margin-bottom: 0;
+		color: $color1;
+		padding-left: 33%;
+		margin-right: 0;
+
+		@media(max-width: 1900px) {
+			$fontSize: 60;
+			font-size: em($fontSize);
+		}
+
+		@media(max-width: 1785px) {
+			$fontSize: 50;
+			font-size: em($fontSize);
+			margin-right: em(-50,$fontSize);
+		}
+
+		@media(max-width: 1700px) {
+			margin-right: 0;
+		}
+
+		@include bp(desk-m-a) {
+			$fontSize: 40;
+			font-size: em($fontSize);
+		}
+
+		@include bp(tab-xl-b) {
+			$fontSize: 36;
+			font-size: em($fontSize);
+			margin-bottom: em(30,$fontSize);
+		}
+	}
+
 	&__copy {
 		max-width: em(800);
 		margin: 0 em(-20);
@@ -152,16 +188,24 @@ $module: 		'article';
 		}
 	}
 
+	&__column--lowered {
+		@extend .#{$module}__column;
+		padding-top: em(244);
+	}
+
 	&__user-story {
 		$fontSize: 26;
 		color: #30c18f;
 		font-size: em($fontSize);
-		margin-bottom: em(50,$fontSize);
+		margin-bottom: em(30,$fontSize);
 
 		@include bp(tab-xl-b) {
 			$fontSize: 30;
 			font-size: em($fontSize);
-			margin-bottom: em(30,$fontSize);
 		}
+	}
+
+	&__columns {
+		columns: 3;
 	}
 }

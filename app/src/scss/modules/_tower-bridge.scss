@@ -6,6 +6,7 @@ $module: 			'tower-bridge';
 	perspective-origin: right;
 	width: em(393);
 	height: em(224);
+	@include transform(translateY(15px)translateX(36px));
 
 	.palette & {
 		height: 100%;
@@ -14,13 +15,6 @@ $module: 			'tower-bridge';
 	&__image {
 		width: 100%;
 		height: 100%;
-		position: relative;
-		top: em(15);
-		left: em(36);
-
-		.palette & {
-			position: static;
-		}
 	}
 
 	&__ramp--off {

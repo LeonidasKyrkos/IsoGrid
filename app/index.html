@@ -13,8 +13,8 @@
 		<div id="loader" class="loader">
 			<span class="loader__text">Loading</span>
 		</div>
-		<article class="innerwrap hidden" id="isogridWrap">
-			<div class="side-panels" id="sidepanels">
+		<article class="innerwrap" id="isogridWrap">
+			<div class="side-panels articlesActive" id="sidepanels">
 				<button data-js="nav.toggle.root" class="side-panels__pancake">
 					<span class="side-panels__pancake-line"></span>
 					<span class="side-panels__pancake-line"></span>
@@ -33,7 +33,27 @@
 						</div>
 					</div>
 					<ul class="nav" id="nav">
-						<li>
+						<li>						
+							<a data-js="nav.trigger" class="nav__item" data-target="tower-bridge">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="47" viewBox="0 0 50.02 47.33">
+										<defs>
+											<style>
+												.tower-bridge-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<g>
+											<g>
+												<path class="tower-bridge-icon-cls-1" d="M13.36 47.33V11.38H6.22v35.95m7.14-19.29l9.33-5.49M6.22 28.04H0m8.31-14.99v11.66m2.95-11.66v11.66M8.22 10.46l1.57-4 1.57 4m2 4.03h11.65m11.65 32.84V11.38h7.14v35.95m-7.14-19.29l-9.33-5.49m16.47 5.49h6.22m-8.31-14.99v11.66m-2.95-11.66v11.66m3.04-14.25l-1.57-4-1.57 4m-2 4.03H25.01m-11.65 2.72h11.65m11.65 0H25.01" />
+												<path class="tower-bridge-icon-cls-1" d="M0 34.31c1.56 0 1.56 1.13 3.12 1.13s1.56-1.13 3.13-1.13 1.52 1.12 3.08 1.12 1.56-1.13 3.13-1.13 1.54 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S23.43 34.3 25 34.3s1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.53 1.13 3.13 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S48.46 34.3 50 34.3" />
+												<circle class="tower-bridge-icon-cls-1" cx="25.01" cy="4.56" r="4.06" />
+											</g>
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">Digital Consultancy</span>
+							</a>
+						</li><li>
 							<a data-js="nav.trigger" class="nav__item" data-target="eye">
 								<span class="nav__item-image">
 									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="48" viewBox="0 0 43.96 47.49">
@@ -68,43 +88,7 @@
 										</g>
 									</svg>
 								</span>
-								<span class="nav__item-title">London Eye</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="tower-bridge">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="47" viewBox="0 0 50.02 47.33">
-										<defs>
-											<style>
-												.tower-bridge-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<g>
-											<g>
-												<path class="tower-bridge-icon-cls-1" d="M13.36 47.33V11.38H6.22v35.95m7.14-19.29l9.33-5.49M6.22 28.04H0m8.31-14.99v11.66m2.95-11.66v11.66M8.22 10.46l1.57-4 1.57 4m2 4.03h11.65m11.65 32.84V11.38h7.14v35.95m-7.14-19.29l-9.33-5.49m16.47 5.49h6.22m-8.31-14.99v11.66m-2.95-11.66v11.66m3.04-14.25l-1.57-4-1.57 4m-2 4.03H25.01m-11.65 2.72h11.65m11.65 0H25.01" />
-												<path class="tower-bridge-icon-cls-1" d="M0 34.31c1.56 0 1.56 1.13 3.12 1.13s1.56-1.13 3.13-1.13 1.52 1.12 3.08 1.12 1.56-1.13 3.13-1.13 1.54 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S23.43 34.3 25 34.3s1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.53 1.13 3.13 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S48.46 34.3 50 34.3" />
-												<circle class="tower-bridge-icon-cls-1" cx="25.01" cy="4.56" r="4.06" />
-											</g>
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">Tower Bridge</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="shard">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23.09 48">
-										<defs>
-											<style>
-												.shard-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<g>
-											<path class="shard-icon-cls-1" d="M.5 47.89L6.45 2.55 8.95.89l3.16 47m10.49 0L14.78 6.38l-2.33-2.33-1.62 12.58 6.94 31.26" data-name="Layer 1" />
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">The Shard</span>
+								<span class="nav__item-title">User Experience</span>
 							</a>
 						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="battersea">
@@ -118,23 +102,7 @@
 										<path class="battersea-icon-cls-1" d="M7.56 47.51L6.61 9.3H1.47L.5 47.51m30.45 0l.96-38.21h5.14L38 47.51M7.34 29.53h23.7m-23.7 4.94h23.7M7.41 40.34h23.7m-23.7 5.13h23.7M4.04 12.93v30.2m30.44-30.2v30.2M10.45 2.89a2.33 2.33 0 0 0-4.63-.43A1.54 1.54 0 0 0 4.3 4.3a1.4 1.4 0 0 0 1.65 2.17 2.33 2.33 0 0 0 3.84-.86 1.4 1.4 0 1 0 .9-2.61l-.24-.06z" />
 									</svg>
 								</span>
-								<span class="nav__item-title">Battersea</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="tate-modern">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="51" height="48" viewBox="0 0 50.83 47.38">
-										<defs>
-											<style>
-												.tate-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<g>
-											<path class="tate-icon-cls-1" d="M17.34 39.5v7.87M12.9 39.5v7.87m8.83-7.87v7.87m6.62 0L29.38.5h5.14l.97 46.87M0 33.53h28.9M0 27.14h28.88m6.62 6.39h15.33M35 27.14h15.83" data-name="Layer 1" />
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">Tate Modern</span>
+								<span class="nav__item-title">Site Auditing</span>
 							</a>
 						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="o2">
@@ -155,7 +123,7 @@
 										</g>
 									</svg>
 								</span>
-								<span class="nav__item-title">o2 Arena</span>
+								<span class="nav__item-title">Marketing Solutions</span>
 							</a>
 						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="kew">
@@ -171,7 +139,39 @@
 										</g>
 									</svg>
 								</span>
-								<span class="nav__item-title">Kew Gardens</span>
+								<span class="nav__item-title">E-Commerce</span>
+							</a>
+						</li><li>						
+							<a data-js="nav.trigger" class="nav__item" data-target="shard">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23.09 48">
+										<defs>
+											<style>
+												.shard-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<g>
+											<path class="shard-icon-cls-1" d="M.5 47.89L6.45 2.55 8.95.89l3.16 47m10.49 0L14.78 6.38l-2.33-2.33-1.62 12.58 6.94 31.26" data-name="Layer 1" />
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">The Shard</span>
+							</a>
+						</li><li>						
+							<a data-js="nav.trigger" class="nav__item" data-target="tate-modern">
+								<span class="nav__item-image">
+									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="51" height="48" viewBox="0 0 50.83 47.38">
+										<defs>
+											<style>
+												.tate-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+											</style>
+										</defs>
+										<g>
+											<path class="tate-icon-cls-1" d="M17.34 39.5v7.87M12.9 39.5v7.87m8.83-7.87v7.87m6.62 0L29.38.5h5.14l.97 46.87M0 33.53h28.9M0 27.14h28.88m6.62 6.39h15.33M35 27.14h15.83" data-name="Layer 1" />
+										</g>
+									</svg>
+								</span>
+								<span class="nav__item-title">Content Management</span>
 							</a>
 						</li><li>						
 							<a data-js="nav.trigger" class="nav__item" data-target="big-ben">
@@ -188,13 +188,42 @@
 										<path class="big-ben-icon-cls-1" d="M4.3 13.57l5.22-12.3 5.28 12.35" />
 									</svg>
 								</span>
-								<span class="nav__item-title">Big Ben</span>
+								<span class="nav__item-title">Time Management</span>
 							</a>
 						</li>
 					</ul>
 				</header>
-				<ul class="article__items inactive" id="articles">
+				<ul class="article__items" id="articles">
+					<li data-js="article" class="article__wrap active">
+						<article class="article">
+							<header class="article__header">
+								<h1 class="article__title--strong">The Capital of Creativity</h1>
+							</header>	
+							<section class="article__columns">
+								<p class="article__user-story">If you’re looking for a UK digital agency, London has to be your first choice.</p>
+								<p>Without doubt, London is one of the creative capitals of the world. Few other places have the services, the infrastructure, not to mention the sheer talent and inspiration that exists in every part of London.</p>
+								<p>London lives, breathes and breeds creativity. It’s a place where technology and ideas come together to create solutions that drive business and inspire innovation. And a city where cultures and diversity converge in a melting pot of imagination and inventiveness.</p>												
+								<p>More than a booming metropolis, London has become a birthplace of innovation – a digital hub in which creative agencies can push the boundaries of achievement.</p>
+								<p>And when it comes to digital agencies and creative talent, there’s plenty to choose from, all offering a vast choice of services and solutions to meet every conceivable need.</p>
+							</section>
+						</article>
+					</li>
 					<li data-js="article" data-article="eye" class="article__wrap">
+						<article class="article">					
+							<section class="article__copy">
+								<div class="article__column">
+									<p class="article__user-story">Where can I find a great web design agency?</p>
+									<p>Sometimes, a great website is exactly what you need. But, websites come in all shapes, sizes and functionality. What’s ideal for a retail business, for instance, simply won’t meet the needs of a services provider, a charity or an informational site. Who is your audience? Do you need hosting and/or infrastructure? All these questions highlights the importance of acquiring an agency that can get the brief right from the outset and follow through with results you want.</p>
+								</div><div class="article__column">
+									<header class="article__header">
+										<h1 class="article__title">We have an Eye for UX</h1>
+									</header>						
+									<p>Red Snapper don’t do o-the-peg websites, because we know every business is dierent. But that doesn’t mean your bespoke site should cost more than it should. Through our digital consultancy service, we’ll make sure to get every aspect of the brief right from the outset, so you get a optimised solution that delivers results straight away without having to go back to the drawing board, or require costly changes.</p>
+								</div>								
+							</section>
+						</article>
+					</li>
+					<li data-js="article" data-article="tower-bridge" class="article__wrap">
 						<article class="article">					
 							<section class="article__copy">
 								<div class="article__column">
@@ -211,39 +240,95 @@
 							</section>
 						</article>
 					</li>
-					<li data-js="article" data-article="tower-bridge" class="article__wrap">
-						<article class="article">
-							<h1 class="article__title">Tower Bridge</h1>
-						</article>
-					</li>
 					<li data-js="article" data-article="shard" class="article__wrap">
-						<article class="article">
-							<h1 class="article__title">The Shard</h1>
+						<article class="article">					
+							<section class="article__copy">
+								<div class="article__column">
+									<p class="article__user-story">What do I get SEO and PPC working for my business?</p>
+									<p>SEO and PPC services have grown to become one of the most important digital sectors of all, with many agencies specialising in this and nothing else. However, sometimes that means you don’t always get the best solution for your needs – because your SEO/PPC solution can become detached from what your other elements of your digital marketing strategy.</p>
+								</div><div class="article__column">
+									<header class="article__header">
+										<h1 class="article__title">Stand over the Top</h1>
+									</header>						
+									<p>With Red Snapper, we’ll make sure that every facet of your digital presence is integrated and optimised to help you achieve your business goals, stay ahead of the competition and get the results you want to see.</p>
+								</div>								
+							</section>
 						</article>
 					</li>
 					<li data-js="article" data-article="battersea" class="article__wrap">
-						<article class="article">
-							<h1 class="article__title">Battersea Power Station</h1>
+						<article class="article">					
+							<section class="article__copy">
+								<div class="article__column">
+									<p class="article__user-story">How do I know my website is delivering the best results it can?</p>
+									<p>If you already have a site that isn’t working as well as you anticipated, then something may not be right. This is where an eective site audit can reap dividends. While there are many specialist agencies out there that deal with this area of digital marketing, not all have the experience or background knowledge to deliver the best solutions. These agencies usually outsource various aspects, such as the creative or the backend. Many of these third parties have their own solutions and methodologies, not all of which will be compatible with your ideas or technology – so you mightn’t get the best results even aer a site makeover</p>
+								</div><div class="article__column">
+									<header class="article__header">
+										<h1 class="article__title">The Power of Innovation</h1>
+									</header>						
+									<p>Because Red Snapper is a full service agency, focussing on the key areas of digital consultancy, design and build, creative services and functionality, we see the bigger picture. Our specialist teams work closely together with each other, with your goals as their primary focus, to put together a truly innovative solution that tackles your challenges head-on and optimise your site for real success.</p>
+								</div>								
+							</section>
 						</article>
 					</li>
 					<li data-js="article" data-article="tate-modern" class="article__wrap">
-						<article class="article">
-							<h1 class="article__title">Tate Modern</h1>
+						<article class="article">					
+							<section class="article__copy">
+								<div class="article__column">
+									<p class="article__user-story">What’s the easiest way to keep my website updated?</p>
+									<p>When you’re focussed on running a business, you simply don’t always have the time to keep your website up-to-date. Unfortunately, if you don’t, you could be losing revenue, customers and market share to your competitors. What many entrepreneurs and business owners don’t know is that with the latest CMS technology, it’s easier and more time-eicient to keep your products, information, mailing lists and payment systems up to date than ever.</p>
+								</div><div class="article__column">
+									<header class="article__header">
+										<h1 class="article__title">Modern content solutions, at your service</h1>
+									</header>						
+									<p>All the services at Red Snapper can be customised to meet the best needs of our clients, so whether you want to implement a new CMS, are looking to upgrade what you have already, we’ll make sure you get the best solution for your needs, whether you do it in-house or outsource. Here, at Red Snapper, we know CMS, inside and out, so whatever it is you do, we will match your needs to the technology.</p>
+								</div>								
+							</section>
 						</article>
 					</li>
 					<li data-js="article" data-article="o2" class="article__wrap">
-						<article class="article">
-							<h1 class="article__title">o2 Arena</h1>
+						<article class="article">					
+							<section class="article__copy">
+								<div class="article__column">
+									<p class="article__user-story">I need a marketing campaign that deliver.</p>
+									<p>The best-looking, most feature-packed website won’t produce results unless people know that you’re out there, which is why it’s vitally important that you tell them. An eective integrated marketing campaign, utilising both onand oline media can really make all the dierence, working wonders for your Internet presence, raising brand awareness, while showcasing your products and your niche expertise in the best possible light. Again, there are many agencies that can deliver on this, but this needs to be viewed as just one part of the whole digital marketing package. Getting the best results from any marketing campaign means seeing the full picture and precise targeting.</p>
+								</div><div class="article__column">
+									<header class="article__header">
+										<h1 class="article__title">Get to know your Crowd</h1>
+									</header>						
+									<p>Results are the best indicator of the success of any marketing campaign. And that’s what we’re all about at Red Snapper. We’re very careful when planning campaigns to use the right tools for the right results. Being a full service agency, everything we do is with marketing in mind, so if you want to go to an outside agency for this part of the process, then we’ll make sure you go with the best possible brief, for an optimal outcome, whether that’s raising awareness, increasing sales, or simply getting your message across.</p>
+								</div>								
+							</section>
 						</article>
 					</li>
 					<li data-js="article" data-article="kew" class="article__wrap">
-						<article class="article">
-							<h1 class="article__title">Kew Gardens</h1>
+						<article class="article">					
+							<section class="article__copy">
+								<div class="article__column">
+									<p class="article__user-story">What sort of e-store do I need?</p>
+									<p>Your e-store is where it all happens. It’s where the money flows from your customers into your business, so it’s got to work flawlessly. Many businesses will outsource this element to make it easy as possible to buy. But this doesn’t always take into account your product, target market, or other aspects of your digital marketing. To be eective, it has to meet the needs of your product and be targeted to your audience through the right interfaces with all the features and functionality to make it as easy as possible for your customers to buy and pay.</p>
+								</div><div class="article__column">
+									<header class="article__header">
+										<h1 class="article__title">Grow your business</h1>
+									</header>						
+									<p>Whether you’re a multi-national or a SME, our e-commerce experts will review your existing processes and make recommendations to improve and futureproof the way you sell online, including all the latest mobile innovation to make sure you benefit from this fast growing market.</p>
+								</div>								
+							</section>
 						</article>
 					</li>
 					<li data-js="article" data-article="big-ben" class="article__wrap">
-						<article class="article">
-							<h1 class="article__title">Big Ben</h1>
+						<article class="article">					
+							<section class="article__copy">
+								<div class="article__column">
+									<p class="article__user-story">Lorem ipsum dolor sit amet, in vix fuisset scripserit.</p>
+									<p>Id unum consequat cum, ius porro argumentum ne. Cu sea malis nonumy argumentum. Viris legimus nec no. At mei cetero accommodare ullamcorper, in pri dictas moderatius. Veri adhuc habemus ius in, id mea magna nonumy. Movet conceptam consetetur sit ut, te odio omnes est, at eos delenit facilisi.</p>
+									<p>Tritani adversarium est cu. Qui amet verear imperdiet ei. Omnes splendide te eam, his quas posse detracto cu, ut nam eros aert scripserit. Ius in nobis legimus dissentiunt. Eos unum malis interpretaris ut. Qui in possim maiorum periculis. Dicit nemore dicunt mel in.</p>
+								</div><div class="article__column">
+									<header class="article__header">
+										<h1 class="article__title">Your time is our Big priority</h1>
+									</header>						
+									<p>Ea duo feugiat epicurei percipit. Dicat laudem ea qui. Ne aperiam labitur intellegam vim, pro an accusam perpetua euripidis, ut magna graeco mel. No libris cotidieque nam, qui elitr equidem indoctum eu, omnis saepe ius id.</p>
+								</div>								
+							</section>
 						</article>
 					</li>
 				</ul>
@@ -313,7 +398,7 @@
 			</section>
 		</article>
 		<div id="templates">
-			<div id="londoneye" class="eye" data-template="eye" data-js="template">
+			<div id="londoneye" class="eye canvas__html" data-template="eye" data-js="template" data-target="eye">
 				<span class="eye__left">
 					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.36 379.94" width="276" height="380">
 						<defs>
@@ -370,7 +455,7 @@
 					</svg>
 				</span>
 			</div>
-			<div id="bigben" class="big-ben" data-template="big-ben" data-js="template">
+			<div id="bigben" class="big-ben canvas__html" data-template="big-ben" data-js="template" data-target="big-ben">
 				<div class="big-ben__time">
 					<span data-js="bigben.hours">12</span><span>:</span><span data-js="bigben.minutes">00</span>
 				</div>
@@ -379,7 +464,7 @@
 				</div>
 				<img src="/assets/landmarks/optimised/big-ben-fs8.png" class="big-ben__image">
 			</div>
-			<div id="shard" class="shard" data-template="shard" data-js="template">
+			<div id="shard" class="shard canvas__html" data-template="shard" data-js="template" data-target="shard">
 				<svg class="shard__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 361.21 1280.48" width="180" height="640">
 					<defs>
 						<style>
@@ -617,7 +702,7 @@
 					</g>
 				</svg>
 			</div>
-			<div id="o2" class="o2" data-js="template" data-template="o2">
+			<div id="o2" class="o2 canvas__html" data-js="template" data-template="o2" data-target="o2">
 				<svg class="o2__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 868.1 615.53" width="304" height="216">
 					<defs>
 						<style>
@@ -735,7 +820,7 @@
 					</div>
 				</div>				
 			</div>
-			<div id="towerbridge" class="tower-bridge" data-template="tower-bridge" data-js="template">
+			<div id="towerbridge" class="tower-bridge canvas__html" data-template="tower-bridge" data-js="template" data-target="tower-bridge">
 				<div class="tower-bridge__image">
 					<span class="tower-bridge__ramp--off"></span>
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 519.66 446.79" width="520" height="447" class="tower-bridge__right">
@@ -2351,7 +2436,7 @@
 					<span class="tower-bridge__ramp"></span>
 				</div>				
 			</div>
-			<div id="battersea" class="battersea" data-template="battersea" data-js="template">
+			<div id="battersea" class="battersea canvas__html" data-template="battersea" data-js="template" data-target="battersea">
 				<span class="battersea__wire--2"></span>
 				<div class="battersea__box-wrap--2">
 					<div class="battersea__box">
@@ -2370,7 +2455,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="kew" class="kew" data-js="template" data-template="kew">
+			<div id="kew" class="kew canvas__html" data-js="template" data-template="kew" data-target="kew">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1018.42 692.46" width="1018" height="692" class="kew__svg">
 					<defs>
 						<style>
@@ -2518,7 +2603,7 @@
 					</g>
 				</svg>
 			</div>
-			<div id="tatemodern" class="tate-modern" data-template="tate-modern" data-js="template">
+			<div id="tatemodern" class="tate-modern canvas__html" data-template="tate-modern" data-js="template" data-target="tate-modern">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 113.49 151.87" width="113" height="152" class="tate-modern__painting">
 					<defs>
 						<style>

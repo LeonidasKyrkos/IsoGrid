@@ -8,6 +8,7 @@ const nav = document.getElementById('nav');
 const navToggleRoot = document.querySelector('[data-js="nav.toggle.root"]');
 const navToggleArticles = document.querySelector('[data-js="nav.toggle.articles"]');
 const sidePanels = document.getElementById('sidepanels');
+let navItems;
 
 const transEvents = {
 	webkit: 'webkitTransitionEnd',
@@ -18,14 +19,15 @@ const transEvents = {
 }
 
 export const navHandler = () => {
-	const navItems = document.querySelectorAll('[data-js="nav.trigger"]');
-
+	navItems = document.querySelectorAll('[data-js="nav.trigger"]');
+	
 	navItems.forEach(el => {
 		el.addEventListener('click',handleClick);
 	});
 
 	dragscroll.addEventListener('click',()=>{
-		!articles.classList.contains('inactive') && closeArticles();
+		closeArticles();
+		deactivateTriggers();
 	});
 
 	navToggleRoot.addEventListener('click',toggleNavRoot);
@@ -42,12 +44,14 @@ const handleClick = (e) => {
 	const dragscroll = document.getElementById('dragscroll');
 	const offset = getOffset(target);
 
+	deactivateTriggers();
 	deactivateArticles();
 	deactivateElements();
+	el.classList.add('active');
+	toggleArticles();
 	nav.classList.add('hidden');
 	target.classList.add('active');
-	article.classList.add('active');
-	toggleArticles();
+	article.classList.add('active');	
 	zoomCanvas(scrollX - offset.x);
 	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
 }
@@ -62,6 +66,7 @@ const getOffset = (target) => {
 const closeArticles = () => {
 	deactivateElements();
 	deactivateArticles();
+	sidePanels.classList.remove('articlesActive');
 	canvasWrap.classList.remove('active');
 	articles.classList.add('inactive');
 }
@@ -105,4 +110,10 @@ const toggleNavRoot = () => {
 const toggleArticles = () => {
 	sidePanels.classList.contains('articlesActive') && deactivateArticles();
 	sidePanels.classList.toggle('articlesActive');
+}
+
+const deactivateTriggers = () => {
+	navItems.forEach(el => {
+		el.classList.remove('active');
+	});
 }

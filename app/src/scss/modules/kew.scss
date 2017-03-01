@@ -2,15 +2,10 @@ $module: 		'kew';
 
 .#{$module} {
 	width: em(300);
+	@include transform(translateY(16px)translateX(13px));
 
 	&__svg {
 		width: 100%;
 		height: auto;
-		top: em(16);
-		left: em(13);
-
-		.palette & {
-			position: static;
-		}
 	}
 }

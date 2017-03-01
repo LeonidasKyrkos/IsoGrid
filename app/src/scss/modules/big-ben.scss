@@ -35,7 +35,7 @@ $module: 		'big-ben';
 		$fontSize: 16;
 		font-size: em($fontSize);
 		position: absolute;
-		top: em(120,$fontSize);
+		top: em(115,$fontSize);
 		left: em(4,$fontSize);
 		z-index: 2;
 		@include transform(rotateY(-45deg) rotateZ(22deg) rotateX(-14deg) translateY(6px));

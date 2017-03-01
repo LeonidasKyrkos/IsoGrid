@@ -1,16 +1,11 @@
 $module: 		'tate-modern';
 
 .#{$module} {
+	@include transform(translateY(49px)translateX(2px));
+
 	&__svg {
-		position: relative;
-		top: em(49);
-		left: em(2);
 		width: 100%;
 		height: auto;
-
-		.palette & {
-			position: static;
-		}
 	}
 
 	&__painting {
