@@ -41,21 +41,39 @@ $module: 		'canvas';
 	}
 
 	&__tooltip {
+		color: $color1;
 		position: absolute;
 		top: 0;
 		left: 0;
-		background-color: rgba(black,0.3);
-		color: white;
+		background-color: white;
 		padding: em(10) em(20);
 		display: none;
-		white-space: nowrap;
+		width: em(335);
+		border-radius: em(15);
 
 		.#{$module}__html:hover & {
-			display: block;
+			display: table;
 		}
 
 		.#{$module}__html.active & {
 			display: none;
+		}
+	}
+
+	&__tooltip-text {
+		display: table-cell;
+		vertical-align: middle;
+		width: em(120);
+	}
+
+	&__tooltip-arrow {
+		@include font-size($fzBase);
+		float: right;
+		height: em(47);
+		width: auto;
+
+		* {
+			fill: $color1;
 		}
 	}
 }

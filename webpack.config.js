@@ -42,7 +42,8 @@ webpackConfig = {
 		contentBase: path.join(__dirname, "./app/"),
 		publicPath: '/build/',
 		compress: true,
-		port: 3000
+		port: 3000,
+		host: '0.0.0.0'
 	},
 	plugins: [
 		new ExtractTextPlugin({

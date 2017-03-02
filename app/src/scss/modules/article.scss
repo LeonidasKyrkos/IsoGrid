@@ -233,6 +233,8 @@ $module: 		'article';
 		border-radius: em(10);
 		padding: em(25) em(30);
 		margin-top: em(350);
+		margin-bottom: em(30);
+		max-width: em(335);
 
 		@include bp(desk-xxl-a) {
 			margin-top: 0;
