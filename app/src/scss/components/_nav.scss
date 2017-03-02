@@ -9,6 +9,7 @@ $module: 		'nav';
 		@include transition-property(transform);
 		@include transition-duration(0.15s);
 		@include transition-timing-function(linear);
+		opacity: 0;
 
 		li {
 			display: inline-block;
@@ -16,7 +17,15 @@ $module: 		'nav';
 			width: 50%;
 		}
 
+		.side-panels.navActive & {
+			opacity: 1;
+		}
+
 		.side-panels.articlesActive & {
+			@include transform(translateY(calc(-100% - 160px)));
+		}
+
+		.side-panels.homeActive & {
 			@include transform(translateY(calc(-100% - 160px)));
 		}
 	}

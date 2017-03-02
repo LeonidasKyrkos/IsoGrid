@@ -15,7 +15,7 @@ $module: 		'side-panels';
 		overflow: hidden;
 		@include transition(max-height 0.15s linear);
 
-		&.navActive {
+		&.navActive, &.homeActive {
 			max-height: 100vh;
 		}
 	}
@@ -23,7 +23,7 @@ $module: 		'side-panels';
 	&__pancake {
 		position: absolute;
 		right: em(40);
-		top: em(35);
+		top: em(45);
 		cursor: pointer;
 		z-index: 10;
 		width: em(35);
@@ -81,7 +81,7 @@ $module: 		'side-panels';
 			margin-top: 0;
 		}
 
-		.#{$module}.navActive & {
+		.#{$module}.navActive &, .#{$module}.homeActive & {
 			&:nth-child(1) {
 				@include transform(rotate(45deg));
 				@include transform-origin(center);

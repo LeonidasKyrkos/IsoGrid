@@ -29,7 +29,6 @@ $module: 		'eye';
 	width: em(200);
 	height: em(200);
 	perspective: 800px;
-	pointer-events: none;
 
 	.palette & {
 		width: em(100);

@@ -4,6 +4,7 @@ $module:		'logo';
 	margin-bottom: em(100);
 	width: em(130);
 	position: relative;
+	cursor: pointer;
 
 	@include bp(tab-l-b) {
 		$fontSize: 12;
@@ -23,6 +24,13 @@ $module:		'logo';
 		width: em(40);
 		height: auto;
 		position: absolute;
+		@include transition-property(transform);
+		@include transition-duration(0.1s);
+		@include transition-timing-function(linear);
+
+		.#{$module}:hover & {
+			@include transform(translateY(5px));
+		}
 
 		&:nth-child(1) {
 			bottom: em(-9);

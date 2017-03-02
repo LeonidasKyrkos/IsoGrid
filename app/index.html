@@ -15,7 +15,7 @@
 			<span class="loader__text">Loading</span>
 		</div>
 		<article class="innerwrap" id="isogridWrap">
-			<div class="side-panels navActive articlesActive" id="sidepanels">
+			<div class="side-panels homeActive" id="sidepanels">
 				<button data-js="nav.toggle.root" class="side-panels__pancake">
 					<span class="side-panels__pancake-line"></span>
 					<span class="side-panels__pancake-line"></span>
@@ -25,7 +25,7 @@
 					<svg class="side-panels__pancake-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.068.016l-3.717 3.698 5.263 5.286h-13.614v6h13.614l-5.295 5.317 3.718 3.699 11.963-12.016z"/></svg>
 				</button>
 				<header class="header" id="header">					
-					<div class="logo" data-js="nav.trigger" data-target="home">
+					<div class="logo" data-js="nav.home">
 						<h1 class="logo__text">Digital <strong>Agency</strong> London</h1>
 						<div class="logo__tiles">
 							<img src="/assets/floor.png" alt="" class="logo__tile">
@@ -195,7 +195,7 @@
 					</ul>
 				</header>
 				<ul class="article__items" id="articles">
-					<li data-js="article" data-article="home" class="article__wrap active">
+					<li data-js="article.home" class="article__wrap active">
 						<article class="article">
 							<header class="article__header">
 								<h1 class="article__title--strong">The Capital of Creativity</h1>
@@ -455,6 +455,7 @@
 						<path d="M55.59,30.53h0a2.37,2.37,0,0,0-.49-.27c-2.11-.83-5,1.52-6.46,5.24-1.39,3.53-1,7,.87,8.08h0L76.81,54l2.54-6.48Z" style="fill:url(#f)" />
 					</svg>
 				</span>
+				<span class="canvas__tooltip" data-js="nav.trigger" data-target="eye">Learn more</span>
 			</div>
 			<div id="bigben" class="big-ben canvas__html" data-template="big-ben" data-js="template" data-target="big-ben">
 				<div class="big-ben__time">
@@ -464,6 +465,7 @@
 					<span data-js="bigben.hours">12</span><span>:</span><span data-js="bigben.minutes">00</span>
 				</div>
 				<img src="/assets/landmarks/optimised/big-ben-fs8.png" class="big-ben__image">
+				<span class="canvas__tooltip" data-js="nav.trigger" data-target="big-ben">Learn more</span>
 			</div>
 			<div id="shard" class="shard canvas__html" data-template="shard" data-js="template" data-target="shard">
 				<svg class="shard__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 361.21 1280.48" width="180" height="640">
@@ -702,6 +704,7 @@
 						</g>
 					</g>
 				</svg>
+				<span class="canvas__tooltip" data-js="nav.trigger" data-target="shard">Learn more</span>
 			</div>
 			<div id="o2" class="o2 canvas__html" data-js="template" data-template="o2" data-target="o2">
 				<svg class="o2__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 868.1 615.53" width="304" height="216">
@@ -819,7 +822,8 @@
 							</g>
 						</svg>
 					</div>
-				</div>				
+				</div>
+				<span class="canvas__tooltip" data-js="nav.trigger" data-target="o2">Learn more</span>
 			</div>
 			<div id="towerbridge" class="tower-bridge canvas__html" data-template="tower-bridge" data-js="template" data-target="tower-bridge">
 				<div class="tower-bridge__image">
@@ -2528,7 +2532,8 @@
 						</g>
 					</svg>
 					<span class="tower-bridge__ramp"></span>
-				</div>				
+				</div>
+				<span class="canvas__tooltip" data-js="nav.trigger" data-target="tower-bridge">Learn more</span>			
 			</div>
 			<div id="battersea" class="battersea canvas__html" data-template="battersea" data-js="template" data-target="battersea">
 				<span class="battersea__wire--2"></span>
@@ -2548,6 +2553,7 @@
 						<span class="battersea__box-top"></span>
 					</div>
 				</div>
+				<span class="canvas__tooltip" data-js="nav.trigger" data-target="battersea">Learn more</span>
 			</div>
 			<div id="kew" class="kew canvas__html" data-js="template" data-template="kew" data-target="kew">				
 				<svg class="kew__window" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 114.18 66.23" width="114" height="66">
@@ -2718,6 +2724,7 @@
 						</g>
 					</g>
 				</svg>
+				<span class="canvas__tooltip" data-js="nav.trigger" data-target="kew">Learn more</span>
 			</div>
 			<div id="tatemodern" class="tate-modern canvas__html" data-template="tate-modern" data-js="template" data-target="tate-modern">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 113.49 151.87" width="113" height="152" class="tate-modern__painting">
@@ -3877,6 +3884,7 @@
 						</g>
 					</g>
 				</svg>
+				<span class="canvas__tooltip" data-js="nav.trigger" data-target="tate-modern">Learn more</span>
 			</div>
 		</div>
 		<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>

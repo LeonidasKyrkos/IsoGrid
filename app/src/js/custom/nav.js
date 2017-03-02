@@ -9,6 +9,8 @@ const navToggleRoot = document.querySelector('[data-js="nav.toggle.root"]');
 const navToggleArticles = document.querySelector('[data-js="nav.toggle.articles"]');
 const sidePanels = document.getElementById('sidepanels');
 const boatsCanvas = document.querySelector('[data-canvas="animation.under"]');
+const homeArticle = document.querySelector('[data-js="article.home"]');
+const homeToggle = document.querySelector('[data-js="nav.home"]');
 let navItems;
 
 const transEvents = {
@@ -34,9 +36,11 @@ export const navHandler = () => {
 
 	navToggleRoot.addEventListener('click',toggleNavRoot);
 	navToggleArticles.addEventListener('click',toggleArticles);
+	homeToggle.addEventListener('click',toggleHomeArticle);
 }
 
 const handleClick = (e) => {
+	e.stopPropagation();
 	const el = e.currentTarget;
 	const targetName = el.getAttribute('data-target');
 
@@ -83,6 +87,7 @@ const closeArticles = () => {
 	deactivateElements();
 	deactivateArticles();
 	sidePanels.classList.remove('articlesActive');
+	sidePanels.classList.remove('homeActive');
 	canvasWrap.classList.remove('active');
 	articles.classList.add('inactive');
 }
@@ -112,20 +117,36 @@ const deactivateElements = () => {
 const deactivateArticles = () => {
 	const articlesWrap = document.getElementById('articles');
 	const articles = document.querySelectorAll('#articles [data-js="article"]');
-
+	
+	homeArticle.classList.remove('active');
 	articlesWrap.classList.remove('inactive');
+
 	articles.forEach(el => {
+		el.classList.remove('active');
+	});
+
+	navItems.forEach(el => {
 		el.classList.remove('active');
 	});
 }
 
 const toggleNavRoot = () => {
-	sidePanels.classList.toggle('navActive');
+	if(sidePanels.classList.contains('homeActive')) {
+		toggleHomeArticle();
+	} else {
+		sidePanels.classList.toggle('navActive');
+	}
 }
 
 const toggleArticles = () => {
 	sidePanels.classList.contains('articlesActive') && deactivateArticles();
 	sidePanels.classList.toggle('articlesActive');
+}
+
+const toggleHomeArticle = () => {
+	deactivate();
+	sidePanels.classList.toggle('homeActive');
+	homeArticle.classList.toggle('active');
 }
 
 const deactivateTriggers = () => {
