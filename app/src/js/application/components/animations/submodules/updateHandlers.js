@@ -7,7 +7,9 @@ export const updateAnimationHandler = (store) => {
 	const state = store.getState();
 	const elapsed = performance.now()/1000;
 	if(!state.animations) { return };
-	state.animations.forEach(animation => updateAnimation(animation,elapsed));
+	Object.keys(state.animations).forEach( name => {
+		updateAnimation(state.animations[name],elapsed)
+	});
 }
 
 const updateAnimation = (animation,elapsed) => {

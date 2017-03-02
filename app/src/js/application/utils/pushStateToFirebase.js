@@ -7,6 +7,16 @@ const pushStateToFirebase = (state,resolve,reject) => {
 	delete editedState.assets;
 	delete editedState.settings;
 
+	Object.keys(editedState.animations).forEach(key => {
+		delete editedState.animations[key].remainingCoordinates;
+		delete editedState.animations[key].previousCoordinates;
+		delete editedState.animations[key].currentCoordinates;
+		delete editedState.animations[key].direction;
+		delete editedState.animations[key].previousDirection;
+		delete editedState.animations[key].finished;
+		delete editedState.animations[key].active;
+	});
+
 	const setter = DB.ref('/').set(editedState);
 
 	setter.then(()=>{
