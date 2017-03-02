@@ -22,7 +22,7 @@ const transEvents = {
 }
 
 export const navHandler = () => {
-	navItems = document.querySelectorAll('[data-js="nav.trigger"]');
+	navItems = [].slice.call(document.querySelectorAll('[data-js="nav.trigger"]'));
 	
 	navItems.forEach(el => {
 		el.addEventListener('click',handleClick);
@@ -107,7 +107,7 @@ const zoomCanvas = (x) => {
 }
 
 const deactivateElements = () => {
-	const htmlElements = htmlElements || document.querySelectorAll('#htmlwrap [data-js="template"]');
+	const htmlElements = htmlElements || [].slice.call(document.querySelectorAll('#htmlwrap [data-js="template"]'));
 
 	htmlElements.forEach( el => {
 		el.classList.remove('active') 
@@ -116,7 +116,7 @@ const deactivateElements = () => {
 
 const deactivateArticles = () => {
 	const articlesWrap = document.getElementById('articles');
-	const articles = document.querySelectorAll('#articles [data-js="article"]');
+	const articles = [].slice.call(document.querySelectorAll('#articles [data-js="article"]'));
 	
 	homeArticle.classList.remove('active');
 	articlesWrap.classList.remove('inactive');
