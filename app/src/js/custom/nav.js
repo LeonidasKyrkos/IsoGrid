@@ -66,14 +66,14 @@ const handleClick = (e) => {
 	nav.classList.add('hidden');
 	target.classList.add('active');
 	article.classList.add('active');
+	articles.classList.remove('inactive');
 	el.classList.add('active');
 	el.classList.add('visited');
 }
 
 const deactivate = () => {
 	deactivateTriggers();
-	deactivateArticles();
-	deactivateElements();
+	closeArticles();
 }
 
 const getOffset = (target) => {
@@ -132,7 +132,7 @@ const deactivateArticles = () => {
 
 const toggleNavRoot = () => {
 	if(sidePanels.classList.contains('homeActive')) {
-		toggleHomeArticle();
+		deactivate();
 	} else {
 		sidePanels.classList.toggle('navActive');
 	}
@@ -143,14 +143,15 @@ const toggleArticles = () => {
 	sidePanels.classList.toggle('articlesActive');
 }
 
-const toggleHomeArticle = () => {
-	deactivate();
-	sidePanels.classList.toggle('homeActive');
-	homeArticle.classList.toggle('active');
-}
-
 const deactivateTriggers = () => {
 	navItems.forEach(el => {
 		el.classList.remove('active');
 	});
+}
+
+const toggleHomeArticle = () => {
+	deactivate();
+	sidePanels.classList.add('homeActive');
+	homeArticle.classList.add('active');
+	articles.classList.remove('inactive');
 }

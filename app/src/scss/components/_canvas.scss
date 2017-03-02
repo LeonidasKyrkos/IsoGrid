@@ -46,13 +46,18 @@ $module: 		'canvas';
 		top: 0;
 		left: 0;
 		display: none;
+		width: em(200);
+		max-width: none;
+		background-color: rgba(white,0.8);
+		color: $color1;
+		border: 0;
 
 		.#{$module}__html:hover & {
 			@include display(flex);
 		}
 
 		&:hover {
-			background: white;
+			background: rgba(white,0.8);
 			color: $color1;
 		}
 

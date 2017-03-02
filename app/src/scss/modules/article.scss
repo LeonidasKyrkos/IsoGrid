@@ -239,6 +239,10 @@ $module: 		'article';
 		@include bp(desk-xxl-a) {
 			margin-top: 0;
 		}
+
+		@include bp(desk-m-a) {
+			max-width: none;
+		}
 	}
 
 	&__fact {

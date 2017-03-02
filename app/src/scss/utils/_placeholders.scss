@@ -1,7 +1,7 @@
 %big-link {
-	color: $color1;
 	text-align: left;
-	background-color: white;
+	background-color: transparent;
+	color: white;
 	padding: em(10) em(20);
 	width: em(335);
 	max-width: 100%;
@@ -10,9 +10,13 @@
 	margin-bottom: em(10);
 	@include display(flex);
 	@include align-items(center);
+	border: 2px solid $color4;
+
+	@include bp(desk-m-a) {
+		width: auto;
+	}
 
 	&:hover {
-		color: white;
 		background: linear-gradient(to right, $color4 0%, $color1 100%);
 	}
 
