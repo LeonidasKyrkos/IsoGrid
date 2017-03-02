@@ -58,16 +58,16 @@ const handleClick = (e) => {
 	const offset = getOffset(target);
 
 	deactivate();	
-	el.classList.add('active');
-	el.classList.add('visited');
+	toggleArticles();	
+	zoomCanvas(scrollX - offset.x);
+	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
 	targetName === 'tower-bridge' ? boatsCanvas.classList.add('hide') : boatsCanvas.classList.remove('hide');
-	toggleArticles();
 	sidePanels.classList.add('navActive');
 	nav.classList.add('hidden');
 	target.classList.add('active');
-	article.classList.add('active');	
-	zoomCanvas(scrollX - offset.x);
-	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
+	article.classList.add('active');
+	el.classList.add('active');
+	el.classList.add('visited');
 }
 
 const deactivate = () => {
