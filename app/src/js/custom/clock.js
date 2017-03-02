@@ -25,7 +25,7 @@ const updateClocks = () => {
 	let time = getTime();
 
 	if(time.hours !== previousTime.hours) {
-		const hourClocks = document.querySelectorAll('[data-js="bigben.hours"]');
+		const hourClocks = [].slice.call(document.querySelectorAll('[data-js="bigben.hours"]'));
 		hourClocks.length && hourClocks.forEach(el => {
 			el.textContent = time.hours;
 		});
@@ -34,7 +34,7 @@ const updateClocks = () => {
 	}
 
 	if(time.seconds !== previousTime.minutes) {
-		const minuteClocks = document.querySelectorAll('[data-js="bigben.minutes"]');
+		const minuteClocks = [].slice.call(document.querySelectorAll('[data-js="bigben.minutes"]'));
 		minuteClocks.length && minuteClocks.forEach(el => {
 			el.textContent = time.minutes;
 		})

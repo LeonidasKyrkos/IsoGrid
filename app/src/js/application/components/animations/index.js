@@ -85,8 +85,8 @@ export default class AnimationPalette {
 		this.newAnimationButton = document.querySelector('[data-js="animationMode.new"]');
 		this.saveAnimationButton = document.querySelector('[data-js="animationMode.save"]');
 		this.cancelAnimationButton = document.querySelector('[data-js="animationMode.cancel"]');
-		this.paletteItems = document.querySelectorAll('[data-js="animationMode.paletteItem"]');
-		this.form = document.querySelectorAll('[data-js="animationMode.settings"]');
+		this.paletteItems = [].slice.call(document.querySelectorAll('[data-js="animationMode.paletteItem"]'));
+		this.form = [].slice.call(document.querySelectorAll('[data-js="animationMode.settings"]'));
 		this.canvas = document.querySelector('[data-js="isogrid.canvas"][data-canvas="animation.over"]');
 	}
 
@@ -225,7 +225,7 @@ export default class AnimationPalette {
 	}
 
 	emptyForm() {
-		let inputs = document.querySelectorAll('[data-js="animationMode.settings"] input');
+		let inputs = [].slice.call(document.querySelectorAll('[data-js="animationMode.settings"] input'));
 		inputs.forEach(element => {
 			element.value = '';
 		});

@@ -63,7 +63,7 @@ export default class Palette {
 	}
 
 	eventListeners() {
-		this.paletteItems = document.querySelectorAll('[data-js="paletteItem"]');
+		this.paletteItems = [].slice.call(document.querySelectorAll('[data-js="paletteItem"]'));
 
 		this.paletteItems.forEach((el,i)=>{
 			el.addEventListener('click',this.changeBrush.bind(this), true);
