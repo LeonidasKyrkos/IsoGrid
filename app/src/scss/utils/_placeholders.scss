@@ -1,0 +1,35 @@
+%big-link {
+	color: $color1;
+	text-align: left;
+	background-color: white;
+	padding: em(10) em(20);
+	width: em(335);
+	max-width: 100%;
+	border-radius: em(15);
+	text-decoration: none;
+	margin-bottom: em(10);
+	@include display(flex);
+	@include align-items(center);
+
+	&:hover {
+		color: white;
+		background: linear-gradient(to right, $color4 0%, $color1 100%);
+	}
+
+	&__text {
+		display: inline-block;
+		margin-right: em(20);
+	}
+
+	&__arrow {
+		@include font-size($fzBase);
+		@include align-self(flex-end);
+		height: em(47);
+		width: auto;
+		margin-left: auto;
+
+		* {
+			fill: $color1;
+		}
+	}
+}

@@ -41,18 +41,19 @@ $module: 		'canvas';
 	}
 
 	&__tooltip {
-		color: $color1;
+		@extend %big-link;
 		position: absolute;
 		top: 0;
 		left: 0;
-		background-color: white;
-		padding: em(10) em(20);
 		display: none;
-		width: em(335);
-		border-radius: em(15);
 
 		.#{$module}__html:hover & {
-			display: table;
+			@include display(flex);
+		}
+
+		&:hover {
+			background: white;
+			color: $color1;
 		}
 
 		.#{$module}__html.active & {
@@ -61,19 +62,10 @@ $module: 		'canvas';
 	}
 
 	&__tooltip-text {
-		display: table-cell;
-		vertical-align: middle;
-		width: em(120);
+		@extend %big-link__text;
 	}
 
 	&__tooltip-arrow {
-		@include font-size($fzBase);
-		float: right;
-		height: em(47);
-		width: auto;
-
-		* {
-			fill: $color1;
-		}
+		@extend %big-link__arrow;
 	}
 }

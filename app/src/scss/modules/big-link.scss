@@ -1,35 +1,13 @@
 $module: 		'big-link';
 
 .#{$module} {
-	color: $color1;
-	background-color: white;
-	padding: em(10) em(20);
-	width: em(335);
-	max-width: 100%;
-	border-radius: em(15);
-	display: table;
-	text-decoration: none;
-	margin-bottom: em(10);
-
-	&:hover {
-		color: white;
-		background: linear-gradient(to right, $color4 0%, $color1 100%);
-	}
+	@extend %big-link;
 
 	&__text {
-		display: table-cell;
-		vertical-align: middle;
-		padding-right: em(30);
+		@extend %big-link__text;
 	}
 
 	&__arrow {
-		@include font-size($fzBase);
-		float: right;
-		height: em(47);
-		width: auto;
-
-		* {
-			fill: $color1;
-		}
+		@extend %big-link__arrow;
 	}
 }
