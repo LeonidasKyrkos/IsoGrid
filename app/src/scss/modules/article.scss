@@ -231,15 +231,15 @@ $module: 		'article';
 	&__facts {
 		border: 2px solid $color4;
 		border-radius: em(10);
-		padding: em(15) em(20);
+		padding: em(25) em(30);
 		margin-top: em(350);
 
 		@include bp(desk-xxl-a) {
 			margin-top: 0;
 		}
+	}
 
-		&__fact {
+	&__fact {
 			margin-bottom: em(25);
-		}
 	}
 }

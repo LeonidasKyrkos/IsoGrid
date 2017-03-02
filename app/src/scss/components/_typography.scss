@@ -1,3 +1,12 @@
+// normal text
+
+.largetext {
+	$fontSize: 22;
+	text-transform: uppercase;
+	letter-spacing: em(5,$fontSize);
+	font-size: em($fontSize);
+}
+
 // Headings
 // -------------------------
 
@@ -7,7 +16,7 @@ h1,h2,h3,h4,h5 {
 
 
 @for $i from 1 through length($headings) {
-	.rteCopy h#{$i},#{nth($headings,$i)} {
+	.#{nth($headings,$i)} {
 		@include font-size(nth($headingSizes,$i));
 		font-family: #{nth($headingFamilies,$i)};
 		color: #{nth($headingColors,$i)};
