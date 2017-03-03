@@ -17,6 +17,7 @@ import { defaultState } from './configuration/defaultState';
 // Custom JS
 import { clockHandler } from './custom/clock';
 import { navHandler } from './custom/nav';
+import { tutorialHandler } from './custom/tutorial';
 
 export const App = firebase.initializeApp(config);
 export const DB = firebase.database();
@@ -58,4 +59,5 @@ outerwrap.addEventListener('loaded', () => {
 	outerwrap.classList.remove('hidden');
 	clockHandler();
 	navHandler();
+	tutorialHandler();
 });

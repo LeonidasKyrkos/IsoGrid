@@ -42,36 +42,54 @@ $module: 		'canvas';
 	}
 
 	&__tooltip {
-		@extend %big-link;
 		position: absolute;
-		top: 0;
-		left: 0;
-		display: none;
-		width: em(200);
-		max-width: none;
-		background-color: rgba(white,0.8);
-		color: $color1;
-		border: 0;
+		top: em(-70);
+		left: 100%;
+		background-color: rgba(white,0.5);
+		border-radius: 100%;
+		width: em(50);
+		height: auto;
 
-		.#{$module}__html:hover & {
-			display: flex;
-		}
-
-		&:hover {
-			background: rgba(white,0.8);
-			color: $color1;
-		}
-
-		.#{$module}__html.active & {
+		.active & {
 			display: none;
 		}
-	}
 
-	&__tooltip-text {
-		@extend %big-link__text;
-	}
+		.battersea & {
+			top: em(30);
+			left: em(130);
+		}
 
-	&__tooltip-arrow {
-		@extend %big-link__arrow;
+		.kew & {
+			top: em(-50);
+			right: em(50);
+			left: auto;
+		}
+
+		.big-ben & {
+			top: em(-10);
+			left: em(-20);
+		}
+
+		.tate-modern & {
+			top: 0;
+			left: auto;
+			right: 0;
+		}
+
+		.shard & {
+			top: 0;
+			left: auto;
+			right: 0;
+		}
+
+		.tower-bridge & {
+			top: em(-70);
+			left: em(80);
+		}
+
+		.o2 & {
+			left: auto;
+			right: 0;
+		}
 	}
 }

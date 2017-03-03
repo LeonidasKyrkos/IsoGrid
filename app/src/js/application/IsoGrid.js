@@ -1,6 +1,6 @@
 import Grid from './components/grid/';
-//import Palette from './components/palette/';
-//import AnimationPalette from './components/animations';
+// import Palette from './components/palette/';
+// import AnimationPalette from './components/animations';
 import dragscroll from 'dragscroll';
 import { findSquare } from './utils/findSquare';
 import { colWidth as sqWidth, rowHeight as sqHeight, cvWidth, cvHeight } from './constants/dimensions';
@@ -38,8 +38,8 @@ export default class IsoGrid {
 
 	init() {
 		this.grids = new Grid(this.store);
-		//this.palette = new Palette(this.store);
-		//this.animationPalette = new AnimationPalette(this.store);
+		// this.palette = new Palette(this.store);
+		// this.animationPalette = new AnimationPalette(this.store);
 		this.currentScale = 1;
 		this.eventListeners();
 		this.store.subscribe(this.handleChanges.bind(this));
