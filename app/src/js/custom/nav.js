@@ -1,5 +1,7 @@
 import scroll from 'scroll';
 import { getScrollSettings } from './scrollSettings';
+import Hammer from 'hammerjs';
+import propagating from 'propagating-hammerjs';
 
 const dragscroll = document.getElementById('dragscroll');
 const canvasWrap = document.getElementById('isogrid');
@@ -22,13 +24,18 @@ const transEvents = {
 }
 
 export const navHandler = () => {
-	navItems = [].slice.call(document.querySelectorAll('[data-js="nav.trigger"]'));
-	
+	navItems = [].slice.call(document.querySelectorAll('[data-js="nav.trigger"],#htmlwrap [data-js="template"]'));
+
 	navItems.forEach(el => {
-		el.addEventListener('click',handleClick);
+		const hammerEl = propagating(new Hammer(el));
+		hammerEl.on('tap',(e)=>{
+			e.stopPropagation();
+			handleClick(el);
+		});
 	});
 
-	dragscroll.addEventListener('click',()=>{
+	const dragHammer = propagating(new Hammer(dragscroll));
+	dragHammer.on('tap',(e)=>{
 		closeArticles();
 		deactivateTriggers();
 		boatsCanvas.classList.remove('hide');
@@ -39,9 +46,7 @@ export const navHandler = () => {
 	homeToggle.addEventListener('click',toggleHomeArticle);
 }
 
-const handleClick = (e) => {
-	e.stopPropagation();
-	const el = e.currentTarget;
+const handleClick = (el) => {
 	const targetName = el.getAttribute('data-target');
 	const trigger = document.querySelector(`#nav [data-target="${targetName}"]`);
 
@@ -61,7 +66,6 @@ const handleClick = (e) => {
 	deactivate();	
 	toggleArticles();	
 	zoomCanvas(scrollX - offset.x);
-	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
 	targetName === 'tower-bridge' ? boatsCanvas.classList.add('hide') : boatsCanvas.classList.remove('hide');
 	sidePanels.classList.add('navActive');
 	nav.classList.add('hidden');
@@ -70,6 +74,7 @@ const handleClick = (e) => {
 	articles.classList.remove('inactive');
 	trigger.classList.add('active');
 	trigger.classList.add('visited');
+	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
 }
 
 const deactivate = () => {
