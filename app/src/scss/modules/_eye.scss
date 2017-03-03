@@ -4,21 +4,21 @@ $podBlue: #ddecec;
 
 @keyframes rotate_eye {
 	0% {
-		@include transform(rotateZ(360deg));
+		transform: rotateZ(360deg);
 	}
 	
 	100% {
-		@include transform(rotateZ(0deg));
+		transform: rotateZ(0deg);
 	}
 }
 
 @keyframes rotate_pod {
 	0% {
-		@include transform(translateX(-50%) translateY(-50%) rotateZ(-360deg) rotateX(32deg) skewY(30deg) scaleX(1.1));
+		transform: translateX(-50%) translateY(-50%) rotateZ(-360deg) rotateX(32deg) skewY(30deg) scaleX(1.1);
 	}
 	
 	100% {
-		@include transform(translateX(-50%) translateY(-50%) rotateZ(0) rotateX(32deg) skewY(30deg) scaleX(1.1));
+		transform: translateX(-50%) translateY(-50%) rotateZ(0) rotateX(32deg) skewY(30deg) scaleX(1.1);
 	}
 }
 
@@ -37,7 +37,7 @@ $module: 		'eye';
 	
 	&__inner {
 		height: 100%;
-		@include transform(rotateY(50deg)rotateX(-8deg));
+		transform: rotateY(50deg)rotateX(-8deg);
 	}
 
 	&__left {
@@ -69,10 +69,10 @@ $module: 		'eye';
 		height: 95%;
 		position: relative;
 
-		@include transform(translateX(0px) translateY(-4px) skewY(-30deg) scaleX(0.9));
+		transform: translateX(0px) translateY(-4px) skewY(-30deg) scaleX(0.9);
 
 		.palette & {
-			@include transform(translateX(-10px) translateY(-2px) skewY(-30deg) scaleX(0.9));
+			transform: translateX(-10px) translateY(-2px) skewY(-30deg) scaleX(0.9);
 		}
 	}
 	
@@ -83,19 +83,19 @@ $module: 		'eye';
 		top: 0;
 		bottom: 0;
 		list-style-type: none;
-		@include transform(rotateZ(360deg));
-		@include animation(rotate_eye 16s linear infinite);
-		@include transform-origin(center);
+		transform: rotateZ(360deg);
+		animation: 16s linear infinite rotate_eye;
+		transform-origin: center;
 
 		body.scrolling & {
-			@include animation(none);
+			animation: none;
 		}
 	}
 	
 	&__pod {
 		position: absolute;
-		@include transform(translateX(-50%) translateY(-50%) rotateZ(-360deg) rotateX(32deg) skewY(30deg) scaleX(1.1));
-		@include animation(rotate_pod 16s linear infinite);
+		transform: translateX(-50%) translateY(-50%) rotateZ(-360deg) rotateX(32deg) skewY(30deg) scaleX(1.1);
+		animation: 16s linear infinite rotate_pod;
 		width: 22%;
 
 		.cls-1 {
@@ -147,7 +147,7 @@ $module: 		'eye';
 		}
 
 		body.scrolling & {
-			@include animation(none);
+			animation: none;
 		}
 
 	}
@@ -168,47 +168,47 @@ $module: 		'eye';
 		top: 50%;
 		margin-top: em(-1);
 		height: em(2);
-		@include transform-origin(right);
+		transform-origin: right;
 		opacity: 0.7;
 
 		&--1 {
 			@extend .#{$module}__spoke;
-			@include transform(rotateZ(90deg));
+			transform: rotateZ(90deg);
 		}
 
 		&--2 {
 			@extend .#{$module}__spoke;
-			@include transform(rotateZ(45deg));
+			transform: rotateZ(45deg);
 		}
 		
 		&--3 {
 			@extend .#{$module}__spoke;
-			@include transform(rotateZ(0));
+			transform: rotateZ(0);
 		}
 
 		&--4 {
 			@extend .#{$module}__spoke;
-			@include transform(rotateZ(-45deg));
+			transform: rotateZ(-45deg);
 		}
 
 		&--5 {
 			@extend .#{$module}__spoke;
-			@include transform(rotateZ(-90deg));
+			transform: rotateZ(-90deg);
 		}
 
 		&--6 {
 			@extend .#{$module}__spoke;
-			@include transform(rotateZ(-135deg));
+			transform: rotateZ(-135deg);
 		}
 
 		&--7 {
 			@extend .#{$module}__spoke;
-			@include transform(rotateZ(-180deg));
+			transform: rotateZ(-180deg);
 		}
 
 		&--8 {
 			@extend .#{$module}__spoke;
-			@include transform(rotateZ(-225deg));
+			transform: rotateZ(-225deg);
 		}
 	}
 
@@ -216,6 +216,6 @@ $module: 		'eye';
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		@include transform(translateY(-5px)translateX(-5px));
+		transform: translateY(-5px)translateX(-5px);
 	}
 }

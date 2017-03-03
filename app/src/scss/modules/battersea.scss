@@ -4,7 +4,7 @@ $module: 		'battersea';
 	perspective: 1000px;
 	width: em(417);
 	overflow: visible;
-	@include transform(translateY(26px)translateX(-49px));
+	transform: translateY(26px)translateX(-49px);
 	
 	&__svg {
 		width: 100%;
@@ -31,12 +31,12 @@ $module: 		'battersea';
 		height: em(60);
 		top: em(223);
 		right: em(1);
-		@include transform-origin(top);
+		transform-origin: top;
 		z-index: 2;
 
 		.#{$module}.active & {
 			width: em(1);
-			@include animation(batterseaRope 4s linear infinite);
+			animation: 4s linear infinite batterseaRope;
 		}		
 
 		.palette & {
@@ -51,7 +51,7 @@ $module: 		'battersea';
 		top: em(97);
 
 		.#{$module}.active & {
-			@include animation(batterseaRope 4s 2s linear infinite);
+			animation: 4s 2s linear infinite batterseaRope;
 		}
 	}
 
@@ -59,10 +59,10 @@ $module: 		'battersea';
 		position: absolute;
 		top: em(280);
 		right: em(-7);
-		@include transform(translateY(0px));
+		transform: translateY(0px);
 
 		.#{$module}.active & {
-			@include animation(batterseaBob 4s linear infinite);
+			animation: 4s linear infinite batterseaBob;
 		}
 
 		.palette & {
@@ -77,7 +77,7 @@ $module: 		'battersea';
 		left: em(-9);
 
 		.#{$module}.active & {
-			@include animation(batterseaBob 4s 2s linear infinite);
+			animation: 4s 2s linear infinite batterseaBob;
 		}
 	}
 
@@ -86,7 +86,7 @@ $module: 		'battersea';
 		width: em(20);
 		height: em(20);		
 		transform-style: preserve-3d;
-		@include transform(rotateY(-45deg) rotateX(-24deg) rotateZ(24deg));
+		transform: rotateY(-45deg) rotateX(-24deg) rotateZ(24deg);
 	}
 
 	&__box-right, &__box-front, &__box-top {
@@ -99,16 +99,16 @@ $module: 		'battersea';
 
 	&__box-right {
 		background-color: #28b8ce;
-		@include transform(rotateY(90deg)translateZ(10px));
+		transform: rotateY(90deg)translateZ(10px);
 	}
 
 	&__box-front {
 		background-color: #1e8a9b;
-		@include transform(translateZ(10px));
+		transform: translateZ(10px);
 	}
 
 	&__box-top {
 		background-color: #7ed4e2;
-		@include transform(rotateX(-90deg)translateZ(-10px));
+		transform: rotateX(-90deg)translateZ(-10px);
 	}
 }

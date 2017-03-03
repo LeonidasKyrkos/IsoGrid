@@ -2,7 +2,7 @@ $module: 		'big-ben';
 
 
 .#{$module} {
-	@include transform(translateX(12px));
+	transform: translateX(12px);
 
 	&__svg {
 		pointer-events: none;
@@ -38,7 +38,7 @@ $module: 		'big-ben';
 		top: em(115,$fontSize);
 		left: em(4,$fontSize);
 		z-index: 2;
-		@include transform(rotateY(-45deg) rotateZ(22deg) rotateX(-14deg) translateY(6px));
+		transform: rotateY(-45deg) rotateZ(22deg) rotateX(-14deg) translateY(6px);
 		color: #28b8ce;
 
 		span {
@@ -58,6 +58,6 @@ $module: 		'big-ben';
 		color: #3c59a3;
 		right: em(2,$fontSize);
 		left: auto;
-		@include transform(rotateY(44deg) rotateZ(-23deg) rotateX(-20deg) translateY(6px));
+		transform: rotateY(44deg) rotateZ(-23deg) rotateX(-20deg) translateY(6px);
 	}
 }

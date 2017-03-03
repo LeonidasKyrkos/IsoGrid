@@ -4,26 +4,26 @@ $module: 		'article';
 	height: 100%;
 	color: white;
 	opacity: 0;	
-	@include transition(none);
+	transition: none;
 	padding: 0 em(30) em(215) em(10);
 	margin-top: em(215);
 	overflow: auto;
 	cursor: auto;
 
 	.#{$module}__wrap.active > & {
-		@include transition(opacity 0.1s 0.3s linear);
+		transition: opacity 0.1s 0.3s linear;
 		opacity: 1;
 	}
 
 	@include bp(tab-l-b) {
-		@include transition(transform 0.15s linear);
+		transition: transform 0.15s linear;
 		padding: 0 em(35) em(150);
 		margin-top: em(130);
 		opacity: 1;
 
 		.#{$module}__wrap.active > & {
-			@include transition(transform 0.15s linear);
-			@include transform(translateY(-100%));			
+			transition: transform 0.15s linear;
+			transform: translateY(-100%);			
 		}
 	}
 
@@ -34,11 +34,11 @@ $module: 		'article';
 		overflow: hidden;
 		position: absolute;
 		left: 0;
-		@include transition-property(transform);
-		@include transition-duration(0.3s);
-		@include transition-timing-function(linear);
+		transition-property: transform;
+		transition-duration: 0.3s;
+		transition-timing-function: linear;
 		background-color: rgba(black,0.7);
-		@include transform(translateX(0));
+		transform: translateX(0);
 
 		@media(max-width: 1600px) {
 			width: calc(100vw - 460px);
@@ -49,7 +49,7 @@ $module: 		'article';
 		}
 
 		&.inactive {
-			@include transform(translateX(calc(-100% + 220px)));
+			transform: translateX(calc(-100% + 220px));
 		}
 
 		@include bp(tab-l-b) {
@@ -57,12 +57,12 @@ $module: 		'article';
 			top: 100%;
 			width: 100%;
 			left: 0;
-			@include transform(none);
+			transform: none;
 			background-color: transparent;
 			overflow: visible;
 
 			&.inactive {
-				@include transform(none);
+				transform: none;
 			}
 		}
 	}

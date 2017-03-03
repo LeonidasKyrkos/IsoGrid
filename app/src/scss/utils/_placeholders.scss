@@ -8,8 +8,8 @@
 	border-radius: em(15);
 	text-decoration: none;
 	margin-bottom: em(10);
-	@include display(flex);
-	@include align-items(center);
+	display: flex;
+	align-items: center;
 	border: 2px solid $color4;
 
 	@include bp(desk-m-a) {
@@ -27,7 +27,7 @@
 
 	&__arrow {
 		@include font-size($fzBase);
-		@include align-self(flex-end);
+		align-self: flex-end;
 		height: em(47);
 		width: auto;
 		margin-left: auto;

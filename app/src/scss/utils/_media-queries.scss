@@ -44,7 +44,7 @@ $maxBreakpoints: (
 
 @mixin bp($breakpoint) { 
   @if map-has-key($maxBreakpoints, $breakpoint) {
-  	$point: strip-units(map-get($maxBreakpoints, $breakpoint)) / 16 +em;
+  	$point: strip-unit(map-get($maxBreakpoints, $breakpoint)) / 16 +em;
     @media (max-width: #{$point}) {
       @content;
     }

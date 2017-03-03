@@ -1,7 +1,7 @@
 $module: 		'tate-modern';
 
 .#{$module} {
-	@include transform(translateY(49px)translateX(2px));
+	transform: translateY(49px)translateX(2px);
 
 	&__svg {
 		width: 100%;
@@ -22,19 +22,19 @@ $module: 		'tate-modern';
 
 		&:nth-child(1) {
 			.#{$module}.active & {
-				@include animation(paintingSlide 5s linear infinite);
+				animation: 5s linear infinite paintingSlide;
 			}
 		}
 
 		&:nth-child(2) {
 			.#{$module}.active & {
-				@include animation(paintingSlide 5s 1.5s linear infinite);
+				animation: 5s 1.5s linear infinite paintingSlide;
 			}
 		}
 
 		&:nth-child(3) {
 			.#{$module}.active & {
-				@include animation(paintingSlide 5s 3s linear infinite);
+				animation: 5s 3s linear infinite paintingSlide;
 			}
 		}
 	}
@@ -43,18 +43,18 @@ $module: 		'tate-modern';
 @keyframes paintingSlide {
 	0% {
 		opacity: 0;
-		@include transform(translateX(0)translateY(0));
+		transform: translateX(0)translateY(0);
 	}
 	10% {
 		opacity: 1;
-		@include transform(translateX(-34px)translateY(20px));
+		transform: translateX(-34px)translateY(20px);
 	}
 	80% {
 		opacity: 1;
-		@include transform(translateX(-270px)translateY(160px));
+		transform: translateX(-270px)translateY(160px);
 	}
 	100% {
 		opacity: 1;
-		@include transform(translateX(-270px)translateY(160px));
+		transform: translateX(-270px)translateY(160px);
 	}
 }

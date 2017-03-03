@@ -43,6 +43,7 @@ const handleClick = (e) => {
 	e.stopPropagation();
 	const el = e.currentTarget;
 	const targetName = el.getAttribute('data-target');
+	const trigger = document.querySelector(`#nav [data-target="${targetName}"]`);
 
 	if(targetName !== 'home') {
 		var target = document.querySelector(`#htmlwrap [data-template="${targetName}"]`);
@@ -67,8 +68,8 @@ const handleClick = (e) => {
 	target.classList.add('active');
 	article.classList.add('active');
 	articles.classList.remove('inactive');
-	el.classList.add('active');
-	el.classList.add('visited');
+	trigger.classList.add('active');
+	trigger.classList.add('visited');
 }
 
 const deactivate = () => {

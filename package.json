@@ -8,8 +8,10 @@
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0",
-    "node-bourbon": "^4.2.8",
     "node-sass": "^4.3.0",
+    "postcss-loader": "^1.3.3",
+    "postcss-smart-import": "^0.6.9",
+    "precss": "^1.4.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
@@ -21,15 +23,14 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --end production",
-    "deploy": "gh-pages -d app"
+    "build": "webpack --end production"
   },
   "dependencies": {
     "deep-equal": "^1.0.1",
     "dragscroll": "^0.0.8",
     "eev": "^0.1.0",
     "firebase": "^3.6.7",
-    "gh-pages": "^0.12.0",
+    "hammerjs": "^2.0.8",
     "lodash": "^4.17.4",
     "redux": "^3.6.0",
     "scroll": "^2.0.0"

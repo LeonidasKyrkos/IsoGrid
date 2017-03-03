@@ -2,7 +2,7 @@ $module: 		'kew';
 
 .#{$module} {
 	width: em(300);
-	@include transform(translateY(16px)translateX(13px));
+	transform: translateY(16px)translateX(13px);
 
 	&__svg {
 		width: 100%;
@@ -15,14 +15,14 @@ $module: 		'kew';
 		left: em(135);
 		width: em(30);
 		height: auto;
-		@include transform(translateX(0)translateY(0));
-		@include transition-property(transform);
-		@include transition-duration(0.15s);
-		@include transition-delay(0.2s);
-		@include transition-timing-function(linear);
+		transform: translateX(0)translateY(0);
+		transition-property: transform;
+		transition-duration: 0.15s;
+		transition-delay: 0.2s;
+		transition-timing-function: linear;
 
 		.#{$module}.active & {
-			@include transform(translateX(20px)translateY(-11px));
+			transform: translateX(20px)translateY(-11px);
 		}
 	}
 
@@ -42,15 +42,15 @@ $module: 		'kew';
 		background-color: $color2;
 		width: em(4);
 		display: block;
-		@include transform(scaleY(0));
-		@include transform-origin(center bottom);
-		@include transition-property(transform);
-		@include transition-duration(0.3s);
-		@include transition-delay(0.7s);
-		@include transition-timing-function(linear);
+		transform: scaleY(0);
+		transform-origin: center bottom;
+		transition-property: transform;
+		transition-duration: 0.3s;
+		transition-delay: 0.7s;
+		transition-timing-function: linear;
 
 		.#{$module}.active & {
-			@include transform(scaleY(0.4));
+			transform: scaleY(0.4);
 		}
 	}
 
@@ -60,12 +60,12 @@ $module: 		'kew';
 		width: em(55);
 		background-color: $color3;
 		border-radius: 100%;
-		@include transition-property(transform);
-		@include transition-duration(0.35s);
-		@include transition-delay(1.05s);
-		@include transition-timing-function(linear);
-		@include transform(scale3d(0,0,0));
-		@include transform-origin(center);
+		transition-property: transform;
+		transition-duration: 0.35s;
+		transition-delay: 1.05s;
+		transition-timing-function: linear;
+		transform: scale3d(0,0,0);
+		transform-origin: center;
 		display: block;
 		position: absolute;
 		bottom: em(8);
@@ -73,7 +73,7 @@ $module: 		'kew';
 		margin-left: em(-27);
 
 		.#{$module}.active & {
-			@include transform(scale3d(1,1,1));
+			transform: scale3d(1,1,1);
 		}
 	}
 

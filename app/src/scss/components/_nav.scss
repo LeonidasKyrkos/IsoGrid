@@ -6,9 +6,9 @@ $module: 		'nav';
 		padding-top: em(10);
 		max-width: em(370);
 		margin: 0 auto;
-		@include transition-property(transform);
-		@include transition-duration(0.15s);
-		@include transition-timing-function(linear);
+		transition-property: transform;
+		transition-duration: 0.15s;
+		transition-timing-function: linear;
 		opacity: 0;
 
 		li {
@@ -22,11 +22,11 @@ $module: 		'nav';
 		}
 
 		.side-panels.articlesActive & {
-			@include transform(translateY(calc(-100% - 160px)));
+			transform: translateY(calc(-100% - 160px));
 		}
 
 		.side-panels.homeActive & {
-			@include transform(translateY(calc(-100% - 160px)));
+			transform: translateY(calc(-100% - 160px));
 		}
 	}
 
@@ -84,10 +84,10 @@ $module: 		'nav';
 		width: auto;
 		margin: 0 auto;
 		display: block;
-		@include transform(translateY(0));
+		transform: translateY(0);
 
 		.#{$module}__item:hover &, .#{$module}__item.active &, .#{$module}__item.visited & {
-			@include transform(translateY(-95%));
+			transform: translateY(-95%);
 		}
 
 		.#{$module}__item.active & {
@@ -97,7 +97,7 @@ $module: 		'nav';
 		}
 
 		@include bp(tab-l-b) {
-			@include transform(translateY(-95%));
+			transform: translateY(-95%);
 		}
 	}
 

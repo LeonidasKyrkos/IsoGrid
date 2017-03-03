@@ -6,6 +6,7 @@ $module: 		'canvas';
 	left: 0;
 	right: 0;
 	bottom: 0;
+	transform: translateZ(0);
 
 	&__wrap {
 		overflow: scroll;
@@ -22,12 +23,12 @@ $module: 		'canvas';
 
 	&__innerwrap {
 		position: relative;
-		@include transition-property(transform);
-		@include transition-duration(0.15s);
-		@include transition-timing-function(linear);
+		transition-property: transform;
+		transition-duration: 0.15s;
+		transition-timing-function: linear;
 
 		&.active {
-			@include transform(scale3d(1.2,1.2,1.2));
+			transform: scale3d(1.2,1.2,1.2);
 		}
 
 		&.animationMode {
@@ -35,8 +36,8 @@ $module: 		'canvas';
 		}
 
 		@include bp(tab-xl) {
-			@include transform-origin(center center);
-			@include transform(scale3d(0.8,0.8,0.8));
+			transform-origin: center center;
+			transform: scale3d(0.8,0.8,0.8);
 		}
 	}
 
@@ -53,7 +54,7 @@ $module: 		'canvas';
 		border: 0;
 
 		.#{$module}__html:hover & {
-			@include display(flex);
+			display: flex;
 		}
 
 		&:hover {

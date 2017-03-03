@@ -29,16 +29,16 @@ $module: 		'o2';
 
 		&:nth-child(1) {
 			transform-origin: right bottom;
-			@include animation(searchLightRight 12s 1s linear infinite);
+			animation: 12s 1s linear infinite searchLightRight;
 		}
 
 		&:nth-child(2) {
 			transform-origin: left bottom;
-			@include animation(searchLightLeft 12s linear infinite);
+			animation: 12s linear infinite searchLightLeft;
 		}
 
 		body.scrolling & {
-			@include animation(none);
+			animation: none;
 		}
 	}
 
@@ -49,30 +49,30 @@ $module: 		'o2';
 
 	&__light--reverse {
 		@extend .#{$module}__light;
-		@include transform(rotateZ(85deg));
+		transform: rotateZ(85deg);
 	}
 }
 
 @keyframes searchLightRight {
 	0% {
-		@include transform(rotateZ(0));
+		transform: rotateZ(0);
 	}
 	50% {
-		@include transform(rotateZ(60deg));
+		transform: rotateZ(60deg);
 	}
 	100% {
-		@include transform(rotateZ(0));
+		transform: rotateZ(0);
 	}
 }
 
 @keyframes searchLightLeft {
 	0% {
-		@include transform(rotateZ(0));
+		transform: rotateZ(0);
 	}
 	50% {
-		@include transform(rotateZ(-60deg));
+		transform: rotateZ(-60deg);
 	}
 	100% {
-		@include transform(rotateZ(0));
+		transform: rotateZ(0);
 	}
 }

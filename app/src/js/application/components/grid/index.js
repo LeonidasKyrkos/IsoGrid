@@ -20,6 +20,7 @@ export default class Grid {
 	constructor(store, canvas) {
 		this.store = store;		
 		this.wrap = document.getElementById('isogrid');
+		this.dragscroll = document.getElementById('dragscroll');
 		this.lastRender = 0;
 		this.setupCanvases();
 		this.init();
@@ -36,6 +37,12 @@ export default class Grid {
 
 		this.loadImages(state);
 		this.attachEventHandlers();
+	}
+
+	attachEventHandlers() {
+		this.dragscroll.addEventListener('scroll',this.pause.bind(this));
+		this.wrap.addEventListener('pause',this.pause.bind(this));
+		this.wrap.addEventListener('play',this.unpause.bind(this));
 	}
 
 	loadImages(state) {
@@ -215,14 +222,11 @@ export default class Grid {
 		return state.gridSquares;
 	}
 
-	attachEventHandlers() {
-		window.addEventListener('mousedown',this.pause.bind(this));
-		window.addEventListener('mouseup',this.unpause.bind(this));
-	}
-
 	pause() {
 		//body.classList.add('scrolling');
 		this.paused = true;
+
+		setTimeout(this.unpause.bind(this),500);
 	}
 
 	unpause() {

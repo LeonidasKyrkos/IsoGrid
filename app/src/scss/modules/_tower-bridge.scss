@@ -5,7 +5,7 @@ $module: 			'tower-bridge';
 	perspective-origin: right;
 	width: em(393);
 	height: em(224);
-	@include transform(translateY(15px)translateX(36px));
+	transform: translateY(15px)translateX(36px);
 
 	.palette & {
 		height: 100%;
@@ -23,7 +23,7 @@ $module: 			'tower-bridge';
 		background-color: $color1;
 		right: em(70);
 		top: em(18);
-		@include transform(rotateX(48deg)rotateY(0)rotateZ(43deg));
+		transform: rotateX(48deg)rotateY(0)rotateZ(43deg);
 
 		.palette & {
 			display: none;
@@ -36,7 +36,7 @@ $module: 			'tower-bridge';
 		bottom: 0;
 		width: em(50);
 		height: em(50);
-		@include transform(rotateX(60deg) rotateY(5deg) rotateZ(33deg)translateX(-14px)translateY(-10px));
+		transform: rotateX(60deg) rotateY(5deg) rotateZ(33deg)translateX(-14px)translateY(-10px);
 		background-color: $color1;
 
 		.palette & {
@@ -66,11 +66,11 @@ $module: 			'tower-bridge';
 		}
 
 		.#{$module}.active & {
-			@include animation(raiseLeft 10s linear forwards);
+			animation: 10s linear forwards raiseLeft;
 		}
 
 		body.scrolling & {
-			@include animation(none);
+			animation: none;
 		}
 	}
 
@@ -81,11 +81,11 @@ $module: 			'tower-bridge';
 		left: em(139);
 
 		.#{$module}.active & {
-			@include animation(raiseRight 10s linear forwards);
+			animation: 10s linear forwards raiseRight;
 		}
 
 		body.scrolling & {
-			@include animation(none);
+			animation: none;
 		}
 	}
 
@@ -121,7 +121,7 @@ $module: 			'tower-bridge';
 
 		.#{$module}.active & {
 			opacity: 1;
-			@include animation(sail 8s 1s linear forwards);
+			animation: 8s 1s linear forwards sail;
 		}
 	}
 }
@@ -129,66 +129,66 @@ $module: 			'tower-bridge';
 @keyframes sail {
 	0% {
 		opacity: 1;
-		@include transform(translateX(0)translateY(0));
+		transform: translateX(0)translateY(0);
 	}
 	90% {
 		opacity: 1;
-		@include transform(translateX(243px)translateY(150px));
+		transform: translateX(243px)translateY(150px);
 	}
 	100% {
 		opacity: 0;
-		@include transform(translateX(270px)translateY(167px));
+		transform: translateX(270px)translateY(167px);
 	}
 }
 
 @keyframes raiseLeft {
 	0% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
 	}
 
 	10% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
 	}
 
 	20% {
-		@include transform(rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px));
+		transform: rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px);
 	}
 
 	80% {
-		@include transform(rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px));
+		transform: rotateX(-20deg)rotateY(-30deg)rotateZ(-20deg)translateY(5px)translateZ(5px)translateX(0px);
 	}
 
 	90% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
 	}
 
 	100% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
 	}
 }
 
 @keyframes raiseRight {
 	0% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
 	}
 
 	8% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
 	}
 
 	20% {
-		@include transform(rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px));
+		transform: rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px);
 	}
 
 	80% {
-		@include transform(rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px));
+		transform: rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px);
 	}
 
 	90% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
 	}
 
 	100% {
-		@include transform(rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px));
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
 	}
 }

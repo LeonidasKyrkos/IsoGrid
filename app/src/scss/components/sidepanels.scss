@@ -6,14 +6,14 @@ $module: 		'side-panels';
 	bottom: 0;
 	width: em($navWidth);
 	z-index: 2;
-	backface-visibility: hidden;
+	transform: translateZ(0);
 
 	@include bp(tab-l-b) {
 		width: 100%;
 		background-color: rgba(black,0.6);
 		max-height: em(125);
 		overflow: hidden;
-		@include transition(max-height 0.15s linear);
+		transition: max-height 0.15s linear;
 
 		&.navActive, &.homeActive {
 			max-height: 100vh;
@@ -47,7 +47,7 @@ $module: 		'side-panels';
 
 	&__pancake--articles {
 		@extend .#{$module}__pancake;
-		@include transform(rotate(180deg));
+		transform: rotate(180deg);
 		display: none;
 
 		svg path {
@@ -83,8 +83,8 @@ $module: 		'side-panels';
 
 		.#{$module}.navActive &, .#{$module}.homeActive & {
 			&:nth-child(1) {
-				@include transform(rotate(45deg));
-				@include transform-origin(center);
+				transform: rotate(45deg);
+				transform-origin: center;
 				top: 50%;
 				margin-top: em(-1);
 			}
@@ -94,8 +94,8 @@ $module: 		'side-panels';
 			}
 
 			&:nth-child(3) {
-				@include transform(rotate(-45deg));
-				@include transform-origin(center);
+				transform: rotate(-45deg);
+				transform-origin: center;
 				top: 50%;
 				margin-top: em(-1);
 			}

@@ -1,7 +1,7 @@
 $module: 		'shard';
 
 .#{$module} {
-	@include transform(translateY(23px)translateX(-31px));
+	transform: translateY(23px)translateX(-31px);
 	&__svg {
 		width: 100%;
 		height: auto;
@@ -21,7 +21,7 @@ $module: 		'shard';
 		opacity: 0;
 
 		.#{$module}.active & {
-			@include animation(flyBalloon 10s 1.5s linear forwards);
+			animation: 10s 1.5s linear forwards flyBalloon;
 		}		
 
 		.palette & {
@@ -33,22 +33,22 @@ $module: 		'shard';
 @keyframes flyBalloon {
 	0% {
 		opacity: 0;
-		@include transform(translateY(0)translateX(0)translateZ(0));
+		transform: translateY(0)translateX(0)translateZ(0);
 	}
 	25% {
 		opacity: 1;
-		@include transform(translateY(-150px)translateX(-5px)translateZ(0));
+		transform: translateY(-150px)translateX(-5px)translateZ(0);
 	}
 	50% {
 		opacity: 1;
-		@include transform(translateY(-300px)translateX(-15px)translateZ(0));
+		transform: translateY(-300px)translateX(-15px)translateZ(0);
 	}
 	75% {
-		@include transform(translateY(-450px)translateX(-25px)translateZ(0));
+		transform: translateY(-450px)translateX(-25px)translateZ(0);
 		opacity: 1;
 	}
 	100% {
-		@include transform(translateY(-600px)translateX(-5px)translateZ(0));
+		transform: translateY(-600px)translateX(-5px)translateZ(0);
 		opacity: 0;
 	}
 }
