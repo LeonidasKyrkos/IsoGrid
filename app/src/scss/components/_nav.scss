@@ -35,7 +35,7 @@ $module: 		'nav';
 		cursor: pointer;
 		margin-bottom: em(30);
 		position: relative;
-		padding-left: em(45);
+		//padding-left: em(45);
 
 		@include bp(tab-l-b) {
 			margin-bottom: em(15);
@@ -72,6 +72,8 @@ $module: 		'nav';
 			top: auto;
 			left: auto;
 		}
+
+		display: none;
 	}
 
 	&__svg {

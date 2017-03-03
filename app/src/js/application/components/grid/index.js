@@ -192,7 +192,7 @@ export default class Grid {
 		for(let name in this.canvases) {
 			let subCanvas = this.canvases[name];
 
-			if(!mobile && (name === 'animation' || name === 'animationUnder') && state.animations && state.animations.length) {
+			if((name === 'animation' || name === 'animationUnder') && state.animations && state.animations.length) {
 				subCanvas.render(state.animations);
 			}
 

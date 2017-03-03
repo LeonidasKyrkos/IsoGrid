@@ -74,7 +74,11 @@ const handleClick = (el) => {
 	articles.classList.remove('inactive');
 	trigger.classList.add('active');
 	trigger.classList.add('visited');
-	scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
+
+	setTimeout(()=>{
+		scrollTo(dragscroll, scrollX - offset.x, scrollY - offset.y);
+	},500);
+	
 }
 
 const deactivate = () => {

@@ -6,7 +6,7 @@ $module: 		'article';
 	opacity: 0;	
 	transition: none;
 	padding: 0 em(30) em(215) em(10);
-	margin-top: em(215);
+	margin-top: em(25);
 	overflow: auto;
 	cursor: auto;
 
@@ -96,8 +96,6 @@ $module: 		'article';
 	&__title {
 		$fontSize: nth($headingSizes,1);
 		@extend .alpha;
-		margin-right: em(-260,$fontSize);
-		padding-right: 2rem;
 
 		@media(max-width: 1900px) {
 			$fontSize: 60;
@@ -174,14 +172,11 @@ $module: 		'article';
 	}
 
 	&__column {
-		width: 33%;
+		width: 50%;
 		float: left;
 		padding: 0 em(20);
 		position: relative;
-
-		@include bp(desk-xxl-a) {
-			width: 50%;
-		}
+		margin-bottom: em(30);
 
 		@include bp(desk-m-a) {
 			float: none;
@@ -209,6 +204,7 @@ $module: 		'article';
 	}
 
 	&__columns {
+		margin-bottom: em(30);
 		columns: 3;
 
 		@include bp(desk-l-a) {
@@ -229,23 +225,22 @@ $module: 		'article';
 	}
 
 	&__facts {
+		clear: left;
 		border: 2px solid $color4;
 		border-radius: em(10);
 		padding: em(25) em(30);
-		margin-top: em(350);
-		margin-bottom: em(30);
-		max-width: em(335);
-
-		@include bp(desk-xxl-a) {
-			margin-top: 0;
-		}
-
-		@include bp(desk-m-a) {
-			max-width: none;
-		}
+		margin: 0 em(20) em(30);
 	}
 
 	&__fact {
-			margin-bottom: em(25);
+		margin-bottom: em(25);
+	}
+
+	&__home-info {
+		$fontSize: 21;
+		font-size: em($fontSize);
+		display: block;
+		float: right;
+		max-width: em(300,$fontSize);
 	}
 }

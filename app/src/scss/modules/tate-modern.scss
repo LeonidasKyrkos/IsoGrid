@@ -22,8 +22,8 @@ $module: 		'tate-modern';
 
 		&:nth-child(1) {
 			.#{$module}.active & {
-				animation: 5s linear infinite paintingSlide;
-			}
+				animation: 5s 3s linear infinite paintingSlide;
+			}			
 		}
 
 		&:nth-child(2) {
@@ -34,7 +34,7 @@ $module: 		'tate-modern';
 
 		&:nth-child(3) {
 			.#{$module}.active & {
-				animation: 5s 3s linear infinite paintingSlide;
+				animation: 5s linear infinite paintingSlide;
 			}
 		}
 	}
