@@ -18,6 +18,12 @@ $module: 		'canvas';
 	&.active:before {
 		opacity: 1;
 	}
+
+	@include bp(tab-xl) {
+		&:before {
+			content: none;
+		}
+	}
 }
 
 .#{$module} {

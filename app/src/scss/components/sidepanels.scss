@@ -15,7 +15,7 @@ $module: 		'side-panels';
 		overflow: hidden;
 		transition: max-height 0.15s linear;
 
-		&.navActive, &.homeActive {
+		.navActive &, .homeActive & {
 			max-height: 100vh;
 		}
 	}
@@ -40,7 +40,7 @@ $module: 		'side-panels';
 			display: block;
 		}
 
-		.#{$module}.articlesActive & {
+		.articlesActive & {
 			display: none;
 		}
 	}
@@ -54,7 +54,7 @@ $module: 		'side-panels';
 			fill: white;
 		}
 
-		.#{$module}.articlesActive & {
+		.articlesActive & {
 			@include bp(tab-l-b) {
 				display: block;
 			}			
@@ -81,7 +81,7 @@ $module: 		'side-panels';
 			margin-top: 0;
 		}
 
-		.#{$module}.navActive &, .#{$module}.homeActive & {
+		.navActive &, .homeActive & {
 			&:nth-child(1) {
 				transform: rotate(45deg);
 				transform-origin: center;

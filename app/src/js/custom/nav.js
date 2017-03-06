@@ -225,7 +225,7 @@ export default class Navigation {
 	 * @return void
 	 */
 	toggleArticles() {
-		this.elements.body.classList.contains('articlesActive') && deactivateArticles();
+		this.elements.body.classList.contains('articlesActive') && this.deactivateArticles();
 		this.elements.body.classList.toggle('articlesActive');
 	}
 

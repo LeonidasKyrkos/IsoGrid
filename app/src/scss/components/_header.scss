@@ -19,6 +19,11 @@ $module: 		'header';
 	}
 
 	@include bp(tab-l-b) {
+		background-color: transparent;
 		position: relative;
+
+		.articlesActive & {
+			pointer-events: none;
+		}
 	}
 }
