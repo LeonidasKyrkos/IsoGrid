@@ -30,6 +30,7 @@ export default class Navigation {
 			articles: document.getElementById('articles'),
 			allArticles: [].slice.call(document.querySelectorAll('#articles [data-js="article"]')),
 			boatsCanvas: document.querySelector('[data-canvas="animation.under"]'),
+			body: document.getElementById('body'),
 			btnCloseArticles: document.querySelector('[data-js="nav.articles.close"]'),
 			canvasWrap: document.getElementById('isogrid'),
 			dragscroll: document.getElementById('dragscroll'),
@@ -41,7 +42,7 @@ export default class Navigation {
 			navItems: [].slice.call(document.querySelectorAll('[data-js="nav.trigger"],#htmlwrap [data-js="template"]')),
 			navToggleRoot: document.querySelector('[data-js="nav.toggle.root"]'),
 			navToggleArticles: document.querySelector('[data-js="nav.toggle.articles"]'),
-			sidePanels: document.getElementById('sidepanels')			
+			body: document.getElementById('body')			
 		}	
 	}
 
@@ -130,7 +131,7 @@ export default class Navigation {
 			targetName === 'tower-bridge' && this.elements.boatsCanvas.classList.add('hide');
 			target.classList.add('active');
 			article.classList.add('active');
-			this.elements.sidePanels.classList.add('navActive');
+			this.elements.body.classList.add('navActive');
 			this.elements.nav.classList.add('hidden');		
 			this.elements.articles.classList.remove('inactive');
 			trigger.classList.add('active');
@@ -158,8 +159,8 @@ export default class Navigation {
 	closeArticles() {
 		this.deactivateElements();
 		this.deactivateArticles();
-		this.elements.sidePanels.classList.remove('articlesActive');
-		this.elements.sidePanels.classList.remove('homeActive');
+		this.elements.body.classList.remove('articlesActive');
+		this.elements.body.classList.remove('homeActive');
 		this.elements.canvasWrap.classList.remove('active');
 		this.elements.articles.classList.add('inactive');
 	}
@@ -169,14 +170,14 @@ export default class Navigation {
 	 * @param {Object} DOM Node to be scrolled
 	 * @param {Number} x
 	 * @param {Number} y
-	 * @return void
+	 * @return promise that resolves when scroll completes
 	 */
 	scrollTo(element, x, y) {
 		return new Promise((resolve,reject)=>{
-			scroll.left(element, x,()=>{
+			scroll.left(element, x, { duration: 700 }, ()=>{
 				resolve();
 			});
-			scroll.top(element, y);
+			scroll.top(element, y, { duration: 700 });
 		});		
 	}
 
@@ -212,10 +213,10 @@ export default class Navigation {
 	 * @return void
 	 */
 	toggleNavRoot() {
-		if(this.elements.sidePanels.classList.contains('homeActive')) {
+		if(this.elements.body.classList.contains('homeActive')) {
 			this.deactivate();
 		} else {
-			this.elements.sidePanels.classList.toggle('navActive');
+			this.elements.body.classList.toggle('navActive');
 		}
 	}
 
@@ -224,8 +225,8 @@ export default class Navigation {
 	 * @return void
 	 */
 	toggleArticles() {
-		this.elements.sidePanels.classList.contains('articlesActive') && deactivateArticles();
-		this.elements.sidePanels.classList.toggle('articlesActive');
+		this.elements.body.classList.contains('articlesActive') && deactivateArticles();
+		this.elements.body.classList.toggle('articlesActive');
 	}
 
 	/**
@@ -238,9 +239,12 @@ export default class Navigation {
 		});
 	}
 
+	/**
+	 * Deactivate all articles and then activate the home article
+	 */
 	toggleHomeArticle() {
 		this.deactivate();
-		this.elements.sidePanels.classList.add('homeActive');
+		this.elements.body.classList.add('homeActive');
 		this.elements.homeArticle.classList.add('active');
 		this.elements.articles.classList.remove('inactive');
 	}

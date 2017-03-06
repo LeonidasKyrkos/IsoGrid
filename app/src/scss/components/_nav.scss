@@ -17,15 +17,15 @@ $module: 		'nav';
 			width: 50%;
 		}
 
-		.side-panels.navActive & {
+		.navActive & {
 			opacity: 1;
 		}
 
-		.side-panels.articlesActive & {
+		.articlesActive & {
 			transform: translateY(calc(-100% - 160px));
 		}
 
-		.side-panels.homeActive & {
+		.homeActive & {
 			transform: translateY(calc(-100% - 160px));
 		}
 	}

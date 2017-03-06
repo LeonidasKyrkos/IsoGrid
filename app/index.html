@@ -10,12 +10,12 @@
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="/build/styles.css">
 	</head>
-	<body id="body">
+	<body id="body" class="homeActive">
 		<div id="loader" class="loader">
 			<span class="loader__text">Loading</span>
 		</div>
 		<article class="innerwrap" id="isogridWrap">
-			<div class="side-panels homeActive" id="sidepanels">
+			<div class="side-panels" id="sidepanels">
 				<button data-js="nav.toggle.root" class="side-panels__pancake">
 					<span class="side-panels__pancake-line"></span>
 					<span class="side-panels__pancake-line"></span>
@@ -606,31 +606,10 @@
 						<path d="M55.59,30.53h0a2.37,2.37,0,0,0-.49-.27c-2.11-.83-5,1.52-6.46,5.24-1.39,3.53-1,7,.87,8.08h0L76.81,54l2.54-6.48Z" style="fill:url(#f)" />
 					</svg>
 				</span>
-				<svg data-js="nav.trigger" data-target="eye" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 74" width="74" height="74" class="canvas__tooltip">
-					<defs>
-						<style>
-							.bino-cls-1,.bino-cls-4{fill:#fff;}.bino-cls-2{fill:#0061b0;}.bino-cls-3{fill:url(#bino-linear-gradient);}.bino-cls-4{stroke:#0061b0;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}
-						</style>
-						<linearGradient id="bino-linear-gradient" x1="9.61" y1="33.77" x2="63.29" y2="33.77" gradientUnits="userSpaceOnUse">
-							<stop offset="0" stop-color="#2d96d2" />
-							<stop offset="1" stop-color="#2057a1" />
-						</linearGradient>
-					</defs>
-					<g>
-						<g>
-							<circle class="bino-cls-2" cx="26.84" cy="20.83" r="6.25" />
-							<circle class="bino-cls-2" cx="47.75" cy="20.83" r="6.25" />
-							<path class="bino-cls-3" d="M63.29,43.87l-7-20.38c0-.1-.07-.2-.1-.3L56.16,23h0a7.82,7.82,0,0,0-14.63,0h0a5.06,5.06,0,0,1-9,0h0a7.82,7.82,0,0,0-14.63,0h0L9.61,43.87H29.23a7.41,7.41,0,0,0,14.44,0Z" />
-							<path class="bino-cls-1" d="M19.75,57.75a10,10,0,1,1,10-10A10,10,0,0,1,19.75,57.75Z" />
-							<path class="bino-cls-2" d="M19.75,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<path class="bino-cls-4" d="M13.8,47.75a6,6,0,0,0,6,6" />
-							<path class="bino-cls-1" d="M53,57.75a10,10,0,1,1,10-10A10,10,0,0,1,53,57.75Z" />
-							<path class="bino-cls-2" d="M53,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<circle class="bino-cls-1" cx="36.45" cy="44.42" r="2.74" />
-							<path class="bino-cls-4" d="M47,47.75a6,6,0,0,0,6,6" />
-						</g>
-					</g>
-				</svg>
+				<button data-js="nav.trigger" data-target="eye" class="canvas__tooltip">
+					<span class="canvas__tooltip-title">London eye</span>
+					<span class="canvas__tooltip-subtitle">User experience</span>
+				</button>
 			</div>
 			<div id="bigben" class="big-ben canvas__html" data-template="big-ben" data-js="template" data-target="big-ben">
 				<div class="big-ben__time">
@@ -640,31 +619,10 @@
 					<span data-js="bigben.hours">12</span><span>:</span><span data-js="bigben.minutes">00</span>
 				</div>
 				<img src="/assets/landmarks/optimised/big-ben-fs8.png" class="big-ben__image">
-				<svg data-js="nav.trigger" data-target="big-ben" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 74" width="74" height="74" class="canvas__tooltip">
-					<defs>
-						<style>
-							.bino-cls-1,.bino-cls-4{fill:#fff;}.bino-cls-2{fill:#0061b0;}.bino-cls-3{fill:url(#bino-linear-gradient);}.bino-cls-4{stroke:#0061b0;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}
-						</style>
-						<linearGradient id="bino-linear-gradient" x1="9.61" y1="33.77" x2="63.29" y2="33.77" gradientUnits="userSpaceOnUse">
-							<stop offset="0" stop-color="#2d96d2" />
-							<stop offset="1" stop-color="#2057a1" />
-						</linearGradient>
-					</defs>
-					<g>
-						<g>
-							<circle class="bino-cls-2" cx="26.84" cy="20.83" r="6.25" />
-							<circle class="bino-cls-2" cx="47.75" cy="20.83" r="6.25" />
-							<path class="bino-cls-3" d="M63.29,43.87l-7-20.38c0-.1-.07-.2-.1-.3L56.16,23h0a7.82,7.82,0,0,0-14.63,0h0a5.06,5.06,0,0,1-9,0h0a7.82,7.82,0,0,0-14.63,0h0L9.61,43.87H29.23a7.41,7.41,0,0,0,14.44,0Z" />
-							<path class="bino-cls-1" d="M19.75,57.75a10,10,0,1,1,10-10A10,10,0,0,1,19.75,57.75Z" />
-							<path class="bino-cls-2" d="M19.75,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<path class="bino-cls-4" d="M13.8,47.75a6,6,0,0,0,6,6" />
-							<path class="bino-cls-1" d="M53,57.75a10,10,0,1,1,10-10A10,10,0,0,1,53,57.75Z" />
-							<path class="bino-cls-2" d="M53,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<circle class="bino-cls-1" cx="36.45" cy="44.42" r="2.74" />
-							<path class="bino-cls-4" d="M47,47.75a6,6,0,0,0,6,6" />
-						</g>
-					</g>
-				</svg>
+				<button data-js="nav.trigger" data-target="big-ben" class="canvas__tooltip">
+					<span class="canvas__tooltip-title">Big ben</span>
+					<span class="canvas__tooltip-subtitle">Time management</span>
+				</button>
 			</div>
 			<div id="shard" class="shard canvas__html" data-template="shard" data-js="template" data-target="shard">
 				<svg class="shard__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 361.21 1280.48" width="180" height="640">
@@ -903,31 +861,10 @@
 						</g>
 					</g>
 				</svg>
-				<svg data-js="nav.trigger" data-target="shard" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 74" width="74" height="74" class="canvas__tooltip">
-					<defs>
-						<style>
-							.bino-cls-1,.bino-cls-4{fill:#fff;}.bino-cls-2{fill:#0061b0;}.bino-cls-3{fill:url(#bino-linear-gradient);}.bino-cls-4{stroke:#0061b0;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}
-						</style>
-						<linearGradient id="bino-linear-gradient" x1="9.61" y1="33.77" x2="63.29" y2="33.77" gradientUnits="userSpaceOnUse">
-							<stop offset="0" stop-color="#2d96d2" />
-							<stop offset="1" stop-color="#2057a1" />
-						</linearGradient>
-					</defs>
-					<g>
-						<g>
-							<circle class="bino-cls-2" cx="26.84" cy="20.83" r="6.25" />
-							<circle class="bino-cls-2" cx="47.75" cy="20.83" r="6.25" />
-							<path class="bino-cls-3" d="M63.29,43.87l-7-20.38c0-.1-.07-.2-.1-.3L56.16,23h0a7.82,7.82,0,0,0-14.63,0h0a5.06,5.06,0,0,1-9,0h0a7.82,7.82,0,0,0-14.63,0h0L9.61,43.87H29.23a7.41,7.41,0,0,0,14.44,0Z" />
-							<path class="bino-cls-1" d="M19.75,57.75a10,10,0,1,1,10-10A10,10,0,0,1,19.75,57.75Z" />
-							<path class="bino-cls-2" d="M19.75,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<path class="bino-cls-4" d="M13.8,47.75a6,6,0,0,0,6,6" />
-							<path class="bino-cls-1" d="M53,57.75a10,10,0,1,1,10-10A10,10,0,0,1,53,57.75Z" />
-							<path class="bino-cls-2" d="M53,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<circle class="bino-cls-1" cx="36.45" cy="44.42" r="2.74" />
-							<path class="bino-cls-4" d="M47,47.75a6,6,0,0,0,6,6" />
-						</g>
-					</g>
-				</svg>
+				<button data-js="nav.trigger" data-target="shard" class="canvas__tooltip">
+					<span class="canvas__tooltip-title">The Shard</span>
+					<span class="canvas__tooltip-subtitle">Online presence optimisation</span>
+				</button>
 			</div>
 			<div id="o2" class="o2 canvas__html" data-js="template" data-template="o2" data-target="o2">
 				<svg class="o2__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 868.1 615.53" width="304" height="216">
@@ -1046,31 +983,10 @@
 						</svg>
 					</div>
 				</div>
-				<svg data-js="nav.trigger" data-target="o2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 74" width="74" height="74" class="canvas__tooltip">
-					<defs>
-						<style>
-							.bino-cls-1,.bino-cls-4{fill:#fff;}.bino-cls-2{fill:#0061b0;}.bino-cls-3{fill:url(#bino-linear-gradient);}.bino-cls-4{stroke:#0061b0;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}
-						</style>
-						<linearGradient id="bino-linear-gradient" x1="9.61" y1="33.77" x2="63.29" y2="33.77" gradientUnits="userSpaceOnUse">
-							<stop offset="0" stop-color="#2d96d2" />
-							<stop offset="1" stop-color="#2057a1" />
-						</linearGradient>
-					</defs>
-					<g>
-						<g>
-							<circle class="bino-cls-2" cx="26.84" cy="20.83" r="6.25" />
-							<circle class="bino-cls-2" cx="47.75" cy="20.83" r="6.25" />
-							<path class="bino-cls-3" d="M63.29,43.87l-7-20.38c0-.1-.07-.2-.1-.3L56.16,23h0a7.82,7.82,0,0,0-14.63,0h0a5.06,5.06,0,0,1-9,0h0a7.82,7.82,0,0,0-14.63,0h0L9.61,43.87H29.23a7.41,7.41,0,0,0,14.44,0Z" />
-							<path class="bino-cls-1" d="M19.75,57.75a10,10,0,1,1,10-10A10,10,0,0,1,19.75,57.75Z" />
-							<path class="bino-cls-2" d="M19.75,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<path class="bino-cls-4" d="M13.8,47.75a6,6,0,0,0,6,6" />
-							<path class="bino-cls-1" d="M53,57.75a10,10,0,1,1,10-10A10,10,0,0,1,53,57.75Z" />
-							<path class="bino-cls-2" d="M53,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<circle class="bino-cls-1" cx="36.45" cy="44.42" r="2.74" />
-							<path class="bino-cls-4" d="M47,47.75a6,6,0,0,0,6,6" />
-						</g>
-					</g>
-				</svg>
+				<button data-js="nav.trigger" data-target="o2" class="canvas__tooltip">
+					<span class="canvas__tooltip-title">The O2 Arena</span>
+					<span class="canvas__tooltip-subtitle">Marketing solutions</span>
+				</button>
 			</div>
 			<div id="towerbridge" class="tower-bridge canvas__html" data-template="tower-bridge" data-js="template" data-target="tower-bridge">
 				<div class="tower-bridge__image">
@@ -2780,31 +2696,10 @@
 					</svg>
 					<span class="tower-bridge__ramp"></span>
 				</div>
-				<svg data-js="nav.trigger" data-target="tower-bridge" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 74" width="74" height="74" class="canvas__tooltip">
-					<defs>
-						<style>
-							.bino-cls-1,.bino-cls-4{fill:#fff;}.bino-cls-2{fill:#0061b0;}.bino-cls-3{fill:url(#bino-linear-gradient);}.bino-cls-4{stroke:#0061b0;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}
-						</style>
-						<linearGradient id="bino-linear-gradient" x1="9.61" y1="33.77" x2="63.29" y2="33.77" gradientUnits="userSpaceOnUse">
-							<stop offset="0" stop-color="#2d96d2" />
-							<stop offset="1" stop-color="#2057a1" />
-						</linearGradient>
-					</defs>
-					<g>
-						<g>
-							<circle class="bino-cls-2" cx="26.84" cy="20.83" r="6.25" />
-							<circle class="bino-cls-2" cx="47.75" cy="20.83" r="6.25" />
-							<path class="bino-cls-3" d="M63.29,43.87l-7-20.38c0-.1-.07-.2-.1-.3L56.16,23h0a7.82,7.82,0,0,0-14.63,0h0a5.06,5.06,0,0,1-9,0h0a7.82,7.82,0,0,0-14.63,0h0L9.61,43.87H29.23a7.41,7.41,0,0,0,14.44,0Z" />
-							<path class="bino-cls-1" d="M19.75,57.75a10,10,0,1,1,10-10A10,10,0,0,1,19.75,57.75Z" />
-							<path class="bino-cls-2" d="M19.75,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<path class="bino-cls-4" d="M13.8,47.75a6,6,0,0,0,6,6" />
-							<path class="bino-cls-1" d="M53,57.75a10,10,0,1,1,10-10A10,10,0,0,1,53,57.75Z" />
-							<path class="bino-cls-2" d="M53,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<circle class="bino-cls-1" cx="36.45" cy="44.42" r="2.74" />
-							<path class="bino-cls-4" d="M47,47.75a6,6,0,0,0,6,6" />
-						</g>
-					</g>
-				</svg>
+				<button data-js="nav.trigger" data-target="tower-bridge" class="canvas__tooltip">
+					<span class="canvas__tooltip-title">Tower Bridge</span>
+					<span class="canvas__tooltip-subtitle">Digital consultancy</span>
+				</button>
 			</div>
 			<div id="battersea" class="battersea canvas__html" data-template="battersea" data-js="template" data-target="battersea">
 				<span class="battersea__wire--2"></span>
@@ -2824,31 +2719,10 @@
 						<span class="battersea__box-top"></span>
 					</div>
 				</div>
-				<svg data-js="nav.trigger" data-target="battersea" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 74" width="74" height="74" class="canvas__tooltip">
-					<defs>
-						<style>
-							.bino-cls-1,.bino-cls-4{fill:#fff;}.bino-cls-2{fill:#0061b0;}.bino-cls-3{fill:url(#bino-linear-gradient);}.bino-cls-4{stroke:#0061b0;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}
-						</style>
-						<linearGradient id="bino-linear-gradient" x1="9.61" y1="33.77" x2="63.29" y2="33.77" gradientUnits="userSpaceOnUse">
-							<stop offset="0" stop-color="#2d96d2" />
-							<stop offset="1" stop-color="#2057a1" />
-						</linearGradient>
-					</defs>
-					<g>
-						<g>
-							<circle class="bino-cls-2" cx="26.84" cy="20.83" r="6.25" />
-							<circle class="bino-cls-2" cx="47.75" cy="20.83" r="6.25" />
-							<path class="bino-cls-3" d="M63.29,43.87l-7-20.38c0-.1-.07-.2-.1-.3L56.16,23h0a7.82,7.82,0,0,0-14.63,0h0a5.06,5.06,0,0,1-9,0h0a7.82,7.82,0,0,0-14.63,0h0L9.61,43.87H29.23a7.41,7.41,0,0,0,14.44,0Z" />
-							<path class="bino-cls-1" d="M19.75,57.75a10,10,0,1,1,10-10A10,10,0,0,1,19.75,57.75Z" />
-							<path class="bino-cls-2" d="M19.75,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<path class="bino-cls-4" d="M13.8,47.75a6,6,0,0,0,6,6" />
-							<path class="bino-cls-1" d="M53,57.75a10,10,0,1,1,10-10A10,10,0,0,1,53,57.75Z" />
-							<path class="bino-cls-2" d="M53,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<circle class="bino-cls-1" cx="36.45" cy="44.42" r="2.74" />
-							<path class="bino-cls-4" d="M47,47.75a6,6,0,0,0,6,6" />
-						</g>
-					</g>
-				</svg>
+				<button data-js="nav.trigger" data-target="battersea" class="canvas__tooltip">
+					<span class="canvas__tooltip-title">Battersea<br>power station</span>
+					<span class="canvas__tooltip-subtitle">Site auditing</span>
+				</button>
 			</div>
 			<div id="kew" class="kew canvas__html" data-js="template" data-template="kew" data-target="kew">
 				<svg class="kew__window" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 114.18 66.23" width="114" height="66">
@@ -3019,31 +2893,10 @@
 						</g>
 					</g>
 				</svg>
-				<svg data-js="nav.trigger" data-target="kew" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 74" width="74" height="74" class="canvas__tooltip">
-					<defs>
-						<style>
-							.bino-cls-1,.bino-cls-4{fill:#fff;}.bino-cls-2{fill:#0061b0;}.bino-cls-3{fill:url(#bino-linear-gradient);}.bino-cls-4{stroke:#0061b0;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}
-						</style>
-						<linearGradient id="bino-linear-gradient" x1="9.61" y1="33.77" x2="63.29" y2="33.77" gradientUnits="userSpaceOnUse">
-							<stop offset="0" stop-color="#2d96d2" />
-							<stop offset="1" stop-color="#2057a1" />
-						</linearGradient>
-					</defs>
-					<g>
-						<g>
-							<circle class="bino-cls-2" cx="26.84" cy="20.83" r="6.25" />
-							<circle class="bino-cls-2" cx="47.75" cy="20.83" r="6.25" />
-							<path class="bino-cls-3" d="M63.29,43.87l-7-20.38c0-.1-.07-.2-.1-.3L56.16,23h0a7.82,7.82,0,0,0-14.63,0h0a5.06,5.06,0,0,1-9,0h0a7.82,7.82,0,0,0-14.63,0h0L9.61,43.87H29.23a7.41,7.41,0,0,0,14.44,0Z" />
-							<path class="bino-cls-1" d="M19.75,57.75a10,10,0,1,1,10-10A10,10,0,0,1,19.75,57.75Z" />
-							<path class="bino-cls-2" d="M19.75,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<path class="bino-cls-4" d="M13.8,47.75a6,6,0,0,0,6,6" />
-							<path class="bino-cls-1" d="M53,57.75a10,10,0,1,1,10-10A10,10,0,0,1,53,57.75Z" />
-							<path class="bino-cls-2" d="M53,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<circle class="bino-cls-1" cx="36.45" cy="44.42" r="2.74" />
-							<path class="bino-cls-4" d="M47,47.75a6,6,0,0,0,6,6" />
-						</g>
-					</g>
-				</svg>
+				<button data-js="nav.trigger" data-target="kew" class="canvas__tooltip">
+					<span class="canvas__tooltip-title">Kew gardens</span>
+					<span class="canvas__tooltip-subtitle">E-Commerce</span>
+				</button>
 			</div>
 			<div id="tatemodern" class="tate-modern canvas__html" data-template="tate-modern" data-js="template" data-target="tate-modern">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 113.49 151.87" width="113" height="152" class="tate-modern__painting">
@@ -4203,31 +4056,10 @@
 						</g>
 					</g>
 				</svg>
-				<svg data-js="nav.trigger" data-target="tate-modern" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 74" width="74" height="74" class="canvas__tooltip">
-					<defs>
-						<style>
-							.bino-cls-1,.bino-cls-4{fill:#fff;}.bino-cls-2{fill:#0061b0;}.bino-cls-3{fill:url(#bino-linear-gradient);}.bino-cls-4{stroke:#0061b0;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}
-						</style>
-						<linearGradient id="bino-linear-gradient" x1="9.61" y1="33.77" x2="63.29" y2="33.77" gradientUnits="userSpaceOnUse">
-							<stop offset="0" stop-color="#2d96d2" />
-							<stop offset="1" stop-color="#2057a1" />
-						</linearGradient>
-					</defs>
-					<g>
-						<g>
-							<circle class="bino-cls-2" cx="26.84" cy="20.83" r="6.25" />
-							<circle class="bino-cls-2" cx="47.75" cy="20.83" r="6.25" />
-							<path class="bino-cls-3" d="M63.29,43.87l-7-20.38c0-.1-.07-.2-.1-.3L56.16,23h0a7.82,7.82,0,0,0-14.63,0h0a5.06,5.06,0,0,1-9,0h0a7.82,7.82,0,0,0-14.63,0h0L9.61,43.87H29.23a7.41,7.41,0,0,0,14.44,0Z" />
-							<path class="bino-cls-1" d="M19.75,57.75a10,10,0,1,1,10-10A10,10,0,0,1,19.75,57.75Z" />
-							<path class="bino-cls-2" d="M19.75,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<path class="bino-cls-4" d="M13.8,47.75a6,6,0,0,0,6,6" />
-							<path class="bino-cls-1" d="M53,57.75a10,10,0,1,1,10-10A10,10,0,0,1,53,57.75Z" />
-							<path class="bino-cls-2" d="M53,38.75a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2a11,11,0,1,0,11,11,11,11,0,0,0-11-11Z" />
-							<circle class="bino-cls-1" cx="36.45" cy="44.42" r="2.74" />
-							<path class="bino-cls-4" d="M47,47.75a6,6,0,0,0,6,6" />
-						</g>
-					</g>
-				</svg>
+				<button data-js="nav.trigger" data-target="tate-modern" class="canvas__tooltip">
+					<span class="canvas__tooltip-title">Tate modern</span>
+					<span class="canvas__tooltip-subtitle">Content management</span>
+				</button>
 			</div>
 		</div>
 		<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>

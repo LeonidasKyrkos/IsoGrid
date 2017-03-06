@@ -40,7 +40,10 @@ export default class Grid {
 	}
 
 	attachEventHandlers() {
-		this.dragscroll.addEventListener('scroll',this.pause.bind(this));
+		this.dragscroll.addEventListener('scroll',()=>{
+			this.pause();
+			setTimeout(this.unpause.bind(this),500);
+		});
 		this.wrap.addEventListener('pause',this.pause.bind(this));
 		this.wrap.addEventListener('play',this.unpause.bind(this));
 	}
@@ -226,8 +229,6 @@ export default class Grid {
 	pause() {
 		//body.classList.add('scrolling');
 		this.paused = true;
-
-		setTimeout(this.unpause.bind(this),500);
 	}
 
 	unpause() {
