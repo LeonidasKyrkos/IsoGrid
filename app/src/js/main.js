@@ -16,8 +16,7 @@ import { defaultState } from './configuration/defaultState';
 
 // Custom JS
 import { clockHandler } from './custom/clock';
-import { navHandler } from './custom/nav';
-import { tutorialHandler } from './custom/tutorial';
+import Navigation from './custom/nav';
 
 export const App = firebase.initializeApp(config);
 export const DB = firebase.database();
@@ -39,25 +38,25 @@ let promise = new Promise((resolve, reject) => {
 
 promise.then((state) => {
 	const store = createStore(reducers, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-	const grid = new IsoGrid(store);
-	window.store = store;
+	const Grid = new IsoGrid(store);
+	const outerwrap = document.getElementById('isogridWrap');
 
-	saveStateToLocalStorage(state);
+	saveStateToLocalStorage(state);	
 
-	setTimeout(() => {
-		const wrap = document.getElementById('isogrid').parentNode;
-		wrap.scrollLeft = window.innerWidth + 700;
-		wrap.scrollTop = 150;
-	});
+	outerwrap.addEventListener('loaded', () => { initExtras(outerwrap, Grid) });
 });
 
-const outerwrap = document.getElementById('isogridWrap');
-const loader = document.getElementById('loader');
+ const initExtras = (outerwrap, Grid) => {
+	const wrap = document.getElementById('isogrid').parentNode;	
+	const loader = document.getElementById('loader');
 
-outerwrap.addEventListener('loaded', () => {
+	wrap.scrollLeft = window.innerWidth + 700;
+	wrap.scrollTop = 150;
 	loader.classList.add('hidden');
 	outerwrap.classList.remove('hidden');
 	clockHandler();
-	navHandler();
-	tutorialHandler();
-});
+	const nav = new Navigation(Grid);
+}
+
+
+

@@ -180,7 +180,7 @@ export default class Grid {
 			this.startRendering();
 		})
 
-		if(this.lastRender === 0 && !this.rendered) {
+		if(!this.rendered && this.lastRender > 0 && document.getElementById('htmlwrap')) {
 			setTimeout(()=>{ document.getElementById('isogridWrap').dispatchEvent(loaded) }, 1000);
 			this.rendered = true;		
 		}

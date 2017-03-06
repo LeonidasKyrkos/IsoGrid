@@ -12,6 +12,11 @@ $module: 		'header';
 	left: 0;
 	bottom: 0;
 	padding: em(20) em(20) em(20) em(35);
+	background-color: rgba(black,0.7);
+
+	.homeActive & {
+		background-color: transparent;
+	}
 
 	@include bp(tab-l-b) {
 		position: relative;

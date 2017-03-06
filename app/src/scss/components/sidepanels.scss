@@ -5,7 +5,7 @@ $module: 		'side-panels';
 	top: 0;
 	bottom: 0;
 	width: em($navWidth);
-	z-index: 2;
+	z-index: 5;
 	transform: translateZ(0);
 
 	@include bp(tab-l-b) {
