@@ -33,9 +33,31 @@ $module: 		'nav';
 	&__item {
 		display: block;
 		cursor: pointer;
-		margin-bottom: em(30);
+		margin-bottom: em(17);
 		position: relative;
-		//padding-left: em(45);
+		line-height: 1.3;
+		padding: em(7) 0 em(10) em(35);
+
+		&:before {
+			content: "";
+			background-color: rgba(white,0.7);
+			position: absolute;
+			left: 0;
+			top: 50%;
+			height: em(32);
+			margin-top: em(-17);
+			width: em(3);
+		}
+
+		&:hover {
+			&:before {
+				background-color: white;
+			}
+		}
+
+		&.visited:before {
+			background-color: $color4;
+		}
 
 		@include bp(tab-l-b) {
 			margin-bottom: em(15);

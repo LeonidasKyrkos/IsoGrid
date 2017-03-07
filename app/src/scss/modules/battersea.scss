@@ -26,7 +26,7 @@ $module: 		'battersea';
 
 	&__wire {
 		position: absolute;
-		background-color: black;
+		background-color: $color5;
 		width: em(2);
 		height: em(60);
 		top: em(223);

@@ -5,6 +5,7 @@ $module:		'logo';
 	width: em(130);
 	position: relative;
 	cursor: pointer;
+	margin-left: em(35);
 
 	@include bp(tab-l-b) {
 		$fontSize: 12;

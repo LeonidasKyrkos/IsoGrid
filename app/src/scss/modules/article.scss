@@ -21,6 +21,7 @@ $module: 		'article';
 	@include bp(tab-xl) {
 		width: auto;
 		max-width: none;
+		left: auto;
 	}
 
 	@include bp(tab-l-b) {
@@ -172,7 +173,7 @@ $module: 		'article';
 	}
 
 	&__copy {
-		margin: 0 em(-20);
+		margin: 0 em(-40);
 		@include clearfix;
 
 		@include bp(desk-m-a) {
@@ -184,7 +185,7 @@ $module: 		'article';
 	&__column {
 		width: 50%;
 		float: left;
-		padding: 0 em(20);
+		padding: 0 em(40);
 		position: relative;
 		margin-bottom: em(30);
 
@@ -231,10 +232,11 @@ $module: 		'article';
 
 	&__facts {
 		clear: left;
-		border: 2px solid $color4;
-		border-radius: em(10);
-		padding: em(25) em(30);
-		margin: 0 em(20) em(30);
+		border-radius: em(5);
+		padding: em(25) em(30) em(5);
+		margin: 0 em(40) em(30);
+		background: linear-gradient(to bottom, rgba(white,0.1), transparent 100%);
+		color: rgba(white,0.7);
 	}
 
 	&__fact {
