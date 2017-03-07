@@ -61,6 +61,7 @@ const getVector = (origin, destination, speed) => {
 const resetAnimation = (animation,elapsed) => {
 	delete animation.remainingCoordinates;
 	delete animation.currentCoordinates;
+	animation.delay = false;
 	animation.finished = elapsed;
 }
 

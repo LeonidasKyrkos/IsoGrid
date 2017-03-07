@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // paths
 const SRC = './app/src';
-const ENTRY = `${SRC}/js/main`;
+const ENTRY = `${SRC}/js/production`;
 const BUILD = './app/build';
 
 // util

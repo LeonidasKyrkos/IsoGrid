@@ -5,7 +5,7 @@ $module: 		'nav';
 		height: auto;
 		padding-top: em(10);
 		max-width: em(370);
-		margin: 0 auto;
+		margin: 0 auto em(100);
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: linear;
@@ -62,6 +62,10 @@ $module: 		'nav';
 		@include bp(tab-l-b) {
 			margin-bottom: em(15);
 			margin-right: em(25);
+
+			&:before {
+				content: none;
+			}
 		}
 	}
 
@@ -77,8 +81,12 @@ $module: 		'nav';
 		margin-top: em(-17);
 		z-index: 1;
 
-		.#{$module}__item:hover &, .#{$module}__item.active &, .#{$module}__item.visited & {
+		.#{$module}__item:hover &, .#{$module}__item.active & {
 			background-color: white;
+		}
+
+		.#{$module}__item.visited & {
+			background-color: $color4;
 		}
 
 		.#{$module}__item.active & {
@@ -88,8 +96,8 @@ $module: 		'nav';
 		@include bp(tab-l-b) {
 			display: block;
 			margin: 0 auto em(10);
-			width: em(65);
-			height: em(65);
+			width: em(45);
+			height: em(45);
 			position: relative;
 			top: auto;
 			left: auto;
@@ -114,7 +122,7 @@ $module: 		'nav';
 			transform: translateY(-95%);
 		}
 
-		.#{$module}__item.active & {
+		.#{$module}__item.active &, .#{$module}__item.visited & {
 			path, circle, ellipse {
 				stroke: white;
 			}

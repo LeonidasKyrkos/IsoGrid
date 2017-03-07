@@ -12,6 +12,11 @@
 	</head>
 	<body id="body" class="homeActive">
 		<div id="loader" class="loader">
+			<div class="loader__tiles">
+				<img src="/assets/floor.png" alt="floor tile" class="loader__tile">
+				<img src="/assets/water.png" alt="water tile" class="loader__tile">
+				<img src="/assets/treeland.png" alt="trees tile" class="loader__tile">
+			</div>
 			<span class="loader__text">Loading</span>
 		</div>
 		<article class="innerwrap" id="isogridWrap">
@@ -22,7 +27,18 @@
 					<span class="side-panels__pancake-line"></span>
 				</button>
 				<button data-js="nav.toggle.articles" class="side-panels__pancake--articles">
-					<svg class="side-panels__pancake-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.068.016l-3.717 3.698 5.263 5.286h-13.614v6h13.614l-5.295 5.317 3.718 3.699 11.963-12.016z"/></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.8 35" width="37" height="35">
+						<defs>
+							<style>
+								.arrow-cls-1{fill:#fff;}
+							</style>
+						</defs>
+						<g>
+							<g>
+								<path class="arrow-cls-1" d="M0,17.49l1.93-1.93L17.09.4a1.35,1.35,0,0,1,1-.4,1.36,1.36,0,0,1,1,.4,1.38,1.38,0,0,1,0,1.95L5.43,15.94H35.25a1.56,1.56,0,0,1,0,3.12H5.43L19,32.65a1.38,1.38,0,1,1-1.94,1.95L1.93,19.44Z" />
+							</g>
+						</g>
+					</svg>
 				</button>
 				<header class="header" id="header">
 					<div class="logo" data-js="nav.home">
@@ -33,166 +49,189 @@
 							<img src="/assets/floor.png" alt="" class="logo__tile">
 						</div>
 					</div>
-					<ul class="nav" id="nav">
-						<li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="tower-bridge">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="47" viewBox="0 0 50.02 47.33">
-										<defs>
-											<style>
-												.tower-bridge-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<g>
+					<div class="header__innerwrapper">
+						<ul class="nav" id="nav">
+							<li>						
+								<a data-js="nav.trigger" class="nav__item" data-target="tower-bridge">
+									<span class="nav__item-image">
+										<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="47" viewBox="0 0 50.02 47.33">
+											<defs>
+												<style>
+													.tower-bridge-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+												</style>
+											</defs>
 											<g>
-												<path class="tower-bridge-icon-cls-1" d="M13.36 47.33V11.38H6.22v35.95m7.14-19.29l9.33-5.49M6.22 28.04H0m8.31-14.99v11.66m2.95-11.66v11.66M8.22 10.46l1.57-4 1.57 4m2 4.03h11.65m11.65 32.84V11.38h7.14v35.95m-7.14-19.29l-9.33-5.49m16.47 5.49h6.22m-8.31-14.99v11.66m-2.95-11.66v11.66m3.04-14.25l-1.57-4-1.57 4m-2 4.03H25.01m-11.65 2.72h11.65m11.65 0H25.01" />
-												<path class="tower-bridge-icon-cls-1" d="M0 34.31c1.56 0 1.56 1.13 3.12 1.13s1.56-1.13 3.13-1.13 1.52 1.12 3.08 1.12 1.56-1.13 3.13-1.13 1.54 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S23.43 34.3 25 34.3s1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.53 1.13 3.13 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S48.46 34.3 50 34.3" />
-												<circle class="tower-bridge-icon-cls-1" cx="25.01" cy="4.56" r="4.06" />
+												<g>
+													<path class="tower-bridge-icon-cls-1" d="M13.36 47.33V11.38H6.22v35.95m7.14-19.29l9.33-5.49M6.22 28.04H0m8.31-14.99v11.66m2.95-11.66v11.66M8.22 10.46l1.57-4 1.57 4m2 4.03h11.65m11.65 32.84V11.38h7.14v35.95m-7.14-19.29l-9.33-5.49m16.47 5.49h6.22m-8.31-14.99v11.66m-2.95-11.66v11.66m3.04-14.25l-1.57-4-1.57 4m-2 4.03H25.01m-11.65 2.72h11.65m11.65 0H25.01" />
+													<path class="tower-bridge-icon-cls-1" d="M0 34.31c1.56 0 1.56 1.13 3.12 1.13s1.56-1.13 3.13-1.13 1.52 1.12 3.08 1.12 1.56-1.13 3.13-1.13 1.54 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S23.43 34.3 25 34.3s1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.12 1.13 1.56-1.13 3.13-1.13 1.53 1.13 3.13 1.13 1.56-1.13 3.13-1.13 1.56 1.13 3.13 1.13S48.46 34.3 50 34.3" />
+													<circle class="tower-bridge-icon-cls-1" cx="25.01" cy="4.56" r="4.06" />
+												</g>
 											</g>
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">Digital Consultancy</span>
-							</a>
-						</li><li>
-							<a data-js="nav.trigger" class="nav__item" data-target="eye">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="48" viewBox="0 0 43.96 47.49">
-										<defs>
-											<style>
-												.eye-icon-cls-1,.eye-icon-cls-2{fill:none;stroke:#000}.eye-icon-cls-1{stroke-miterlimit:10}.eye-icon-cls-2{stroke-linecap:round;stroke-linejoin:round}
-											</style>
-										</defs>
-										<g>
+										</svg>
+									</span>
+									<span class="nav__item-title">Digital Consultancy</span>
+								</a>
+							</li><li>
+								<a data-js="nav.trigger" class="nav__item" data-target="eye">
+									<span class="nav__item-image">
+										<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="44" height="48" viewBox="0 0 43.96 47.49">
+											<defs>
+												<style>
+													.eye-icon-cls-1,.eye-icon-cls-2{fill:none;stroke:#000}.eye-icon-cls-1{stroke-miterlimit:10}.eye-icon-cls-2{stroke-linecap:round;stroke-linejoin:round}
+												</style>
+											</defs>
 											<g>
-												<circle class="eye-icon-cls-1" cx="21.98" cy="2.06" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="29.65" cy="3.57" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="36.08" cy="7.88" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="40.42" cy="14.38" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="41.9" cy="21.98" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="40.34" cy="29.63" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="36.08" cy="36.08" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="29.58" cy="40.43" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="21.98" cy="41.9" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="14.33" cy="40.34" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="7.88" cy="36.08" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="3.54" cy="29.58" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="2.06" cy="21.98" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="15.21" />
-												<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="13.25" />
-												<circle class="eye-icon-cls-1" cx="3.62" cy="14.33" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="7.88" cy="7.88" r="1.56" />
-												<circle class="eye-icon-cls-1" cx="14.4" cy="3.57" r="1.56" />
-												<path class="eye-icon-cls-2" d="M16.43 46.99l5.55-25.01 5.61 25.01" />
+												<g>
+													<circle class="eye-icon-cls-1" cx="21.98" cy="2.06" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="29.65" cy="3.57" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="36.08" cy="7.88" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="40.42" cy="14.38" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="41.9" cy="21.98" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="40.34" cy="29.63" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="36.08" cy="36.08" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="29.58" cy="40.43" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="21.98" cy="41.9" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="14.33" cy="40.34" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="7.88" cy="36.08" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="3.54" cy="29.58" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="2.06" cy="21.98" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="15.21" />
+													<circle class="eye-icon-cls-1" cx="21.98" cy="21.98" r="13.25" />
+													<circle class="eye-icon-cls-1" cx="3.62" cy="14.33" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="7.88" cy="7.88" r="1.56" />
+													<circle class="eye-icon-cls-1" cx="14.4" cy="3.57" r="1.56" />
+													<path class="eye-icon-cls-2" d="M16.43 46.99l5.55-25.01 5.61 25.01" />
+												</g>
 											</g>
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">User Experience</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="battersea">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="39" height="48" viewBox="0 0 38.5 47.53">
-										<defs>
-											<style>
-												.battersea-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<path class="battersea-icon-cls-1" d="M7.56 47.51L6.61 9.3H1.47L.5 47.51m30.45 0l.96-38.21h5.14L38 47.51M7.34 29.53h23.7m-23.7 4.94h23.7M7.41 40.34h23.7m-23.7 5.13h23.7M4.04 12.93v30.2m30.44-30.2v30.2M10.45 2.89a2.33 2.33 0 0 0-4.63-.43A1.54 1.54 0 0 0 4.3 4.3a1.4 1.4 0 0 0 1.65 2.17 2.33 2.33 0 0 0 3.84-.86 1.4 1.4 0 1 0 .9-2.61l-.24-.06z" />
-									</svg>
-								</span>
-								<span class="nav__item-title">Site Auditing</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="o2">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="60" height="48" viewBox="0 0 59.69 47.39">
-										<defs>
-											<style>
-												.o2-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<g>
+										</svg>
+									</span>
+									<span class="nav__item-title">User Experience</span>
+								</a>
+							</li><li>						
+								<a data-js="nav.trigger" class="nav__item" data-target="battersea">
+									<span class="nav__item-image">
+										<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="39" height="48" viewBox="0 0 38.5 47.53">
+											<defs>
+												<style>
+													.battersea-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+												</style>
+											</defs>
+											<path class="battersea-icon-cls-1" d="M7.56 47.51L6.61 9.3H1.47L.5 47.51m30.45 0l.96-38.21h5.14L38 47.51M7.34 29.53h23.7m-23.7 4.94h23.7M7.41 40.34h23.7m-23.7 5.13h23.7M4.04 12.93v30.2m30.44-30.2v30.2M10.45 2.89a2.33 2.33 0 0 0-4.63-.43A1.54 1.54 0 0 0 4.3 4.3a1.4 1.4 0 0 0 1.65 2.17 2.33 2.33 0 0 0 3.84-.86 1.4 1.4 0 1 0 .9-2.61l-.24-.06z" />
+										</svg>
+									</span>
+									<span class="nav__item-title">Site Auditing</span>
+								</a>
+							</li><li>						
+								<a data-js="nav.trigger" class="nav__item" data-target="o2">
+									<span class="nav__item-image">
+										<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="60" height="48" viewBox="0 0 59.69 47.39">
+											<defs>
+												<style>
+													.o2-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+												</style>
+											</defs>
 											<g>
-												<path class="o2-icon-cls-1" d="M16.8 28.3L13.55 8.38M31.26 27.3V0m-7.77 27.31L21.74 3.62m22.65 25.14l3.33-20.88m4.36 23.43l4.85-13.26M9.91 30.31L5.23 17.5M38.4 27.76L39.95 3.3" />
-												<ellipse class="o2-icon-cls-1" cx="16.96" cy="41.26" rx="9.44" ry="5.63" />
-												<ellipse class="o2-icon-cls-1" cx="17.6" cy="39.78" rx="4.17" ry="2.48" />
-												<path class="o2-icon-cls-1" d="M59.19 39.35C59.19 32.52 46 27 29.85 27S.5 32.55.5 39.35" />
+												<g>
+													<path class="o2-icon-cls-1" d="M16.8 28.3L13.55 8.38M31.26 27.3V0m-7.77 27.31L21.74 3.62m22.65 25.14l3.33-20.88m4.36 23.43l4.85-13.26M9.91 30.31L5.23 17.5M38.4 27.76L39.95 3.3" />
+													<ellipse class="o2-icon-cls-1" cx="16.96" cy="41.26" rx="9.44" ry="5.63" />
+													<ellipse class="o2-icon-cls-1" cx="17.6" cy="39.78" rx="4.17" ry="2.48" />
+													<path class="o2-icon-cls-1" d="M59.19 39.35C59.19 32.52 46 27 29.85 27S.5 32.55.5 39.35" />
+												</g>
 											</g>
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">Marketing Solutions</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="kew">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="52" height="48" viewBox="0 0 51.48 47.75">
-										<defs>
-											<style>
-												.kew-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<g>
-											<path class="kew-icon-cls-1" d="M0 18.05h7.91m35.66-.11h7.91M7.91 24.11V11.77h17.94m0-11.27S7.91.85 7.91 11.77m43.57 12.34H0m43.79 0V11.77H25.85m0-11.27s17.94.35 17.94 11.27M32.06 47.75l.02-12.45H19.63l-.02 12.45m12.47-12.82a6.23 6.23 0 1 0-12.45 0" data-name="Layer 1" />
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">E-Commerce</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="shard">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23.09 48">
-										<defs>
-											<style>
-												.shard-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<g>
-											<path class="shard-icon-cls-1" d="M.5 47.89L6.45 2.55 8.95.89l3.16 47m10.49 0L14.78 6.38l-2.33-2.33-1.62 12.58 6.94 31.26" data-name="Layer 1" />
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">Online presence optimisation</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="tate-modern">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="51" height="48" viewBox="0 0 50.83 47.38">
-										<defs>
-											<style>
-												.tate-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<g>
-											<path class="tate-icon-cls-1" d="M17.34 39.5v7.87M12.9 39.5v7.87m8.83-7.87v7.87m6.62 0L29.38.5h5.14l.97 46.87M0 33.53h28.9M0 27.14h28.88m6.62 6.39h15.33M35 27.14h15.83" data-name="Layer 1" />
-										</g>
-									</svg>
-								</span>
-								<span class="nav__item-title">Content Management</span>
-							</a>
-						</li><li>						
-							<a data-js="nav.trigger" class="nav__item" data-target="big-ben">
-								<span class="nav__item-image">
-									<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="19" height="48" viewBox="0 0 18.99 47.57">
-										<defs>
-											<style>
-												.big-ben-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
-											</style>
-										</defs>
-										<path class="big-ben-icon-cls-1" d="M2.14 47.56l.01-21.76h14.69l-.02 21.76" />
-										<circle class="big-ben-icon-cls-1" cx="9.49" cy="34.75" r="5.41" />
-										<path class="big-ben-icon-cls-1" d="M5.49 43.19l-.01 4.38m4.04-4.38l-.01 4.38m4.04-4.38l-.01 4.38M.47 27.98l4.1-11.6h9.91l4.04 11.6M5.49 12.88h8.06v3.5H5.49z" />
-										<path class="big-ben-icon-cls-1" d="M4.3 13.57l5.22-12.3 5.28 12.35" />
-									</svg>
-								</span>
-								<span class="nav__item-title">Time Management</span>
-							</a>
-						</li>
-					</ul>
+										</svg>
+									</span>
+									<span class="nav__item-title">Marketing Solutions</span>
+								</a>
+							</li><li>						
+								<a data-js="nav.trigger" class="nav__item" data-target="kew">
+									<span class="nav__item-image">
+										<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="52" height="48" viewBox="0 0 51.48 47.75">
+											<defs>
+												<style>
+													.kew-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+												</style>
+											</defs>
+											<g>
+												<path class="kew-icon-cls-1" d="M0 18.05h7.91m35.66-.11h7.91M7.91 24.11V11.77h17.94m0-11.27S7.91.85 7.91 11.77m43.57 12.34H0m43.79 0V11.77H25.85m0-11.27s17.94.35 17.94 11.27M32.06 47.75l.02-12.45H19.63l-.02 12.45m12.47-12.82a6.23 6.23 0 1 0-12.45 0" data-name="Layer 1" />
+											</g>
+										</svg>
+									</span>
+									<span class="nav__item-title">E-Commerce</span>
+								</a>
+							</li><li>						
+								<a data-js="nav.trigger" class="nav__item" data-target="shard">
+									<span class="nav__item-image">
+										<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23.09 48">
+											<defs>
+												<style>
+													.shard-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+												</style>
+											</defs>
+											<g>
+												<path class="shard-icon-cls-1" d="M.5 47.89L6.45 2.55 8.95.89l3.16 47m10.49 0L14.78 6.38l-2.33-2.33-1.62 12.58 6.94 31.26" data-name="Layer 1" />
+											</g>
+										</svg>
+									</span>
+									<span class="nav__item-title">Online presence optimisation</span>
+								</a>
+							</li><li>						
+								<a data-js="nav.trigger" class="nav__item" data-target="tate-modern">
+									<span class="nav__item-image">
+										<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="51" height="48" viewBox="0 0 50.83 47.38">
+											<defs>
+												<style>
+													.tate-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+												</style>
+											</defs>
+											<g>
+												<path class="tate-icon-cls-1" d="M17.34 39.5v7.87M12.9 39.5v7.87m8.83-7.87v7.87m6.62 0L29.38.5h5.14l.97 46.87M0 33.53h28.9M0 27.14h28.88m6.62 6.39h15.33M35 27.14h15.83" data-name="Layer 1" />
+											</g>
+										</svg>
+									</span>
+									<span class="nav__item-title">Content Management</span>
+								</a>
+							</li><li>						
+								<a data-js="nav.trigger" class="nav__item" data-target="big-ben">
+									<span class="nav__item-image">
+										<svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="19" height="48" viewBox="0 0 18.99 47.57">
+											<defs>
+												<style>
+													.big-ben-icon-cls-1{fill:none;stroke:#000;stroke-miterlimit:10}
+												</style>
+											</defs>
+											<path class="big-ben-icon-cls-1" d="M2.14 47.56l.01-21.76h14.69l-.02 21.76" />
+											<circle class="big-ben-icon-cls-1" cx="9.49" cy="34.75" r="5.41" />
+											<path class="big-ben-icon-cls-1" d="M5.49 43.19l-.01 4.38m4.04-4.38l-.01 4.38m4.04-4.38l-.01 4.38M.47 27.98l4.1-11.6h9.91l4.04 11.6M5.49 12.88h8.06v3.5H5.49z" />
+											<path class="big-ben-icon-cls-1" d="M4.3 13.57l5.22-12.3 5.28 12.35" />
+										</svg>
+									</span>
+									<span class="nav__item-title">Time Management</span>
+								</a>
+							</li>
+						</ul>
+						<a href="https://redsnapper.net" class="header__rs-logo">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234.6 69.9" width="140" height="42">
+								<polygon points="106.2 19 93.6 19 84.1 28.5 106.2 19" style="fill:#e94b5a" />
+								<polygon points="93 0 84.1 8.9 84.1 22.4 93 0" style="fill:#fff" />
+								<path d="M77.8,43.4l3.9-5.2A19.12,19.12,0,0,0,77,35.6l-5.9,5.9a3.51,3.51,0,0,1,1.6-.3A10.94,10.94,0,0,1,77.8,43.4Z" style="fill:#fff" />
+								<path d="M73.5,53.6c0,1-.7,1.5-2.5,1.5a10.82,10.82,0,0,1-6.2-2.5L60.9,58a17.13,17.13,0,0,0,9.9,3.6c7.1,0,10.9-3.7,10.9-8.4s-3.5-6.5-6.5-7.6c-2.5-.9-4.8-1.4-4.8-2.7,0-.3,0-.5.1-.6l-6.1,6.1a11.44,11.44,0,0,0,4.2,2.5C71.2,51.7,73.5,52.3,73.5,53.6Z" style="fill:#fff" />
+								<path d="M99.9,34.9a11,11,0,0,0-8,3.7h-.2l-.6-3.1H84V60.9h8.7V44.2c1.3-1.2,2.2-1.9,3.9-1.9s2.5.8,2.5,4.1V60.9h8.7V45.2C107.8,38.9,105.4,34.9,99.9,34.9Z" style="fill:#fff" />
+								<path d="M122.4,34.9a21,21,0,0,0-11.2,3.4l3.1,5.7c2.6-1.4,4.6-2.1,6.4-2.1,2.2,0,3.4.8,3.6,2.6-9.8,1-13.8,4-13.8,9.3,0,4.2,2.8,7.8,7.6,7.8a10,10,0,0,0,7-3.1h.2l.6,2.4H133V46.8C133,38.4,129,34.9,122.4,34.9Zm1.9,18.2a4,4,0,0,1-3.2,1.7c-1.5,0-2.3-.7-2.3-1.8,0-1.4,1.3-2.7,5.5-3.4Z" style="fill:#fff" />
+								<path d="M151.5,34.9a10.71,10.71,0,0,0-6.9,2.9h-.2l-.6-2.3h-7.1V69.9h8.7v-7l-.3-3.9a8.06,8.06,0,0,0,5.7,2.5c5.4,0,10.6-5,10.6-13.7C161.4,40,157.5,34.9,151.5,34.9Zm-2.8,19.5a5,5,0,0,1-3.3-1.2V43.8a4.22,4.22,0,0,1,3.5-1.8c2.3,0,3.6,1.7,3.6,5.9C152.4,52.8,150.7,54.4,148.7,54.4Z" style="fill:#fff" />
+								<path d="M179,34.9a10.71,10.71,0,0,0-6.9,2.9h-.2l-.6-2.3h-7.1V69.9h8.7v-7l-.3-3.9a8.06,8.06,0,0,0,5.7,2.5c5.4,0,10.6-5,10.6-13.7C188.9,40,185,34.9,179,34.9Zm-2.9,19.5a5,5,0,0,1-3.3-1.2V43.8a4.22,4.22,0,0,1,3.5-1.8c2.3,0,3.6,1.7,3.6,5.9C179.9,52.8,178.2,54.4,176.1,54.4Z" style="fill:#fff" />
+								<path d="M202.5,34.9c-6.2,0-12.2,5.1-12.2,13.3,0,8.4,5.7,13.3,13.1,13.3a17.75,17.75,0,0,0,9.3-2.9l-2.8-5.2a10.61,10.61,0,0,1-5.2,1.5c-2.8,0-5.1-1-5.9-4.1h14.4a14.55,14.55,0,0,0,.4-3.7C213.6,40.4,210,34.9,202.5,34.9Zm-3.9,10.2c.5-2.5,2.1-3.7,4.1-3.7,2.6,0,3.5,1.7,3.5,3.7Z" style="fill:#fff" />
+								<path d="M224.3,39.9h-.2l-.6-4.4h-7.1V60.9h8.7V46.8c1.2-3.2,3.5-4.3,5.3-4.3a11.8,11.8,0,0,1,2.8.4l1.4-7.5a7.81,7.81,0,0,0-3.2-.5C229,34.9,226.1,36.4,224.3,39.9Z" style="fill:#fff" />
+								<path d="M39.9,28.4c-1.9,0-3.6,1.1-4.1,3.7h7.5C43.3,30.1,42.5,28.4,39.9,28.4Z" style="fill:none" />
+								<path d="M11.9,21.7H8.7v8.1h3.2c3.5,0,5.3-1.5,5.3-4.4S15.4,21.7,11.9,21.7Z" style="fill:none" />
+								<path d="M61.3,35c0,4.6,1.4,6.3,3.8,6.3a3.67,3.67,0,0,0,3.3-1.8V30.1a5.15,5.15,0,0,0-3.5-1.2C63.1,28.9,61.3,30.5,61.3,35Z" style="fill:none" />
+								<path d="M11.9,21.7H8.7v8.1h3.2c3.5,0,5.3-1.5,5.3-4.4S15.4,21.7,11.9,21.7Z" style="fill:none" />
+								<path d="M20.4,35c3.2-1.7,5.3-4.8,5.3-9.6,0-8.2-6.1-10.7-13.2-10.7H0V47.8H8.7V36.7h3.4l5.7,11.1h9.8Zm-8.5-5.2H8.7V21.7h3.2c3.5,0,5.3.9,5.3,3.8S15.4,29.8,11.9,29.8Z" style="fill:#e94b5a" />
+								<path d="M50.8,34.1c0-6.8-3.6-12.3-11.1-12.3-6.2,0-12.2,5.1-12.2,13.3,0,8.4,5.7,13.3,13.1,13.3a17.75,17.75,0,0,0,9.3-2.9l-2.8-5.2a10.61,10.61,0,0,1-5.2,1.5c-2.8,0-5.1-1-5.9-4.1H50.5C50.5,37.1,50.8,35.6,50.8,34.1ZM35.8,32c.5-2.5,2.1-3.7,4.1-3.7,2.6,0,3.5,1.7,3.5,3.7Z" style="fill:#e94b5a" />
+								<path d="M68.4,12.4v8.2l.3,3.7a7.72,7.72,0,0,0-5.9-2.5c-5.2,0-10.4,5-10.4,13.3s4.1,13.3,10.4,13.3a10,10,0,0,0,1.6-.2L77.2,35.4V12.3H68.4Zm0,27.1a3.48,3.48,0,0,1-3.3,1.8c-2.3,0-3.8-1.7-3.8-6.3s1.7-6.1,3.6-6.1a5.5,5.5,0,0,1,3.5,1.2v9.4Z" style="fill:#e94b5a" />
+							</svg>
+						</a>
+					</div>										
 				</header>
 				<div class="article__outerwrap" id="articles">
 					<button class="article__close" data-js="nav.articles.close"></button>
@@ -222,7 +261,7 @@
 											<h1 class="article__title">We have an Eye for UX</h1>
 										</header>						
 										<p>Red Snapper don’t do o-the-peg websites, because we know every business is dierent. But that doesn’t mean your bespoke site should cost more than it should. Through our digital consultancy service, we’ll make sure to get every aspect of the brief right from the outset, so you get a optimised solution that delivers results straight away without having to go back to the drawing board, or require costly changes.</p>
-										<a href="https://redsnapper.net" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
+										<a href="https://redsnapper.net/services" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
 									</div>
 									<aside class="article__facts">
 										<ul>
@@ -260,7 +299,7 @@
 											<h1 class="article__title">We Connect You to the Best Solution</h1>
 										</header>						
 										<p>At Red Snapper, we won’t try to sell you anything until we completely understand your business and objectives. Our digital consultancy service is at the core of what we do. That’s where we’ll sit down with you, your staff and your stakeholders, discuss your business, your need and develop a brief document which we can use to develop the most effective solutions to your challenges. Once we know what you’re all about, using a combination of experience, know-how, talent and technology, we can then offer a range of options that you can view as a roadmap to success for your digital venture.</p>
-										<a href="https://redsnapper.net" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
+										<a href="https://redsnapper.net/services" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
 									</div>
 									<aside class="article__facts">
 										<ul>
@@ -292,7 +331,7 @@
 											<h1 class="article__title">Stand over the Top</h1>
 										</header>						
 										<p>With Red Snapper, we’ll make sure that every facet of your digital presence is integrated and optimised to help you achieve your business goals, stay ahead of the competition and get the results you want to see.</p>
-										<a href="https://redsnapper.net" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
+										<a href="https://redsnapper.net/services" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
 									</div>
 									<aside class="article__facts">
 										<ul>
@@ -324,7 +363,7 @@
 											<h1 class="article__title">The Power of Innovation</h1>
 										</header>						
 										<p>Because Red Snapper is a full service agency, focussing on the key areas of digital consultancy, design and build, creative services and functionality, we see the bigger picture. Our specialist teams work closely together with each other, with your goals as their primary focus, to put together a truly innovative solution that tackles your challenges head-on and optimise your site for real success.</p>
-										<a href="https://redsnapper.net" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
+										<a href="https://redsnapper.net/services" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
 									</div>
 									<aside class="article__facts">
 										<ul>
@@ -356,7 +395,7 @@
 											<h1 class="article__title">Modern content solutions, at your service</h1>
 										</header>						
 										<p>All the services at Red Snapper can be customised to meet the best needs of our clients, so whether you want to implement a new CMS, are looking to upgrade what you have already, we’ll make sure you get the best solution for your needs, whether you do it in-house or outsource. Here, at Red Snapper, we know CMS, inside and out, so whatever it is you do, we will match your needs to the technology.</p>
-										<a href="https://redsnapper.net" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
+										<a href="https://redsnapper.net/services" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
 									</div>
 									<aside class="article__facts">
 										<ul>
@@ -388,7 +427,7 @@
 											<h1 class="article__title">Get to know your Crowd</h1>
 										</header>						
 										<p>Results are the best indicator of the success of any marketing campaign. And that’s what we’re all about at Red Snapper. We’re very careful when planning campaigns to use the right tools for the right results. Being a full service agency, everything we do is with marketing in mind, so if you want to go to an outside agency for this part of the process, then we’ll make sure you go with the best possible brief, for an optimal outcome, whether that’s raising awareness, increasing sales, or simply getting your message across.</p>
-										<a href="https://redsnapper.net" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
+										<a href="https://redsnapper.net/services" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
 									</div>
 									<aside class="article__facts">
 										<ul>
@@ -424,7 +463,7 @@
 											<h1 class="article__title">Grow your business</h1>
 										</header>						
 										<p>Whether you’re a multi-national or a SME, our e-commerce experts will review your existing processes and make recommendations to improve and futureproof the way you sell online, including all the latest mobile innovation to make sure you benefit from this fast growing market.</p>
-										<a href="https://redsnapper.net" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
+										<a href="https://redsnapper.net/services" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
 									</div>
 									<aside class="article__facts">
 										<ul>
@@ -457,7 +496,7 @@
 											<h1 class="article__title">Your time is our Big priority</h1>
 										</header>						
 										<p>Ea duo feugiat epicurei percipit. Dicat laudem ea qui. Ne aperiam labitur intellegam vim, pro an accusam perpetua euripidis, ut magna graeco mel. No libris cotidieque nam, qui elitr equidem indoctum eu, omnis saepe ius id.</p>
-										<a href="https://redsnapper.net" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
+										<a href="https://redsnapper.net/services" class="big-link"><span class="big-link__text">More about Red Snapper Services</span><svg class="big-link__arrow" xmlns="http://www.w3.org/2000/svg" width="19" height="35" viewBox="0 0 19.44 35"><path d="M17.5,15.56,2.35.4A1.37,1.37,0,0,0,.4,2.35L15.56,17.5.4,32.65A1.37,1.37,0,1,0,2.35,34.6L17.5,19.44l1.94-1.94Z" style="fill: currentColor"/></svg></a>
 									</div>
 									<aside class="article__facts">
 										<ul>
@@ -552,7 +591,7 @@
 		<div id="templates">
 			<div id="londoneye" class="eye canvas__html" data-template="eye" data-js="template" data-target="eye">
 				<span class="eye__left">
-					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.36 379.94" width="276" height="380">
+					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.36 379.94" width="142" height="195">
 						<defs>
 							<linearGradient id="aleft" x1="39.33" y1="993.02" x2="172.71" y2="1070.03" gradientTransform="translate(0 -866.63)" gradientUnits="userSpaceOnUse">
 								<stop offset="0" stop-color="#2d96d2"/><stop offset="1" stop-color="#2057a1"/>
@@ -574,7 +613,7 @@
 					</div>
 				</div>				
 				<span class="eye__right">
-					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284.41 372.17" width="284" height="372">
+					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284.41 372.17" width="146" height="191">
 						<defs>
 							<linearGradient id="aright" x1="-1774.52" y1="-54.06" x2="593.9" y2="1313.35" gradientTransform="translate(0 -866.63)" gradientUnits="userSpaceOnUse">
 								<stop offset="0" stop-color="#2d96d2" />
@@ -586,7 +625,7 @@
 					</svg>
 				</span>
 				<span class="eye__legs">
-					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247.25 312.32" width="247" height="312">
+					<svg class="eye__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247.25 312.32" width="100" height="134">
 						<defs>
 							<linearGradient id="a" x1="170.61" y1="1063.08" x2="247.25" y2="1063.08" gradientTransform="translate(0 -866.63)" gradientUnits="userSpaceOnUse">
 								<stop offset="0" stop-color="#2d96d2" />
@@ -947,7 +986,7 @@
 				</svg>
 				<div class="o2__lights">
 					<div class="o2__light-wrap">
-						<svg class="o2__light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336.41 414.82" width="336" height="415">
+						<svg class="o2__light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336.41 414.82" width="140" height="178">
 							<defs>
 								<style>
 									.o2-light-cls-1,.o2-light-cls-2{fill:#09d1e3;}.o2-light-cls-1{opacity:0.3;}
@@ -965,7 +1004,7 @@
 						</svg>
 					</div>					
 					<div class="o2__light-wrap">
-						<svg class="o2__light--reverse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336.41 414.82" width="336" height="415">
+						<svg class="o2__light--reverse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336.41 414.82" width="140" height="178">
 							<defs>
 								<style>
 									.o2-light2-cls-1,.o2-light2-cls-2{fill:#09d1e3;}.o2-light2-cls-1{opacity:0.3;}
@@ -990,7 +1029,7 @@
 			</div>
 			<div id="towerbridge" class="tower-bridge canvas__html" data-template="tower-bridge" data-js="template" data-target="tower-bridge">
 				<div class="tower-bridge__image">
-					<svg class="tower-bridge__ship" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 282.37 234.06" width="282" height="234">
+					<svg class="tower-bridge__ship" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 282.37 234.06" width="120" height="99">
 						<defs>
 							<style>
 								.ship-cls-1{fill:url(#ship-linear-gradient);}.ship-cls-2{fill:#09d1e3;}.ship-cls-3{opacity:0.3;}.ship-cls-4{fill:url(#ship-linear-gradient-2);}.ship-cls-5{fill:url(#ship-linear-gradient-3);}.ship-cls-6{fill:url(#ship-linear-gradient-4);}.ship-cls-7{fill:url(#ship-linear-gradient-5);}.ship-cls-8{fill:url(#ship-linear-gradient-6);}.ship-cls-9{fill:url(#ship-linear-gradient-7);}.ship-cls-10{fill:url(#ship-linear-gradient-8);}.ship-cls-11{fill:url(#ship-linear-gradient-9);}.ship-cls-12{fill:url(#ship-linear-gradient-10);}.ship-cls-13{fill:url(#ship-linear-gradient-11);}.ship-cls-14{fill:none;}.ship-cls-15{fill:url(#ship-linear-gradient-12);}.ship-cls-16{fill:url(#ship-linear-gradient-13);}.ship-cls-17{fill:url(#ship-linear-gradient-14);}.ship-cls-18{fill:url(#ship-linear-gradient-15);}.ship-cls-19{fill:url(#ship-linear-gradient-16);}.ship-cls-20{fill:url(#ship-linear-gradient-17);}.ship-cls-21{fill:url(#ship-linear-gradient-18);}.ship-cls-22{fill:url(#ship-linear-gradient-19);}.ship-cls-23{fill:url(#ship-linear-gradient-20);}.ship-cls-24{fill:url(#ship-linear-gradient-21);}.ship-cls-25{fill:url(#ship-linear-gradient-22);}.ship-cls-26{fill:url(#ship-linear-gradient-23);}.ship-cls-27{fill:url(#ship-linear-gradient-24);}.ship-cls-28{fill:url(#ship-linear-gradient-25);}.ship-cls-29{fill:url(#ship-linear-gradient-26);}.ship-cls-30{fill:url(#ship-linear-gradient-27);}.ship-cls-31{fill:url(#ship-linear-gradient-28);}
@@ -1084,7 +1123,7 @@
 						</g>
 					</svg>
 					<span class="tower-bridge__ramp--off"></span>
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 519.66 446.79" width="520" height="447" class="tower-bridge__right">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 519.66 446.79" width="260" height="224" class="tower-bridge__right">
 						<defs>
 							<style>
 								.tb-left-cls-1,.tb-left-cls-29{fill:none;}.tb-left-cls-2{fill:#2d96d2;}.tb-left-cls-3{fill:#2d437a;}.tb-left-cls-4{fill:#3c59a3;}.tb-left-cls-5{fill:url(#tb-left-linear-gradient);}.tb-left-cls-6{fill:url(#tb-left-linear-gradient-2);}.tb-left-cls-7{fill:url(#tb-left-linear-gradient-3);}.tb-left-cls-8{fill:#006eb7;}.tb-left-cls-9{fill:url(#tb-left-linear-gradient-4);}.tb-left-cls-10{opacity:0.7;}.tb-left-cls-11,.tb-left-cls-14{fill:#dacda2;}.tb-left-cls-11{stroke:#ac9044;}.tb-left-cls-11,.tb-left-cls-14,.tb-left-cls-29{stroke-miterlimit:10;}.tb-left-cls-12{fill:url(#tb-left-linear-gradient-5);}.tb-left-cls-13{fill:#666;}.tb-left-cls-14{stroke:#fff;}.tb-left-cls-15{fill:#d2c1ad;}.tb-left-cls-16{opacity:0.3;}.tb-left-cls-17{fill:#4481aa;}.tb-left-cls-18{fill:url(#tb-left-linear-gradient-6);}.tb-left-cls-19{fill:#336180;}.tb-left-cls-20{fill:#d8d0c4;}.tb-left-cls-21{fill:url(#tb-left-linear-gradient-7);}.tb-left-cls-22{fill:url(#tb-left-linear-gradient-8);}.tb-left-cls-23{fill:#09d1e3;}.tb-left-cls-24{fill:#e6e6e6;}.tb-left-cls-25{fill:#22325c;}.tb-left-cls-26{fill:#c7b299;}.tb-left-cls-27{fill:#eae7e3;}.tb-left-cls-28{fill:#bdaa92;}.tb-left-cls-29{stroke:#e4dace;stroke-linecap:round;}.tb-left-cls-30{fill:url(#tb-left-linear-gradient-9);}.tb-left-cls-31{fill:url(#tb-left-linear-gradient-10);}.tb-left-cls-32{fill:url(#tb-left-linear-gradient-11);}.tb-left-cls-33{fill:url(#tb-left-linear-gradient-12);}.tb-left-cls-34{fill:url(#tb-left-linear-gradient-13);}.tb-left-cls-35{fill:url(#tb-left-linear-gradient-14);}.tb-left-cls-36{fill:url(#tb-left-linear-gradient-15);}.tb-left-cls-37{fill:url(#tb-left-linear-gradient-16);}.tb-left-cls-38{fill:url(#tb-left-linear-gradient-17);}.tb-left-cls-39{fill:url(#tb-left-linear-gradient-18);}.tb-left-cls-40{fill:url(#tb-left-linear-gradient-19);}.tb-left-cls-41{fill:url(#tb-left-linear-gradient-20);}.tb-left-cls-42{fill:url(#tb-left-linear-gradient-21);}.tb-left-cls-43{fill:url(#tb-left-linear-gradient-22);}.tb-left-cls-44{fill:url(#tb-left-linear-gradient-23);}.tb-left-cls-45{fill:url(#tb-left-linear-gradient-24);}.tb-left-cls-46{fill:url(#tb-left-linear-gradient-25);}.tb-left-cls-47{fill:url(#tb-left-linear-gradient-26);}.tb-left-cls-48{fill:url(#tb-left-linear-gradient-27);}.tb-left-cls-49{fill:url(#tb-left-linear-gradient-28);}.tb-left-cls-50{fill:url(#tb-left-linear-gradient-29);}.tb-left-cls-51{fill:url(#tb-left-linear-gradient-30);}.tb-left-cls-52{fill:url(#tb-left-linear-gradient-31);}.tb-left-cls-53{fill:url(#tb-left-linear-gradient-32);}.tb-left-cls-54{fill:url(#tb-left-linear-gradient-33);}.tb-left-cls-55{fill:url(#tb-left-linear-gradient-34);}.tb-left-cls-56{fill:url(#tb-left-linear-gradient-35);}.tb-left-cls-57{fill:url(#tb-left-linear-gradient-36);}.tb-left-cls-58{fill:url(#tb-left-linear-gradient-37);}.tb-left-cls-59{fill:url(#tb-left-linear-gradient-38);}.tb-left-cls-60{fill:url(#tb-left-linear-gradient-39);}.tb-left-cls-61{fill:url(#tb-left-linear-gradient-40);}.tb-left-cls-62{fill:url(#tb-left-linear-gradient-41);}.tb-left-cls-63{fill:url(#tb-left-linear-gradient-42);}.tb-left-cls-64{fill:url(#tb-left-linear-gradient-43);}.tb-left-cls-65{fill:url(#tb-left-linear-gradient-44);}.tb-left-cls-66{fill:url(#tb-left-linear-gradient-45);}.tb-left-cls-67{fill:url(#tb-left-linear-gradient-46);}.tb-left-cls-68{fill:url(#tb-left-linear-gradient-47);}.tb-left-cls-69{fill:url(#tb-left-linear-gradient-48);}.tb-left-cls-70{fill:url(#tb-left-linear-gradient-49);}.tb-left-cls-71{fill:url(#tb-left-linear-gradient-50);}.tb-left-cls-72{fill:url(#tb-left-linear-gradient-51);}.tb-left-cls-73{fill:url(#tb-left-linear-gradient-52);}.tb-left-cls-74{fill:url(#tb-left-linear-gradient-53);}.tb-left-cls-75{fill:url(#tb-left-linear-gradient-54);}.tb-left-cls-76{fill:url(#tb-left-linear-gradient-55);}.tb-left-cls-77{fill:url(#tb-left-linear-gradient-56);}.tb-left-cls-78{fill:url(#tb-left-linear-gradient-57);}.tb-left-cls-79{fill:url(#tb-left-linear-gradient-58);}.tb-left-cls-80{fill:url(#tb-left-linear-gradient-59);}.tb-left-cls-81{fill:url(#tb-left-linear-gradient-60);}.tb-left-cls-82{fill:url(#tb-left-linear-gradient-61);}.tb-left-cls-83{fill:url(#tb-left-linear-gradient-62);}.tb-left-cls-84{fill:url(#tb-left-linear-gradient-63);}.tb-left-cls-85{fill:url(#tb-left-linear-gradient-64);}.tb-left-cls-86{fill:url(#tb-left-linear-gradient-65);}.tb-left-cls-87{fill:url(#tb-left-linear-gradient-66);}.tb-left-cls-88{fill:url(#tb-left-linear-gradient-67);}.tb-left-cls-89{fill:url(#tb-left-linear-gradient-68);}.tb-left-cls-90{fill:url(#tb-left-linear-gradient-69);}.tb-left-cls-91{fill:url(#tb-left-linear-gradient-70);}.tb-left-cls-92{fill:url(#tb-left-linear-gradient-71);}.tb-left-cls-93{fill:url(#tb-left-linear-gradient-72);}.tb-left-cls-94{fill:url(#tb-left-linear-gradient-73);}.tb-left-cls-95{fill:url(#tb-left-linear-gradient-74);}.tb-left-cls-96{fill:url(#tb-left-linear-gradient-75);}.tb-left-cls-97{fill:url(#tb-left-linear-gradient-76);}.tb-left-cls-98{fill:url(#tb-left-linear-gradient-77);}.tb-left-cls-99{fill:url(#tb-left-linear-gradient-78);}.tb-left-cls-100{fill:url(#tb-left-linear-gradient-79);}.tb-left-cls-101{fill:url(#tb-left-linear-gradient-80);}.tb-left-cls-102{fill:url(#tb-left-linear-gradient-81);}.tb-left-cls-103{fill:url(#tb-left-linear-gradient-82);}.tb-left-cls-104{fill:url(#tb-left-linear-gradient-83);}.tb-left-cls-105{fill:url(#tb-left-linear-gradient-84);}.tb-left-cls-106{fill:url(#tb-left-linear-gradient-85);}.tb-left-cls-107{fill:url(#tb-left-linear-gradient-86);}.tb-left-cls-108{fill:url(#tb-left-linear-gradient-87);}.tb-left-cls-109{fill:url(#tb-left-linear-gradient-88);}.tb-left-cls-110{fill:url(#tb-left-linear-gradient-89);}.tb-left-cls-111{fill:url(#tb-left-linear-gradient-90);}.tb-left-cls-112{fill:url(#tb-left-linear-gradient-91);}.tb-left-cls-113{fill:url(#tb-left-linear-gradient-92);}.tb-left-cls-114{fill:url(#tb-left-linear-gradient-93);}.tb-left-cls-115{fill:url(#tb-left-linear-gradient-94);}.tb-left-cls-116{fill:url(#tb-left-linear-gradient-95);}.tb-left-cls-117{fill:url(#tb-left-linear-gradient-96);}.tb-left-cls-118{fill:url(#tb-left-linear-gradient-97);}.tb-left-cls-119{fill:url(#tb-left-linear-gradient-98);}.tb-left-cls-120{fill:url(#tb-left-linear-gradient-99);}.tb-left-cls-121{fill:url(#tb-left-linear-gradient-100);}.tb-left-cls-122{fill:url(#tb-left-linear-gradient-101);}.tb-left-cls-123{fill:url(#tb-left-linear-gradient-102);}.tb-left-cls-124{fill:url(#tb-left-linear-gradient-103);}.tb-left-cls-125{fill:url(#tb-left-linear-gradient-104);}.tb-left-cls-126{fill:url(#tb-left-linear-gradient-105);}.tb-left-cls-127{fill:url(#tb-left-linear-gradient-106);}.tb-left-cls-128{fill:url(#tb-left-linear-gradient-107);}.tb-left-cls-129{fill:url(#tb-left-linear-gradient-108);}.tb-left-cls-130{fill:url(#tb-left-linear-gradient-109);}.tb-left-cls-131{fill:url(#tb-left-linear-gradient-110);}.tb-left-cls-132{fill:url(#tb-left-linear-gradient-111);}.tb-left-cls-133{fill:url(#tb-left-linear-gradient-112);}.tb-left-cls-134{fill:url(#tb-left-linear-gradient-113);}.tb-left-cls-135{fill:url(#tb-left-linear-gradient-114);}.tb-left-cls-136{fill:url(#tb-left-pattern-3);}.tb-left-cls-137{fill:url(#tb-left-pattern-2);}.tb-left-cls-138{fill:url(#tb-left-linear-gradient-115);}.tb-left-cls-139{fill:url(#tb-left-linear-gradient-116);}.tb-left-cls-140{fill:url(#tb-left-linear-gradient-117);}.tb-left-cls-141{fill:url(#tb-left-linear-gradient-118);}.tb-left-cls-142{fill:url(#tb-left-linear-gradient-119);}.tb-left-cls-143{fill:url(#tb-left-linear-gradient-120);}.tb-left-cls-144{fill:url(#tb-left-linear-gradient-121);}.tb-left-cls-145{fill:url(#tb-left-linear-gradient-122);}.tb-left-cls-146{fill:url(#tb-left-linear-gradient-123);}.tb-left-cls-147{fill:url(#tb-left-linear-gradient-124);}.tb-left-cls-148{fill:url(#tb-left-linear-gradient-125);}.tb-left-cls-149{fill:url(#tb-left-linear-gradient-126);}.tb-left-cls-150{fill:url(#tb-left-linear-gradient-127);}.tb-left-cls-151{fill:url(#tb-left-linear-gradient-128);}.tb-left-cls-152{fill:url(#tb-left-linear-gradient-129);}.tb-left-cls-153{fill:url(#tb-left-linear-gradient-130);}.tb-left-cls-154{fill:url(#tb-left-linear-gradient-131);}.tb-left-cls-155{fill:url(#tb-left-linear-gradient-132);}.tb-left-cls-156{fill:#ccbfb0;}.tb-left-cls-157{fill:url(#tb-left-linear-gradient-133);}.tb-left-cls-158{fill:url(#tb-left-linear-gradient-134);}.tb-left-cls-159{fill:url(#tb-left-linear-gradient-135);}.tb-left-cls-160{fill:url(#tb-left-linear-gradient-136);}.tb-left-cls-161{fill:url(#tb-left-linear-gradient-137);}.tb-left-cls-162{fill:url(#tb-left-linear-gradient-138);}.tb-left-cls-163{fill:url(#tb-left-linear-gradient-139);}.tb-left-cls-164{fill:url(#tb-left-linear-gradient-140);}.tb-left-cls-165{fill:url(#tb-left-linear-gradient-141);}.tb-left-cls-166{fill:url(#tb-left-pattern);}.tb-left-cls-167{fill:url(#tb-left-linear-gradient-142);}.tb-left-cls-168{fill:url(#tb-left-linear-gradient-143);}.tb-left-cls-169{fill:url(#tb-left-linear-gradient-144);}.tb-left-cls-170{fill:url(#tb-left-linear-gradient-145);}.tb-left-cls-171{fill:url(#tb-left-linear-gradient-146);}.tb-left-cls-172{fill:url(#tb-left-linear-gradient-147);}.tb-left-cls-173{fill:url(#tb-left-linear-gradient-148);}.tb-left-cls-174{fill:url(#tb-left-linear-gradient-149);}.tb-left-cls-175{fill:url(#tb-left-linear-gradient-150);}
@@ -1922,7 +1961,7 @@
 					</svg>
 					<img src="/assets/bridge-half.png" class="tower-bridge__drawbridge-right">
 					<img src="/assets/bridge-half.png" class="tower-bridge__drawbridge-left">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 263.17 446.79" width="263" height="447" class="tower-bridge__left">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 263.17 446.79" width="130" height="224" class="tower-bridge__left">
 						<defs>
 							<style>
 								.tb-right-cls-1,.tb-right-cls-29{fill:none;}.tb-right-cls-2{fill:#2d96d2;}.tb-right-cls-3{fill:#2d437a;}.tb-right-cls-4{fill:#3c59a3;}.tb-right-cls-5{fill:url(#tb-right-linear-gradient);}.tb-right-cls-6{fill:url(#tb-right-linear-gradient-2);}.tb-right-cls-7{fill:url(#tb-right-linear-gradient-3);}.tb-right-cls-8{fill:#006eb7;}.tb-right-cls-9{fill:url(#tb-right-linear-gradient-4);}.tb-right-cls-10{opacity:0.7;}.tb-right-cls-11,.tb-right-cls-14{fill:#dacda2;}.tb-right-cls-11{stroke:#ac9044;}.tb-right-cls-11,.tb-right-cls-14,.tb-right-cls-29{stroke-miterlimit:10;}.tb-right-cls-12{fill:url(#tb-right-linear-gradient-5);}.tb-right-cls-13{fill:#666;}.tb-right-cls-14{stroke:#fff;}.tb-right-cls-15{fill:#d2c1ad;}.tb-right-cls-16{opacity:0.3;}.tb-right-cls-17{fill:#4481aa;}.tb-right-cls-18{fill:url(#tb-right-linear-gradient-6);}.tb-right-cls-19{fill:#336180;}.tb-right-cls-20{fill:#d8d0c4;}.tb-right-cls-21{fill:url(#tb-right-linear-gradient-7);}.tb-right-cls-22{fill:url(#tb-right-linear-gradient-8);}.tb-right-cls-23{fill:#09d1e3;}.tb-right-cls-24{fill:#e6e6e6;}.tb-right-cls-25{fill:#22325c;}.tb-right-cls-26{fill:#c7b299;}.tb-right-cls-27{fill:#eae7e3;}.tb-right-cls-28{fill:#bdaa92;}.tb-right-cls-29{stroke:#e4dace;stroke-linecap:round;}.tb-right-cls-30{fill:url(#tb-right-linear-gradient-9);}.tb-right-cls-31{fill:url(#tb-right-linear-gradient-10);}.tb-right-cls-32{fill:url(#tb-right-linear-gradient-11);}.tb-right-cls-33{fill:url(#tb-right-linear-gradient-12);}.tb-right-cls-34{fill:url(#tb-right-linear-gradient-13);}.tb-right-cls-35{fill:url(#tb-right-linear-gradient-14);}.tb-right-cls-36{fill:url(#tb-right-linear-gradient-15);}.tb-right-cls-37{fill:url(#tb-right-linear-gradient-16);}.tb-right-cls-38{fill:url(#tb-right-linear-gradient-17);}.tb-right-cls-39{fill:url(#tb-right-linear-gradient-18);}.tb-right-cls-40{fill:url(#tb-right-linear-gradient-19);}.tb-right-cls-41{fill:url(#tb-right-linear-gradient-20);}.tb-right-cls-42{fill:url(#tb-right-linear-gradient-21);}.tb-right-cls-43{fill:url(#tb-right-linear-gradient-22);}.tb-right-cls-44{fill:url(#tb-right-linear-gradient-23);}.tb-right-cls-45{fill:url(#tb-right-linear-gradient-24);}.tb-right-cls-46{fill:url(#tb-right-linear-gradient-25);}.tb-right-cls-47{fill:url(#tb-right-linear-gradient-26);}.tb-right-cls-48{fill:url(#tb-right-linear-gradient-27);}.tb-right-cls-49{fill:url(#tb-right-linear-gradient-28);}.tb-right-cls-50{fill:url(#tb-right-linear-gradient-29);}.tb-right-cls-51{fill:url(#tb-right-linear-gradient-30);}.tb-right-cls-52{fill:url(#tb-right-linear-gradient-31);}.tb-right-cls-53{fill:url(#tb-right-linear-gradient-32);}.tb-right-cls-54{fill:url(#tb-right-linear-gradient-33);}.tb-right-cls-55{fill:url(#tb-right-linear-gradient-34);}.tb-right-cls-56{fill:url(#tb-right-linear-gradient-35);}.tb-right-cls-57{fill:url(#tb-right-linear-gradient-36);}.tb-right-cls-58{fill:url(#tb-right-linear-gradient-37);}.tb-right-cls-59{fill:url(#tb-right-linear-gradient-38);}.tb-right-cls-60{fill:url(#tb-right-linear-gradient-39);}.tb-right-cls-61{fill:url(#tb-right-linear-gradient-40);}.tb-right-cls-62{fill:url(#tb-right-linear-gradient-41);}.tb-right-cls-63{fill:url(#tb-right-linear-gradient-42);}.tb-right-cls-64{fill:url(#tb-right-linear-gradient-43);}.tb-right-cls-65{fill:url(#tb-right-linear-gradient-44);}.tb-right-cls-66{fill:url(#tb-right-linear-gradient-45);}.tb-right-cls-67{fill:url(#tb-right-linear-gradient-46);}.tb-right-cls-68{fill:url(#tb-right-linear-gradient-47);}.tb-right-cls-69{fill:url(#tb-right-linear-gradient-48);}.tb-right-cls-70{fill:url(#tb-right-linear-gradient-49);}.tb-right-cls-71{fill:url(#tb-right-linear-gradient-50);}.tb-right-cls-72{fill:url(#tb-right-linear-gradient-51);}.tb-right-cls-73{fill:url(#tb-right-linear-gradient-52);}.tb-right-cls-74{fill:url(#tb-right-linear-gradient-53);}.tb-right-cls-75{fill:url(#tb-right-linear-gradient-54);}.tb-right-cls-76{fill:url(#tb-right-linear-gradient-55);}.tb-right-cls-77{fill:url(#tb-right-linear-gradient-56);}.tb-right-cls-78{fill:url(#tb-right-linear-gradient-57);}.tb-right-cls-79{fill:url(#tb-right-linear-gradient-58);}.tb-right-cls-80{fill:url(#tb-right-linear-gradient-59);}.tb-right-cls-81{fill:url(#tb-right-linear-gradient-60);}.tb-right-cls-82{fill:url(#tb-right-linear-gradient-61);}.tb-right-cls-83{fill:url(#tb-right-linear-gradient-62);}.tb-right-cls-84{fill:url(#tb-right-linear-gradient-63);}.tb-right-cls-85{fill:url(#tb-right-linear-gradient-64);}.tb-right-cls-86{fill:url(#tb-right-linear-gradient-65);}.tb-right-cls-87{fill:url(#tb-right-linear-gradient-66);}.tb-right-cls-88{fill:url(#tb-right-linear-gradient-67);}.tb-right-cls-89{fill:url(#tb-right-linear-gradient-68);}.tb-right-cls-90{fill:url(#tb-right-linear-gradient-69);}.tb-right-cls-91{fill:url(#tb-right-linear-gradient-70);}.tb-right-cls-92{fill:url(#tb-right-linear-gradient-71);}.tb-right-cls-93{fill:url(#tb-right-linear-gradient-72);}.tb-right-cls-94{fill:url(#tb-right-linear-gradient-73);}.tb-right-cls-95{fill:url(#tb-right-linear-gradient-74);}.tb-right-cls-96{fill:url(#tb-right-linear-gradient-75);}.tb-right-cls-97{fill:url(#tb-right-linear-gradient-76);}.tb-right-cls-98{fill:url(#tb-right-linear-gradient-77);}.tb-right-cls-99{fill:url(#tb-right-linear-gradient-78);}.tb-right-cls-100{fill:url(#tb-right-linear-gradient-79);}.tb-right-cls-101{fill:url(#tb-right-linear-gradient-80);}.tb-right-cls-102{fill:url(#tb-right-linear-gradient-81);}.tb-right-cls-103{fill:url(#tb-right-linear-gradient-82);}.tb-right-cls-104{fill:url(#tb-right-linear-gradient-83);}.tb-right-cls-105{fill:url(#tb-right-linear-gradient-84);}.tb-right-cls-106{fill:url(#tb-right-linear-gradient-85);}.tb-right-cls-107{fill:url(#tb-right-linear-gradient-86);}.tb-right-cls-108{fill:url(#tb-right-linear-gradient-87);}.tb-right-cls-109{fill:url(#tb-right-linear-gradient-88);}.tb-right-cls-110{fill:url(#tb-right-linear-gradient-89);}.tb-right-cls-111{fill:url(#tb-right-linear-gradient-90);}.tb-right-cls-112{fill:url(#tb-right-linear-gradient-91);}.tb-right-cls-113{fill:url(#tb-right-linear-gradient-92);}.tb-right-cls-114{fill:url(#tb-right-linear-gradient-93);}.tb-right-cls-115{fill:url(#tb-right-linear-gradient-94);}.tb-right-cls-116{fill:url(#tb-right-linear-gradient-95);}.tb-right-cls-117{fill:url(#tb-right-linear-gradient-96);}.tb-right-cls-118{fill:url(#tb-right-linear-gradient-97);}.tb-right-cls-119{fill:url(#tb-right-linear-gradient-98);}.tb-right-cls-120{fill:url(#tb-right-linear-gradient-99);}.tb-right-cls-121{fill:url(#tb-right-linear-gradient-100);}.tb-right-cls-122{fill:url(#tb-right-linear-gradient-101);}.tb-right-cls-123{fill:url(#tb-right-linear-gradient-102);}.tb-right-cls-124{fill:url(#tb-right-linear-gradient-103);}.tb-right-cls-125{fill:url(#tb-right-linear-gradient-104);}.tb-right-cls-126{fill:url(#tb-right-linear-gradient-105);}.tb-right-cls-127{fill:url(#tb-right-linear-gradient-106);}.tb-right-cls-128{fill:url(#tb-right-linear-gradient-107);}.tb-right-cls-129{fill:url(#tb-right-linear-gradient-108);}.tb-right-cls-130{fill:url(#tb-right-linear-gradient-109);}.tb-right-cls-131{fill:url(#tb-right-linear-gradient-110);}.tb-right-cls-132{fill:url(#tb-right-linear-gradient-111);}.tb-right-cls-133{fill:url(#tb-right-linear-gradient-112);}.tb-right-cls-134{fill:url(#tb-right-linear-gradient-113);}.tb-right-cls-135{fill:url(#tb-right-linear-gradient-114);}.tb-right-cls-136{fill:url(#tb-right-pattern-3);}.tb-right-cls-137{fill:url(#tb-right-pattern_2);}.tb-right-cls-138{fill:url(#tb-right-linear-gradient-115);}.tb-right-cls-139{fill:url(#tb-right-linear-gradient-116);}.tb-right-cls-140{fill:url(#tb-right-linear-gradient-117);}.tb-right-cls-141{fill:url(#tb-right-linear-gradient-118);}.tb-right-cls-142{fill:url(#tb-right-linear-gradient-119);}.tb-right-cls-143{fill:url(#tb-right-linear-gradient-120);}.tb-right-cls-144{fill:url(#tb-right-linear-gradient-121);}.tb-right-cls-145{fill:url(#tb-right-linear-gradient-122);}.tb-right-cls-146{fill:url(#tb-right-linear-gradient-123);}.tb-right-cls-147{fill:url(#tb-right-linear-gradient-124);}.tb-right-cls-148{fill:url(#tb-right-linear-gradient-125);}.tb-right-cls-149{fill:url(#tb-right-linear-gradient-126);}.tb-right-cls-150{fill:url(#tb-right-linear-gradient-127);}.tb-right-cls-151{fill:url(#tb-right-linear-gradient-128);}.tb-right-cls-152{fill:url(#tb-right-linear-gradient-129);}.tb-right-cls-153{fill:url(#tb-right-linear-gradient-130);}.tb-right-cls-154{fill:#ccbfb0;}.tb-right-cls-155{fill:url(#tb-right-linear-gradient-131);}.tb-right-cls-156{fill:url(#tb-right-linear-gradient-132);}.tb-right-cls-157{fill:url(#tb-right-linear-gradient-133);}.tb-right-cls-158{fill:url(#tb-right-linear-gradient-134);}.tb-right-cls-159{fill:url(#tb-right-linear-gradient-135);}.tb-right-cls-160{fill:url(#tb-right-linear-gradient-136);}.tb-right-cls-161{fill:url(#tb-right-linear-gradient-137);}.tb-right-cls-162{fill:url(#tb-right-linear-gradient-138);}.tb-right-cls-163{fill:url(#tb-right-linear-gradient-139);}.tb-right-cls-164{fill:url(#tb-right-pattern);}.tb-right-cls-165{fill:url(#tb-right-linear-gradient-140);}.tb-right-cls-166{fill:url(#tb-right-linear-gradient-141);}.tb-right-cls-167{fill:url(#tb-right-linear-gradient-142);}.tb-right-cls-168{fill:url(#tb-right-linear-gradient-143);}.tb-right-cls-169{fill:url(#tb-right-linear-gradient-144);}.tb-right-cls-170{fill:url(#tb-right-linear-gradient-145);}.tb-right-cls-171{fill:url(#tb-right-linear-gradient-146);}.tb-right-cls-172{fill:url(#tb-right-linear-gradient-147);}.tb-right-cls-173{fill:url(#tb-right-linear-gradient-148);}
@@ -2725,7 +2764,7 @@
 				</button>
 			</div>
 			<div id="kew" class="kew canvas__html" data-js="template" data-template="kew" data-target="kew">
-				<svg class="kew__window" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 114.18 66.23" width="114" height="66">
+				<svg class="kew__window" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 114.18 66.23" width="30" height="17">
 					<defs>
 						<style>
 							.kew-window-cls-1{stroke-miterlimit:10;stroke:url(#kew-linear-gradient);}
@@ -2747,7 +2786,7 @@
 					<span class="kew__tree-leaves"></span>
 					<span class="kew__tree-leaves--top"></span>
 				</div>
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1018.42 692.46" width="1018" height="692" class="kew__svg">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1018.42 692.46" width="300" height="204" class="kew__svg">
 					<defs>
 						<style>
 							.kew-cls-1,.kew-cls-9{fill:#2d437a;}.kew-cls-1,.kew-cls-19,.kew-cls-20,.kew-cls-21,.kew-cls-24,.kew-cls-25,.kew-cls-26,.kew-cls-27,.kew-cls-28,.kew-cls-29,.kew-cls-30,.kew-cls-31,.kew-cls-32,.kew-cls-33,.kew-cls-34,.kew-cls-35,.kew-cls-36,.kew-cls-37,.kew-cls-38,.kew-cls-39,.kew-cls-40,.kew-cls-41,.kew-cls-42,.kew-cls-43,.kew-cls-44,.kew-cls-45,.kew-cls-46,.kew-cls-47,.kew-cls-48,.kew-cls-49,.kew-cls-50,.kew-cls-51,.kew-cls-52,.kew-cls-53,.kew-cls-54,.kew-cls-55,.kew-cls-56,.kew-cls-57,.kew-cls-58{stroke-miterlimit:10;}.kew-cls-1{stroke:url(#kew-linear-gradient);}.kew-cls-2{fill:url(#kew-linear-gradient-2);}.kew-cls-3{fill:#2d96d2;}.kew-cls-4{fill:url(#kew-linear-gradient-3);}.kew-cls-5{fill:url(#kew-linear-gradient-4);}.kew-cls-6{fill:url(#kew-linear-gradient-5);}.kew-cls-7{fill:url(#kew-linear-gradient-6);}.kew-cls-8{fill:url(#kew-linear-gradient-7);}.kew-cls-10{fill:url(#kew-linear-gradient-8);}.kew-cls-11{fill:url(#kew-linear-gradient-9);}.kew-cls-12{fill:#09d1e3;}.kew-cls-13{fill:url(#kew-linear-gradient-10);}.kew-cls-14{opacity:0.2;}.kew-cls-15{fill:url(#kew-linear-gradient-11);}.kew-cls-16{fill:url(#kew-linear-gradient-12);}.kew-cls-17{fill:url(#kew-linear-gradient-13);}.kew-cls-18{fill:url(#kew-linear-gradient-14);}.kew-cls-19,.kew-cls-20,.kew-cls-21,.kew-cls-24,.kew-cls-25,.kew-cls-26,.kew-cls-27,.kew-cls-28,.kew-cls-29,.kew-cls-30,.kew-cls-31,.kew-cls-32,.kew-cls-33,.kew-cls-34,.kew-cls-35,.kew-cls-36,.kew-cls-37,.kew-cls-38,.kew-cls-39,.kew-cls-40,.kew-cls-41,.kew-cls-42,.kew-cls-43,.kew-cls-44,.kew-cls-45,.kew-cls-46,.kew-cls-47,.kew-cls-48,.kew-cls-49,.kew-cls-50,.kew-cls-51,.kew-cls-52,.kew-cls-53,.kew-cls-54,.kew-cls-55,.kew-cls-56,.kew-cls-57,.kew-cls-58{fill:none;stroke-linecap:round;stroke-width:2px;}.kew-cls-19{stroke:url(#kew-linear-gradient-15);}.kew-cls-20{stroke:url(#kew-linear-gradient-16);}.kew-cls-21{stroke:url(#kew-linear-gradient-17);}.kew-cls-22{fill:url(#kew-linear-gradient-18);}.kew-cls-23{fill:url(#kew-linear-gradient-19);}.kew-cls-24{stroke:url(#kew-linear-gradient-20);}.kew-cls-25{stroke:url(#kew-linear-gradient-21);}.kew-cls-26{stroke:url(#kew-linear-gradient-22);}.kew-cls-27{stroke:url(#kew-linear-gradient-23);}.kew-cls-28{stroke:url(#kew-linear-gradient-24);}.kew-cls-29{stroke:url(#kew-linear-gradient-25);}.kew-cls-30{stroke:url(#kew-linear-gradient-26);}.kew-cls-31{stroke:url(#kew-linear-gradient-27);}.kew-cls-32{stroke:url(#kew-linear-gradient-28);}.kew-cls-33{stroke:url(#kew-linear-gradient-29);}.kew-cls-34{stroke:url(#kew-linear-gradient-30);}.kew-cls-35{stroke:url(#kew-linear-gradient-31);}.kew-cls-36{stroke:url(#kew-linear-gradient-32);}.kew-cls-37{stroke:url(#kew-linear-gradient-33);}.kew-cls-38{stroke:url(#kew-linear-gradient-34);}.kew-cls-39{stroke:url(#kew-linear-gradient-35);}.kew-cls-40{stroke:url(#kew-linear-gradient-36);}.kew-cls-41{stroke:url(#kew-linear-gradient-37);}.kew-cls-42{stroke:url(#kew-linear-gradient-38);}.kew-cls-43{stroke:url(#kew-linear-gradient-39);}.kew-cls-44{stroke:url(#kew-linear-gradient-40);}.kew-cls-45{stroke:url(#kew-linear-gradient-41);}.kew-cls-46{stroke:url(#kew-linear-gradient-42);}.kew-cls-47{stroke:url(#kew-linear-gradient-43);}.kew-cls-48{stroke:url(#kew-linear-gradient-44);}.kew-cls-49{stroke:url(#kew-linear-gradient-45);}.kew-cls-50{stroke:url(#kew-linear-gradient-46);}.kew-cls-51{stroke:url(#kew-linear-gradient-47);}.kew-cls-52{stroke:url(#kew-linear-gradient-48);}.kew-cls-53{stroke:url(#kew-linear-gradient-49);}.kew-cls-54{stroke:url(#kew-linear-gradient-50);}.kew-cls-55{stroke:url(#kew-linear-gradient-51);}.kew-cls-56{stroke:url(#kew-linear-gradient-52);}.kew-cls-57{stroke:url(#kew-linear-gradient-53);}.kew-cls-58{stroke:url(#kew-linear-gradient-54);}
@@ -2899,7 +2938,7 @@
 				</button>
 			</div>
 			<div id="tatemodern" class="tate-modern canvas__html" data-template="tate-modern" data-js="template" data-target="tate-modern">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 113.49 151.87" width="113" height="152" class="tate-modern__painting">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 113.49 151.87" width="80" height="152" class="tate-modern__painting">
 					<defs>
 						<style>
 							.tate-painting-cls-1{fill:url(#tate-painting-linear-gradient);}.tate-painting-cls-2{fill:url(#tate-painting-linear-gradient-2);}.tate-painting-cls-3{fill:url(#tate-painting-linear-gradient-3);}.tate-painting-cls-4{fill:url(#tate-painting-linear-gradient-4);}.tate-painting-cls-5{fill:url(#tate-painting-linear-gradient-5);}.tate-painting-cls-10,.tate-painting-cls-6{fill:none;stroke-miterlimit:10;}.tate-painting-cls-6{stroke:url(#tate-painting-linear-gradient-6);}.tate-painting-cls-7{fill:url(#tate-painting-linear-gradient-7);}.tate-painting-cls-8{fill:url(#tate-painting-linear-gradient-8);}.tate-painting-cls-9{fill:url(#tate-painting-linear-gradient-9);}.tate-painting-cls-10{stroke:url(#tate-painting-linear-gradient-10);}
@@ -2940,7 +2979,7 @@
 						</g>
 					</g>
 				</svg>
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 85.86 113.58" width="86" height="114" class="tate-modern__painting">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 85.86 113.58" width="80" height="114" class="tate-modern__painting">
 					<defs>
 						<style>
 							.tate-painting-cls-1{fill:url(#tate-painting-linear-gradient);}.tate-painting-cls-2,.tate-painting-cls-3{fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}.tate-painting-cls-2{stroke:url(#tate-painting-linear-gradient-2);}.tate-painting-cls-3{stroke:url(#tate-painting-linear-gradient-3);}.tate-painting-cls-4{fill:url(#tate-painting-linear-gradient-4);}.tate-painting-cls-5{fill:url(#tate-painting-linear-gradient-5);}.tate-painting-cls-6{fill:url(#tate-painting-linear-gradient-6);}
@@ -2973,7 +3012,7 @@
 						</g>
 					</g>
 				</svg>
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 129.62 171.46" width="130" height="171" class="tate-modern__painting">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 129.62 171.46" width="80" height="171" class="tate-modern__painting">
 					<defs>
 						<style>
 							.tate-painting-cls-1{fill:url(#tate-painting-linear-gradient);}.tate-painting-cls-2{fill:url(#tate-painting-linear-gradient-2);}.tate-painting-cls-3{fill:#c914bc;}.tate-painting-cls-4{fill:#09d1e3;}

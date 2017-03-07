@@ -23,7 +23,7 @@ $module: 			'tower-bridge';
 		background-color: $color1;
 		right: em(70);
 		top: em(18);
-		transform: rotateX(48deg)rotateY(0)rotateZ(43deg);
+		transform: rotateX(48deg)rotateY(0)rotateZ(43deg)translateZ(em(-100))translateY(em(-80))translateX(em(-100));
 
 		.palette & {
 			display: none;
@@ -75,7 +75,6 @@ $module: 			'tower-bridge';
 	}
 
 	&__drawbridge-right {
-		
 		transform-origin: top;
 		top: em(70);
 		left: em(139);
@@ -95,15 +94,18 @@ $module: 			'tower-bridge';
 		position: absolute;
 		left: em(10);
 		top: em(-8);
+		transform-origin: right;
+		transform:scale(0.95)translateZ(45px)translateX(17px);
 	}
 
 	&__right {
-		position: relative;
 		right: em(84);
 		top: em(-106);
 		width: percentage(520/783);
 		height: auto;
 		position: absolute;
+		transform: translateZ(em(-45))scale(1.1)translateY(em(-7));
+		transform-origin: right;
 
 		.palette & {
 			top: em(-20);
@@ -169,26 +171,26 @@ $module: 			'tower-bridge';
 
 @keyframes raiseRight {
 	0% {
-		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0)translateX(0px);
 	}
 
 	8% {
-		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0)translateX(0px);
 	}
 
 	20% {
-		transform: rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px);
+		transform: rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0) translateX(2px);
 	}
 
 	80% {
-		transform: rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0px) translateX(2px);
+		transform: rotateX(-70deg) rotateY(-20deg) rotateZ(0deg) translateY(-5px) translateZ(0) translateX(2px);
 	}
 
 	90% {
-		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0)translateX(0px);
 	}
 
 	100% {
-		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0px)translateX(0px);
+		transform: rotateX(0)rotateY(0)rotateZ(0)translateY(0px)translateZ(0)translateX(0px);
 	}
 }

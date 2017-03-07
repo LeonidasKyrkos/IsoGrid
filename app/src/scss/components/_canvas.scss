@@ -224,14 +224,14 @@ $module: 		'canvas';
 			&:before {
 				top: 100%;
 				right: 100%;
-				transform: rotate(-70deg);
+				transform: rotate(-70deg)translateZ(em(2));
 				transform-origin: right;
 			}
 
 			&:after {
 				top: 100%;
 				right: 100%;
-				transform: translateX(em(-26))translateY(em(79));
+				transform: translateX(em(-25))translateY(em(79))translateZ(em(2));
 			}
 		}
 

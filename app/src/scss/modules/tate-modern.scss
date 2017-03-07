@@ -4,9 +4,7 @@ $module: 		'tate-modern';
 	transform: translateY(49px)translateX(2px);
 
 	&__svg {
-		width: 100%;
-		height: auto;
-		position: relative;
+		transform: translateZ(0);
 	}
 
 	&__painting {

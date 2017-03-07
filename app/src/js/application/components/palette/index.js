@@ -51,7 +51,7 @@ export default class Palette {
 		createSubPalette(this.terrain, this.palette, 'terrain');
 		createSubPalette(this.structure, this.palette, 'structure');
 		createSubPalette(this.structureUnder, this.palette, 'structureUnder');
-		createHtmlPalette(this.html, this.palette, 'html');
+		//createHtmlPalette(this.html, this.palette, 'html');
 		this.wrap.appendChild(this.palette);
 	}
 

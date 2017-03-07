@@ -47,7 +47,6 @@ $module: 		'side-panels';
 
 	&__pancake--articles {
 		@extend .#{$module}__pancake;
-		transform: rotate(180deg);
 		display: none;
 
 		svg path {
@@ -65,7 +64,7 @@ $module: 		'side-panels';
 		background-color: white;
 		width: 100%;
 		left: 0;
-		height: em(3);
+		height: 3px;
 		position: absolute;
 		top: 50%;
 		margin-top: em(-2);
