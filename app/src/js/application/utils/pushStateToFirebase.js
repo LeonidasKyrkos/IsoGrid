@@ -1,4 +1,4 @@
-import { DB } from '../../main';
+import { DB } from '../../production';
 import _ from 'lodash';
 import { saveStateToLocalStorage } from './localStorage';
 

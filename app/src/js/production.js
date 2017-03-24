@@ -2,6 +2,9 @@
 import '../scss/main.scss';
 
 // data
+import * as firebase from 'firebase';
+import { saveStateToLocalStorage } from './application/utils/localStorage';
+import pushStateToFirebase from './application/utils/pushStateToFirebase';
 import data from '../../data.json';
 
 // redux
@@ -9,6 +12,7 @@ import { createStore } from 'redux';
 import reducers from './application/reducers/';
 
 // IsoGrid
+import config from './configuration/firebase';
 import IsoGrid from './application/IsoGrid';
 import { defaultState } from './configuration/defaultState';
 
@@ -16,18 +20,35 @@ import { defaultState } from './configuration/defaultState';
 import { clockHandler } from './custom/clock';
 import Navigation from './custom/nav';
 
-let state = Object.assign({}, defaultState, data)
-const store = createStore(reducers, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-const Grid = new IsoGrid(store);
-const outerwrap = document.getElementById('isogridWrap');
+export const App = firebase.initializeApp(config);
+export const DB = firebase.database();
 
-outerwrap.addEventListener('loaded', () => { 
-	setTimeout(()=>{
-		initExtras(outerwrap, Grid) 
-	},2000);
+let promise = new Promise((resolve, reject) => {
+	if (localStorage.getItem('IsoGrid')) {
+		let cache = JSON.parse(localStorage.getItem('IsoGrid'));
+		resolve(Object.assign({}, defaultState, cache));
+	} else {
+		DB.ref('/').once('value', (snapshot) => {
+			if (snapshot.val()) {
+				resolve(Object.assign({}, defaultState, snapshot.val()));
+			} else {
+				resolve(defaultState);
+			}
+		})
+	}
 });
 
-const initExtras = (outerwrap, Grid) => {
+promise.then((state) => {
+	const store = createStore(reducers, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+	const Grid = new IsoGrid(store);
+	const outerwrap = document.getElementById('isogridWrap');
+
+	saveStateToLocalStorage(state);	
+
+	outerwrap.addEventListener('loaded', () => { initExtras(outerwrap, Grid) });
+});
+
+ const initExtras = (outerwrap, Grid) => {
 	const wrap = document.getElementById('isogrid').parentNode;	
 	const loader = document.getElementById('loader');
 
